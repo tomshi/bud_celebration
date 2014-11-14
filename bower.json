@@ -1,0 +1,13 @@
+{
+  "name": "bud-celebration",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "^2",
+    "lodash": "^2",
+    "bootstrap": "~3.2.0",
+    "underscore": "~1.7.0",
+    "animate.css": "^3",
+    "velocity": "~1.1.0",
+    "viewport-units-buggyfill": "~0.4.1"
+  }
+}
