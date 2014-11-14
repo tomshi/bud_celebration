@@ -4,7 +4,6 @@ module.exports = function (grunt) {
 	var path = require('path');
 	require("load-grunt-tasks")(grunt);
 
-	grunt.loadTasks('tasks');
 	grunt.registerTask("default", [
 		'clean',
 		'copy:dist',
@@ -134,7 +133,7 @@ module.exports = function (grunt) {
 						expand: true,
 						cwd: 'site/src/css',
 						src: '{,*/}*.css',
-						dest: 'css'
+						dest: 'site/src/css'
 					}
 				]
 			}
@@ -142,7 +141,7 @@ module.exports = function (grunt) {
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
 			js: {
-				files: ['site/src/{,*/}*.js'],
+				files: ['site/src/js/{,*/}*.js'],
 				options: {
 					livereload: true
 				}
@@ -157,7 +156,7 @@ module.exports = function (grunt) {
 				},
 				files: [
 					'site/src/*.html',
-					'site/src/js/{,*/}*.html',
+					'site/src/js/{,*/}*.js',
 					'site/src/css/{,*/}*.css',
 					'site/src/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 				]
@@ -175,7 +174,7 @@ module.exports = function (grunt) {
 				options: {
 					open: true,
 					base: [
-						'./'
+						'./site/src'
 					]
 				}
 			},
