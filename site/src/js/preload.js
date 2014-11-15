@@ -7,6 +7,9 @@ $(function () {
 		'img/model2.png'
 	];
 
+	// Setting first animation here
+	var $FIRST_FRAME = $('#frame1');
+
 	var imagesCount = imageNames.length;
 	var loadedImagesCount = 0;
 	var images = [];
@@ -18,12 +21,10 @@ $(function () {
 
 			var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
 
-			var origin = $('#frame1');
-
 			if (loadedImagesCount >= imagesCount) {
 				setTimeout(function () {
 
-					origin.show().trigger('start');
+					$FIRST_FRAME.show().trigger('start');
 
 				}, 300);
 			}
