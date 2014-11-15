@@ -8,6 +8,8 @@
     "underscore": "~1.7.0",
     "animate.css": "^3",
     "velocity": "~1.1.0",
-    "viewport-units-buggyfill": "~0.4.1"
+    "viewport-units-buggyfill": "~0.4.1",
+    "gsap": "~1.14.2",
+    "modernizr": "~2.8.3"
   }
 }
