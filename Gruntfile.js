@@ -4,47 +4,25 @@ module.exports = function (grunt) {
 	var path = require('path');
 	require("load-grunt-tasks")(grunt);
 
-	grunt.registerTask("default", [
-		'clean',
-		'copy:dist',
-		'less',
-		'autoprefixer'
-	]);
-
-	grunt.registerTask("image", [
-		'clean',
-		'responsive_images',
-		'sprite',
-		'less'
-	]);
-
-	grunt.registerTask('release', [
-		'clean:release',
-		'default',
-		'useminPrepare',
-		'concat',
-		'uglify',
-		'cssmin',
-		'usemin',
-		'copy:release'
-	]);
-
-	grunt.registerTask('serve', function (target) {
-		grunt.task.run([
-			'clean:dist',
-			'less',
-			'connect:livereload',
-			'watch'
-		]);
-	});
-
 	var config = {
+			app: 'site/src',
+			dist: 'site/dist'
+		};
+
+	var setting = {
 		pkg: grunt.file.readJSON('package.json'),
 		bowerDir: 'site/src/bower_components',
+		config: config,
 		clean: {
-			tmp: '.tmp',
-			dist: 'site/src/dist/',
-			release: 'site/src/release/'
+			dist: {
+				files: [{
+					dot: true,
+					src: [
+						'.tmp',
+						'<%= config.dist %>/*'
+					]
+				}]
+			}
 		},
 		copy: {
 			// Copying all sources to a temporary dir.
@@ -52,8 +30,9 @@ module.exports = function (grunt) {
 				files: [
 					{
 						expand: true,
-						src: ['site/src/bower_components/**/*', 'site/src/css/**/*.css', '{site/src/js/**/*', 'site/src/{fonts,icons,sprites,img}/**/*', 'site/src/*.html', 'bower.json'],
-						dest: '.tmp'
+						cwd: 'site/src',
+						src: ['bower_components/**/*', 'css/**/*.css', 'js/**/*', '{fonts,icons,sprites,img}/**/*', '*.html', 'bower.json'],
+						dest: 'site/dist'
 					}
 				]
 			},
@@ -125,7 +104,7 @@ module.exports = function (grunt) {
 		// Add vendor prefixed styles
 		autoprefixer: {
 			options: {
-				browsers: ['last 2 version']
+				browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
 			},
 			dist: {
 				files: [
@@ -136,6 +115,20 @@ module.exports = function (grunt) {
 						dest: 'site/src/css'
 					}
 				]
+			}
+		},
+		// Renames files for browser caching purposes
+		rev: {
+			dist: {
+				files: {
+					src: [
+						'<%= config.dist %>/js/{,*/}*.js',
+						'<%= config.dist %>/css/{,*/}*.css',
+						'<%= config.dist %>/img/{,*/}*.*',
+						'<%= config.dist %>/css/fonts/{,*/}*.*',
+						'<%= config.dist %>/*.{ico,png}'
+					]
+				}
 			}
 		},
 		// Watches files for changes and runs tasks based on the changed files
@@ -188,54 +181,113 @@ module.exports = function (grunt) {
 		// concat, minify and revision files. Creates configurations in memory so
 		// additional tasks can operate on them
 		useminPrepare: {
-			html: '*.html',
 			options: {
-				root: 'site/dist'
-			}
+				cwd: '<%= config.app %>',
+				dest: '<%= config.dist %>'
+			},
+			html: '<%= config.app %>/index.html'
 		},
 		// Performs rewrites based on rev and the useminPrepare configuration
 		usemin: {
-			html: ['site/dist/*.html'],
-			css: ['site/dist/css/**/*.css'],
 			options: {
-				assetsDirs: ['site/dist/']
-			}
+				assetsDirs: [
+					'<%= config.dist %>',
+					'<%= config.dist %>/img',
+					'<%= config.dist %>/css'
+				]
+			},
+			html: ['<%= config.dist %>/{,*/}*.html'],
+			css: ['<%= config.dist %>/css/{,*/}*.css']
 		},
 		processhtml: {
 			dist: {
 				files: {
-					'site/dist/index.html': 'site/src/index.html'
+					'.tmp/index.html': 'site/src/index.html'
 				}
 			}
 		},
 		// The following *-min tasks produce minified files in the dist folder
+		imagemin: {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: '<%= config.app %>/img',
+					src: '{,*/}*.{gif,jpeg,jpg,png}',
+					dest: '<%= config.dist %>/img'
+				}]
+			}
+		},
+
+		svgmin: {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: '<%= config.app %>/img',
+					src: '{,*/}*.svg',
+					dest: '<%= config.dist %>/img'
+				}]
+			}
+		},
+
 		htmlmin: {
 			dist: {
 				options: {
-					collapseWhitespace: true,
 					collapseBooleanAttributes: true,
+					collapseWhitespace: true,
+					conservativeCollapse: true,
+					removeAttributeQuotes: true,
 					removeCommentsFromCDATA: true,
-					removeOptionalTags: true
+					removeEmptyAttributes: true,
+					removeOptionalTags: true,
+					removeRedundantAttributes: true,
+					useShortDoctype: true
 				},
-				files: {
-					'site/dist/index.html': 'site/src/index.html'
-				}
-			}
-		},
-		imagemin: {
-			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: '/site/img',
-						src: '{,*/}*.{png,jpg,jpeg,gif}',
-						dest: 'site/dist/img'
-					}
-				]
+				files: [{
+					expand: true,
+					cwd: '<%= config.dist %>',
+					src: '{,*/}*.html',
+					dest: '<%= config.dist %>'
+				}]
 			}
 		}
 	};
 
 	// Project configuration.
-	grunt.initConfig(config);
+	grunt.initConfig(setting);
+
+	grunt.registerTask("default", [
+		'clean',
+		'copy:dist',
+		'less',
+		'autoprefixer'
+	]);
+
+	grunt.registerTask("image", [
+		'clean',
+		'responsive_images',
+		'sprite',
+		'less'
+	]);
+
+	grunt.registerTask('release', [
+		'clean',
+		'default',
+		'useminPrepare',
+		'concat',
+		'cssmin',
+		'uglify',
+		'copy:release',
+//		'rev',
+		'usemin',
+		'htmlmin'
+	]);
+
+	grunt.registerTask('serve', function (target) {
+		grunt.task.run([
+			'clean:dist',
+			'less',
+			'connect:livereload',
+			'watch'
+		]);
+	});
 };
