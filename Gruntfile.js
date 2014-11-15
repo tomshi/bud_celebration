@@ -286,6 +286,7 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:dist',
 			'less',
+			'autoprefixer',
 			'connect:livereload',
 			'watch'
 		]);
