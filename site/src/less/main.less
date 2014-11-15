@@ -20,10 +20,8 @@ html, body {
   height: 100%;
 
   backface-visibility: hidden;
-  perspective: 100;
-  perspective-origin: 0% 100%;
-
-
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
   transform-style: preserve-3d;
 
   .frame {
@@ -44,24 +42,28 @@ html, body {
 }
 
 #frame1 {
-  background: #000 url('../img/frame1-bg.jpg') center center;
+  .bg1 {
+    background: #000 url('../img/frame1-bg.jpg') center center;
+
+    &.bg2 {
+      background: #000 url('../img/frame1-bg2.jpg') center center;
+      background-size: cover;
+    }
+  }
 
   .model1 {
-    width: 40% * 0.8;
-    height: 100% * 0.8%;
-    bottom: 0;
-    right: 16%;
+    width: 48rem * 0.6;
+    height: 67.5625rem * 0.6;
+    bottom: 0rem;
+    left: 48%;
     background: url('../img/model1.png');
     background-size: cover;
-    perspective: 100px;
-    perspective-origin: 0% 100%;
-    transform-style: preserve-3d;
   }
 
   .model2 {
-    width: 21.4%;
-    height: 77.9%;
-    left: 20%;
+    width: 25.875rem * 0.6;
+    height: 52.625rem * 0.6;
+    left: 25%;
     bottom: 0;
     background: url('../img/model2.png');
     background-size: cover;
