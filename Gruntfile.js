@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 		bowerDir: 'site/src/bower_components',
 		config: config,
 		clean: {
+			tmp: '.tmp',
 			dist: {
 				files: [{
 					dot: true,
@@ -279,7 +280,8 @@ module.exports = function (grunt) {
 		'copy:release',
 //		'rev',
 		'usemin',
-		'htmlmin'
+		'htmlmin',
+		'clean:tmp'
 	]);
 
 	grunt.registerTask('serve', function (target) {
