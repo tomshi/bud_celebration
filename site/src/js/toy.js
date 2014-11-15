@@ -22,11 +22,10 @@ $(function () {
 	};
 
 
-	var frame1_start = function () {
+	var animation_start = function () {
 		$bg_frame1.add($model1).add($model2).velocity({
 			"translateZ": "180px"
 		}, 1500, function () {
-
 
 			handup(function () {
 
@@ -71,5 +70,5 @@ $(function () {
 		});
 	};
 
-	$frame1.on('start', frame1_start);
+	$frame1.on('start', animation_start);
 });
