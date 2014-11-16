@@ -18,29 +18,6 @@ $(function () {
 	};
 
 
-	var isFinish;
-	var printing1 = function () {
-		$printer.velocity({
-			"top": "-=40px",
-			"left": "+=12px"
-		}, 70, function () {
-			if (!isFinish) {
-				printing2();
-			}
-		});
-	};
-
-	var printing2 = function () {
-		$printer.velocity({
-			"top": "+=40px",
-			"left": "+=12px"
-		}, 70, function () {
-			if (!isFinish) {
-				printing1();
-			}
-		});
-	};
-
 	var retreat = function () {
 		$printer.velocity({
 			"top": h,
@@ -51,10 +28,36 @@ $(function () {
 	var print = function () {
 		var name_w = $name.width();
 		var label_w = $shade.width();
+		var length = $label.text().length;
+		var speed = 120;
+		var average = name_w / length / 2;
+
 		$shade.width((label_w - name_w) / 2 + name_w);
 
-		var length = $label.text().length;
-		var speed = (1750 / 10);
+
+		var isFinish;
+		var printing1 = function () {
+			$printer.velocity({
+				"top": "-=42px",
+				"left": "+=" + average + "px"
+			}, speed / 2, function () {
+				if (!isFinish) {
+					printing2();
+				}
+			});
+		};
+
+		var printing2 = function () {
+			$printer.velocity({
+				"top": "+=42px",
+				"left": "+=" + average + "px"
+			}, speed / 2, function () {
+				if (!isFinish) {
+					printing1();
+				}
+			});
+		};
+
 
 		$shade.velocity({
 			"width": (label_w - name_w) / 2
