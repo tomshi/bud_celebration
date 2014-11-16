@@ -1,0 +1,72 @@
+#bottle {
+
+  // if not 100% size, then change .shade to separate background image
+  @size: 1;
+
+  @bottle-width: 16.75rem * @size;
+  @bottle-height: 52.4375rem * @size;
+  text-align: center;
+
+  background: #222 url('../img/bottle-desk.jpg') left bottom;
+
+  .bottle {
+    width: @bottle-width;
+    height: @bottle-height;
+    background: url('../img/bottle.png') center bottom no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+
+
+    bottom: 100%;
+
+    @bottom-label-height: 11rem * @size;
+    @shade-height: 3rem * @size;
+
+    .label {
+      position: absolute;
+      bottom: @bottom-label-height;
+      width: inherit;
+    }
+
+    @label-scale: 82.0895522%;
+
+    .shade {
+      position: absolute;
+      height: @shade-height ;
+      bottom: @bottom-label-height;
+      display: inline-block;
+      right: (100% - @label-scale) / 2;
+      width: @label-scale;
+      background: url(../img/bottle-label.png) right;
+      background-size: cover;
+      z-index: 1;
+    }
+    .ugc-name {
+      white-space: nowrap;
+      color: #fff;
+//      margin-top: 10px * @size;
+      font-size: 2rem * @size ;
+      line-height: 2rem * @size;
+      display: inline-block;
+
+      span{
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  .printer {
+    width: 299px;
+    height: 277px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: url('../img/printer.png');
+    background-size: cover;
+
+    transform: translateZ(500px);
+  }
+}

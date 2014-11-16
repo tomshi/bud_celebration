@@ -8,7 +8,7 @@ $(function () {
 	];
 
 	// Setting first animation here
-	var $FIRST_FRAME = $('#frame1');
+	var $FIRST_FRAME = $('#bottle');
 
 	var imagesCount = imageNames.length;
 	var loadedImagesCount = 0;
