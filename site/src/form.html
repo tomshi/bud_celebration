@@ -19,26 +19,28 @@
 </head>
 <body>
 
-    <section id="stage">
-        <div class="frame" id="form" style="display: block;">
-            <div class="header">
-                <p>百威，自1876年起</p>
-                <h1><img src="img/headline.png" alt=""/></h1>
-                <p>用你的故事，打造独一无二的百威定制啤酒</p>
+    <div id="wrapper">
+
+        <section id="stage">
+            <div class="frame" id="form" style="display: block;">
+                <div class="header">
+                    <div>百威，自1876年起</div>
+                    <h1><img src="img/headline.png" class="responsive" alt=""/></h1>
+                    <p>用你的故事，打造独一无二的百威定制啤酒</p>
+                </div>
+                <div class="inputs">
+                    <input type="text" placeholder="为谁欢庆" value="1"/>
+                    <input type="text" placeholder="庆祝什么" value="1"/>
+                    <input type="text" placeholder="在哪一天" value="1"/>
+                    <a href="##">play</a>
+                    + 上传照片 ( 可选，有传有惊喜！)
+                </div>
             </div>
-            <div class="inputs">
-                <input type="text" placeholder="为谁欢庆" value="1"/>
-                <input type="text" placeholder="庆祝什么" value="1"/>
-                <input type="text" placeholder="在哪一天" value="1"/>
-                <a href="##">play</a>
-                + 上传照片 ( 可选，有传有惊喜！)
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <div id="hand"><img src="img/hand.png"></div>
+        <div id="hand"><img src="img/hand.png"></div>
 
-
+    </div>
 
     <!-- build:js js/plugins.js -->
     <script src="bower_components/velocity/velocity.min.js"></script>
