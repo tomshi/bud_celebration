@@ -30,6 +30,7 @@ bower_components
 
 site/dist
 
+site/src/css
 
 # Users Environment Variables
 .lock-wscript
