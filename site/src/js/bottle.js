@@ -21,7 +21,7 @@ $(function () {
 
 	var endTransition = function(){
 		$element.hide();
-		$('#hands').show();
+		$('#hands').show().trigger('start');
 	};
 
 	var retreat = function () {
