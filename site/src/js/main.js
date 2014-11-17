@@ -26,7 +26,7 @@ function orient(){
 }
 
 function screenSize(){
-    var screenRate  = 16 / 9 ;
+    var screenRate  = 16 / 9;
     var screenWidth = $(window).width();
     var screenHeight = $(window).height();
     var validWidth;

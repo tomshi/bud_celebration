@@ -1,0 +1,46 @@
+#frame1 {
+  .bg1 {
+    background: #000 url('../img/frame1-bg.jpg') center center;
+
+    &.bg2 {
+      background: #000 url('../img/frame1-bg2.jpg') center center;
+      background-size: cover;
+    }
+  }
+
+  .model {
+    position: absolute;
+  }
+
+  .model1 {
+    width: 48rem * 0.6;
+    height: 67.5625rem * 0.6;
+    bottom: 0rem;
+    left: 48%;
+    background: url('../img/model1.png');
+    background-size: cover;
+  }
+
+  .model2 {
+    width: 25.875rem * 0.6;
+    height: 52.625rem * 0.6;
+    left: 25%;
+    bottom: 0;
+    background: url('../img/model2.png');
+    background-size: cover;
+  }
+}
+
+
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  #frame1 {
+
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+  #frame1 {
+
+  }
+}
