@@ -19,7 +19,7 @@ $(function () {
 		setTimeout(fall, 300)
 	};
 
-	var endTransition = function(){
+	var endTransition = function () {
 		$element.hide();
 		$('#hands').show().trigger('start');
 	};
@@ -78,10 +78,10 @@ $(function () {
 	var printGetReady = function () {
 
 		var offset = $name.offset();
-		var stage_pos =  $element.offset();
+		var stage_pos = $element.offset();
 
 		$printer.velocity({
-			"top":  offset.top - stage_pos.top,
+			"top": offset.top - stage_pos.top,
 			"left": offset.left - stage_pos.left
 		}, 700, "linear", print);
 	};
@@ -89,7 +89,11 @@ $(function () {
 	var fall = function () {
 		$bottle.velocity({
 			"bottom": ((h - $desk.position().top) / 2 / h) * 100 + "%"
-		}, 600, "easeOutQuint", printGetReady);
+		}, 600, "easeOutQuint", function () {
+			$('.label', $element).show();
+			$shade.css({'display': 'inline-block'});
+			printGetReady();
+		});
 	};
 
 	$element.on('start', animation_start);

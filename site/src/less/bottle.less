@@ -1,6 +1,7 @@
-.bottle(@size) {
-  @bottle-width: 18.625rem * @size;
-  @bottle-height: 62.375rem * @size;
+.bottle() {
+  @size: 2.1;
+  @bottle-width: 15.5208333% * @size;
+  @bottle-height: 92.4074074% * @size;
   text-align: center;
 
   background: #222 url('../img/bottle-desk-bg.jpg') left bottom;
@@ -8,7 +9,7 @@
 
   .desk {
     width: 100%;
-    height: 5.25rem * @size;
+    height: 15.5555556%;
     position: absolute;
     bottom: 0;
     background: url('../img/bottle-desk.jpg') left bottom;
@@ -18,7 +19,7 @@
     width: @bottle-width;
     height: @bottle-height;
     margin-left: -@bottle-width / 2;
-    left:50%;
+    left: 50%;
     background: url('../img/bottle.png') center bottom no-repeat;
     background-size: cover;
     display: inline-block;
@@ -28,20 +29,21 @@
 
     z-index: 1;
 
-    @bottom-label-height: 12.5rem * @size;
-    @shade-height: 3rem * @size;
+    @bottom-label-height: 20.07%;
+    @shade-height: 4.8096192%;
 
     .label {
+      display: none;
       position: absolute;
       bottom: @bottom-label-height;
-      width: inherit;
+      width: 100%;
     }
 
     .shade {
+      display: none;
       position: absolute;
       height: @shade-height;
       bottom: @bottom-label-height;
-      display: inline-block;
       right: 0;
       width: 100%;
       background: url(../img/bottle-label.png) right;
@@ -51,8 +53,8 @@
     .ugc-name {
       white-space: nowrap;
       color: #fff;
-      font-size: 2rem * @size;
-      line-height: 2rem * @size;
+      font-size: 1.8rem * 2;
+      line-height: 1.8rem * 2;
       display: inline-block;
 
       span {
@@ -61,8 +63,8 @@
     }
   }
 
-  @printWidth: 36.25rem * @size;
-  @printHeight: 19.3125rem * @size;
+  @printWidth: 30.2083333% * @size;
+  @printHeight: 19.3518519% * @size;
 
   .printer {
     width: @printWidth;
@@ -78,29 +80,36 @@
 }
 
 #bottle {
-  .bottle(1.5);
+  .bottle();
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
-  #bottle {
-    .bottle(1.3);
+#bottle .bottle {
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .ugc-name {
+      font-size: 1.8rem * 1.3;
+      line-height: 1.8rem * 1.3;
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .ugc-name {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+  }
+
+  @media screen and (min-width: 581px) and (max-width: 768px) {
+    .ugc-name {
+      font-size: 1.8rem * 0.65;
+      line-height: 1.8rem * 0.65;
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+
+    .ugc-name {
+      font-size: 1.8rem * 0.45;
+      line-height: 1.8rem * 0.45;
+    }
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  #bottle {
-    .bottle(1);
-  }
-}
-
-@media screen and (min-width: 581px) and (max-width: 768px) {
-  #bottle {
-    .bottle(0.65);
-  }
-}
-
-@media screen and (max-width: 580px) {
-  #bottle {
-    .bottle(0.45);
-  }
-}
