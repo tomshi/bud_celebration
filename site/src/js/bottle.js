@@ -6,8 +6,10 @@ $(function () {
 	var $printer = $('.printer', $element);
 	var $name = $('.ugc-name', $element);
 	var $label = $('.label span', $element);
-	var w = document.documentElement.clientWidth;
-	var h = document.documentElement.clientHeight;
+	var $desk = $('.desk', $element);
+
+	var w = $element.width();
+	var h = $element.height();
 
 	var animation_start = function () {
 
@@ -72,16 +74,17 @@ $(function () {
 	var printGetReady = function () {
 
 		var offset = $name.offset();
+		var stage_pos =  $element.offset();
 
 		$printer.velocity({
-			"top": offset.top,
-			"left": offset.left
+			"top":  offset.top - stage_pos.top,
+			"left": offset.left - stage_pos.left
 		}, 700, "linear", print);
 	};
 
 	var fall = function () {
 		$bottle.velocity({
-			"bottom": "83px"
+			"bottom": ((h - $desk.position().top) / 2 / h) * 100 + "%"
 		}, 600, "easeOutQuint", printGetReady);
 	};
 
