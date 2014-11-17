@@ -1,0 +1,103 @@
+.hands(@size) {
+  background: #222 url('../img/hands-bg.jpg') left bottom;
+  background-size: cover;
+
+  .hand {
+    position: absolute;
+    background-size: cover;
+  }
+
+  .hand1 {
+    z-index: 1;
+    background: url('../img/hand1.png') right top no-repeat;
+    .hand;
+    width: 42.3958333%;
+    height: 48.5792851%;
+    top: 29.3308891%;
+    left: 1.18%;
+  }
+  .hand2 {
+    background: url('../img/hand2.png') right top no-repeat;
+    .hand;
+    width: 46.9791667%;
+    height: 67.827681%;
+    top: 32.0806599%;
+    z-index: 2;
+  }
+  .hand3 {
+    background: url('../img/hand3.png') right top no-repeat;
+    .hand;
+    width: 49.84375%;
+    height: 76.5352887%;
+    bottom: 0;
+    left: 44.1666667%;
+    z-index: 4;
+  }
+  .hand4 {
+    background: url('../img/hand4.png') right top no-repeat;
+    .hand;
+    width: 49.84375%;
+    height: 76.5352887%;
+    top: 27.6810266%;
+    left: 50%;
+    z-index: 3;
+  }
+  .hand5 {
+    background: url('../img/hand5.png') right top no-repeat;
+    .hand;
+    width: 45%;
+    height: 59.7616865%;
+    top: 30.7057745%;
+    left: 54.9479167%;
+    z-index: 2;
+  }
+  .hand6 {
+    background: url('../img/hand6.png') right top no-repeat;
+    .hand;
+    width: 45%;
+    height: 59.7616865%;
+    top: 32.9055912%;
+    left: 59.0104167%;
+    z-index: 1;
+  }
+
+  .bright {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../img/bright.png') left top no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 75.9853346%;
+  }
+}
+
+#hands {
+  .hands(1.5);
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  #hands {
+    .hands(1.3);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #hands {
+    .hands(1);
+  }
+}
+
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  #hands {
+    .hands(0.65);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #hands {
+    .hands(0.45);
+  }
+}

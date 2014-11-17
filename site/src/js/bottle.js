@@ -19,12 +19,16 @@ $(function () {
 		setTimeout(fall, 300)
 	};
 
+	var endTransition = function(){
+		$element.hide();
+		$('#hands').show();
+	};
 
 	var retreat = function () {
 		$printer.velocity({
 			"top": h,
 			"left": w
-		}, 1000);
+		}, 800, endTransition);
 	};
 
 	var print = function () {
