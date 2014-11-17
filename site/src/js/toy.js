@@ -42,7 +42,6 @@ $(function () {
 				$bg_frame1.velocity({
 					"translateZ": "300px"
 				}, 1600, function () {
-
 					handup(function () {
 						handdown();
 
