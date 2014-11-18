@@ -30,9 +30,9 @@ build/Release
 node_modules
 bower_components
 
-site/dist
+#site/dist
 
-site/src/css
+#site/src/css
 
 # Users Environment Variables
 .lock-wscript
