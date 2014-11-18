@@ -32,10 +32,19 @@
                         <div class="text2"><img src="img/end-text1.png" class="responsive" alt=""/></div>
                     </div>
                     <div class="btns">
-                        <a href="##"><img src="img/end-buy.png" class="responsive" alt=""/></a>
-                        <a href="##"><img src="img/end-share.png" class="responsive" alt=""/></a>
-                        <a href="##"><img src="img/end-replay.png" class="responsive" alt=""/></a>
-                        <a href="##"><img src="img/end-redo.png" class="responsive" alt=""/></a>
+                        <a href="##" class="item" id="buy"><img src="img/end-buy.png" class="responsive" alt=""/></a>
+                        <a href="##" class="item" id="share"><img src="img/end-share.png" class="responsive" alt=""/></a>
+                        <a href="##" class="item" id="replay"><img src="img/end-replay.png" class="responsive" alt=""/></a>
+                        <a href="##" class="item" id="redo"><img src="img/end-redo.png" class="responsive" alt=""/></a>
+                        <div class="sharing-box">
+                            <a href="javascript:void(0);" class="close">X</a>
+                            <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                            <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                            <a href="javascript:void(0);" class="share" share-platform="xiami" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                            <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                            <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                            <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.gif" class="responsive" alt=""/></a>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -46,8 +55,8 @@
     </div>
 
     <section class="overlay">
-        <div class="crop">
-            <img id="uploadImgHolder" src="" alt=""/>
+        <div class="buy-tip">
+            请用默认浏览器打开购买
         </div>
     </section>
 
@@ -67,37 +76,41 @@
     <script src="js/main.js"></script>
     <script src="js/bottle.js"></script>
     <script src="js/toy.js"></script>
+    <script src="js/sharing.js"></script>
+    <script src="js/wechatSharing.js"></script>
     <!-- endbuild -->
-
+    <script>
+        _WXShare(
+            'http://wx.bornson.cn/webapps/shht/dpw/images/fenxiang.png',
+            100,
+            100,
+            '百威',
+            '百威啤酒',
+            '',
+            '微信APPID(一般不用填)'
+        );
+    </script>
     <script type="text/javascript">
-        var holder = $("#uploadImgHolder");
-        function initCropImg(src){
-            holder.attr("src", src);
-            $(".overlay").show();
-            $(".crop > img").cropper({
-                aspectRatio: 1.777,
-                width: 500,
-                done: function(data) {
-                    // Crop image with the result data.
-                    console.log(data.x);
-                    console.log(data.y);
-                    console.log(data.height);
-                    console.log(data.width);
-                }
-            });
-        }
-        $(function(){
-            $("#fileupload_input").fileupload({
-                url:"api/upload.json",//文件上传地址，当然也可以直接写在input的data-url属性内
-                formData:{param1:"p1",param2:"p2"},//如果需要额外添加参数可以在这里添加
-                done:function(e,result){
-                    //done方法就是上传完毕的回调函数，其他回调函数可以自行查看api
-                    //注意result要和jquery的ajax的data参数区分，这个对象包含了整个请求信息
-                    //返回的数据在result.result中，假设我们服务器返回了一个json对象
-                    console.log(JSON.stringify(result.result));
-                    initCropImg();
-                }
-            });
+        $("#buy").bind('click', function(){
+            var ua = window.navigator.userAgent.toLowerCase();
+            if(ua.indexOf("micromessenger") > 0){
+                $(".buy-tip").show();
+                $(".overlay").fadeIn();
+            }else {
+                window.location.href = "http://www.baidu.com";
+            }
+        });
+        $("#share").bind('click', function(){
+            $(".sharing-box").fadeIn();
+        });
+        $(".close").bind('click', function(){
+            $(".sharing-box").fadeOut();
+        });
+        $("#replay").bind('click', function(){
+            //
+        });
+        $("#redo").bind('click', function(){
+            //
         });
     </script>
 
