@@ -592,11 +592,35 @@ th {
 #end .btns {
   text-align: center;
   padding-left: 18%;
+  position: relative;
 }
-#end .btns a {
+#end .btns .item {
   width: 7%;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 2%;
+}
+#end .btns .sharing-box {
+  position: absolute;
+  background-color: #000;
+  width: 40%;
+  padding: 4% 0;
+  left: 39%;
+  top: -36%;
+  display: none;
+}
+#end .btns .sharing-box .share {
+  width: 10%;
+  display: inline-block;
+  margin: 0 2%;
+}
+#end .btns .sharing-box .close {
+  position: absolute;
+  right: 3%;
+  top: 6%;
+  font-family: verdana;
+  text-decoration: none;
+  color: #9d7e23;
+  font-size: 12px;
 }
 #frame1 .bg1 {
   background: #000000 url('../img/frame1-bg.jpg') center center;
