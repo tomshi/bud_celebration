@@ -31,9 +31,9 @@ module.exports = function (grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: 'site/src',
-						src: ['bower_components/**/*', 'css/**/*.css', 'js/**/*', '{fonts,icons,sprites,img}/**/*', '*.html', 'bower.json'],
-						dest: 'site/dist'
+						cwd: '<%= config.app %>',
+						src: ['api/**/*', 'css/**/*.css', 'js/**/*', '{fonts,icons,sprites,img}/**/*', '*.html'],
+						dest: '<%= config.dist %>'
 					}
 				]
 			},
