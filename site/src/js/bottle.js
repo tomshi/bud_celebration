@@ -6,8 +6,10 @@ $(function () {
 	var $printer = $('.printer', $element);
 	var $name = $('.ugc-name', $element);
 	var $label = $('.label span', $element);
-	var w = document.documentElement.clientWidth;
-	var h = document.documentElement.clientHeight;
+	var $desk = $('.desk', $element);
+
+	var w = $element.width();
+	var h = $element.height();
 
 	var animation_start = function () {
 
@@ -17,12 +19,16 @@ $(function () {
 		setTimeout(fall, 300)
 	};
 
+	var endTransition = function () {
+		$element.hide();
+		$('#hands').show().trigger('start');
+	};
 
 	var retreat = function () {
 		$printer.velocity({
 			"top": h,
 			"left": w
-		}, 1000);
+		}, 800, endTransition);
 	};
 
 	var print = function () {
@@ -72,17 +78,22 @@ $(function () {
 	var printGetReady = function () {
 
 		var offset = $name.offset();
+		var stage_pos = $element.offset();
 
 		$printer.velocity({
-			"top": offset.top,
-			"left": offset.left
+			"top": offset.top - stage_pos.top,
+			"left": offset.left - stage_pos.left
 		}, 700, "linear", print);
 	};
 
 	var fall = function () {
 		$bottle.velocity({
-			"bottom": "83px"
-		}, 600, "easeOutQuint", printGetReady);
+			"bottom": ((h - $desk.position().top) / 2 / h) * 100 + "%"
+		}, 600, "easeOutQuint", function () {
+			$('.label', $element).show();
+			$shade.css({'display': 'inline-block'});
+			printGetReady();
+		});
 	};
 
 	$element.on('start', animation_start);

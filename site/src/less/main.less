@@ -4,12 +4,14 @@
 @import "bottle.less";
 @import "form.less";
 @import "frame1.less";
+@import "hands.less";
 
 
 html, body {
   height: 100%;
   overflow: hidden;
   font-family: @font-family-sans-serif;
+  background-color: #000;
 }
 
 #wrapper {
@@ -48,4 +50,14 @@ html, body {
 .responsive {
   width: 100%;
   height: auto;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  .table-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
