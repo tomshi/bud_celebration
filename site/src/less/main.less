@@ -3,6 +3,7 @@
 @import "toy.less";
 @import "bottle.less";
 @import "form.less";
+@import "end.less";
 @import "frame1.less";
 @import "hands.less";
 
@@ -59,5 +60,24 @@ html, body {
   .table-cell {
     display: table-cell;
     vertical-align: middle;
+  }
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  .crop {
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -200px 0 0 -300px;
   }
 }
