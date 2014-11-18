@@ -64,44 +64,6 @@ module.exports = function (grunt) {
 				]
 			}
 		},
-		responsive_images: {
-			x2: {
-				options: {
-					sizes: [
-						{
-							name: 'i',
-							width: '100%'
-						}
-					]
-				},
-				files: [
-					{
-						expand: true,
-						cwd: 'site/src/img/',
-						src: '{,*/}*.{png,jpg,jpeg}',
-						dest: '.tmp/img/imgx2'
-					}
-				]
-			},
-			x1: {
-				options: {
-					sizes: [
-						{
-							name: 'i',
-							width: '50%'
-						}
-					]
-				},
-				files: [
-					{
-						expand: true,
-						cwd: 'site/src/img/',
-						src: '{,*/}*.{png,jpg,jpeg}',
-						dest: '.tmp/img/imgx1'
-					}
-				]
-			}
-		},
 		// Add vendor prefixed styles
 		autoprefixer: {
 			options: {
