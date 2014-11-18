@@ -31,9 +31,9 @@ module.exports = function (grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: 'site/src',
-						src: ['bower_components/**/*', 'css/**/*.css', 'js/**/*', '{fonts,icons,sprites,img}/**/*', '*.html', 'bower.json'],
-						dest: 'site/dist'
+						cwd: '<%= config.app %>',
+						src: ['api/**/*', 'css/**/*.css', 'js/main.js', 'js/vendor.js', 'js/plugins.js', '{fonts,icons,sprites,img}/**/*', '*.html'],
+						dest: '<%= config.dist %>'
 					}
 				]
 			},
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 					{
 						expand: true,
 						cwd: 'dist',
-						src: ['bower_components/**/*', 'js/**/.*', '{fonts,css,sprites,img}/**/*', 'bower.json'],
+						src: ['bower_components/**/*', 'js/main.js', 'js/vendor.js', 'js/plugins.js', '{fonts,css,sprites,img}/**/*', 'bower.json'],
 						dest: 'site/release/<%= pkg.version %>'
 					},
 					{
