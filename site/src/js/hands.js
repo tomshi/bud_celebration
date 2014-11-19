@@ -10,6 +10,13 @@ $(function () {
 	var $hand6 = $('.hand6', $element);
 
 
+	var endTransition = function () {
+		$element.hide();
+		$('#frame1').velocity({
+
+		}).trigger('start');
+	};
+
 	var time = 800;
 	var delayTime = 600;
 	var reverseTime = 900;
@@ -41,7 +48,7 @@ $(function () {
 
 		$hand6.velocity({
 			translateX: "-100%"
-		}, time).delay(delayTime).velocity('reverse', reverseTime, 'linear');
+		}, time).delay(delayTime).velocity('reverse', reverseTime, 'linear', endTransition);
 	};
 
 	$element.on('start', animation_start);

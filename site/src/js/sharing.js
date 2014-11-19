@@ -1,7 +1,18 @@
 function shareSNS(type, link, image, text) {
-    var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
+    //var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
     text = encodeURIComponent(text);
-    link = encodeURIComponent(link);
+
+    if (image == ""){
+        image = "http://toast-365days.com/img/share.jpg";
+    }
+    var img = encodeURIComponent(image);
+
+    if (link == ""){
+        link = encodeURIComponent(window.location.href);
+    }else {
+        link = encodeURIComponent(link);
+    }
+
     var content, p, s, i;
     switch (type) {
 
@@ -10,20 +21,13 @@ function shareSNS(type, link, image, text) {
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
 
-        case 'renren': //sina weibo
-            //var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + text + '&url=' + link + '&content=utf-8&sourceUrl=' + link + '&pic=' + img;
-            var sharesinastring = "http://widget.renren.com/dialog/share?resourceUrl=" + encodeURIComponent(url) + "&images=" + encodeURIComponent(img) + "&charset=UTF-8&description=" + encodeURIComponent(message) + "&title=" + encodeURIComponent(message) + "";
+        case 'renren': //renren weibo
+            var sharesinastring = "http://widget.renren.com/dialog/share?resourceUrl=" + link + "&srcUrl=" + link + "&title" + text + "&images=" + img + "&charset=UTF-8&description=";
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
 
-        case 'douban': //sina weibo
-            //var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + text + '&url=' + link + '&content=utf-8&sourceUrl=' + link + '&pic=' + img;
-            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + encodeURIComponent(img) + "&href=" + encodeURIComponent(url) + "&name=" + encodeURIComponent(message);
-            window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
-            break;
-
-        case 'xiami': //sina weibo
-            var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + text + '&url=' + link + '&content=utf-8&sourceUrl=' + link + '&pic=' + img;
+        case 'douban': //douban weibo
+            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + img + "&href=" + link + "&name=" + text;
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
 
