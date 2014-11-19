@@ -18,14 +18,36 @@ function requestGATracking(category, action, label, value) {
 
 // Nielsen
 function flood(src) {
-    var spotpix = new Image();
-    spotpix.src = src;
+    if(src){
+        var spotpix = new Image();
+        spotpix.src = src;    
+    }
 }
 
-function requestNielsenTracking(htsinfo) {
-	var src = "http://s.cr-nielsen.com/hat?_t=r&_htsinfo=" + htsinfo;
-	flood(src);
+function requestNielsenTracking(key) {
+    var htsinfo = nielsenCodes[key];
+    if(htsinfo){
+        var src = "http://s.cr-nielsen.com/hat?_t=r&_htsinfo=" + htsinfo;
+        flood(src);    
+    }
 }
+
+var nielsenCodes={
+    'index,create':                 'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzI5Jock',
+    'index,img_upload':             'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzMwJtj3',
+    'index,tnc':                    'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzMxJiTz',
+    'index,rules':                  'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzMyJmD8',
+    'index,tap_into_beers':         'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzMzJpz4',
+    'video,purchase':               'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM0Juji',
+    'video,share,weibo':            'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM1JhTm',
+    'video,share,tencet':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM2JlDp',
+    'video,share,qzone':            'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM3Jqzt',
+    'video,share,douban':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM4Jrjd',
+    'video,share,renren':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM5JkTZ',
+    'video,share,wechat':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzQwJhMC',
+    'video,replay':                 'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzQxJu8G',
+    'video,recreate':               'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzQyJqsJ'
+};
 
 // Baidu
 function addBaiduTracking() {

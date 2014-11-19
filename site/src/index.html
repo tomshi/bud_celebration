@@ -27,6 +27,38 @@
         })();
     </script>
     <!-- baidu -->
+
+    <!-- Nielsen -->
+    <script>
+
+    (function (G,D,s,c,p) {
+        this._wtracker_url = '//s.cr-nielsen.com/cgi-bin/hmt?';
+    
+        c={
+            UA:"436",
+            NO_FLS:0,
+            NO_ILS:0,
+            WITH_REF:1,
+            URL:'//s.cr-nielsen.com/hwt.js',
+            API_URL:"//s.cr-nielsen.com/cgi-bin/hwt?",
+            SWF_URL:"//s.cr-nielsen.com/hwt.swf",
+            IFRAME_URL:"//s.cr-nielsen.com/iframe.html"  
+        };
+        //p=["P1-XXXZ","P2-DDDDD"];//◊‘∂®“Âº‡≤‚≤Œ ˝
+        G._hwt?G._hwt.track(c,p):(G._hwtTQ=G._hwtTQ || []).push([c,p]),!G._hwtLoading && lo();
+        function lo(t) {
+            G._hwtLoading=1;s=D.createElement("script");s.src=c.URL;
+            t=D.getElementsByTagName("script");t=t[t.length-1];
+            t.parentNode.insertBefore(s,t);
+        }
+        
+        G["hwtTracker"]=G["hwtTracker"]||function(){
+            (G['_hq']=G['_hq']||[]).push(arguments);
+        };
+        G["_hwt_c"]=c;  
+    })(this,document);
+    
+    </script>
 </head>
 <!-- GA tracking -->
 <script>
