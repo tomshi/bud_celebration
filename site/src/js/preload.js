@@ -1,7 +1,9 @@
 $(function () {
 	var imageNames = [
-		'img/frame1-bg.jpg',
-		'img/frame1-bg2.jpg',
+		'img/bottle.png',
+		'img/bottle-desk.jpg',
+		'img/bottle-desk-bg.jpg',
+		'img/engrave.png',
 		'img/hand.png',
 		'img/model1.png',
 		'img/model2.png'
