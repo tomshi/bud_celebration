@@ -510,7 +510,7 @@ th {
 #form .header {
   text-align: center;
   color: #fff;
-  padding-bottom: 10%;
+  padding-top: 15%;
 }
 #form .header img {
   display: block;
@@ -527,12 +527,13 @@ th {
   margin: 0 auto;
   width: 40%;
 }
-#form .inputs .upload {
+#form .form .upload {
   position: absolute;
   left: 18%;
   top: 74%;
+  z-index: 8;
 }
-#form .inputs .upload .file {
+#form .form .upload .file {
   width: 100%;
   height: 20px;
   position: absolute;
@@ -542,7 +543,7 @@ th {
   opacity: 0;
   cursor: pointer;
 }
-#form .inputs .upload .text {
+#form .form .upload .text {
   width: 100%;
   height: 20px;
   line-height: 20px;
@@ -550,26 +551,46 @@ th {
   letter-spacing: 4px;
   color: #dfb134;
 }
-#form .inputs .input {
+#form .form .input {
   position: absolute;
   left: 0;
   top: 62%;
   width: 20%;
   height: 8%;
   background-color: rgba(0, 0, 0, 0.5);
-  border-bottom: solid 2px #dfb234;
-  box-sizing: border-box;
+  z-index: 9;
 }
-#form .inputs .input.name {
+#form .form .input.focus {
+  border-bottom: solid 4px #dfb234;
+}
+#form .form .input.name {
   left: 18%;
 }
-#form .inputs .input.type {
+#form .form .input.type {
   left: 40%;
 }
-#form .inputs .input.time {
+#form .form .input.type .type-list {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 110%;
+  display: none;
+}
+#form .form .input.type .type-list li {
+  list-style: none;
+  border-bottom: solid 1px rgba(223, 178, 52, 0.4);
+  text-align: center;
+  color: #777;
+  padding: 5% 0;
+  cursor: pointer;
+  background-color: #000000;
+}
+#form .form .input.time {
   left: 62%;
 }
-#form .inputs .submit {
+#form .form .submit {
   position: absolute;
   left: 84%;
   top: 62%;
@@ -580,11 +601,11 @@ th {
   opacity: 0.3;
   cursor: default;
 }
-#form .inputs .submit.active {
+#form .form .submit.active {
   cursor: pointer;
   opacity: 1;
 }
-#form .inputs input {
+#form .form input {
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -596,60 +617,60 @@ th {
   color: #fff;
   font-size: 16px;
   letter-spacing: 1px;
+  border-bottom: solid 2px #dfb234;
 }
-#form .inputs input::-webkit-input-placeholder {
+#form .form input::-webkit-input-placeholder {
   color: #777;
   letter-spacing: 2px;
 }
-#form .inputs input:-moz-placeholder {
+#form .form input:-moz-placeholder {
   color: #777;
   letter-spacing: 2px;
 }
-#form .inputs input::-moz-placeholder {
+#form .form input::-moz-placeholder {
   color: #777;
   letter-spacing: 2px;
 }
-#form .inputs input:-ms-input-placeholder {
+#form .form input:-ms-input-placeholder {
   color: #777;
   letter-spacing: 2px;
 }
-#end {
+#ending {
   background: url(../img/end-bg.jpg) no-repeat;
   background-size: cover;
 }
-#end .header {
+#ending .header {
   text-align: center;
   color: #fff;
-  padding-bottom: 7%;
-  padding-left: 18%;
+  padding: 14% 0 7% 18%;
 }
-#end .header img {
+#ending .header img {
   display: block;
 }
-#end .header .text1 {
+#ending .header .text1 {
   margin: 0 auto;
   width: 24%;
 }
-#end .header .headline {
+#ending .header .headline {
   width: 55%;
   margin: 1% auto 2%;
 }
-#end .header .text2 {
+#ending .header .text2 {
   margin: 0 auto;
   width: 52%;
   position: relative;
 }
-#end .btns {
+#ending .btns {
   text-align: center;
   padding-left: 18%;
   position: relative;
 }
-#end .btns .item {
+#ending .btns .item {
   width: 7%;
   display: inline-block;
   margin: 0 2%;
 }
-#end .btns .sharing-box {
+#ending .btns .sharing-box {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.85);
   width: 45%;
@@ -658,12 +679,12 @@ th {
   top: -53%;
   display: none;
 }
-#end .btns .sharing-box .share {
+#ending .btns .sharing-box .share {
   width: 9%;
   display: inline-block;
   margin: 0 2%;
 }
-#end .btns .sharing-box .close {
+#ending .btns .sharing-box .close {
   position: absolute;
   right: 3%;
   top: 9%;
