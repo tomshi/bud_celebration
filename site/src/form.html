@@ -29,15 +29,19 @@
                     <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
                     <div class="text2"><img src="img/form-text2.png" class="responsive" alt=""/></div>
                 </div>
-                <div class="inputs">
+                <div class="form">
                     <div class="input name">
-                        <input type="text" placeholder="为谁欢庆" value=""/>
+                        <input type="text" class="name" name="username" placeholder="为谁欢庆" value=""/>
                     </div>
                     <div class="input type">
-                        <input type="text" placeholder="庆祝什么" value=""/>
+                        <input type="text" class="type" name="type" placeholder="庆祝什么" value=""/>
+                        <ul class="type-list">
+                            <li>生曰快乐</li>
+                            <li>新年快乐</li>
+                        </ul>
                     </div>
                     <div class="input time">
-                        <input type="text" placeholder="在哪一天" value=""/>
+                        <input type="text" class="time" name="time" placeholder="在哪一天" value=""/>
                     </div>
                     <a href="##" class="submit"></a>
                     <div class="upload">
@@ -76,6 +80,33 @@
     <!-- endbuild -->
 
     <script type="text/javascript">
+        $(".input input").bind("focus", function(){
+            var $this = $(this);
+            var name = $this.attr("name");
+            if (name == "type"){
+                $(".type-list").slideDown();
+            }else if (name == "time") {
+                $this.attr("placeholder", "日日/月月");
+            }else {}
+            $this.parent().addClass("focus");
+        }).bind("blur", function(){
+            $(this).parent().removeClass("focus");
+            $(".time").attr("placeholder", "在哪一天");
+            $(".type-list").slideUp();
+        }).bind("change", function(){
+            console.log($(this).val());
+        }).bind("keyup", function(){
+            console.log($(this).val());
+        });
+
+        $(".type-list li").bind("click", function(){
+            var val = $(this).text();
+            $(".type").val(val);
+            $(".type-list").slideUp();
+
+        });
+
+
         var holder = $("#uploadImgHolder");
         function initCropImg(src){
             holder.attr("src", src);

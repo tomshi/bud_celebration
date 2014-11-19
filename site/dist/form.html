@@ -1,4 +1,31 @@
-<!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name=viewport content="initial-scale=1,maximum-scale=1,width=device-width,user-scalable=yes,minimal-ui"> <title>百威庆祝</title> <link rel=stylesheet href=css/main.css> <script src=js/vendor.js></script> <meta name=renderer content=webkit> <meta name=google value=notranslate>  <body> <div id=wrapper> <section id=stage> <div class=frame id=form style="display: block"> <div class=header> <div class=text1><img src=img/form-text1.png class=responsive alt=""></div> <div class=headline><img src=img/form-headline.png class=responsive alt=""></div> <div class=text2><img src=img/form-text2.png class=responsive alt=""></div> </div> <div class=inputs> <div class="input name"> <input placeholder=为谁欢庆> </div> <div class="input type"> <input placeholder=庆祝什么> </div> <div class="input time"> <input placeholder=在哪一天> </div> <a href=## class=submit></a> <div class=upload> <input type=file class=file name=files id="fileupload_input"> <div class=text>+ 上传一张照片，获得更专属的体验</div> </div> </div> </div> </section> <div id=hand><img src=img/hand.png></div> </div> <section class=overlay> <div class=crop> <img id=uploadImgHolder src="" alt=""> </div> </section> <script src=js/plugins.js></script> <script src=js/main.js></script> <script type=text/javascript>var holder = $("#uploadImgHolder");
+<!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name=viewport content="initial-scale=1,maximum-scale=1,width=device-width,user-scalable=yes,minimal-ui"> <title>百威庆祝</title> <link rel=stylesheet href=css/main.css> <script src=js/vendor.js></script> <meta name=renderer content=webkit> <meta name=google value=notranslate>  <body> <div id=wrapper> <section id=stage> <div class=frame id=form style="display: block"> <div class=header> <div class=text1><img src=img/form-text1.png class=responsive alt=""></div> <div class=headline><img src=img/form-headline.png class=responsive alt=""></div> <div class=text2><img src=img/form-text2.png class=responsive alt=""></div> </div> <div class=form> <div class="input name"> <input class=name name=username placeholder=为谁欢庆> </div> <div class="input type"> <input class=type name=type placeholder=庆祝什么> <ul class=type-list> <li>生曰快乐</li> <li>新年快乐</li> </ul> </div> <div class="input time"> <input class=time name=time placeholder=在哪一天> </div> <a href=## class=submit></a> <div class=upload> <input type=file class=file name=files id="fileupload_input"> <div class=text>+ 上传一张照片，获得更专属的体验</div> </div> </div> </div> </section> <div id=hand><img src=img/hand.png></div> </div> <section class=overlay> <div class=crop> <img id=uploadImgHolder src="" alt=""> </div> </section> <script src=js/plugins.js></script> <script src=js/main.js></script> <script type=text/javascript>$(".input input").bind("focus", function(){
+            var $this = $(this);
+            var name = $this.attr("name");
+            if (name == "type"){
+                $(".type-list").slideDown();
+            }else if (name == "time") {
+                $this.attr("placeholder", "日日/月月");
+            }else {}
+            $this.parent().addClass("focus");
+        }).bind("blur", function(){
+            $(this).parent().removeClass("focus");
+            $(".time").attr("placeholder", "在哪一天");
+            $(".type-list").slideUp();
+        }).bind("change", function(){
+            console.log($(this).val());
+        }).bind("keyup", function(){
+            console.log($(this).val());
+        });
+
+        $(".type-list li").bind("click", function(){
+            var val = $(this).text();
+            $(".type").val(val);
+            $(".type-list").slideUp();
+
+        });
+
+
+        var holder = $("#uploadImgHolder");
         function initCropImg(src){
             holder.attr("src", src);
             $(".overlay").show();

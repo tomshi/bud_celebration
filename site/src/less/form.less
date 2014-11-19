@@ -21,11 +21,12 @@
       width: 40%;
     }
   }
-  .inputs {
+  .form {
     .upload {
       position: absolute;
       left: 18%;
       top: 74%;
+      z-index: 8;
       .file {
         width: 100%;
         height: 20px;
@@ -52,13 +53,33 @@
       width: 20%;
       height: 8%;
       background-color: rgba(0, 0, 0, 0.5);
-      border-bottom: solid 2px #dfb234;
-      box-sizing: border-box;
+      z-index: 9;
+      &.focus {
+        border-bottom: solid 4px #dfb234;
+      }
       &.name {
         left: 18%;
       }
       &.type {
         left: 40%;
+        .type-list {
+          position: absolute;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          left: 0;
+          top: 110%;
+          display: none;
+          li {
+            list-style: none;
+            border-bottom: solid 1px rgba(223,178,52,0.4);
+            text-align: center;
+            color: #777;
+            padding: 5% 0;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 1);
+          }
+        }
       }
       &.time {
         left: 62%;
@@ -91,6 +112,7 @@
       color: #fff;
       font-size: 16px;
       letter-spacing: 1px;
+      border-bottom: solid 2px #dfb234;
       &::-webkit-input-placeholder {
         color: #777;
         letter-spacing: 2px;
