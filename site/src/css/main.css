@@ -436,7 +436,7 @@ th {
   height: 83.16666666%;
   left: 17.8125%;
   bottom: 8.16666669%;
-  background: url('../img/bottle.png') center bottom no-repeat;
+  background: url('../img/bottle.png') right bottom no-repeat;
   background-size: cover;
   display: inline-block;
   position: absolute;
