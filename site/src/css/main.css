@@ -489,10 +489,19 @@ th {
   height: 79.537037%;
   z-index: 2;
 }
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
   #bottle .bottle .ugc-name {
     font-size: 1.5rem;
     line-height: 1.5rem;
+  }
+  #bottle .bottle .label {
+    bottom: 20%;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  #bottle .bottle .ugc-name {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -500,17 +509,26 @@ th {
     font-size: 0.9rem;
     line-height: 0.9rem;
   }
+  #bottle .bottle .label {
+    bottom: 19%;
+  }
 }
 @media screen and (min-width: 581px) and (max-width: 768px) {
   #bottle .bottle .ugc-name {
-    font-size: 0.5rem;
-    line-height: 0.5rem;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+  }
+  #bottle .bottle .label {
+    bottom: 19%;
   }
 }
 @media screen and (max-width: 580px) {
   #bottle .bottle .ugc-name {
-    font-size: 0.3rem;
-    line-height: 0.3rem;
+    font-size: 7px;
+    line-height: 7px;
+  }
+  #bottle .bottle .label {
+    bottom: 18%;
   }
 }
 #form {

@@ -150,10 +150,19 @@
 }
 
 #bottle .bottle {
-  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+  @media screen and (min-width: 1280px) and (max-width: 1920px) {
     .ugc-name {
       font-size: 1.5rem;
       line-height: 1.5rem;
+    }
+    .label {
+      bottom: 20%;
+    }
+  }
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .ugc-name {
+      font-size: 1.3rem;
+      line-height: 1.3rem;
     }
   }
   @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -161,20 +170,30 @@
       font-size: 0.9rem;
       line-height: 0.9rem;
     }
+
+    .label {
+      bottom: 19%;
+    }
   }
 
   @media screen and (min-width: 581px) and (max-width: 768px) {
     .ugc-name {
-      font-size: 0.5rem;
-      line-height: 0.5rem;
+      font-size: 0.7rem;
+      line-height: 0.7rem;
+    }
+    .label {
+      bottom: 19%;
     }
   }
 
   @media screen and (max-width: 580px) {
 
     .ugc-name {
-      font-size: 0.3rem;
-      line-height: 0.3rem;
+      font-size: 7px;
+      line-height: 7px;
+    }
+    .label{
+      bottom: 18%;
     }
   }
 }
