@@ -613,42 +613,42 @@ th {
   color: #777;
   letter-spacing: 2px;
 }
-#end {
+#ending {
   background: url(../img/end-bg.jpg) no-repeat;
   background-size: cover;
 }
-#end .header {
+#ending .header {
   text-align: center;
   color: #fff;
   padding: 14% 0 7% 18%;
 }
-#end .header img {
+#ending .header img {
   display: block;
 }
-#end .header .text1 {
+#ending .header .text1 {
   margin: 0 auto;
   width: 24%;
 }
-#end .header .headline {
+#ending .header .headline {
   width: 55%;
   margin: 1% auto 2%;
 }
-#end .header .text2 {
+#ending .header .text2 {
   margin: 0 auto;
   width: 52%;
   position: relative;
 }
-#end .btns {
+#ending .btns {
   text-align: center;
   padding-left: 18%;
   position: relative;
 }
-#end .btns .item {
+#ending .btns .item {
   width: 7%;
   display: inline-block;
   margin: 0 2%;
 }
-#end .btns .sharing-box {
+#ending .btns .sharing-box {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.85);
   width: 45%;
@@ -657,12 +657,12 @@ th {
   top: -53%;
   display: none;
 }
-#end .btns .sharing-box .share {
+#ending .btns .sharing-box .share {
   width: 9%;
   display: inline-block;
   margin: 0 2%;
 }
-#end .btns .sharing-box .close {
+#ending .btns .sharing-box .close {
   position: absolute;
   right: 3%;
   top: 9%;
