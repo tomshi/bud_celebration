@@ -42,7 +42,12 @@ class UserController extends Controller
 		$name = $_POST["name"];
 		$purpose = $_POST["purpose"];
 		$date = $_POST["date"];
-		$image = $_POST["image"];
+		
+		$image= ""; 
+		if (isset($_POST['image']))
+		{
+			$image = $_POST["image"];
+		}
 
 		$ip = $this -> get_client_ip();
 

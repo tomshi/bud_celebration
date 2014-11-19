@@ -19,10 +19,15 @@ class TrackingController extends Controller
 	{
 		$source = $_POST["source"];
 		$channel = $_POST["channel"];
-		$user_id = $_POST["user_id"];
+		$user_id = "";
 		$is_start = 1;
 
 		$ip = $this -> get_client_ip();
+		
+		if (isset($_POST['user_id']))
+		{
+			$user_id = $_POST["user_id"];
+		}
 
 		if (isset($_POST['is_start']))
 		{
