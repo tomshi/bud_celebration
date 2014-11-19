@@ -366,10 +366,42 @@ th {
   width: 60%;
   float: right;
 }
-#bottle {
-  text-align: center;
-  background: #222222 url('../img/bottle-desk-bg.jpg') left bottom;
+#bottle .box3d {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  -webkit-perspective-origin: 3% 90%;
+          perspective-origin: 3% 90%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+#bottle .bg {
+  width: 100%;
+  height: inherit;
+  background: #222222 url('../img/bottle-desk-bg.jpg') center bottom;
   background-size: cover;
+}
+#bottle .darkness {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0;
+}
+#bottle .background,
+#bottle .foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 #bottle .desk {
   width: 100%;
@@ -379,78 +411,96 @@ th {
   background: url('../img/bottle-desk.jpg') left bottom;
   background-size: cover;
 }
+#bottle .shadow {
+  width: 13.96874997%;
+  height: 30%;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 20px 0px rgba(50, 50, 50, 0.8);
+  left: 17.8125%;
+  top: 17%;
+  position: absolute;
+}
+#bottle .bottle-shade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: url('../img/bottle.png') right bottom no-repeat;
+  background-size: cover;
+}
 #bottle .bottle {
-  width: 32.59374993%;
-  height: 194.05555554%;
-  margin-left: -16.29687496%;
-  left: 50%;
+  width: 13.96874997%;
+  height: 83.16666666%;
+  left: 17.8125%;
+  bottom: 8.16666669%;
   background: url('../img/bottle.png') center bottom no-repeat;
   background-size: cover;
   display: inline-block;
   position: absolute;
   text-align: center;
-  bottom: 100%;
+  -webkit-transform: translateY(-120%);
+      -ms-transform: translateY(-120%);
+          transform: translateY(-120%);
   z-index: 1;
+  -webkit-transition: all 500ms;
+          transition: all 500ms;
+}
+#bottle .bottle.fall {
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 #bottle .bottle .label {
   display: none;
   position: absolute;
-  bottom: 20.07%;
+  bottom: 19%;
   width: 100%;
-}
-#bottle .bottle .shade {
-  display: none;
-  position: absolute;
-  height: 4.8096192%;
-  bottom: 20.07%;
-  right: 0;
-  width: 100%;
-  background: url(../img/bottle-label.png) right;
-  background-size: cover;
-  z-index: 1;
 }
 #bottle .bottle .ugc-name {
   white-space: nowrap;
   color: #fff;
-  font-size: 3.6rem;
-  line-height: 3.6rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
   display: inline-block;
 }
 #bottle .bottle .ugc-name span {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 #bottle .printer {
-  width: 63.43749993%;
-  height: 40.63888899%;
+  width: 49.40624997%;
+  height: 50.24999997%;
   position: absolute;
   top: 100%;
   left: 100%;
-  background: url('../img/printer.png');
+  background: url('../img/engrave.png');
   background-size: cover;
-  z-index: 3;
+  z-index: 5;
 }
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
   #bottle .bottle .ugc-name {
-    font-size: 2.34rem;
-    line-height: 2.34rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   #bottle .bottle .ugc-name {
-    font-size: 1.8rem;
-    line-height: 1.8rem;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
   }
 }
 @media screen and (min-width: 581px) and (max-width: 768px) {
   #bottle .bottle .ugc-name {
-    font-size: 1.17rem;
-    line-height: 1.17rem;
+    font-size: 0.5rem;
+    line-height: 0.5rem;
   }
 }
 @media screen and (max-width: 580px) {
   #bottle .bottle .ugc-name {
-    font-size: 0.81rem;
-    line-height: 0.81rem;
+    font-size: 0.3rem;
+    line-height: 0.3rem;
   }
 }
 #form {
@@ -742,14 +792,6 @@ body {
 #stage {
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
-  -webkit-perspective-origin: 50% 50%;
-          perspective-origin: 50% 50%;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
 }
 #stage .frame {
   width: 100%;
