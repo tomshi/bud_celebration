@@ -16,6 +16,12 @@ var isMobile = {
     }
 };
 
+function getAndroidVersion(ua) {
+	var ua = ua || navigator.userAgent;
+	var match = ua.match(/Android\s([0-9\.]*)/);
+	return match ? match[1] : false;
+}
+
 function orient() {
     if (window.orientation == 180 || window.orientation == 0) {
         $(".landscape-overlay").fadeIn();

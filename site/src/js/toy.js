@@ -31,9 +31,11 @@ $(function () {
 
 			handup(function () {
 
-				$3dbox.css({
-					"perspective-origin": "30% 50%"
-				}, 0);
+				if (!isMobile.Android()) {
+					$3dbox.css({
+						"perspective-origin": "26% 50%"
+					}, 0);
+				}
 
 				handdown();
 
@@ -53,16 +55,18 @@ $(function () {
 					handup(function () {
 						handdown();
 
-						$3dbox.css({
-							"perspective-origin": "50% 50%"
-						}, 0);
+						if (!isMobile.Android()) {
+							$3dbox.css({
+								"perspective-origin": "50% 50%"
+							}, 0);
+						}
 
 						$('.model1', $frame1).velocity({
-							"translateZ": "120px"
+							"translateZ": "90px"
 						}, 500, "linear");
 
 						$('.model2', $frame1).velocity({
-							"translateZ": "100px"
+							"translateZ": "90px"
 						}, 1000, "linear");
 
 						$bg_frame1.velocity({
