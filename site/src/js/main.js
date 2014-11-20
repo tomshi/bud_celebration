@@ -63,33 +63,46 @@ window.addEventListener('resize', function() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== "") {
+    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
     }
 }
 
-function getUrlParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
 $(function() {
+    $("#buy").bind('click', function(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.indexOf("micromessenger") > 0){
+            $(".buy-tip-overlay").fadeIn();
+        }else {
+            window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
+        }
+    });
+    $("#share").bind('click', function(){
+        $(".sharing-box").fadeIn();
+    });
+    $(".close").bind('click', function(){
+        $(".sharing-box").fadeOut();
+    });
+    $("#replay").bind('click', function(){
+        //
+    });
+    $("#redo").bind('click', function(){
+        //
+    });
+
+
     $(".input input").bind("focus", function() {
         var $this = $(this);
         var inputName = $this.attr("name");
         if (inputName == "occasion") {
             $("#type-list").slideDown();
-        } else if (inputName == "time") {
-            $this.attr("placeholder", "日日/月月");
-        } else {}
+        }
         $this.parent().addClass("focus");
     }).bind("blur", function() {
         $(this).parent().removeClass("focus");
-        $("#time").attr("placeholder", "在哪一天");
+        //$("#time").attr("placeholder", "在哪一天");
         $("#type-list").slideUp();
     }).bind("change", function() {
         activeSubmitButton();
@@ -120,7 +133,7 @@ $(function() {
                 data: {
                     name: $("#username").val(),
                     purpose: $("#occasion").val(),
-                    date: $("#time").val(),
+                    date: $("#time-d").val() + "/" + $("#time-m").val(),
                     image: $("#avatarInput").val()
                 }
             }).done(function(data) {

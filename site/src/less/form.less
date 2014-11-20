@@ -52,6 +52,7 @@
       height: 8%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 9;
+      border-bottom: solid 2px #dfb234;
       &.focus {
         border-bottom: solid 4px #dfb234;
       }
@@ -81,6 +82,14 @@
       }
       &.time {
         left: 62%;
+        overflow: hidden;
+        background-image: url(../img/form-input-bg.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 4%;
+        input {
+          width: 50%; float: left
+        }
       }
     }
     .submit {
@@ -113,7 +122,6 @@
       color: #fff;
       font-size: 16px;
       letter-spacing: 2px;
-      border-bottom: solid 2px #dfb234;
       &::-webkit-input-placeholder {
         color: #777;
       }
@@ -131,9 +139,15 @@
 }
 
 
-.avatar-form {
-  display: inline-block;
+#avatar-modal {
   width: 50%;
+  display: inline-block;
+}
+.avatar-wrapper {
+  margin-bottom: 5%;
+}
+.avatar-save {
+  margin-left: 5%;
 }
 
 

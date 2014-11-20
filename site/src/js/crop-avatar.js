@@ -20,14 +20,14 @@
     this.$avatarModal = $("#avatar-modal");
     this.$loading = $(".loading");
 
-    this.$avatarForm = this.$avatarModal.find(".avatar-form");
+    this.$avatarForm = $(".avatar-form");
     this.$avatarUpload = $(".avatar-upload");
     this.$avatarSrc = this.$avatarUpload.find(".avatar-src");
     this.$avatarData = this.$avatarUpload.find(".avatar-data");
     this.$avatarInput = this.$avatarUpload.find(".avatar-input");
-    this.$avatarSave = this.$avatarForm.find(".avatar-save");
 
     this.$avatarWrapper = this.$avatarModal.find(".avatar-wrapper");
+    this.$avatarSave = this.$avatarModal.find(".avatar-save");
 
     this.init();
     console.log(this);
@@ -214,7 +214,6 @@
       var url = this.$avatarForm.attr("action"),
           data = new FormData(this.$avatarForm[0]),
           _this = this;
-
       $.ajax(url, {
         type: "post",
         data: data,
