@@ -34,7 +34,7 @@
                         <input type="text" id="username" name="username" placeholder="为谁欢庆" value=""/>
                     </div>
                     <div class="input type">
-                        <input type="text" id="type" name="type" placeholder="庆祝什么" value=""/>
+                        <input type="text" id="occasion" name="occasion" placeholder="庆祝什么" value=""/>
                         <ul class="type-list" id="type-list">
                             <li>生曰快乐</li>
                             <li>新年快乐</li>
@@ -81,65 +81,36 @@
 
     <script type="text/javascript">
         function activeSubmitButton(){
-            if($("#username").val() !== "" && $("#type").val() !== "" && $("#time").val() !== ""){
+            if($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== ""){
                 $("#submit").addClass("active");
             }else {
                 $("#submit").removeClass("active");
             }
         }
-        $(".input input").bind("focus", function(){
-            var $this = $(this);
-            var inputName = $this.attr("name");
-            if (inputName == "type"){
-                $("#type-list").slideDown();
-            }else if (inputName == "time") {
-                $this.attr("placeholder", "日日/月月");
-            }else {}
-            $this.parent().addClass("focus");
-        }).bind("blur", function(){
-            $(this).parent().removeClass("focus");
-            $("#time").attr("placeholder", "在哪一天");
-            $("#type-list").slideUp();
-        }).bind("change", function(){
-            activeSubmitButton();
-        }).bind("keyup", function(){
-            activeSubmitButton();
-        });
-
-        $("#type-list li").bind("click", function(){
-            var val = $(this).text();
-            $("#type").val(val);
-            $("#type-list").slideUp();
-        });
-
-
-        var holder = $("#uploadImgHolder");
-        function initCropImg(src){
-            holder.attr("src", src);
-            $(".overlay").show();
-            $(".crop > img").cropper({
-                aspectRatio: 1.777,
-                width: 500,
-                done: function(data) {
-                    // Crop image with the result data.
-                    console.log(data.x);
-                    console.log(data.y);
-                    console.log(data.height);
-                    console.log(data.width);
-                }
-            });
-        }
         $(function(){
-            $("#fileupload_input").fileupload({
-                url:"api/upload.json",//文件上传地址，当然也可以直接写在input的data-url属性内
-                formData:{param1:"p1",param2:"p2"},//如果需要额外添加参数可以在这里添加
-                done:function(e,result){
-                    //done方法就是上传完毕的回调函数，其他回调函数可以自行查看api
-                    //注意result要和jquery的ajax的data参数区分，这个对象包含了整个请求信息
-                    //返回的数据在result.result中，假设我们服务器返回了一个json对象
-                    console.log(JSON.stringify(result.result));
-                    initCropImg();
-                }
+            $(".input input").bind("focus", function(){
+                var $this = $(this);
+                var inputName = $this.attr("name");
+                if (inputName == "occasion"){
+                    $("#type-list").slideDown();
+                }else if (inputName == "time") {
+                    $this.attr("placeholder", "日日/月月");
+                }else {}
+                $this.parent().addClass("focus");
+            }).bind("blur", function(){
+                $(this).parent().removeClass("focus");
+                $("#time").attr("placeholder", "在哪一天");
+                $("#type-list").slideUp();
+            }).bind("change", function(){
+                activeSubmitButton();
+            }).bind("keyup", function(){
+                activeSubmitButton();
+            });
+
+            $("#type-list li").bind("click", function(){
+                var val = $(this).text();
+                $("#occasion").val(val);
+                $("#type-list").slideUp();
             });
         });
     </script>

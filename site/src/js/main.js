@@ -46,6 +46,10 @@ function screenSize(){
     });
 }
 
+function wxsharing(){
+    _WXShare('http://toast-365days.com/img/share.jpg',100,100,'百威','百威啤酒','','微信APPID(一般不用填)');
+}
+
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
 
 window.addEventListener('resize',function(){
@@ -56,6 +60,7 @@ window.addEventListener('resize',function(){
 $(function(){
     function init(){
         screenSize();
+        wxsharing();
     }
     init();
 });

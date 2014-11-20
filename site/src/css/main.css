@@ -850,7 +850,6 @@ th {
 html,
 body {
   height: 100%;
-  overflow: hidden;
   font-family: "Budweiser-TradeGothicLTStd", SimHei, Helvetica, Arial, "Hiragino Sans GB", "华文细黑", "STHeiti", "微软雅黑", "Microsoft YaHei", sans-serif;
   background-color: #000;
 }
@@ -908,4 +907,48 @@ body {
   left: 50%;
   top: 50%;
   margin: -200px 0 0 -300px;
+}
+#tc {
+  background: url(../img/ct-bg.jpg) no-repeat;
+  background-size: contain;
+  color: #cccccc;
+  font-size: 14px;
+  font-family: "Microsoft YaHei", simhei;
+  line-height: 26px;
+  padding: 100px 0;
+  margin: 0 10%;
+  text-align: justify;
+  position: relative;
+}
+#tc .logo {
+  position: absolute;
+  left: -5%;
+  top: 20px;
+  width: 20%;
+}
+#tc h1 {
+  color: #dfb134;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 5px;
+}
+#tc h4 {
+  color: #dfb134;
+  margin: 50px 0 10px;
+  font-size: 16px;
+}
+@media screen and (max-width: 580px) {
+  #tc {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  #tc .logo {
+    width: 30%;
+  }
+  #tc h1 {
+    font-size: 18px;
+  }
+  #tc h4 {
+    font-size: 14px;
+  }
 }

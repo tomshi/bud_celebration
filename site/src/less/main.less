@@ -10,7 +10,6 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
   font-family: @font-family-sans-serif;
   background-color: #000;
 }
@@ -77,5 +76,53 @@ html, body {
     left: 50%;
     top: 50%;
     margin: -200px 0 0 -300px;
+  }
+}
+
+
+
+#tc {
+  background: url(../img/ct-bg.jpg) no-repeat;
+  background-size: contain;
+  color: #cccccc;
+  font-size: 14px;
+  font-family: "Microsoft YaHei", simhei;
+  line-height: 26px;
+  padding: 100px 0;
+  margin: 0 10%;
+  text-align: justify;
+  position: relative;
+  .logo {
+    position: absolute;
+    left: -5%;
+    top: 20px;
+    width: 20%;
+  }
+  h1 {
+    color: #dfb134;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 5px;
+  }
+  h4 {
+    color: #dfb134;
+    margin: 50px 0 10px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #tc {
+    font-size: 12px;
+    line-height: 18px;
+    .logo {
+      width: 30%;
+    }
+    h1 {
+      font-size: 18px;
+    }
+    h4 {
+      font-size: 14px;
+    }
   }
 }
