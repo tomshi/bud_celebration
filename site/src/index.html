@@ -103,9 +103,11 @@
                 <a href="##" class="submit" id="submit" ga_category="index" ga_action="create" baidu_category="index" baidu_action="create" nl_key="index,create"></a>
                 <div class="upload" id="crop-avatar">
                     <div class="avatar-upload">
-                        <input class="avatar-src" name="avatar_src" type="hidden">
-                        <input class="avatar-data" name="avatar_data" type="hidden">
-                        <input class="avatar-input file" id="avatarInput" name="avatar_file" type="file" ga_category="index" ga_action="img_upload" baidu_category="index" baidu_action="img_upload" nl_key="index,img_upload">
+                        <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
+                            <input class="avatar-src" name="avatar_src" type="hidden">
+                            <input class="avatar-data" name="avatar_data" type="hidden">
+                            <input class="avatar-input file" id="avatarInput" name="avatar_file" type="file" ga_category="index" ga_action="img_upload" baidu_category="index" baidu_action="img_upload" nl_key="index,img_upload">
+                        </form>
                         <div class="text">+ 上传一张照片，获得更专属的体验</div>
                     </div>
                     <div class="upload-failed" style="display: none">
@@ -204,12 +206,12 @@
 
 <div class="overlay avatar-crop-overlay">
     <div class="table">
-        <div id="avatar-modal" class="table-cell">
-            <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
+        <div class="table-cell">
+            <div id="avatar-modal">
                 <div class="avatar-wrapper"></div>
                 <a href="##" class="close-overlay">取消</a>
                 <a href="##" class="avatar-save">保存</a>
-            </form>
+            </div>
         </div>
     </div>
 </div>
