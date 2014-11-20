@@ -18,10 +18,10 @@ var isMobile = {
 
 function orient(){
     if(window.orientation == 180 || window.orientation == 0){
-        //$(".portrait-overlay").show();
+        $(".landscape-overlay").fadeIn();
     }
     if(window.orientation == 90 || window.orientation == -90){
-        //$(".portrait-overlay").hide();
+        $(".landscape-overlay").fadeOut();
     }
 }
 

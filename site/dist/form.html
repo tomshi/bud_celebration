@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name=viewport content="initial-scale=1,maximum-scale=1,width=device-width,user-scalable=yes,minimal-ui"> <title>百威庆祝</title> <link rel=stylesheet href=css/main.css> <script src=js/vendor.js></script> <meta name=renderer content=webkit> <meta name=google value=notranslate>  <body> <div id=wrapper> <section id=stage> <div class=frame id=form style="display: block"> <div class=header> <div class=text1><img src=img/form-text1.png class=responsive alt=""></div> <div class=headline><img src=img/form-headline.png class=responsive alt=""></div> <div class=text2><img src=img/form-text2.png class=responsive alt=""></div> </div> <div class=form> <div class="input name"> <input id=username name=username placeholder=为谁欢庆> </div> <div class="input type"> <input id=occasion name=occasion placeholder=庆祝什么> <ul class=type-list id=type-list> <li>生曰快乐</li> <li>新年快乐</li> </ul> </div> <div class="input time"> <input id=time name=time placeholder=在哪一天> </div> <a href=## class=submit id=submit></a> <div class=upload id=crop-avatar> <div class=avatar-upload> <input class=avatar-src name=avatar_src type=hidden> <input class=avatar-data name=avatar_data type=hidden> <input class=avatar-input id=avatarInput name=avatar_file type=file> <!--<input type="file" class="file" name="files" id="fileupload_input" />--> <div class=text>+ 上传一张照片，获得更专属的体验</div> </div> <div class=upload-after style="display: none"> <div>上传成功<a class=text style="margin-left: 10%" href=javascript:void(0)>更改照片</a></div> <div class=avatar-view title="Change the avatar"> <img src=img/picture.jpg width=20% alt=Avatar> </div> </div> </div> </div> </div> </section> <div id=hand><img src=img/hand.png></div> </div> <section class=overlay> <!-- Loading state --> <div class=loading aria-label=Loading role=img tabindex=-1></div> <!-- Cropping modal --> <div id=avatar-modal> <form class=avatar-form action=api/crop/crop-avatar.php enctype=multipart/form-data method=post> <div class=avatar-wrapper></div> <button class="btn btn-default" data-dismiss=modal type=button>Close</button> <button class="btn btn-primary avatar-save" type=submit>Save</button> </form> </div> <!-- /.modal --> </section> <script src=js/plugins.js></script> <script src=js/main.js></script> <script type=text/javascript>function activeSubmitButton(){
+<!DOCTYPE html> <html> <head> <meta charset=UTF-8> <meta name=viewport content="initial-scale=1,maximum-scale=1,width=device-width,user-scalable=yes,minimal-ui"> <title>百威庆祝</title> <link rel=stylesheet href=css/main.css> <script src=js/vendor.js></script> <meta name=renderer content=webkit> <meta name=google value=notranslate>  <body> <div id=wrapper> <section id=stage> <div class=frame id=form style="display: block"> <div class=header> <div class=text1><img src=img/form-text1.png class=responsive alt=""></div> <div class=headline><img src=img/form-headline.png class=responsive alt=""></div> <div class=text2><img src=img/form-text2.png class=responsive alt=""></div> </div> <div class=form> <div class="input name"> <input id=username name=username placeholder=为谁欢庆> </div> <div class="input type"> <input id=occasion name=occasion placeholder=庆祝什么> <ul class=type-list id=type-list> <li>生曰快乐</li> <li>新年快乐</li> </ul> </div> <div class="input time"> <input id=time name=time placeholder=在哪一天> </div> <a href=## class=submit id=submit></a> <div class=upload id=crop-avatar> <div class=avatar-upload> <input class=avatar-src name=avatar_src type=hidden> <input class=avatar-data name=avatar_data type=hidden> <input class="avatar-input file" id=avatarInput name=avatar_file type=file> <div class=text>+ 上传一张照片，获得更专属的体验</div> </div> <div class=upload-failed style="display: none"> <div class=text>上传失败</div> </div> <div class=upload-succeed style="display: none"> <div class=text>上传成功<a style="margin-left: 10%" href=javascript:void(0)>更改照片</a></div> <div class=avatar-view title="Change the avatar"> <img src=img/picture.jpg width=20% alt=Avatar> </div> </div> </div> </div> </div> </section> <div id=hand><img src=img/hand.png></div> </div> <div class=overlay> <div class=table> <div id=avatar-modal class=table-cell> <form class=avatar-form action=api/crop/crop-avatar.php enctype=multipart/form-data method=post> <div class=avatar-wrapper></div> <a href=## class=close-overlay>取消</a> <a href=## class=avatar-save>保存</a> </form> </div> </div> </div> <div class=loading aria-label=Loading role=img tabindex=-1></div> <script src=js/plugins.js></script> <script src=js/main.js></script> <script type=text/javascript>function activeSubmitButton(){
             if($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== ""){
                 $("#submit").addClass("active");
             }else {
@@ -29,5 +29,37 @@
                 var val = $(this).text();
                 $("#occasion").val(val);
                 $("#type-list").slideUp();
+            });
+
+            $(".close-overlay").bind("click", function(){
+                $(".overlay").fadeOut();
+            });
+
+            $(".avatar-save").bind("click", function(){
+                $(".avatar-form").submit();
+            });
+
+            $("#submit").bind("click", function(){
+                if ($("#submit").hasClass("active")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "api/user/save.json",
+                        dataType: "json",
+                        data: {
+                            username: $("#username").val(),
+                            purpose: $("#occasion").val(),
+                            date: $("#time").val(),
+                            image: $("#avatarInput").val()
+                        },
+                        success: function(data) {
+                            //
+                        }
+                    }).done(function( msg ) {
+                        alert( "Data Saved: " + msg );
+                        if (data == 0){
+                            //
+                        }
+                    });
+                }
             });
         });</script>  

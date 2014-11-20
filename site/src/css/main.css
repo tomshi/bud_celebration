@@ -1,3 +1,4 @@
+@import "../bower_components/cropper/dist/cropper.min.css";
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -576,7 +577,6 @@ th {
   height: 20px;
   line-height: 20px;
   color: #dfb134;
-  text-decoration: none;
 }
 #form .form .input {
   position: absolute;
@@ -659,6 +659,10 @@ th {
 }
 #form .form input:-ms-input-placeholder {
   color: #777;
+}
+.avatar-form {
+  display: inline-block;
+  width: 50%;
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   #form .form input {
@@ -854,6 +858,10 @@ body {
   font-size: 14px;
   overflow: hidden;
 }
+a {
+  text-decoration: none;
+  color: #dfb134;
+}
 #wrapper {
   position: relative;
   overflow: hidden;
@@ -890,6 +898,7 @@ body {
 .table .table-cell {
   display: table-cell;
   vertical-align: middle;
+  text-align: center;
 }
 .overlay {
   position: fixed;
@@ -899,6 +908,8 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  z-index: 9999;
+  overflow: scroll;
 }
 .overlay .crop {
   width: 600px;
@@ -908,6 +919,17 @@ body {
   left: 50%;
   top: 50%;
   margin: -200px 0 0 -300px;
+}
+.loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../img/loading.gif") no-repeat center #ffffff;
+  opacity: .7;
+  z-index: 20140628;
 }
 #tc {
   background: url(../img/ct-bg.jpg) no-repeat;
