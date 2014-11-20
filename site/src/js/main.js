@@ -63,7 +63,7 @@ window.addEventListener('resize', function() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== "") {
+    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
@@ -76,13 +76,11 @@ $(function() {
         var inputName = $this.attr("name");
         if (inputName == "occasion") {
             $("#type-list").slideDown();
-        } else if (inputName == "time") {
-            $this.attr("placeholder", "日日/月月");
-        } else {}
+        }
         $this.parent().addClass("focus");
     }).bind("blur", function() {
         $(this).parent().removeClass("focus");
-        $("#time").attr("placeholder", "在哪一天");
+        //$("#time").attr("placeholder", "在哪一天");
         $("#type-list").slideUp();
     }).bind("change", function() {
         activeSubmitButton();
@@ -113,7 +111,7 @@ $(function() {
                 data: {
                     name: $("#username").val(),
                     purpose: $("#occasion").val(),
-                    date: $("#time").val(),
+                    date: $("#time-d").val() + "/" + $("#time-m").val(),
                     image: $("#avatarInput").val()
                 }
             }).done(function(data) {
