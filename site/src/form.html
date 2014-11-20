@@ -8,6 +8,7 @@
     <!-- build:css css/main.css -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bower_components/cropper/dist/cropper.min.css">
+    <link rel="stylesheet" href="css/crop-avatar.css">
     <!-- endbuild -->
 
     <!-- build:js js/vendor.js -->
@@ -44,9 +45,20 @@
                         <input type="text" id="time" name="time" placeholder="在哪一天" value=""/>
                     </div>
                     <a href="##" class="submit" id="submit"></a>
-                    <div class="upload">
-                        <input type="file" class="file" name="files" id="fileupload_input" />
-                        <div class="text">+ 上传一张照片，获得更专属的体验</div>
+                    <div class="upload" id="crop-avatar">
+                        <div class="avatar-upload">
+                            <input class="avatar-src" name="avatar_src" type="hidden">
+                            <input class="avatar-data" name="avatar_data" type="hidden">
+                            <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                            <!--<input type="file" class="file" name="files" id="fileupload_input" />-->
+                            <div class="text">+ 上传一张照片，获得更专属的体验</div>
+                        </div>
+                        <div class="upload-after" style="display: none">
+                            <div>上传成功<a class="text" style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
+                            <div class="avatar-view" title="Change the avatar">
+                                <img src="img/picture.jpg" width="20%" alt="Avatar">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,27 +68,36 @@
     </div>
 
     <section class="overlay">
-        <div class="crop">
-            <img id="uploadImgHolder" src="" alt=""/>
+        <!-- Loading state -->
+        <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+
+        <!-- Cropping modal -->
+        <div id="avatar-modal">
+            <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
+                <div class="avatar-wrapper"></div>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                <button class="btn btn-primary avatar-save" type="submit">Save</button>
+            </form>
         </div>
+        <!-- /.modal -->
     </section>
 
     <!-- build:js js/plugins.js -->
     <script src="bower_components/velocity/velocity.min.js"></script>
     <script src="bower_components/letteringjs/jquery.lettering.js"></script>
     <script src="bower_components/cropper/dist/cropper.min.js"></script>
-
-
-    <script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-    <script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
-    <script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
     <!-- endbuild -->
 
     <!-- build:js js/main.js -->
     <script src="js/preload.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bottle.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/toy.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/sharing.js"></script>
+    <script src="js/wechatSharing.js"></script>
+    <script src="js/crop-avatar.js"></script>
     <!-- endbuild -->
 
     <script type="text/javascript">

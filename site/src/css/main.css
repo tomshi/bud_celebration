@@ -537,7 +537,6 @@ th {
 }
 #form .header {
   text-align: center;
-  color: #fff;
   padding-top: 15%;
 }
 #form .header img {
@@ -560,6 +559,7 @@ th {
   left: 18%;
   top: 74%;
   z-index: 8;
+  letter-spacing: 4px;
 }
 #form .form .upload .file {
   width: 100%;
@@ -575,9 +575,8 @@ th {
   width: 100%;
   height: 20px;
   line-height: 20px;
-  font-size: 14px;
-  letter-spacing: 4px;
   color: #dfb134;
+  text-decoration: none;
 }
 #form .form .input {
   position: absolute;
@@ -694,7 +693,6 @@ th {
 }
 #ending .header {
   text-align: center;
-  color: #fff;
   padding: 14% 0 7% 18%;
 }
 #ending .header img {
@@ -852,6 +850,9 @@ body {
   height: 100%;
   font-family: "Budweiser-TradeGothicLTStd", SimHei, Helvetica, Arial, "Hiragino Sans GB", "华文细黑", "STHeiti", "微软雅黑", "Microsoft YaHei", sans-serif;
   background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  overflow: hidden;
 }
 #wrapper {
   position: relative;
@@ -912,7 +913,6 @@ body {
   background: url(../img/ct-bg.jpg) no-repeat;
   background-size: contain;
   color: #cccccc;
-  font-size: 14px;
   font-family: "Microsoft YaHei", simhei;
   line-height: 26px;
   padding: 100px 0;
