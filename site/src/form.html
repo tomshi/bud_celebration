@@ -31,19 +31,19 @@
                 </div>
                 <div class="form">
                     <div class="input name">
-                        <input type="text" class="name" name="username" placeholder="为谁欢庆" value=""/>
+                        <input type="text" id="username" name="username" placeholder="为谁欢庆" value=""/>
                     </div>
                     <div class="input type">
-                        <input type="text" class="type" name="type" placeholder="庆祝什么" value=""/>
-                        <ul class="type-list">
+                        <input type="text" id="type" name="type" placeholder="庆祝什么" value=""/>
+                        <ul class="type-list" id="type-list">
                             <li>生曰快乐</li>
                             <li>新年快乐</li>
                         </ul>
                     </div>
                     <div class="input time">
-                        <input type="text" class="time" name="time" placeholder="在哪一天" value=""/>
+                        <input type="text" id="time" name="time" placeholder="在哪一天" value=""/>
                     </div>
-                    <a href="##" class="submit"></a>
+                    <a href="##" class="submit" id="submit"></a>
                     <div class="upload">
                         <input type="file" class="file" name="files" id="fileupload_input" />
                         <div class="text">+ 上传一张照片，获得更专属的体验</div>
@@ -80,29 +80,36 @@
     <!-- endbuild -->
 
     <script type="text/javascript">
+        function activeSubmitButton(){
+            if($("#username").val() !== "" && $("#type").val() !== "" && $("#time").val() !== ""){
+                $("#submit").addClass("active");
+            }else {
+                $("#submit").removeClass("active");
+            }
+        }
         $(".input input").bind("focus", function(){
             var $this = $(this);
-            var name = $this.attr("name");
-            if (name == "type"){
-                $(".type-list").slideDown();
-            }else if (name == "time") {
+            var inputName = $this.attr("name");
+            if (inputName == "type"){
+                $("#type-list").slideDown();
+            }else if (inputName == "time") {
                 $this.attr("placeholder", "日日/月月");
             }else {}
             $this.parent().addClass("focus");
         }).bind("blur", function(){
             $(this).parent().removeClass("focus");
-            $(".time").attr("placeholder", "在哪一天");
-            $(".type-list").slideUp();
+            $("#time").attr("placeholder", "在哪一天");
+            $("#type-list").slideUp();
         }).bind("change", function(){
-            console.log($(this).val());
+            activeSubmitButton();
         }).bind("keyup", function(){
-            console.log($(this).val());
+            activeSubmitButton();
         });
 
-        $(".type-list li").bind("click", function(){
+        $("#type-list li").bind("click", function(){
             var val = $(this).text();
-            $(".type").val(val);
-            $(".type-list").slideUp();
+            $("#type").val(val);
+            $("#type-list").slideUp();
         });
 
 

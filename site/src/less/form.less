@@ -95,6 +95,7 @@
       background-size: 40%;
       opacity: 0.3;
       cursor: default;
+      transition: all 0.2s ease-in-out;
       &.active {
         cursor: pointer;
         opacity: 1;
@@ -130,15 +131,44 @@
 }
 
 
-@media screen and (min-width: 581px) and (max-width: 768px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   #form {
-
+    .form {
+      input {
+        font-size: 16px;
+      }
+    }
+    .upload .text  {
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
   }
 }
 
-
-@media screen and (max-width: 580px) {
+@media screen and (min-width: 569px) and (max-width: 768px) {
   #form {
+    .form {
+      input {
+        font-size: 13px;
+      }
+      .upload .text  {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
 
+@media screen and (max-width: 568px) {
+  #form {
+    .form {
+      input {
+        font-size: 10px;
+      }
+      .upload .text  {
+        font-size: 8px;
+        letter-spacing: 2px;
+      }
+    }
   }
 }
