@@ -1,11 +1,21 @@
 #frame1 {
+
+  .box3d {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 100px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    transition: all 1s;
+  }
+
   .bg1 {
     background: #000 url('../img/frame1-bg.jpg') center center;
-
-    &.bg2 {
-      background: #000 url('../img/frame1-bg2.jpg') center center;
-      background-size: cover;
-    }
+    background-size: cover;
   }
 
   .model {
@@ -13,8 +23,8 @@
   }
 
   .model1 {
-    width: 48rem * 0.6;
-    height: 67.5625rem * 0.6;
+    width: 39.1145833%;
+    height: 81.3888889%;
     bottom: 0rem;
     left: 48%;
     background: url('../img/model1.png');
@@ -22,8 +32,8 @@
   }
 
   .model2 {
-    width: 25.875rem * 0.6;
-    height: 52.625rem * 0.6;
+    width: 18.4375%;
+    height: 75.926%;
     left: 25%;
     bottom: 0;
     background: url('../img/model2.png');
@@ -31,13 +41,11 @@
   }
 }
 
-
 @media screen and (min-width: 581px) and (max-width: 768px) {
   #frame1 {
 
   }
 }
-
 
 @media screen and (max-width: 580px) {
   #frame1 {

@@ -1,6 +1,7 @@
 $(function () {
 
 	var $frame1 = $('#frame1');
+	var $3dbox = $('.box3d', $frame1);
 	var $bg_frame1 = $('.bg1', $frame1);
 	var $model1 = $('.model1', $frame1);
 	var $model2 = $('.model2', $frame1);
@@ -9,14 +10,15 @@ $(function () {
 
 	var handup = function (cb) {
 		$hand.velocity({
-			translateY: "-90%"
+			translateX: "10%",
+			translateY: "-64%"
 		}, 1000, cb);
 	};
 
 	var handdown = function (cb) {
 		setTimeout(function () {
 			$hand.velocity({
-				translateY: "0%"
+				translateY: "-22%"
 			}, 1000, cb);
 		}, 300);
 	};
@@ -24,44 +26,51 @@ $(function () {
 
 	var animation_start = function () {
 		$bg_frame1.add($model1).add($model2).velocity({
-			"translateZ": "180px"
+			"translateZ": "18px"
 		}, 1500, function () {
 
 			handup(function () {
 
+				$3dbox.css({
+					"perspective-origin": "30% 50%"
+				}, 0);
+
 				handdown();
 
 				$model1.velocity({
-					"translateZ": "800px"
+					"translateX": "70%",
+					"translateZ": "70px"
 				}, 1700);
 
 				$model2.velocity({
-					"translateZ": "390px"
+					"translateZ": "39px"
 				}, 1500);
 
+
 				$bg_frame1.velocity({
-					"translateZ": "300px"
+					"translateZ": "10px"
 				}, 1600, function () {
 					handup(function () {
 						handdown();
 
+						$3dbox.css({
+							"perspective-origin": "50% 50%"
+						}, 0);
+
 						$('.model1', $frame1).velocity({
-							"translateZ": "1200px"
+							"translateZ": "120px"
 						}, 500, "linear");
 
 						$('.model2', $frame1).velocity({
-							"translateZ": "1000px"
+							"translateZ": "100px"
 						}, 1000, "linear");
 
 						$bg_frame1.velocity({
-							"translateZ": "499px"
-						},400, "linear", function () {
+							"translateZ": "76px"
+						}, 1500, "linear", function () {
 
-							$bg_frame1.addClass('bg2').css({
-								transform: 'translateZ(0px)'
-							}).removeData().velocity({
-								"translateZ": "800px"
-							}, 700, "easeOutSine");
+							$('#frame2').trigger('start');
+
 						});
 					});
 				});

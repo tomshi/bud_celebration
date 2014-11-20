@@ -11,7 +11,10 @@ $(function () {
 		'img/hand4.png',
 		'img/hands-bg.jpg',
 		'img/dust-toast.png',
-		'img/bright.png'
+		'img/bright.png',
+		'img/model1.png',
+		'img/model2.png',
+		'img/frame1-bg.jpg'
 	];
 
 	// Setting first animation here
