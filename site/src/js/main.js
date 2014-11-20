@@ -70,13 +70,6 @@ function activeSubmitButton() {
     }
 }
 
-function getUrlParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
 $(function() {
     $("#buy").bind('click', function(){
         var ua = window.navigator.userAgent.toLowerCase();
