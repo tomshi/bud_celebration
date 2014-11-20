@@ -57,10 +57,78 @@ window.addEventListener('resize',function(){
 });
 
 
+function activeSubmitButton(){
+    if($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== ""){
+        $("#submit").addClass("active");
+    }else {
+        $("#submit").removeClass("active");
+    }
+}
+
+$(function(){
+    $(".input input").bind("focus", function(){
+        var $this = $(this);
+        var inputName = $this.attr("name");
+        if (inputName == "occasion"){
+            $("#type-list").slideDown();
+        }else if (inputName == "time") {
+            $this.attr("placeholder", "日日/月月");
+        }else {}
+        $this.parent().addClass("focus");
+    }).bind("blur", function(){
+        $(this).parent().removeClass("focus");
+        $("#time").attr("placeholder", "在哪一天");
+        $("#type-list").slideUp();
+    }).bind("change", function(){
+        activeSubmitButton();
+    }).bind("keyup", function(){
+        activeSubmitButton();
+    });
+
+    $("#type-list li").bind("click", function(){
+        var val = $(this).text();
+        $("#occasion").val(val);
+        $("#type-list").slideUp();
+    });
+
+    $(".close-overlay").bind("click", function(){
+        $(".overlay").fadeOut();
+    });
+
+    $(".avatar-save").bind("click", function(){
+        $(".avatar-form").submit();
+    });
+
+    $("#submit").bind("click", function(){
+        if ($("#submit").hasClass("active")) {
+            $.ajax({
+                type: "POST",
+                url: "api/user/save.json",
+                dataType: "json",
+                data: {
+                    username: $("#username").val(),
+                    purpose: $("#occasion").val(),
+                    date: $("#time").val(),
+                    image: $("#avatarInput").val()
+                },
+                success: function(data) {
+                    //
+                }
+            }).done(function( msg ) {
+                alert( "Data Saved: " + msg );
+                if (data == 0){
+                    //
+                }
+            });
+        }
+    });
+});
+
 $(function(){
     function init(){
         screenSize();
         wxsharing();
+        orient();
     }
     init();
 });
