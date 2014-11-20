@@ -362,9 +362,10 @@ th {
   position: absolute;
   right: 0px;
   display: inline-block;
+  z-index: 10;
 }
 #hand img {
-  width: 60%;
+  width: 59.53125%;
   float: right;
 }
 #bottle .box3d {
@@ -771,75 +772,67 @@ th {
   background: url('../img/model2.png');
   background-size: cover;
 }
-#hands {
+#toast .bg {
   background: #222222 url('../img/hands-bg.jpg') left bottom;
   background-size: cover;
 }
-#hands .hand {
+#toast .dust {
+  position: absolute;
+  width: 55.3645%;
+  height: 39.444%;
+  background: url('../img/dust-toast.png') center bottom no-repeat;
+  top: -39.444%;
+  left: 20%;
+}
+#toast .dust2 {
+  top: -15%;
+  left: 30%;
+}
+#toast .hand {
   position: absolute;
   background-size: cover;
 }
-#hands .hand1 {
-  z-index: 1;
+#toast .hand1 {
+  z-index: 2;
   background: url('../img/hand1.png') right top no-repeat;
   position: absolute;
   background-size: cover;
-  width: 42.3958333%;
-  height: 48.5792851%;
-  top: 29.3308891%;
-  left: -42.3958333%;
+  width: 49.6354167%;
+  height: 56.9444444%;
+  bottom: -56.9444444%;
+  left: -49.6354167%;
 }
-#hands .hand2 {
+#toast .hand2 {
   background: url('../img/hand2.png') right top no-repeat;
   position: absolute;
   background-size: cover;
-  width: 46.9791667%;
-  height: 67.827681%;
-  bottom: -67.827681%;
-  left: -46.9791667%;
-  z-index: 2;
+  width: 49.3229167%;
+  height: 68.4259259%;
+  bottom: -68.4259259%;
+  left: -49.3229167%;
+  z-index: 1;
 }
-#hands .hand3 {
+#toast .hand3 {
   background: url('../img/hand3.png') right top no-repeat;
   position: absolute;
   background-size: cover;
-  width: 49.84375%;
-  height: 76.5352887%;
-  bottom: -76.5352887%;
-  right: -49.84375%;
+  width: 45.8854167%;
+  height: 77.2222222%;
+  bottom: -77.2222222%;
+  right: -45.8854167%;
   z-index: 4;
 }
-#hands .hand4 {
+#toast .hand4 {
   background: url('../img/hand4.png') right top no-repeat;
   position: absolute;
   background-size: cover;
-  width: 49.84375%;
-  height: 72.1356554%;
-  bottom: -72.1356554%;
-  right: -50.15625%;
+  width: 49.21875%;
+  height: 63.5185185%;
+  top: 50%;
+  right: -49.21875%;
   z-index: 3;
 }
-#hands .hand5 {
-  background: url('../img/hand5.png') right top no-repeat;
-  position: absolute;
-  background-size: cover;
-  width: 45%;
-  height: 59.7616865%;
-  bottom: -30.7057745%;
-  right: -45%;
-  z-index: 2;
-}
-#hands .hand6 {
-  background: url('../img/hand6.png') right top no-repeat;
-  position: absolute;
-  background-size: cover;
-  width: 40.9375%;
-  height: 48.9459212%;
-  top: 32.9055912%;
-  right: -40.9375%;
-  z-index: 1;
-}
-#hands .bright {
+#toast .bright {
   z-index: 10;
   position: absolute;
   top: 0;
@@ -875,7 +868,7 @@ a {
 #stage .frame {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
   display: none;
 }
 #stage .frame .bg {
