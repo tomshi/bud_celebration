@@ -1,3 +1,28 @@
+// Backend Tracking
+function SaveTrackingLog(source, channel, user_id, is_start){
+
+    $.ajax({
+        type: "POST",
+        url: "api/tracking/save",
+        dataType: "json",
+        data: {
+            source: source,
+            channel: channel,
+            user_id: user_id,
+            is_start: is_start
+        }
+    }).done(function(data) {
+        console.log( "save tracking log" );
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        $.ajax({
+            url: "api/json/tracking_save.json",
+            cache: false
+        }).done(function(json) {
+            console.log("tracking save JSON: " + json);
+        });
+    });
+}
+
 // GA
 function addGATracking() {
     $(document).on("click", "[ga_category][ga_action]", function() {
