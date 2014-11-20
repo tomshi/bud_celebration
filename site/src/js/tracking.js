@@ -1,3 +1,9 @@
+$(function() {
+    addGATracking();
+    addNielsenTracking();
+    addBaiduTracking();
+});
+
 // Backend Tracking
 function SaveTrackingLog(source, channel, user_id, is_start){
 
@@ -42,6 +48,14 @@ function requestGATracking(category, action, label, value) {
 }
 
 // Nielsen
+function addNielsenTracking() {
+    $(document).on("click", "[nl_key]", function() {
+        var key = $(this).attr("nl_key");
+
+        requestNielsenTracking(key);
+    });
+}
+
 function flood(src) {
     if(src){
         var spotpix = new Image();
@@ -76,16 +90,16 @@ var nielsenCodes={
 
 // Baidu
 function addBaiduTracking() {
-    $(document).on("click", "[baidu_category][baidu_label]", function() {
+    $(document).on("click", "[baidu_category][baidu_action]", function() {
         var category = $(this).attr("baidu_category");
-        var label = $(this).attr("baidu_label");
-        requestBaiduTracking(category, label);
+        var action = $(this).attr("baidu_action");
+        requestBaiduTracking(category, action);
     });
 }
 
-function requestBaiduTracking(category, label) {
-    if(category !== undefined && category !== "" && label !== undefined && label !== ""){
-        _hmt.push(['_trackEvent', category, 'click', label]);
+function requestBaiduTracking(category, action) {
+    if(category !== undefined && category !== "" && action !== undefined && action !== ""){
+        _hmt.push(['_trackEvent', category, action]);
     }
 }
 
