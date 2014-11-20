@@ -15,7 +15,7 @@ $(function () {
 	];
 
 	// Setting first animation here
-	var $FIRST_FRAME = $('#toast');
+	var $FIRST_FRAME = $('#frame1');
 
 	var imagesCount = imageNames.length;
 	var loadedImagesCount = 0;
