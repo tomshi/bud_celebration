@@ -248,7 +248,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('serve', function (target) {
 		grunt.task.run([
-			'clean:dist',
 			'less',
 			'autoprefixer',
 			'connect:livereload',

@@ -43,12 +43,13 @@
                 if ($("#submit").hasClass("active")) {
                     $.ajax({
                         type: "POST",
-                        url: "some.php",
-                        dataType: "josn",
+                        url: "api/user/save.json",
+                        dataType: "json",
                         data: {
                             username: $("#username").val(),
-                            occasion: $("#occasion").val(),
-                            time: $("#time").val()
+                            purpose: $("#occasion").val(),
+                            date: $("#time").val(),
+                            image: $("#avatarInput").val()
                         },
                         success: function(data) {
                             //
