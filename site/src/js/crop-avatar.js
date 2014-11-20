@@ -118,7 +118,7 @@
     },
 
     change: function () {
-        $(".overlay").fadeIn();
+      $(".avatar-crop-overlay").fadeIn();
       var files,
           file;
       if (this.support.datauri) {
@@ -249,15 +249,12 @@
 
     submitDone: function (data) {
       console.log(data);
-
       try {
         data = $.parseJSON(data);
       } catch (e) {}
-
       if (data && data.state === 200) {
         if (data.result) {
           this.url = data.result;
-
           if (this.support.datauri || this.uploaded) {
             this.uploaded = false;
             this.cropDone();
@@ -266,7 +263,6 @@
             this.$avatarSrc.val(this.url);
             this.startCropper();
           }
-
           this.$avatarInput.val("");
         } else if (data.message) {
           this.alert(data.message);
@@ -276,8 +272,8 @@
       }
     },
 
-    submitFail: function (msg) {
-      this.alert(msg);
+    submitFail: function () {
+      $(".upload-failed").fadeIn();
     },
 
     submitEnd: function () {

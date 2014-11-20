@@ -9,10 +9,6 @@
   cursor: pointer;
   overflow: hidden;
 }
-.avatar-form {
-  display: inline-block;
-  width: 50%;
-}
 .avatar-view img {
   width: 100%;
 }

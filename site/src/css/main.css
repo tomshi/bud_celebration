@@ -659,6 +659,10 @@ th {
 #form .form input:-ms-input-placeholder {
   color: #777;
 }
+.avatar-form {
+  display: inline-block;
+  width: 50%;
+}
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   #form .form input {
     font-size: 16px;
