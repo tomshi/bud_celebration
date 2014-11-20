@@ -49,12 +49,14 @@
                         <div class="avatar-upload">
                             <input class="avatar-src" name="avatar_src" type="hidden">
                             <input class="avatar-data" name="avatar_data" type="hidden">
-                            <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
-                            <!--<input type="file" class="file" name="files" id="fileupload_input" />-->
+                            <input class="avatar-input file" id="avatarInput" name="avatar_file" type="file">
                             <div class="text">+ 上传一张照片，获得更专属的体验</div>
                         </div>
-                        <div class="upload-after" style="display: none">
-                            <div>上传成功<a class="text" style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
+                        <div class="upload-failed" style="display: none">
+                            <div class="text">上传失败</div>
+                        </div>
+                        <div class="upload-succeed" style="display: none">
+                            <div class="text">上传成功<a style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
                             <div class="avatar-view" title="Change the avatar">
                                 <img src="img/picture.jpg" width="20%" alt="Avatar">
                             </div>
@@ -67,20 +69,18 @@
 
     </div>
 
-    <section class="overlay">
-        <!-- Loading state -->
-        <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
-
-        <!-- Cropping modal -->
-        <div id="avatar-modal">
-            <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
-                <div class="avatar-wrapper"></div>
-                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-                <button class="btn btn-primary avatar-save" type="submit">Save</button>
-            </form>
+    <div class="overlay">
+        <div class="table">
+            <div id="avatar-modal" class="table-cell">
+                <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
+                    <div class="avatar-wrapper"></div>
+                    <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary avatar-save" type="submit">Save</button>
+                </form>
+            </div>
         </div>
-        <!-- /.modal -->
-    </section>
+    </div>
+    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 
     <!-- build:js js/plugins.js -->
     <script src="bower_components/velocity/velocity.min.js"></script>

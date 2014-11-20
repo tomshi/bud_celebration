@@ -180,8 +180,6 @@
         this.$img = $('<img src="' + this.url + '">');
         this.$avatarWrapper.empty().html(this.$img);
         this.$img.cropper({
-          aspectRatio: 1,
-          //preview: this.$avatarPreview.selector,
           done: function (data) {
             var json = [
                   '{"x":' + data.x,
@@ -192,7 +190,12 @@
 
             _this.$avatarData.val(json);
           },
-          movable: false
+            aspectRatio: 500 / 260,
+            autoCropArea: 0.8, // Center 60%
+            multiple: false,
+            dragCrop: false,
+            dashed: false,
+            resizable: false
         });
 
         this.active = true;
