@@ -5,12 +5,17 @@ $(function () {
 		'img/bottle-desk-bg.jpg',
 		'img/engrave.png',
 		'img/hand.png',
-		'img/model1.png',
-		'img/model2.png'
+		'img/hand1.png',
+		'img/hand2.png',
+		'img/hand3.png',
+		'img/hand4.png',
+		'img/hands-bg.jpg',
+		'img/dust-toast.png',
+		'img/bright.png'
 	];
 
 	// Setting first animation here
-	var $FIRST_FRAME = $('#bottle');
+	var $FIRST_FRAME = $('#toast');
 
 	var imagesCount = imageNames.length;
 	var loadedImagesCount = 0;

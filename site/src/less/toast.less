@@ -1,6 +1,23 @@
-#hands {
-  background: #222 url('../img/hands-bg.jpg') left bottom;
-  background-size: cover;
+#toast {
+  .bg{
+    background: #222 url('../img/hands-bg.jpg') left bottom;
+    background-size: cover;
+  }
+
+  .dust {
+    position: absolute;
+    width: 55.3645%;
+    height: 39.444%;
+    background: url('../img/dust-toast.png') center bottom no-repeat;
+
+    top: -39.444%;
+    left: 20%;
+  }
+
+  .dust2 {
+    top: -15%;
+    left: 30%;
+  }
 
   .hand {
     position: absolute;
@@ -8,58 +25,40 @@
   }
 
   .hand1 {
-    z-index: 1;
+    z-index: 2;
     background: url('../img/hand1.png') right top no-repeat;
     .hand;
-    width: 42.3958333%;
-    height: 48.5792851%;
-    top: 29.3308891%;
-    left: -42.3958333%;
+    width: 49.6354167%;
+    height: 56.9444444%;
+    bottom: -56.9444444%;
+    left: -49.6354167%;
   }
   .hand2 {
     background: url('../img/hand2.png') right top no-repeat;
     .hand;
-    width: 46.9791667%;
-    height: 67.827681%;
-    bottom: -67.827681%;
-    left: -46.9791667%;
-    z-index: 2;
+    width: 49.3229167%;
+    height: 68.4259259%;
+    bottom: -68.4259259%;
+    left: -49.3229167%;
+    z-index: 1;
   }
   .hand3 {
     background: url('../img/hand3.png') right top no-repeat;
     .hand;
-    width: 49.84375%;
-    height: 76.5352887%;
-    bottom: -76.5352887%;
-    right: -49.84375%;
+    width: 45.8854167%;
+    height: 77.2222222%;
+    bottom: -77.2222222%;
+    right: -45.8854167%;
     z-index: 4;
   }
   .hand4 {
     background: url('../img/hand4.png') right top no-repeat;
     .hand;
-    width: 49.84375%;
-    height: 72.1356554%;
-    bottom: -72.1356554%;
-    right: -50.15625%;
+    width: 49.21875%;
+    height: 63.5185185%;
+    top: 50%;
+    right: -49.21875%;
     z-index: 3;
-  }
-  .hand5 {
-    background: url('../img/hand5.png') right top no-repeat;
-    .hand;
-    width: 45%;
-    height: 59.7616865%;
-    bottom: -30.7057745%;
-    right: -45%;
-    z-index: 2;
-  }
-  .hand6 {
-    background: url('../img/hand6.png') right top no-repeat;
-    .hand;
-    width: 40.9375%;
-    height: 48.9459212%;
-    top: 32.9055912%;
-    right: -40.9375%;
-    z-index: 1;
   }
 
   .bright {
