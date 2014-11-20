@@ -40,9 +40,13 @@ $(function () {
 		$foreground.velocity({
 			"translateZ": "1px"
 		}, 1000, function () {
-			$light.show().velocity({
+
+            $light.show().velocity({
 				opacity: 0.8
 			}, 1000).velocity({rotateZ: "-2deg"}, 1000);
+
+            $("#ending").fadeIn();
+
 		});
 
 		$bg.velocity({

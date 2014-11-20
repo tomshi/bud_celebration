@@ -7,9 +7,7 @@ var ugc_name, ugc_purpose, ugc_date, ugc_image_url;
 function controlFlow(){
     // check the param 'vid'
     var videoId = getUrlParameterByName("vid");
-
     if(videoId){
-
         $.ajax({
             url: "api/user/load/" + videoId
         }).done(function(data) {
@@ -23,6 +21,8 @@ function controlFlow(){
                 processUserLoadData(json);
             });
         });
+    }else {
+        $("#form").show();
     }
 }
 
@@ -33,8 +33,8 @@ function processUserLoadData(data){
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
-
             // skip the first view
+            getReady();
         }
         else{
             console.log(data.message);

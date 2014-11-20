@@ -78,6 +78,28 @@ function getUrlParameterByName(name) {
 }
 
 $(function() {
+    $("#buy").bind('click', function(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.indexOf("micromessenger") > 0){
+            $(".buy-tip-overlay").fadeIn();
+        }else {
+            window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
+        }
+    });
+    $("#share").bind('click', function(){
+        $(".sharing-box").fadeIn();
+    });
+    $(".close").bind('click', function(){
+        $(".sharing-box").fadeOut();
+    });
+    $("#replay").bind('click', function(){
+        //
+    });
+    $("#redo").bind('click', function(){
+        //
+    });
+
+
     $(".input input").bind("focus", function() {
         var $this = $(this);
         var inputName = $this.attr("name");
