@@ -87,17 +87,18 @@
             </div>
             <div class="form">
                 <div class="input name">
-                    <input type="text" id="username" name="username" placeholder="为谁欢庆" value=""/>
+                    <input type="text" id="username" name="username" maxlength="8" placeholder="为谁欢庆" value=""/>
                 </div>
                 <div class="input type">
-                    <input type="text" id="occasion" name="occasion" placeholder="庆祝什么" value=""/>
+                    <input type="text" id="occasion" name="occasion" maxlength="8" placeholder="庆祝什么" value=""/>
                     <ul class="type-list" id="type-list">
                         <li>生曰快乐</li>
                         <li>新年快乐</li>
                     </ul>
                 </div>
                 <div class="input time">
-                    <input type="text" id="time" name="time" placeholder="在哪一天" value=""/>
+                    <input maxlength="2" type="text" id="time-d" name="time-d" placeholder="日日" value=""/>
+                    <input maxlength="2" type="text" id="time-m" name="time-m" placeholder="月月" value=""/>
                 </div>
                 <a href="##" class="submit" id="submit"></a>
                 <div class="upload" id="crop-avatar">
@@ -183,7 +184,7 @@
     <div class="footer">
         <a class="home" href="http://www.bud.cn">BUD.CN</a>
         百威英博投资(中国)有限公司版权所有
-        <a href="##" class="links">网站条款</a>
+        <a href="ct.html" class="links">网站条款</a>
         <a href="##" class="links">隐私政策</a>
         <a href="##" class="links">消费者须知</a>
     </div>
