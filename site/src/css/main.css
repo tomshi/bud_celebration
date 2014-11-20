@@ -669,28 +669,28 @@ th {
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   #form .form input {
-    font-size: 16px;
+    font-size: 1.1em;
   }
   #form .upload .text {
-    font-size: 15px;
+    font-size: 1em;
     letter-spacing: 2px;
   }
 }
 @media screen and (min-width: 569px) and (max-width: 768px) {
   #form .form input {
-    font-size: 13px;
+    font-size: 0.8em;
   }
   #form .form .upload .text {
-    font-size: 12px;
+    font-size: 0.7em;
     letter-spacing: 2px;
   }
 }
 @media screen and (max-width: 568px) {
   #form .form input {
-    font-size: 10px;
+    font-size: 0.7em;
   }
   #form .form .upload .text {
-    font-size: 8px;
+    font-size: 0.6em;
     letter-spacing: 2px;
   }
 }
@@ -904,7 +904,7 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   display: none;
   z-index: 9999;
   overflow: scroll;
