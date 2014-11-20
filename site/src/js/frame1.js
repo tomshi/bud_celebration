@@ -35,6 +35,7 @@ $(function () {
 	};
 
 	var animation_start = function () {
+		console.log('Start');
 		$bg_frame1.add($model1).add($model2).velocity({
 			"translateZ": "18px"
 		}, 1500, function () {
@@ -60,7 +61,7 @@ $(function () {
 
 
 				$bg_frame1.velocity({
-					"translateZ": "10px"
+					"translateZ": "20px"
 				}, 1600, function () {
 					handup(function () {
 						handdown();
@@ -83,8 +84,6 @@ $(function () {
 							"translateZ": "76px"
 						}, 1500, "linear", function () {
 							endTransition();
-							$('#frame2').trigger('start');
-
 						});
 					});
 				});

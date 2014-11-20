@@ -72,14 +72,14 @@ $(function () {
 				$model5.velocity({
 					"translateX": "70%",
 					"translateZ": "70px"
-				}, 1700);
+				}, 1600);
 
 				$model6.velocity({
 					"translateX": "50%",
 					"translateZ": "56px"
 				}, 1500);
 
-				$element.velocity({
+				$bg_frame.velocity({
 					"translateZ": "40px"
 				}, 1600, function () {
 

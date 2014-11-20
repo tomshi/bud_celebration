@@ -66,8 +66,8 @@ $(function () {
 					"translateZ": "39px"
 				}, 1500);
 
-				$element.velocity({
-					"translateZ": "10px"
+				$bg_frame2.velocity({
+					"translateZ": "35px"
 				}, 1600, function () {
 
 					handup(function () {
@@ -90,7 +90,7 @@ $(function () {
 
 						$bg_frame2.velocity({
 							"translateZ": "76px"
-						}, 1500, "linear", function () {
+						}, 1000, "easeInQuad", function () {
 							endTransition();
 						});
 					});
