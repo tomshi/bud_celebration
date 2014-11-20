@@ -1,19 +1,19 @@
 $(function () {
 
-	var $frame1 = $('#frame1');
+	var $element = $('#frame2');
+	var $3dbox = $('.box3d', $element);
+	var $bg_frame2 = $('.bg', $element);
 
-	var $nextFrame = $('#frame2');
-	var $3dbox = $('.box3d', $frame1);
-	var $bg_frame1 = $('.bg1', $frame1);
-	var $model1 = $('.model1', $frame1);
-	var $model2 = $('.model2', $frame1);
+	var $nextFrame = $('#frame3');
+	var $model3 = $('.model3', $element);
+	var $model4 = $('.model4', $element);
 
 	var $hand = $('#hand');
 
 	var handup = function (cb) {
 		$hand.velocity({
-			translateX: "10%",
-			translateY: "-64%"
+			translateX: "2%",
+			translateY: "-80%"
 		}, 1000, cb);
 	};
 
@@ -26,65 +26,72 @@ $(function () {
 	};
 
 	var endTransition = function () {
-		$frame1.velocity({
+		$element.velocity({
 			opacity: 0
-		}, 1000, function(){
-			$frame1.hide();
+		}, 1000, function () {
+			$element.hide();
 		});
+
 		$nextFrame.show().trigger('start');
 	};
 
 	var animation_start = function () {
-		$bg_frame1.add($model1).add($model2).velocity({
-			"translateZ": "18px"
+
+		if (!isMobile.Android()) {
+			$3dbox.css({
+				"perspective-origin": "26% 50%"
+			}, 0);
+		}
+
+		$bg_frame2.add($model3).add($model4).velocity({
+			"translateZ": "25px"
 		}, 1500, function () {
 
 			handup(function () {
 
 				if (!isMobile.Android()) {
 					$3dbox.css({
-						"perspective-origin": "26% 50%"
+						"perspective-origin": "66% 50%"
 					}, 0);
 				}
 
 				handdown();
 
-				$model1.velocity({
-					"translateX": "70%",
+				$model3.velocity({
+					"translateX": "-70%",
 					"translateZ": "70px"
 				}, 1700);
 
-				$model2.velocity({
+				$model4.velocity({
 					"translateZ": "39px"
 				}, 1500);
 
-
-				$bg_frame1.velocity({
+				$element.velocity({
 					"translateZ": "10px"
 				}, 1600, function () {
+
 					handup(function () {
 						handdown();
 
 						if (!isMobile.Android()) {
 							$3dbox.css({
-								"perspective-origin": "50% 50%"
+								"perspective-origin": "52% 50%"
 							}, 0);
 						}
 
-						$('.model1', $frame1).velocity({
+						$('.model3', $element).velocity({
 							"translateZ": "90px"
 						}, 500, "linear");
 
-						$('.model2', $frame1).velocity({
+						$('.model4', $element).velocity({
+							"translateX": "50%",
 							"translateZ": "90px"
 						}, 1000, "linear");
 
-						$bg_frame1.velocity({
+						$bg_frame2.velocity({
 							"translateZ": "76px"
 						}, 1500, "linear", function () {
 							endTransition();
-							$('#frame2').trigger('start');
-
 						});
 					});
 				});
@@ -92,5 +99,5 @@ $(function () {
 		});
 	};
 
-	$frame1.on('start', animation_start);
+	$element.on('start', animation_start);
 });

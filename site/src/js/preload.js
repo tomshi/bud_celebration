@@ -14,11 +14,14 @@ $(function () {
 		'img/bright.png',
 		'img/model1.png',
 		'img/model2.png',
-		'img/frame1-bg.jpg'
+		'img/frame1-bg.jpg',
+		'img/model3.png',
+		'img/model4.png',
+		'img/frame2-bg.jpg'
 	];
 
 	// Setting first animation here
-	var $FIRST_FRAME = $('#form');
+	var $FIRST_FRAME = $('#frame3');
 
 	var imagesCount = imageNames.length;
 	var loadedImagesCount = 0;
