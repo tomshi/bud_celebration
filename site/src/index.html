@@ -21,43 +21,43 @@
     <script>
         var _hmt = _hmt || [];
         (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?569766fd6f5d6ab1bac0c432f2";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?569766fd6f5d6ab1bac0c432f2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
         })();
     </script>
     <!-- baidu -->
 
     <!-- Nielsen -->
     <script>
-    (function (G,D,s,c,p) {
-        this._wtracker_url = '//s.cr-nielsen.com/cgi-bin/hmt?';
-    
-        c={
-            UA:"436",
-            NO_FLS:0,
-            NO_ILS:0,
-            WITH_REF:1,
-            URL:'//s.cr-nielsen.com/hwt.js',
-            API_URL:"//s.cr-nielsen.com/cgi-bin/hwt?",
-            SWF_URL:"//s.cr-nielsen.com/hwt.swf",
-            IFRAME_URL:"//s.cr-nielsen.com/iframe.html"  
-        };
-        //p=["P1-XXXZ","P2-DDDDD"];//◊‘∂®“Âº‡≤‚≤Œ ˝
-        G._hwt?G._hwt.track(c,p):(G._hwtTQ=G._hwtTQ || []).push([c,p]),!G._hwtLoading && lo();
-        function lo(t) {
-            G._hwtLoading=1;s=D.createElement("script");s.src=c.URL;
-            t=D.getElementsByTagName("script");t=t[t.length-1];
-            t.parentNode.insertBefore(s,t);
-        }
-        
-        G["hwtTracker"]=G["hwtTracker"]||function(){
-            (G['_hq']=G['_hq']||[]).push(arguments);
-        };
-        G["_hwt_c"]=c;  
-    })(this,document);
-    
+        (function (G,D,s,c,p) {
+            this._wtracker_url = '//s.cr-nielsen.com/cgi-bin/hmt?';
+
+            c={
+                UA:"436",
+                NO_FLS:0,
+                NO_ILS:0,
+                WITH_REF:1,
+                URL:'//s.cr-nielsen.com/hwt.js',
+                API_URL:"//s.cr-nielsen.com/cgi-bin/hwt?",
+                SWF_URL:"//s.cr-nielsen.com/hwt.swf",
+                IFRAME_URL:"//s.cr-nielsen.com/iframe.html"
+            };
+            //p=["P1-XXXZ","P2-DDDDD"];//◊‘∂®“Âº‡≤‚≤Œ ˝
+            G._hwt?G._hwt.track(c,p):(G._hwtTQ=G._hwtTQ || []).push([c,p]),!G._hwtLoading && lo();
+            function lo(t) {
+                G._hwtLoading=1;s=D.createElement("script");s.src=c.URL;
+                t=D.getElementsByTagName("script");t=t[t.length-1];
+                t.parentNode.insertBefore(s,t);
+            }
+
+            G["hwtTracker"]=G["hwtTracker"]||function(){
+                (G['_hq']=G['_hq']||[]).push(arguments);
+            };
+            G["_hwt_c"]=c;
+        })(this,document);
+
     </script>
 </head>
 <!-- GA tracking -->
@@ -72,254 +72,250 @@
 </script>
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <section id="stage">
-            <div class="frame" id="form">
-                <div class="header">
-                    <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
-                    <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
-                    <div class="text2"><img src="img/form-text2.png" class="responsive" alt=""/></div>
+    <section id="stage">
+        <div class="frame" id="form">
+            <div class="header">
+                <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
+                <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
+                <div class="text2"><img src="img/form-text2.png" class="responsive" alt=""/></div>
+            </div>
+            <div class="form">
+                <div class="input name">
+                    <input type="text" id="username" name="username" placeholder="为谁欢庆" value=""/>
                 </div>
-                <div class="form">
-                    <div class="input name">
-                        <input type="text" id="username" name="username" placeholder="为谁欢庆" value=""/>
+                <div class="input type">
+                    <input type="text" id="occasion" name="occasion" placeholder="庆祝什么" value=""/>
+                    <ul class="type-list" id="type-list">
+                        <li>生曰快乐</li>
+                        <li>新年快乐</li>
+                    </ul>
+                </div>
+                <div class="input time">
+                    <input type="text" id="time" name="time" placeholder="在哪一天" value=""/>
+                </div>
+                <a href="##" class="submit" id="submit"></a>
+                <div class="upload" id="crop-avatar">
+                    <div class="avatar-upload">
+                        <input class="avatar-src" name="avatar_src" type="hidden">
+                        <input class="avatar-data" name="avatar_data" type="hidden">
+                        <input class="avatar-input file" id="avatarInput" name="avatar_file" type="file">
+                        <div class="text">+ 上传一张照片，获得更专属的体验</div>
                     </div>
-                    <div class="input type">
-                        <input type="text" id="occasion" name="occasion" placeholder="庆祝什么" value=""/>
-                        <ul class="type-list" id="type-list">
-                            <li>生曰快乐</li>
-                            <li>新年快乐</li>
-                        </ul>
+                    <div class="upload-failed" style="display: none">
+                        <div class="text">上传失败</div>
                     </div>
-                    <div class="input time">
-                        <input type="text" id="time" name="time" placeholder="在哪一天" value=""/>
-                    </div>
-                    <a href="##" class="submit" id="submit"></a>
-                    <div class="upload" id="crop-avatar">
-                        <div class="avatar-upload">
-                            <input class="avatar-src" name="avatar_src" type="hidden">
-                            <input class="avatar-data" name="avatar_data" type="hidden">
-                            <input class="avatar-input file" id="avatarInput" name="avatar_file" type="file">
-                            <div class="text">+ 上传一张照片，获得更专属的体验</div>
+                    <div class="upload-succeed" style="display: none">
+                        <div class="text">上传成功<a style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
+                        <div class="avatar-view" title="Change the avatar">
+                            <img src="img/picture.jpg" width="20%" alt="Avatar">
                         </div>
-                        <div class="upload-failed" style="display: none">
-                            <div class="text">上传失败</div>
-                        </div>
-                        <div class="upload-succeed" style="display: none">
-                            <div class="text">上传成功<a style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
-                            <div class="avatar-view" title="Change the avatar">
-                                <img src="img/picture.jpg" width="20%" alt="Avatar">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="frame" id="frame1">
-                <div class="bg bg1"></div>
-                <div class="model2 model"></div>
-                <div class="model1 model"></div>
-            </div>
+        <div class="frame" id="frame1">
+            <div class="bg bg1"></div>
+            <div class="model2 model"></div>
+            <div class="model1 model"></div>
+        </div>
 
-            <div class="frame" id="bottle">
-                <div class="dust"></div>
-                <div class="light"></div>
-                <div class="box3d">
-                    <div class="bg"><div class="darkness"></div></div>
-                    <div class="foreground">
-                        <div class="bottle"><div class="bottle-shade"></div><div class="label"><span class="ugc-name">测试中文</span></div></div>
-                        <div class="desk"><div class="shadow"></div></div>
-                    </div>
-                </div>
-                <div class="printer"></div>
-            </div>
-
-            <div class="frame" id="toast">
-                <div class="bg"></div>
-                <div class="dust"></div>
-                <div class="dust dust2"></div>
-                <div class="hand1"></div>
-                <div class="hand2"></div>
-                <div class="hand3"></div>
-                <div class="hand4"></div>
-                <div class="hand5"></div>
-                <div class="hand6"></div>
-                <div class="bright"></div>
-            </div>
-
-            <div class="frame" id="ending">
-                <div class="header">
-                    <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
-                    <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
-                    <div class="text2"><img src="img/end-text1.png" class="responsive" alt=""/></div>
-                </div>
-                <div class="btns">
-                    <a href="##" class="item" id="buy"><img src="img/end-buy.png" class="responsive" alt=""/></a>
-                    <a href="##" class="item" id="share"><img src="img/end-share.png" class="responsive" alt=""/></a>
-                    <a href="##" class="item" id="replay"><img src="img/end-replay.png" class="responsive" alt=""/></a>
-                    <a href="##" class="item" id="redo"><img src="img/end-redo.png" class="responsive" alt=""/></a>
-                    <div class="sharing-box">
-                        <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="wechat" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-wechat.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
-                    </div>
+        <div class="frame" id="bottle">
+            <div class="dust"></div>
+            <div class="light"></div>
+            <div class="box3d">
+                <div class="bg"><div class="darkness"></div></div>
+                <div class="foreground">
+                    <div class="bottle"><div class="bottle-shade"></div><div class="label"><span class="ugc-name">测试中文</span></div></div>
+                    <div class="desk"><div class="shadow"></div></div>
                 </div>
             </div>
-        </section>
-
-        <div id="hand"><img src="img/hand.png"></div>
-
-        <div style="position: absolute; bottom: 0; left: 0;">
-            BUD.CN
-            百威英博投资（中国）有限公司版权所有
-            网站条款
-            隐私政策
-            消费者须知
+            <div class="printer"></div>
         </div>
-    </div>
 
-
-    <div class="overlay buy-tip-overlay">
-        <div class="table">
-            <div class="table-cell">请用默认浏览器打开购买</div>
+        <div class="frame" id="toast">
+            <div class="bg"></div>
+            <div class="dust"></div>
+            <div class="dust dust2"></div>
+            <div class="hand1"></div>
+            <div class="hand2"></div>
+            <div class="hand3"></div>
+            <div class="hand4"></div>
+            <div class="hand5"></div>
+            <div class="hand6"></div>
+            <div class="bright"></div>
         </div>
-    </div>
 
-    <div class="overlay landscape-overlay">
-        <div class="table">
-            <div class="table-cell">请横屏</div>
-        </div>
-    </div>
-
-    <div class="overlay avatar-crop-overlay">
-        <div class="table">
-            <div id="avatar-modal" class="table-cell">
-                <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
-                    <div class="avatar-wrapper"></div>
-                    <a href="##" class="close-overlay">取消</a>
-                    <a href="##" class="avatar-save">保存</a>
-                </form>
+        <div class="frame" id="ending">
+            <div class="header">
+                <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
+                <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
+                <div class="text2"><img src="img/end-text1.png" class="responsive" alt=""/></div>
+            </div>
+            <div class="btns">
+                <a href="##" class="item" id="buy"><img src="img/end-buy.png" class="responsive" alt=""/></a>
+                <a href="##" class="item" id="share"><img src="img/end-share.png" class="responsive" alt=""/></a>
+                <a href="##" class="item" id="replay"><img src="img/end-replay.png" class="responsive" alt=""/></a>
+                <a href="##" class="item" id="redo"><img src="img/end-redo.png" class="responsive" alt=""/></a>
+                <div class="sharing-box">
+                    <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="wechat" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-wechat.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img=""><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
+                </div>
             </div>
         </div>
+    </section>
+
+    <div id="hand"><img src="img/hand.png"></div>
+
+    <div style="position: absolute; bottom: 0; left: 0;">
+        BUD.CN
+        百威英博投资（中国）有限公司版权所有
+        网站条款
+        隐私政策
+        消费者须知
     </div>
+</div>
 
-    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+<div class="overlay buy-tip-overlay">
+    <div class="table">
+        <div class="table-cell">请用默认浏览器打开购买</div>
+    </div>
+</div>
 
+<div class="overlay landscape-overlay">
+    <div class="table">
+        <div class="table-cell">请横屏</div>
+    </div>
+</div>
 
-    <!-- build:js js/plugins.js -->
-    <script src="bower_components/velocity/velocity.min.js"></script>
-    <script src="bower_components/letteringjs/jquery.lettering.js"></script>
-    <script src="bower_components/cropper/dist/cropper.min.js"></script>
-    <!-- endbuild -->
+<div class="overlay avatar-crop-overlay">
+    <div class="table">
+        <div id="avatar-modal" class="table-cell">
+            <form class="avatar-form" action="api/crop/crop-avatar.php" enctype="multipart/form-data" method="post">
+                <div class="avatar-wrapper"></div>
+                <a href="##" class="close-overlay">取消</a>
+                <a href="##" class="avatar-save">保存</a>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <!-- build:js js/main.js -->
-    <script src="js/preload.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/bottle.js"></script>
-    <script src="js/toast.js"></script>
-    <script src="js/toy.js"></script>
-    <script src="js/tracking.js"></script>
-    <script src="js/sharing.js"></script>
-    <script src="js/wechatSharing.js"></script>
-    <script src="js/crop-avatar.js"></script>
-    <!-- endbuild -->
+<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 
-    <script type="text/javascript">
-        $("#buy").bind('click', function(){
-            var ua = window.navigator.userAgent.toLowerCase();
-            if(ua.indexOf("micromessenger") > 0){
-                $(".buy-tip-overlay").fadeIn();
-            }else {
-                window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
-            }
-        });
-        $("#share").bind('click', function(){
-            $(".sharing-box").fadeIn();
-        });
-        $(".close").bind('click', function(){
-            $(".sharing-box").fadeOut();
-        });
-        $("#replay").bind('click', function(){
-            //
-        });
-        $("#redo").bind('click', function(){
-            //
-        });
-    </script>
+<!-- build:js js/plugins.js -->
+<script src="bower_components/velocity/velocity.min.js"></script>
+<script src="bower_components/letteringjs/jquery.lettering.js"></script>
+<script src="bower_components/cropper/dist/cropper.min.js"></script>
+<!-- endbuild -->
 
+<!-- build:js js/main.js -->
+<script src="js/preload.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bottle.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/toy.js"></script>
+<script src="js/tracking.js"></script>
+<script src="js/sharing.js"></script>
+<script src="js/wechatSharing.js"></script>
+<script src="js/crop-avatar.js"></script>
+<!-- endbuild -->
 
-    <script type="text/javascript">
-        function activeSubmitButton(){
-            if($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== ""){
-                $("#submit").addClass("active");
-            }else {
-                $("#submit").removeClass("active");
-            }
+<script type="text/javascript">
+    $("#buy").bind('click', function(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.indexOf("micromessenger") > 0){
+            $(".buy-tip-overlay").fadeIn();
+        }else {
+            window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
         }
-        $(function(){
-            $(".input input").bind("focus", function(){
-                var $this = $(this);
-                var inputName = $this.attr("name");
-                if (inputName == "occasion"){
-                    $("#type-list").slideDown();
-                }else if (inputName == "time") {
-                    $this.attr("placeholder", "日日/月月");
-                }else {}
-                $this.parent().addClass("focus");
-            }).bind("blur", function(){
-                $(this).parent().removeClass("focus");
-                $("#time").attr("placeholder", "在哪一天");
-                $("#type-list").slideUp();
-            }).bind("change", function(){
-                activeSubmitButton();
-            }).bind("keyup", function(){
-                activeSubmitButton();
-            });
+    });
+    $("#share").bind('click', function(){
+        $(".sharing-box").fadeIn();
+    });
+    $(".close").bind('click', function(){
+        $(".sharing-box").fadeOut();
+    });
+    $("#replay").bind('click', function(){
+        //
+    });
+    $("#redo").bind('click', function(){
+        //
+    });
+</script>
 
-            $("#type-list li").bind("click", function(){
-                var val = $(this).text();
-                $("#occasion").val(val);
-                $("#type-list").slideUp();
-            });
-
-            $(".close-overlay").bind("click", function(){
-                $(".avatar-crop-overlay").fadeOut();
-            });
-
-            $(".avatar-save").bind("click", function(){
-                $(".avatar-form").submit();
-            });
-
-            $("#submit").bind("click", function(){
-                if ($("#submit").hasClass("active")) {
-                    $.ajax({
-                        type: "POST",
-                        url: "api/user/save.json",
-                        dataType: "josn",
-                        data: {
-                            username: $("#username").val(),
-                            occasion: $("#occasion").val(),
-                            time: $("#time").val()
-                        },
-                        success: function(data) {
-                            //
-                        }
-                    }).done(function( msg ) {
-                        alert( "Data Saved: " + msg );
-                        if (data == 0){
-                            //
-                        }
-                    });
-                }
-            });
+<script type="text/javascript">
+    function activeSubmitButton(){
+        if($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time").val() !== ""){
+            $("#submit").addClass("active");
+        }else {
+            $("#submit").removeClass("active");
+        }
+    }
+    $(function(){
+        $(".input input").bind("focus", function(){
+            var $this = $(this);
+            var inputName = $this.attr("name");
+            if (inputName == "occasion"){
+                $("#type-list").slideDown();
+            }else if (inputName == "time") {
+                $this.attr("placeholder", "日日/月月");
+            }else {}
+            $this.parent().addClass("focus");
+        }).bind("blur", function(){
+            $(this).parent().removeClass("focus");
+            $("#time").attr("placeholder", "在哪一天");
+            $("#type-list").slideUp();
+        }).bind("change", function(){
+            activeSubmitButton();
+        }).bind("keyup", function(){
+            activeSubmitButton();
         });
-    </script>
 
+        $("#type-list li").bind("click", function(){
+            var val = $(this).text();
+            $("#occasion").val(val);
+            $("#type-list").slideUp();
+        });
+
+        $(".close-overlay").bind("click", function(){
+            $(".avatar-crop-overlay").fadeOut();
+        });
+
+        $(".avatar-save").bind("click", function(){
+            $(".avatar-form").submit();
+        });
+
+        $("#submit").bind("click", function(){
+            if ($("#submit").hasClass("active")) {
+                $.ajax({
+                    type: "POST",
+                    url: "api/user/save",
+                    dataType: "josn",
+                    data: {
+                        username: $("#username").val(),
+                        occasion: $("#occasion").val(),
+                        time: $("#time").val()
+                    },
+                    success: function(data) {
+                        //
+                    }
+                }).done(function( msg ) {
+                    alert( "Data Saved: " + msg );
+                    if (data == 0){
+                        //
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
