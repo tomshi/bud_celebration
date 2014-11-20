@@ -28,6 +28,38 @@
         })();
     </script>
     <!-- baidu -->
+
+    <!-- Nielsen -->
+    <script>
+
+    (function (G,D,s,c,p) {
+        this._wtracker_url = '//s.cr-nielsen.com/cgi-bin/hmt?';
+    
+        c={
+            UA:"436",
+            NO_FLS:0,
+            NO_ILS:0,
+            WITH_REF:1,
+            URL:'//s.cr-nielsen.com/hwt.js',
+            API_URL:"//s.cr-nielsen.com/cgi-bin/hwt?",
+            SWF_URL:"//s.cr-nielsen.com/hwt.swf",
+            IFRAME_URL:"//s.cr-nielsen.com/iframe.html"  
+        };
+        //p=["P1-XXXZ","P2-DDDDD"];//◊‘∂®“Âº‡≤‚≤Œ ˝
+        G._hwt?G._hwt.track(c,p):(G._hwtTQ=G._hwtTQ || []).push([c,p]),!G._hwtLoading && lo();
+        function lo(t) {
+            G._hwtLoading=1;s=D.createElement("script");s.src=c.URL;
+            t=D.getElementsByTagName("script");t=t[t.length-1];
+            t.parentNode.insertBefore(s,t);
+        }
+        
+        G["hwtTracker"]=G["hwtTracker"]||function(){
+            (G['_hq']=G['_hq']||[]).push(arguments);
+        };
+        G["_hwt_c"]=c;  
+    })(this,document);
+    
+    </script>
 </head>
 <!-- GA tracking -->
 <script>
@@ -51,6 +83,8 @@
             </div>
 
             <div class="frame" id="bottle">
+                <div class="dust"></div>
+                <div class="light"></div>
                 <div class="box3d">
                     <div class="bg"><div class="darkness"></div></div>
                     <div class="foreground">
@@ -114,7 +148,7 @@
     <script src="js/preload.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bottle.js"></script>
-    <script src="js/hands.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/toy.js"></script>
     <script src="js/tracking.js"></script>
     <script src="js/sharing.js"></script>

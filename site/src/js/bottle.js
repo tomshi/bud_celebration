@@ -13,15 +13,20 @@ $(function () {
 	var $bg = $('.bg', $element);
 	var $foreground = $('.foreground', $element);
 
+	var $light = $('.light', $element);
+
 	var w = $element.width();
 	var h = $element.height();
 
 	var animation_start = function () {
 		// TODO: Do we really need lettering
 		$label.lettering();
+		$bottle.velocity({translateY: "-120.0%"}, 0);
 
 		$bg.velocity({translateZ: '50px'}, 0);
 		$foreground.velocity({translateZ: '56px'}, 0);
+		$darkness.velocity({opacity: 0});
+		$light.velocity({rotateZ: "-12deg", scale: 1.5, translateY: "-9%", translateX: "-3%", opacity: 0}, 0);
 
 		setTimeout(fall, 300)
 	};
@@ -34,30 +39,37 @@ $(function () {
 	var panorama = function () {
 		$foreground.velocity({
 			"translateZ": "1px"
-		}, 1300, function () {
-			console.log('END')
+		}, 1000, function () {
+			$light.show().velocity({
+				opacity: 0.8
+			}, 1000).velocity({rotateZ: "-2deg"}, 1000);
 		});
 
 		$bg.velocity({
 			"translateZ": "1px"
-		}, 1300);
+		}, 1000);
 	};
 
 	var night = function () {
 		$darkness.velocity({
-			opacity: 0.9
-		}, 1300);
+			opacity: 0.92
+		}, 2000);
 	};
 
 	var retreat = function () {
 		$printer.velocity({
 			"top": h,
 			"left": w
-		}, 800, panorama);
+		}, 800, function () {
+			$printer.hide();
+			panorama();
+		});
 	};
 
 	var print = function () {
 		var name_w = $name.width();
+		var name_h = $name.height() * 2;
+
 		var label_w = $shade.width();
 		var length = $label.text().length;
 		var speed = 140;
@@ -75,7 +87,7 @@ $(function () {
 		var isFinish;
 		var printing1 = function () {
 			$printer.velocity({
-				"top": "-=36px",
+				"top": "-=" + name_h + "px",
 				"left": "+=" + average + "px"
 			}, speed / 2, "linear", function () {
 				if (!isFinish) {
@@ -86,7 +98,7 @@ $(function () {
 
 		var printing2 = function () {
 			$printer.velocity({
-				"top": "+=36px",
+				"top": "+=" + name_h + "px",
 				"left": "+=" + average + "px"
 			}, speed / 2, "linear", function () {
 				if (!isFinish) {
