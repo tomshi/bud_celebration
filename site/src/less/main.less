@@ -10,7 +10,10 @@
 
 
 html, body {
+  width: 100%;
   height: 100%;
+}
+body {
   font-family: @font-family-sans-serif;
   background-color: #000;
   color: #fff;
@@ -33,16 +36,11 @@ a {
 #stage {
   width: 100%;
   height: 100%;
-
-
-
-
   .frame {
     width: 100%;
     height: 100%;
     position: absolute;
     display: none;
-
     .bg {
       width: 100%;
       height: 100%;
@@ -51,8 +49,6 @@ a {
     }
   }
 }
-
-
 
 .responsive {
   width: 100%;
@@ -91,7 +87,6 @@ a {
   }
 }
 
-
 .loading {
   display: none;
   position: absolute;
@@ -104,49 +99,77 @@ a {
   z-index: 20140628;
 }
 
-
-
 #tc {
   background: url(../img/ct-bg.jpg) no-repeat;
   background-size: contain;
   color: #cccccc;
   font-family: "Microsoft YaHei", simhei;
-  line-height: 26px;
-  padding: 100px 0;
-  margin: 0 10%;
+  line-height: 1.8em;
+  padding: 100px 10%;
   text-align: justify;
   position: relative;
   .logo {
     position: absolute;
-    left: -5%;
-    top: 20px;
-    width: 20%;
+    left: 5%;
+    top: 30px;
+    width: 12%;
   }
   h1 {
     color: #dfb134;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.6em;
     letter-spacing: 5px;
   }
   h4 {
     color: #dfb134;
     margin: 50px 0 10px;
-    font-size: 16px;
+    font-size: 1.2em;
+  }
+}
+
+.footer {
+  position: absolute;
+  left: 5%;
+  bottom: 1%;
+  width: 100%;
+  color: rgba(255,255,255,0.5);
+  .home {
+    color: rgba(255,255,255,0.7);
+    margin-right: 2%;
+    font-size: 1.2em;
+  }
+  .links {
+    padding-bottom: 2px;
+    color: rgba(255,255,255,0.5);
+    margin-left: 1%;
+    display: inline-block;
+    border-bottom: solid 1px rgba(255,255,255,0.5);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  .footer {
+    font-size: 12px;
+  }
+  #tc {
+    .logo {
+      width: 20%;
+    }
   }
 }
 
 @media screen and (max-width: 580px) {
+  .footer {
+    font-size: 8px;
+  }
   #tc {
     font-size: 12px;
-    line-height: 18px;
     .logo {
       width: 30%;
-    }
-    h1 {
-      font-size: 18px;
-    }
-    h4 {
-      font-size: 14px;
     }
   }
 }

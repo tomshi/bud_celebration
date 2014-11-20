@@ -641,6 +641,8 @@ th {
   background-color: transparent;
   border: none;
   outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -722,13 +724,13 @@ th {
   position: relative;
 }
 #ending .btns .item {
-  width: 7%;
+  width: 8%;
   display: inline-block;
   margin: 0 2%;
 }
 #ending .btns .sharing-box {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 45%;
   padding: 5% 0;
   left: 37%;
@@ -736,7 +738,7 @@ th {
   display: none;
 }
 #ending .btns .sharing-box .share {
-  width: 9%;
+  width: 10%;
   display: inline-block;
   margin: 0 2%;
 }
@@ -844,7 +846,10 @@ th {
 }
 html,
 body {
+  width: 100%;
   height: 100%;
+}
+body {
   font-family: "Budweiser-TradeGothicLTStd", SimHei, Helvetica, Arial, "Hiragino Sans GB", "华文细黑", "STHeiti", "微软雅黑", "Microsoft YaHei", sans-serif;
   background-color: #000;
   color: #fff;
@@ -929,41 +934,63 @@ a {
   background-size: contain;
   color: #cccccc;
   font-family: "Microsoft YaHei", simhei;
-  line-height: 26px;
-  padding: 100px 0;
-  margin: 0 10%;
+  line-height: 1.8em;
+  padding: 100px 10%;
   text-align: justify;
   position: relative;
 }
 #tc .logo {
   position: absolute;
-  left: -5%;
-  top: 20px;
-  width: 20%;
+  left: 5%;
+  top: 30px;
+  width: 12%;
 }
 #tc h1 {
   color: #dfb134;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.6em;
   letter-spacing: 5px;
 }
 #tc h4 {
   color: #dfb134;
   margin: 50px 0 10px;
-  font-size: 16px;
+  font-size: 1.2em;
+}
+.footer {
+  position: absolute;
+  left: 5%;
+  bottom: 1%;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer .home {
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 2%;
+  font-size: 1.2em;
+}
+.footer .links {
+  padding-bottom: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 1%;
+  display: inline-block;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+}
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  .footer {
+    font-size: 12px;
+  }
+  #tc .logo {
+    width: 20%;
+  }
 }
 @media screen and (max-width: 580px) {
+  .footer {
+    font-size: 8px;
+  }
   #tc {
     font-size: 12px;
-    line-height: 18px;
   }
   #tc .logo {
     width: 30%;
-  }
-  #tc h1 {
-    font-size: 18px;
-  }
-  #tc h4 {
-    font-size: 14px;
   }
 }
