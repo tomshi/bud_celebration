@@ -253,7 +253,7 @@
 
       if (data && data.state === 200) {
         if (data.result) {
-          this.url = data.result;
+          this.url = 'http://s3-ap-northeast-1.amazonaws.com/bud-quality/' + data.result;
 
           if (this.support.datauri || this.uploaded) {
             this.uploaded = false;
