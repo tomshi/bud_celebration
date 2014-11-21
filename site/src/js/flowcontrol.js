@@ -1,7 +1,3 @@
-$(function() {
-    controlFlow();
-});
-
 var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_id;
 
 function controlFlow(){
@@ -11,7 +7,6 @@ function controlFlow(){
         $.ajax({
             url: "api/user/load/" + videoId
         }).done(function(data) {
-            console.log("data1: " + data);
             processUserLoadData(data);
         }).fail(function(jqXHR, textStatus, errorThrown) {
             $.ajax({
@@ -36,17 +31,13 @@ function getUrlParameterByName(name) {
 
 function processUserLoadData(data){
     if(data){
-        console.log("data2: " + data);
-        console.log("is_success: " + data.is_success);
         if(data.is_success){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
             ugc_id = data.data.user_id;
-            console.log("ugc_name" + ugc_name);
-
-            // skip the first view
+            $("#form").hide();
             getReady();
         }
         else{
@@ -57,3 +48,36 @@ function processUserLoadData(data){
         console.log("No UGC with id:" + videoId);
     }
 }
+
+function submitUserData() {
+    $.ajax({
+        type: "POST",
+        url: "api/user/save",
+        dataType: "json",
+        data: {
+            name: $("#username").val(),
+            purpose: $("#occasion").val(),
+            date: $("#time-d").val() + "/" + $("#time-m").val(),
+            image: $("#avatarInput").val()
+        }
+    }).done(function(data) {
+        processUserLoadData(data);
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        $.ajax({
+            url: "api/json/user_save.json",
+            cache: false
+        }).done(function(json) {
+            console.log("JSON: " + json);
+            processUserLoadData(json);
+        });
+    });
+}
+
+$(function() {
+    controlFlow();
+    $("#submit").bind("click", function(){
+        if ($(this).hasClass("active")) {
+            submitUserData();
+        }
+    });
+});

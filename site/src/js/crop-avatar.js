@@ -30,7 +30,6 @@
     this.$avatarSave = this.$avatarModal.find(".avatar-save");
 
     this.init();
-    console.log(this);
   }
 
   CropAvatar.prototype = {
@@ -247,7 +246,6 @@
     },
 
     submitDone: function (data) {
-      console.log(data);
       try {
         data = $.parseJSON(data);
       } catch (e) {}

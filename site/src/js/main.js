@@ -86,12 +86,15 @@ $(function() {
         $(".sharing-box").fadeOut();
     });
     $("#replay").bind('click', function(){
-        window.location.href = window.location.href + "?vid=" + ugc_id;
+        if (getUrlParameterByName("vid").length > 0){
+            window.location.reload();
+        }else {
+            window.location.href = window.location.href + "?vid=" + ugc_id;
+        }
     });
     $("#redo").bind('click', function(){
         window.location.href = window.location.origin;
     });
-
 
     $(".input input").bind("focus", function() {
         var $this = $(this);
@@ -122,33 +125,6 @@ $(function() {
 
     $(".avatar-save").bind("click", function() {
         $(".avatar-form").submit();
-    });
-
-    $("#submit").bind("click", function() {
-        if ($("#submit").hasClass("active")) {
-            $.ajax({
-                type: "POST",
-                url: "api/user/save",
-                dataType: "json",
-                data: {
-                    name: $("#username").val(),
-                    purpose: $("#occasion").val(),
-                    date: $("#time-d").val() + "/" + $("#time-m").val(),
-                    image: $("#avatarInput").val()
-                }
-            }).done(function(data) {
-                $("#form").hide();
-                getReady();
-                //alert( "success" );
-            }).fail(function(jqXHR, textStatus, errorThrown) {
-                $.ajax({
-                    url: "api/json/user_save.json",
-                    cache: false
-                }).done(function(json) {
-                    console.log("JSON: " + json);
-                });
-            });
-        }
     });
 });
 
