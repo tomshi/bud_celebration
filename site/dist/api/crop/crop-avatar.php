@@ -1,16 +1,29 @@
 <?php
+	require 'aws-autoloader.php';
+
+	use Aws\Common\Aws;
+	use Aws\S3\S3Client;
+
     class CropAvatar {
         private $src;
+		private $srcFile;
         private $data;
         private $file;
         private $dst;
+		private $dstFile;
         private $type;
         private $extension;
         private $srcDir = 'img/upload';
         private $dstDir = 'img/avatar';
         private $msg;
+		private $state;
 
         function __construct($src, $data, $file) {
+			$pos = strrpos($src, "http://");
+			if ($pos !== false)
+			{
+				$src = $this -> srcDir . "/" . pathinfo($src, PATHINFO_BASENAME);
+			}
             $this -> setSrc($src);
             $this -> setData($data);
             $this -> setFile($file);
@@ -23,9 +36,12 @@
 
                 if ($type) {
                     $this -> src = $src;
+					//$this -> srcFile = $srcFile;
                     $this -> type = $type;
                     $this -> extension = image_type_to_extension($type);
                     $this -> setDst();
+					$this -> msg = "Save file successfully";
+					$this -> state = 200;
                 }
             }
         }
@@ -50,7 +66,8 @@
                     }
 
                     $extension = image_type_to_extension($type);
-                    $src = $dir . '/' . date('YmdHis') . $extension;
+					$sourceFile = date('YmdHis') . substr((string)microtime(), 2, 8) . $extension;
+                    $src = $dir . '/' . $sourceFile;
 
                     if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_JPEG || $type == IMAGETYPE_PNG) {
 
@@ -62,20 +79,27 @@
 
                         if ($result) {
                             $this -> src = $src;
+							$this -> srcFile = $sourceFile;
                             $this -> type = $type;
                             $this -> extension = $extension;
                             $this -> setDst();
+							$this -> msg = 'Save file successfully';
+							$this -> state = 200;
                         } else {
                              $this -> msg = 'Failed to save file';
+							 $this -> state = 1100;
                         }
                     } else {
                         $this -> msg = 'Please upload image with the following types: JPG, PNG, GIF';
+						$this -> state = 100;
                     }
                 } else {
                     $this -> msg = 'Please upload image file';
+					$this -> state = 1000;
                 }
             } else {
                 $this -> msg = $this -> codeToMessage($errorCode);
+				$this -> state = $this -> codeToState($errorCode);
             }
         }
 
@@ -86,7 +110,9 @@
                 mkdir($dir, 0777);
             }
 
-            $this -> dst = $dir . '/' . date('YmdHis') . $this -> extension;
+			$this -> dstFile = date('YmdHis') . substr((string)microtime(), 2, 8) . $this -> extension;
+
+            $this -> dst = $dir . '/' . $this -> dstFile;
         }
 
         private function crop($src, $dst, $data) {
@@ -107,6 +133,7 @@
 
                 if (!$src_img) {
                     $this -> msg = "Failed to read the image file";
+					$this -> state = 1001;
                     return;
                 }
 
@@ -130,13 +157,17 @@
 
                     if (!$result) {
                         $this -> msg = "Failed to save the cropped image file";
+						$this -> state = 1002;
                     }
                 } else {
                     $this -> msg = "Failed to crop the image file";
+					$this -> state = 1003;
                 }
 
                 imagedestroy($src_img);
                 imagedestroy($dst_img);
+				$this -> msg = 'Save file successfully';
+				$this -> state = 200;
             }
         }
 
@@ -177,18 +208,88 @@
             return $message;
         }
 
+		private function codeToState($code) {
+            switch ($code) {
+                case UPLOAD_ERR_INI_SIZE:
+                    $stateCode = 300;
+                    break;
+
+                case UPLOAD_ERR_FORM_SIZE:
+                    $stateCode = 300;
+                    break;
+
+                case UPLOAD_ERR_PARTIAL:
+                    $stateCode = 400;
+                    break;
+
+                case UPLOAD_ERR_NO_FILE:
+                    $stateCode = 500;
+                    break;
+
+                case UPLOAD_ERR_NO_TMP_DIR:
+                    $stateCode = 600;
+                    break;
+
+                case UPLOAD_ERR_CANT_WRITE:
+                    $stateCode = 700;
+                    break;
+
+                case UPLOAD_ERR_EXTENSION:
+                    $stateCode = 800;
+                    break;
+
+                default:
+                    $stateCode = 900;
+            }
+
+            return $stateCode;
+        }
+
+		public function saveToS3($fileName) {
+			$aws = Aws::factory('aws-config.php');
+            $client = $aws->get('S3');
+			$bucket = "bud-quality";
+			$pathToFile = !empty($this -> data) ? $this -> dst : $this -> src;
+			$result = $client->putObject(array(
+				'Bucket'     => $bucket,
+				'Key'        => $fileName,
+				'SourceFile' => $pathToFile,
+				'ACL'        => 'public-read'
+			));
+
+			// We can poll the object until it is accessible
+			$client->waitUntil('ObjectExists', array(
+				'Bucket' => $bucket,
+				'Key'    => $fileName
+			));
+
+			return true;
+        }
+
         public function getResult() {
-            return !empty($this -> data) ? $this -> dst : $this -> src;
+            return !empty($this -> data) ? $this -> dstFile : $this -> srcFile;
         }
 
         public function getMsg() {
             return $this -> msg;
         }
+
+		public function getState() {
+            return $this -> state;
+        }
     }
 
+	
+
     $crop = new CropAvatar($_POST['avatar_src'], $_POST['avatar_data'], $_FILES['avatar_file']);
+
+	if ($crop -> getState() == 200)
+	{		
+		$crop -> saveToS3($crop -> getResult());
+	}
+
     $response = array(
-        'state'  => 200,
+        'state'  => $crop -> getState(),
         'message' => $crop -> getMsg(),
         'result' => $crop -> getResult()
     );

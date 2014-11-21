@@ -17,6 +17,8 @@ class UserController extends Controller
 
 	public function actionLoad($id)
 	{
+		header('Content-type: application/json');
+
 		$user = User::model() -> loadUserById($id);
 
 		$userInfo = new UserInfo;
@@ -39,6 +41,8 @@ class UserController extends Controller
 	
 	public function actionSave()
 	{
+		header('Content-type: application/json');
+
 		$name = $_POST["name"];
 		$purpose = $_POST["purpose"];
 		$date = $_POST["date"];

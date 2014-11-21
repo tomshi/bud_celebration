@@ -17,6 +17,8 @@ class TrackingController extends Controller
 	
 	public function actionSave()
 	{
+		header('Content-type: application/json');
+
 		$source = $_POST["source"];
 		$channel = $_POST["channel"];
 		$user_id = "";
