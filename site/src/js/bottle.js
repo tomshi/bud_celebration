@@ -19,6 +19,8 @@ $(function () {
 	var h = $element.height();
 
 	var animation_start = function () {
+
+		$name.text(ugc_name?ugc_name:'');
 		// TODO: Do we really need lettering
 		$label.lettering();
 		$bottle.velocity({translateY: "-120.0%"}, 0);

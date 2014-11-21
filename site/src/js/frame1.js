@@ -1,6 +1,8 @@
 $(function () {
 
 	var $frame1 = $('#frame1');
+
+	var $nextFrame = $('#frame2');
 	var $3dbox = $('.box3d', $frame1);
 	var $bg_frame1 = $('.bg1', $frame1);
 	var $model1 = $('.model1', $frame1);
@@ -23,8 +25,17 @@ $(function () {
 		}, 300);
 	};
 
+	var endTransition = function () {
+		$frame1.velocity({
+			opacity: 0
+		}, 1000, function(){
+			$frame1.hide();
+		});
+		$nextFrame.show().trigger('start');
+	};
 
 	var animation_start = function () {
+		console.log('Start');
 		$bg_frame1.add($model1).add($model2).velocity({
 			"translateZ": "18px"
 		}, 1500, function () {
@@ -50,7 +61,7 @@ $(function () {
 
 
 				$bg_frame1.velocity({
-					"translateZ": "10px"
+					"translateZ": "20px"
 				}, 1600, function () {
 					handup(function () {
 						handdown();
@@ -72,9 +83,7 @@ $(function () {
 						$bg_frame1.velocity({
 							"translateZ": "76px"
 						}, 1500, "linear", function () {
-
-							$('#frame2').trigger('start');
-
+							endTransition();
 						});
 					});
 				});

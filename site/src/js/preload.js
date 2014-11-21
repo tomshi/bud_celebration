@@ -14,17 +14,27 @@ var getReady = function () {
         'img/bright.png',
         'img/model1.png',
         'img/model2.png',
-        'img/frame1-bg.jpg'
+        'img/frame1-bg.jpg',
+        'img/model3.png',
+        'img/model4.png',
+        'img/frame2-bg.jpg',
+		    'img/model5.png',
+		    'img/model6.png',
+		    'img/frame3-bg.jpg',
+	      'img/light.png',
+	      'img/photo1.jpg',
+		    'img/photo2.jpg',
+		    'img/photo3.jpg',
+		    'img/photo4.jpg',
+	      'img/photo5.jpg'
     ];
 
     // Setting first animation here
-    var $FIRST_FRAME = $("#bottle");
+    var $FIRST_FRAME = $("#toast");
 
     var imagesCount = imageNames.length;
     var loadedImagesCount = 0;
     var images = [];
-
-
 
     for (var i = 0; i < imagesCount; i++) {
         images[i] = new Image();
@@ -39,7 +49,5 @@ var getReady = function () {
                 }, 300);
             }
         };
-
-
     }
-}
+};
