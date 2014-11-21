@@ -86,10 +86,10 @@ $(function() {
         $(".sharing-box").fadeOut();
     });
     $("#replay").bind('click', function(){
-        //
+        window.location.href = window.location.href + "?vid=" + ugc_id;
     });
     $("#redo").bind('click', function(){
-        //
+        window.location.href = window.location.origin;
     });
 
 

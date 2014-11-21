@@ -2,7 +2,7 @@ $(function() {
     controlFlow();
 });
 
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_id;
 
 function controlFlow(){
     // check the param 'vid'
@@ -40,7 +40,7 @@ function processUserLoadData(data){
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
-
+            ugc_id = data.data.user_id;
             console.log("ugc_name" + ugc_name);
 
             // skip the first view
