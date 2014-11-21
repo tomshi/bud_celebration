@@ -40,6 +40,9 @@ function processUserLoadData(data){
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
+
+            console.log("ugc_name" + ugc_name);
+
             // skip the first view
             getReady();
         }
