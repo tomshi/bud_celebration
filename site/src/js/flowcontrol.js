@@ -11,6 +11,7 @@ function controlFlow(){
         $.ajax({
             url: "api/user/load/" + videoId
         }).done(function(data) {
+            console.log("data1: " + data);
             processUserLoadData(data);
         }).fail(function(jqXHR, textStatus, errorThrown) {
             $.ajax({
@@ -35,6 +36,8 @@ function getUrlParameterByName(name) {
 
 function processUserLoadData(data){
     if(data){
+        console.log("data2: " + data);
+        console.log("is_success: " + data.is_success);
         if(data.is_success){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
