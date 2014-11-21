@@ -264,6 +264,8 @@
           }
           this.$avatarInput.val("");
           $(".avatar-crop-overlay").hide();
+            $(".upload-succeed").show();
+            $(".avatar-upload").hide();
         } else if (data.message) {
           this.alert(data.message);
         }
@@ -281,9 +283,15 @@
     },
 
     cropDone: function () {
+      var hostname;
       this.$avatarSrc.val("");
       this.$avatarData.val("");
-      this.$avatar.attr("src", this.url);
+      if (window.location.href.indexOf("bud1.sonicboomsh.com") > 0){
+          hostname = "http://s3-ap-northeast-1.amazonaws.com/bud-quality/";
+      }else {
+          hostname = "/";
+      }
+      this.$avatar.attr("src", hostname + this.url);
       this.stopCropper();
       //this.$avatarModal.modal("hide");
     },
