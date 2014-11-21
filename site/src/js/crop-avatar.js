@@ -290,6 +290,7 @@
           hostname = "/";
       }
       this.$avatar.attr("src", hostname + this.url);
+      ugc_image_url =  hostname + this.url;
       this.stopCropper();
       //this.$avatarModal.modal("hide");
     },

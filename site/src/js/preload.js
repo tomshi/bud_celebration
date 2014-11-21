@@ -41,8 +41,6 @@ var getReady = function () {
     for (var i = 0; i < imagesCount; i++) {
         images[i] = new Image();
         images[i].src = imageNames[i];
-
-
         images[i].onload = function () {
             var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
             $("#loading-now").css("width", progress + "%");
