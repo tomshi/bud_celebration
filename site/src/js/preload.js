@@ -1,4 +1,6 @@
 var getReady = function () {
+    $("#loading").show();
+
     var imageNames = [
         'img/bottle.png',
         'img/bottle-desk.jpg',
@@ -43,10 +45,12 @@ var getReady = function () {
 
         images[i].onload = function () {
             var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
+            $("#loading-now").css("width", progress + "%");
             if (loadedImagesCount >= imagesCount) {
+                $("#loading").fadeOut();
                 setTimeout(function () {
                     $FIRST_FRAME.show().trigger('start');
-                }, 300);
+                }, 400);
             }
         };
     }
