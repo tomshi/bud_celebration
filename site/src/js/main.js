@@ -137,7 +137,9 @@ $(function() {
                     image: $("#avatarInput").val()
                 }
             }).done(function(data) {
-                alert( "success" );
+                $("#form").hide();
+                getReady();
+                //alert( "success" );
             }).fail(function(jqXHR, textStatus, errorThrown) {
                 $.ajax({
                     url: "api/json/user_save.json",
