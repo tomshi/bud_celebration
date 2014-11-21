@@ -29,7 +29,15 @@ var getReady = function () {
       'img/photo5.jpg',
       'img/frame1-bg.jpg',
       'img/frame2-bg.jpg',
-      'img/frame3-bg.jpg'
+      'img/frame3-bg.jpg',
+      'img/share.jpg',
+      'img/sharing-close.png',
+      'img/sharing-douban.png',
+      'img/sharing-qq.png',
+      'img/sharing-qzone.png',
+      'img/sharing-renren.png',
+      'img/sharing-sina.png',
+      'img/sharing-wechat.png'
     ];
 
     // Setting first animation here
