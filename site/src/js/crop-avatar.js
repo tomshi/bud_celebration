@@ -113,9 +113,9 @@
       });
     },
 
-    click: function () {
-      this.$avatarModal.modal("show");
-    },
+    //click: function () {
+      //this.$avatarModal.modal("show");
+    //},
 
     change: function () {
       $(".avatar-crop-overlay").fadeIn();
@@ -263,6 +263,7 @@
             this.startCropper();
           }
           this.$avatarInput.val("");
+          $(".avatar-crop-overlay").hide();
         } else if (data.message) {
           this.alert(data.message);
         }
@@ -284,7 +285,7 @@
       this.$avatarData.val("");
       this.$avatar.attr("src", this.url);
       this.stopCropper();
-      this.$avatarModal.modal("hide");
+      //this.$avatarModal.modal("hide");
     },
 
     alert: function (msg) {
