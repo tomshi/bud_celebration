@@ -82,6 +82,18 @@ function submitUserData() {
 function validateInput(){
     var day = $("#time-d").val().trim();
     var month = $("#time-m").val().trim();
+    var name = $("#username").val().trim();
+    var purpose = $("#occasion").val().trim();
+
+    if(name.length <= 0 || name > 8){
+        console.log("The name " + name + " is not valid.");
+        return false;
+    }
+
+    if(purpose.length <= 0|| purpose > 8){
+        console.log("The purpose " + purpose + " is not valid.");
+        return false;
+    }
 
     var intDay =parseInt(day);
     var intMonth =parseInt(month);
