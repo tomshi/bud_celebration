@@ -50,14 +50,20 @@ function processUserLoadData(data){
 }
 
 function submitUserData() {
+    var day = "0" + $("#time-d").val().trim();
+    var month = "0" + $("#time-m").val().trim();
+
+    day = day.substring(day.length - 2);
+    month = month.substring(month.length - 2);
+
     $.ajax({
         type: "POST",
         url: "api/user/save",
         dataType: "json",
         data: {
-            name: $("#username").val(),
-            purpose: $("#occasion").val(),
-            date: $("#time-d").val() + "/" + $("#time-m").val(),
+            name: $("#username").val().trim(),
+            purpose: $("#occasion").val().trim(),
+            date: day + "/" + month,
             image: $("#avatarInput").val()
         }
     }).done(function(data) {
@@ -73,11 +79,46 @@ function submitUserData() {
     });
 }
 
+function validateInput(){
+    var day = $("#time-d").val().trim();
+    var month = $("#time-m").val().trim();
+
+    var intDay =parseInt(day);
+    var intMonth =parseInt(month);
+
+    if(intDay != day){
+        console.log("The day " + day + " is not valid.");
+        return false;
+    }
+
+    if(intMonth != month){
+        console.log("The month " + month + " is not valid.");
+        return false;
+    }
+
+    if(intDay <=0 || intDay > 31){
+        console.log("The day " + day + " is not valid.");
+        return false;
+    }
+
+    if(intMonth <=0 || intMonth > 12){
+        console.log("The month " + month + " is not valid.");
+        return false;   
+    }
+
+    return true;
+}
+
 $(function() {
     controlFlow();
     $("#submit").bind("click", function(){
         if ($(this).hasClass("active")) {
-            submitUserData();
+            if(validateInput()){
+                submitUserData();    
+            }
+            else{
+                console.log("Validation failed.");
+            }
         }
     });
 });
