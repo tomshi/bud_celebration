@@ -74,7 +74,7 @@ $(function() {
         if (getUrlParameterByName("vid").length > 0){
             window.location.reload();
         }else {
-            window.location.href = window.location.href + "?vid=" + ugc_id;
+            window.location.href = window.location.href + "?vid=" + vid;
         }
     });
     $("#redo").bind('click', function(){

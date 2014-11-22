@@ -1,4 +1,4 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_id;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, vid;
 
 function controlFlow(){
     // check the param 'vid'
@@ -36,7 +36,7 @@ function processUserLoadData(data){
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
-            ugc_id = data.data.user_id;
+            vid = data.data.user_id;
             $("#form").hide();
             getReady();
         }

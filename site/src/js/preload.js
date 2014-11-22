@@ -56,6 +56,7 @@ var getReady = function () {
             if (loadedImagesCount >= imagesCount) {
                 $("#loading").fadeOut();
                 setTimeout(function () {
+                    SaveTrackingLog(1);
                     $FIRST_FRAME.show().trigger('start');
                 }, 400);
             }
