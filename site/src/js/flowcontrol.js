@@ -37,6 +37,9 @@ function processUserLoadData(data){
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
             vid = data.data.user_id;
+
+            wxsharing();
+            
             $("#form").hide();
             getReady();
         }

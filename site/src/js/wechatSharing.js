@@ -2,6 +2,8 @@
  * Description:微信分享通用代码
  * 使用方法：_WXShare('分享显示的LOGO','LOGO宽度','LOGO高度','分享标题','分享描述','分享链接','微信APPID';
  **/
+var e, c, j, g, f, b, h;
+
 function _WXShare(e, c, j, g, f, b, h) {
 	e = e || "http://www.00ok.cc/ico-share.png";
 	c = c || 100;
@@ -24,7 +26,6 @@ function _WXShare(e, c, j, g, f, b, h) {
 			requestBaiduTracking("video,share", "chat");
 			requestNielsenTracking("video,share,chat");
 			requestGATracking("video,share", "chat");
-			console.log('sendAppMessage');
 		});
 	}
 
@@ -40,7 +41,6 @@ function _WXShare(e, c, j, g, f, b, h) {
 			requestBaiduTracking("video,share", "moments");
 			requestNielsenTracking("video,share,moments");
 			requestGATracking("video,share", "moments");
-			console.log('shareTimeline');
 		});
 	}
 
