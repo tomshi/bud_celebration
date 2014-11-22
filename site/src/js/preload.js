@@ -42,26 +42,49 @@ var getReady = function () {
 
 	// Setting first animation here
 	var $FIRST_FRAME = $("#toast");
-
 	var imagesCount = imageNames.length;
-	var loadedImagesCount = 0;
+	var resourceCount = imagesCount + 1;
+	var loadedResourceCount = 0;
 	var images = [];
+
+	var start = function () {
+
+		if (loadedResourceCount >= resourceCount) {
+			$("#loading").fadeOut();
+			setTimeout(function () {
+				SaveTrackingLog(1);
+
+				$FIRST_FRAME.show().trigger('start');
+				audiojs.instances.audiojs0.play();
+			}, 400);
+		}
+	};
+
+	var bgMusic = document.createElement('script');
+	bgMusic.onload = function () {
+
+		++loadedResourceCount;
+
+		audiojs.events.ready(function () {
+			audiojs.createAll();
+		});
+
+		start();
+	};
+
+	bgMusic.src = "music/36s.js";
+	document.getElementsByTagName("head")[0].appendChild(bgMusic);
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
 		images[i].src = imageNames[i];
 		images[i].onload = function () {
-			var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
+			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
 			$("#loading-now").css("width", progress + "%");
-			if (loadedImagesCount >= imagesCount) {
-				$("#loading").fadeOut();
-				setTimeout(function () {
-					SaveTrackingLog(1);
-					$FIRST_FRAME.show().trigger('start');
-				}, 400);
-			}
+			start();
 		};
 	}
+
 
 	CAPTION.getReady();
 };
