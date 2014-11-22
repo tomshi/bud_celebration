@@ -197,6 +197,7 @@ $(function() {
 
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
+        $("#avatarInput").val("");
     });
 
     $(".avatar-save").bind("click", function() {

@@ -1,11 +1,6 @@
 function shareSNS(type, link, image, text) {
-    //var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
+    var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
     text = encodeURIComponent(text);
-
-    if (image == ""){
-        image = "http://toast-365days.com/img/share.jpg";
-    }
-    var img = encodeURIComponent(image);
 
     if (link == ""){
         link = encodeURIComponent(window.location.href);
