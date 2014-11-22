@@ -5,8 +5,16 @@ $(function() {
 });
 
 // Backend Tracking
-function SaveTrackingLog(source, channel, user_id, is_start){
-
+function SaveTrackingLog(is_start){
+    var source = getUrlParameterByName("source");
+    var channel = getUrlParameterByName("channel");
+    if (source == ""){
+        source = "website";
+    }
+    console.log(source);
+    console.log(channel);
+    console.log(is_start);
+    console.log(vid);
     $.ajax({
         type: "POST",
         url: "api/tracking/save",
@@ -14,7 +22,7 @@ function SaveTrackingLog(source, channel, user_id, is_start){
         data: {
             source: source,
             channel: channel,
-            user_id: user_id,
+            id: vid,
             is_start: is_start
         }
     }).done(function(data) {
