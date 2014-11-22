@@ -2,9 +2,9 @@ function shareSNS(type, link, image, text) {
     var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
     text = encodeURIComponent(text);
 
-    if (link == ""){
+    if (link == "") {
         link = encodeURIComponent(window.location.href);
-    }else {
+    } else {
         link = encodeURIComponent(link);
     }
 
@@ -80,10 +80,12 @@ function shareSNS(type, link, image, text) {
 }
 
 $(".share").on("click", function() {
+    var name = ugc_name !== undefined ? ugc_name : "";
+    var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
     var $this = $(this),
         type = $this.attr("share-platform"),
         link = $this.attr("share-link"),
         image = $this.attr("share-img"),
-        text = $this.attr("share-text");
+        text = $this.attr("share-text").replace("{name}", name).replace("{purpose}", purpose);
     shareSNS(type, link, image, text);
 });

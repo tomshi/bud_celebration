@@ -17,9 +17,9 @@ var isMobile = {
 };
 
 function getAndroidVersion(ua) {
-	var ua = ua || navigator.userAgent;
-	var match = ua.match(/Android\s([0-9\.]*)/);
-	return match ? match[1] : false;
+    var ua = ua || navigator.userAgent;
+    var match = ua.match(/Android\s([0-9\.]*)/);
+    return match ? match[1] : false;
 }
 
 function orient() {
@@ -52,32 +52,43 @@ function screenSize() {
 }
 
 function wxsharing() {
-    _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '百威', '百威啤酒', '', '微信APPID(一般不用填)');
+    var name = ugc_name !== undefined ? ugc_name : "";
+    var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
+
+    if (name.length > 0 && purpose.length > 0) {
+        _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '酿造' + name + '的欢庆时刻', name + '独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！', '', '微信APPID(一般不用填)');
+    } else {
+        _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '用你的故事，打造独一无二的百威定制啤酒', '你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯', '', '微信APPID(一般不用填)');
+    }
+}
+
+function updateWeChatSharing() {
+    _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '用你的故事，打造独一无二的百威定制啤酒', '你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯', '', '微信APPID(一般不用填)');
 }
 
 $(function() {
-    $("#buy").bind('click', function(){
+    $("#buy").bind('click', function() {
         var ua = window.navigator.userAgent.toLowerCase();
-        if(ua.indexOf("micromessenger") > 0){
+        if (ua.indexOf("micromessenger") > 0) {
             $(".buy-tip-overlay").fadeIn();
-        }else {
+        } else {
             window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
         }
     });
-    $("#share").bind('click', function(){
+    $("#share").bind('click', function() {
         $(".sharing-box").fadeIn();
     });
-    $(".close").bind('click', function(){
+    $(".close").bind('click', function() {
         $(".sharing-box").fadeOut();
     });
-    $("#replay").bind('click', function(){
-        if (getUrlParameterByName("id").length > 0){
+    $("#replay").bind('click', function() {
+        if (getUrlParameterByName("id").length > 0) {
             window.location.reload();
-        }else {
+        } else {
             window.location.href = window.location.href + "?id=" + vid;
         }
     });
-    $("#redo").bind('click', function(){
+    $("#redo").bind('click', function() {
         window.location.href = window.location.origin;
     });
 });
@@ -85,11 +96,11 @@ $(function() {
 $(function() {
     function init() {
         screenSize();
-        if (window.addEventListener){
+        if (window.addEventListener) {
             wxsharing();
             orient();
             window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
-        };
+        }
         $(window).resize(function() {
             screenSize();
         });
