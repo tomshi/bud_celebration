@@ -50,16 +50,15 @@ $(function () {
 			$shadow2.velocity({
 				opacity: 1,
 				scale: 1.06
-			},1000);
+			}, 1000);
 			$light.add($bottleShadow).show().velocity({
 				opacity: 0.8
-			}, 1000, function(){
+			}, 1000, function () {
 				$light.velocity({rotateZ: "-2deg"}, 1000);
-
 
 				$bottleShadow.add($shadow2).velocity({
 					rotateZ: "3deg"
-				}, 1000, function(){
+				}, 1000, function () {
 					endTransition();
 				});
 			});
