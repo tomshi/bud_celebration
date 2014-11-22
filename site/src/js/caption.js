@@ -90,7 +90,9 @@ $(function () {
 			});
 		},
 		bottleOut: function () {
-			$bottle.velocity("fadeOut", fadeOutTime);
+			$bottle.velocity("fadeOut", fadeOutTime, function(){
+				$caption.hide();
+			});
 		}
 	};
 });
