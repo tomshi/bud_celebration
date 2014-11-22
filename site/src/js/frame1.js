@@ -10,19 +10,20 @@ $(function () {
 
 	var $hand = $('#hand');
 
-	var handup = function (cb) {
+	var handup = function (Y, time, cb) {
 		$hand.velocity({
 			translateX: "10%",
-			translateY: "-64%"
-		}, 1000, cb);
+			translateY: Y
+		}, time, cb);
 	};
 
 	var handdown = function (cb) {
+
 		setTimeout(function () {
 			$hand.velocity({
 				translateY: "-22%"
 			}, 1000, cb);
-		}, 300);
+		}, 100);
 	};
 
 	var endTransition = function () {
@@ -38,32 +39,32 @@ $(function () {
 	var animation_start = function () {
 		$bg_frame1.add($model1).add($model2).velocity({
 			"translateZ": "18px"
-		}, 1500, function () {
+		}, 1300, function () {
 
-			handup(function () {
+			handup("-64%", 900, function () {
 
 				if (!isMobile.Android()) {
 					$3dbox.css({
-						"perspective-origin": "26% 50%"
+						"perspective-origin": "20% 50%"
 					}, 0);
 				}
 
 				handdown();
 
 				$model1.velocity({
-					"translateX": "70%",
+					"translateX": "50%",
 					"translateZ": "70px"
-				}, 1700);
+				}, 1500);
 
 				$model2.velocity({
 					"translateZ": "39px"
-				}, 1500);
+				}, 1200);
 
 
 				$bg_frame1.velocity({
 					"translateZ": "20px"
-				}, 1600, function () {
-					handup(function () {
+				}, 1000, function () {
+					handup("-55%", 900,function () {
 						handdown();
 
 						if (!isMobile.Android()) {
@@ -74,15 +75,16 @@ $(function () {
 
 						$('.model1', $frame1).velocity({
 							"translateZ": "90px"
-						}, 500, "linear");
+						}, 600, "linear");
 
 						$('.model2', $frame1).velocity({
+							"translateX": "0%",
 							"translateZ": "90px"
-						}, 1000, "linear");
+						}, 1300, "linear");
 
 						$bg_frame1.velocity({
 							"translateZ": "76px"
-						}, 1500, "linear", function () {
+						}, 1600, "linear", function () {
 							endTransition();
 						});
 					});

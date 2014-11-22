@@ -15,10 +15,10 @@ $(function () {
 
 	var endTransition = function () {
 		$element.hide();
-		$nextFrame.trigger('start');
+
 	};
 
-	var time = 2000;
+	var time = 1900;
 	var reverseTime = 1800;
 
 
@@ -70,7 +70,7 @@ $(function () {
 		$mainHand.velocity({
 			translateY: "-78%"
 		}, {
-			duration: time + 200,
+			duration: time,
 			easing: [ .34, 1.14, .39, 1.19]
 		}).velocity({
 			translateY: "-22%"
@@ -86,6 +86,7 @@ $(function () {
 				$nextFrame.show().velocity({
 					opacity: 1
 				}, 2000);
+				$nextFrame.trigger('start');
 
 				CAPTION.frame1();
 			}

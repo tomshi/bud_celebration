@@ -14,15 +14,15 @@ $(function () {
 		$hand.velocity({
 			translateX: "2%",
 			translateY: "-80%"
-		}, 1000, cb);
+		}, 800, cb);
 	};
 
 	var handdown = function (cb) {
 		setTimeout(function () {
 			$hand.velocity({
 				translateY: "-22%"
-			}, 1000, cb);
-		}, 300);
+			}, 1100, cb);
+		}, 200);
 	};
 
 	var endTransition = function () {
@@ -46,7 +46,7 @@ $(function () {
 
 		$bg_frame2.add($model3).add($model4).velocity({
 			"translateZ": "25px"
-		}, 1500, function () {
+		}, 1000, function () {
 
 			handup(function () {
 
