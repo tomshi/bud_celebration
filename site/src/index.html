@@ -87,18 +87,18 @@
             </div>
             <div class="form">
                 <div class="input name">
-                    <input type="text" id="username" name="username" maxlength="8" placeholder="为谁欢庆" value=""/>
+                    <input type="text" id="username" maxlength="8" placeholder="为谁欢庆" value="为谁欢庆"/>
                 </div>
-                <div class="input type">
-                    <input type="text" id="occasion" name="occasion" maxlength="8" placeholder="庆祝什么" value=""/>
-                    <ul class="type-list" id="type-list">
+                <div class="input purpose">
+                    <input type="text" id="purpose" maxlength="8" placeholder="庆祝什么" value="庆祝什么"/>
+                    <ul class="purpose-list" id="purpose-list">
                         <li>生曰快乐</li>
                         <li>新年快乐</li>
                     </ul>
                 </div>
                 <div class="input time">
-                    <input maxlength="2" type="text" id="time-d" name="time-d" placeholder="日日" value=""/>
-                    <input maxlength="2" type="text" id="time-m" name="time-m" placeholder="月月" value=""/>
+                    <input type="text" id="time-d" maxlength="2" placeholder="日日" value="日日"/>
+                    <input type="text" id="time-m" maxlength="2" placeholder="月月" value="月月"/>
                 </div>
                 <a href="javascript:void(0);" class="submit" id="submit" ga_category="index" ga_action="create" baidu_category="index" baidu_action="create" nl_key="index,create"></a>
                 <div class="upload" id="crop-avatar">
@@ -114,7 +114,7 @@
                         <div class="text">上传失败</div>
                     </div>
                     <div class="upload-succeed" style="display: none">
-                        <div class="text">上传成功<a style="margin-left: 10%" href="javascript:void(0)">更改照片</a></div>
+                        <div class="text">上传成功</div>
                         <div class="avatar-view" title="Change the avatar">
                             <img src="img/picture.jpg" width="20%" alt="Avatar">
                         </div>
@@ -191,11 +191,11 @@
                     <a href="javascript:void(0);" class="item" id="redo" ga_category="video" ga_action="recreate" baidu_category="video" baidu_action="recreate" nl_key="video,recreate"><img src="img/end-redo.png" class="responsive" alt=""/></a>
                     <div class="sharing-box">
                         <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img="" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img="" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img="" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img="" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img="" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
         <div class="table-cell">
             <div id="avatar-modal">
                 <div class="avatar-wrapper"></div>
-                <a href="javascript:void(0);" class="close-overlay">取消</a>
+                <a href="javascript:void(0);" class="close-avatar-crop-overlay">取消</a>
                 <a href="javascript:void(0);" class="avatar-save">保存</a>
             </div>
         </div>

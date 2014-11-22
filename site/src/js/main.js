@@ -55,21 +55,6 @@ function wxsharing() {
     _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '百威', '百威啤酒', '', '微信APPID(一般不用填)');
 }
 
-window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
-
-window.addEventListener('resize', function() {
-    screenSize();
-});
-
-
-function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
-        $("#submit").addClass("active");
-    } else {
-        $("#submit").removeClass("active");
-    }
-}
-
 $(function() {
     $("#buy").bind('click', function(){
         var ua = window.navigator.userAgent.toLowerCase();
@@ -89,50 +74,25 @@ $(function() {
         if (getUrlParameterByName("vid").length > 0){
             window.location.reload();
         }else {
-            window.location.href = window.location.href + "?vid=" + ugc_id;
+            window.location.href = window.location.href + "?vid=" + vid;
         }
     });
     $("#redo").bind('click', function(){
         window.location.href = window.location.origin;
-    });
-
-    $(".input input").bind("focus", function() {
-        var $this = $(this);
-        var inputName = $this.attr("name");
-        if (inputName == "occasion") {
-            $("#type-list").slideDown();
-        }
-        $this.parent().addClass("focus");
-    }).bind("blur", function() {
-        $(this).parent().removeClass("focus");
-        //$("#time").attr("placeholder", "在哪一天");
-        $("#type-list").slideUp();
-    }).bind("change", function() {
-        activeSubmitButton();
-    }).bind("keyup", function() {
-        activeSubmitButton();
-    });
-
-    $("#type-list li").bind("click", function() {
-        var val = $(this).text();
-        $("#occasion").val(val);
-        $("#type-list").slideUp();
-    });
-
-    $(".close-overlay").bind("click", function() {
-        $(".overlay").fadeOut();
-    });
-
-    $(".avatar-save").bind("click", function() {
-        $(".avatar-form").submit();
     });
 });
 
 $(function() {
     function init() {
         screenSize();
-        wxsharing();
-        orient();
+        if (window.addEventListener){
+            wxsharing();
+            orient();
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
+        };
+        $(window).resize(function() {
+            screenSize();
+        });
     }
     init();
 });
