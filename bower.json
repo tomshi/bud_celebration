@@ -13,6 +13,7 @@
     "modernizr": "~2.8.3",
     "letteringjs": "~0.6.1",
     "cropper": "~0.7.3",
-    "jquery-file-upload": "~9.8.0"
+    "jquery-file-upload": "~9.8.0",
+    "audiojs": "*"
   }
 }

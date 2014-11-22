@@ -264,6 +264,9 @@
 </div>
 
 <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+<div class="hide">
+    <audio id="bgmusic" preload="none" />
+</div>
 
 <!-- build:js js/plugins.js -->
 <script src="bower_components/velocity/velocity.min.js"></script>
@@ -272,6 +275,7 @@
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->
+<script src="bower_components/audiojs/audiojs/audio.js"></script>
 <script src="js/preload.js"></script>
 <script src="js/main.js"></script>
 <script src="js/history.js"></script>
