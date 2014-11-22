@@ -1,0 +1,71 @@
+#stage #caption {
+
+  //  display: block;
+  .caption {
+    position: absolute;
+    margin-left: 6%;
+    bottom: 6%;
+    display: none;
+
+    font-size: 2.3rem;
+    line-height: 3rem;
+    width: 50%;
+  }
+
+  z-index: 20;
+
+  .caption-toast {
+    position: relative;
+    display: none;
+    top: 50%;
+    text-align: center;
+
+    font-size: 2.6rem;
+    line-height: 3rem;
+  }
+
+  .caption.frame4 {
+    margin-left: 0;
+    right: 6%;
+    text-align: right;
+  }
+
+  .today {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .caption {
+    font-size: 2.2rem;
+    line-height: 3rem;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .caption {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .caption {
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  .caption {
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .caption {
+    font-size: 7px;
+    line-height: 7px;
+  }
+}

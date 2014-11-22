@@ -84,6 +84,7 @@ $(function () {
 		}, 800, function () {
 			$printer.hide();
 			panorama();
+			CAPTION.bottleOut();
 		});
 	};
 

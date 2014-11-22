@@ -31,6 +31,7 @@ $(function () {
 		}, 1000, function () {
 			$element.hide();
 		});
+		CAPTION.frame3();
 
 		$nextFrame.show().trigger('start');
 	};

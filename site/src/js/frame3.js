@@ -35,6 +35,7 @@ $(function () {
 		}, 1000, function () {
 			$element.hide();
 		});
+		CAPTION.frame4();
 		$nextFrame.show().trigger('start');
 	};
 
@@ -103,9 +104,11 @@ $(function () {
 							"translateZ": "90px"
 						}, 1000, "linear");
 
+						CAPTION.frame3FadeOut();
+
 						$shadow.velocity({
 							opacity: 0
-						}, 1600, "linear", function(){
+						}, 1600, "linear", function () {
 
 							$bg_frame.velocity({
 								"translateZ": "76px"

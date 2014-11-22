@@ -11,11 +11,12 @@ $(function () {
 		}, 1000, function () {
 			$element.hide();
 		});
+		CAPTION.bottleIn();
 		$nextFrame.show().trigger('start');
 	};
 
 	var slide = function (i) {
-		if (i > 4) {
+		if (i > 5) {
 			endTransition();
 			return;
 		}

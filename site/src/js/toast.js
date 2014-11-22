@@ -24,6 +24,7 @@ $(function () {
 
 	var animation_start = function () {
 		toast();
+		CAPTION.toast()
 	};
 
 	var toast = function () {
@@ -81,9 +82,12 @@ $(function () {
 				$bg.velocity({
 					opacity: 0
 				}, reverseTime);
+
 				$nextFrame.show().velocity({
 					opacity: 1
 				}, 2000);
+
+				CAPTION.frame1();
 			}
 		});
 	};

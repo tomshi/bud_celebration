@@ -31,11 +31,11 @@ $(function () {
 		}, 1000, function(){
 			$frame1.hide();
 		});
+		CAPTION.frame2();
 		$nextFrame.show().trigger('start');
 	};
 
 	var animation_start = function () {
-
 		$bg_frame1.add($model1).add($model2).velocity({
 			"translateZ": "18px"
 		}, 1500, function () {

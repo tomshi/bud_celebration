@@ -1,65 +1,67 @@
 var getReady = function () {
-    $("#loading").show();
+	$("#loading").show();
 
-    var imageNames = [
-      'img/bottle.png',
-      'img/bottle-desk.jpg',
-      'img/bottle-desk-bg.jpg',
-      'img/engrave.png',
-      'img/hand.png',
-      'img/hand1.png',
-      'img/hand2.png',
-      'img/hand3.png',
-      'img/hand4.png',
-      'img/hands-bg.jpg',
-      'img/dust.png',
-      'img/dust-toast.png',
-      'img/bright.png',
-      'img/model1.png',
-      'img/model2.png',
-      'img/model3.png',
-      'img/model4.png',
-      'img/model5.png',
-      'img/model6.png',
-      'img/light.png',
-      'img/photo1.jpg',
-      'img/photo2.jpg',
-      'img/photo3.jpg',
-      'img/photo4.jpg',
-      'img/photo5.jpg',
-      'img/frame1-bg.jpg',
-      'img/frame2-bg.jpg',
-      'img/frame3-bg.jpg',
-      'img/share.jpg',
-      'img/sharing-close.png',
-      'img/sharing-douban.png',
-      'img/sharing-qq.png',
-      'img/sharing-qzone.png',
-      'img/sharing-renren.png',
-      'img/sharing-sina.png',
-      'img/sharing-wechat.png'
-    ];
+	var imageNames = [
+		'img/bottle.png',
+		'img/bottle-desk.jpg',
+		'img/bottle-desk-bg.jpg',
+		'img/engrave.png',
+		'img/hand.png',
+		'img/hand1.png',
+		'img/hand2.png',
+		'img/hand3.png',
+		'img/hand4.png',
+		'img/hands-bg.jpg',
+		'img/dust.png',
+		'img/dust-toast.png',
+		'img/bright.png',
+		'img/model1.png',
+		'img/model2.png',
+		'img/model3.png',
+		'img/model4.png',
+		'img/model5.png',
+		'img/model6.png',
+		'img/light.png',
+		'img/photo1.jpg',
+		'img/photo2.jpg',
+		'img/photo3.jpg',
+		'img/photo4.jpg',
+		'img/photo5.jpg',
+		'img/frame1-bg.jpg',
+		'img/frame2-bg.jpg',
+		'img/frame3-bg.jpg',
+		'img/share.jpg',
+		'img/sharing-close.png',
+		'img/sharing-douban.png',
+		'img/sharing-qq.png',
+		'img/sharing-qzone.png',
+		'img/sharing-renren.png',
+		'img/sharing-sina.png',
+		'img/sharing-wechat.png'
+	];
 
-    // Setting first animation here
-    var $FIRST_FRAME = $("#toast");
+	// Setting first animation here
+	var $FIRST_FRAME = $("#toast");
 
-    var imagesCount = imageNames.length;
-    var loadedImagesCount = 0;
-    var images = [];
+	var imagesCount = imageNames.length;
+	var loadedImagesCount = 0;
+	var images = [];
 
-    for (var i = 0; i < imagesCount; i++) {
-        images[i] = new Image();
-        images[i].src = imageNames[i];
-        images[i].onload = function () {
-            var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
-            $("#loading-now").css("width", progress + "%");
-            if (loadedImagesCount >= imagesCount) {
-                $("#loading").fadeOut();
-                setTimeout(function () {
-                    SaveTrackingLog(1);
-                    $FIRST_FRAME.show().trigger('start');
-                }, 400);
-            }
-        };
-    }
+	for (var i = 0; i < imagesCount; i++) {
+		images[i] = new Image();
+		images[i].src = imageNames[i];
+		images[i].onload = function () {
+			var progress = Math.ceil(100 * (++loadedImagesCount / imagesCount));
+			$("#loading-now").css("width", progress + "%");
+			if (loadedImagesCount >= imagesCount) {
+				$("#loading").fadeOut();
+				setTimeout(function () {
+					SaveTrackingLog(1);
+					$FIRST_FRAME.show().trigger('start');
+				}, 400);
+			}
+		};
+	}
+
+	CAPTION.getReady();
 };
