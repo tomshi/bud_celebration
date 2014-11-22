@@ -71,7 +71,7 @@ $(function() {
         $(".sharing-box").fadeOut();
     });
     $("#replay").bind('click', function(){
-        if (getUrlParameterByName("vid").length > 0){
+        if (getUrlParameterByName("id").length > 0){
             window.location.reload();
         }else {
             window.location.href = window.location.href + "?vid=" + vid;

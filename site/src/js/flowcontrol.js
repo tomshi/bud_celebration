@@ -2,7 +2,7 @@ var ugc_name, ugc_purpose, ugc_date, ugc_image_url, vid;
 
 function controlFlow(){
     // check the param 'vid'
-    var videoId = getUrlParameterByName("vid");
+    var videoId = getUrlParameterByName("id");
     if(videoId){
         $.ajax({
             url: "api/user/load/" + videoId
