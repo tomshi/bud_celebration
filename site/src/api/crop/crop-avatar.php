@@ -1,8 +1,11 @@
 <?php
-	require 'aws-autoloader.php';
+	//require 'aws-autoloader.php';
 
-	use Aws\Common\Aws;
-	use Aws\S3\S3Client;
+	//use Aws\Common\Aws;
+	//use Aws\S3\S3Client;
+
+	
+	require_once('saestorage.class.php');
 
     class CropAvatar {
         private $src;
@@ -266,6 +269,24 @@
 			return true;
         }
 
+		public function saveToSAE($fileName) {
+			#your app accesskey
+			$ak = '3l31nmmj24';
+			#your app secretkey
+			$sk = 'zyh3wjji3k1ykzl1k23xlkijh2i4l5zjl25lw2km';
+			#your domain name
+			$domain = 'bud';
+			$destFileName = $fileName;
+			$attr = array('encoding'=>'gzip');
+			$pathToFile = !empty($this -> data) ? $this -> dst : $this -> src;
+			$storage = new SaeStorage($ak, $sk);
+			//$result = $storage->write($domain,$destFileName, $content, -1, $attr, true);
+			$result = $storage->upload( $domain, $destFileName, $pathToFile . '/' . $fileName, $attr, false);
+			//var_dump($result);
+
+			return true;
+        }
+
         public function getResult() {
             return !empty($this -> data) ? $this -> dstFile : $this -> srcFile;
         }
@@ -285,7 +306,7 @@
 
 	if ($crop -> getState() == 200)
 	{		
-		$crop -> saveToS3($crop -> getResult());
+		$crop -> saveToSAE($crop -> getResult());
 	}
 
     $response = array(
