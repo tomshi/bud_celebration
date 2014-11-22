@@ -74,7 +74,7 @@ $(function() {
         if (getUrlParameterByName("id").length > 0){
             window.location.reload();
         }else {
-            window.location.href = window.location.href + "?vid=" + vid;
+            window.location.href = window.location.href + "?id=" + vid;
         }
     });
     $("#redo").bind('click', function(){
