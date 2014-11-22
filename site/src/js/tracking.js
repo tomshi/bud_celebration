@@ -14,7 +14,7 @@ function SaveTrackingLog(is_start){
     console.log(source);
     console.log(channel);
     console.log(is_start);
-    console.log(vid);
+    console.log(ugc_vid);
     $.ajax({
         type: "POST",
         url: "api/tracking/save",
@@ -22,7 +22,7 @@ function SaveTrackingLog(is_start){
         data: {
             source: source,
             channel: channel,
-            id: vid,
+            id: ugc_vid,
             is_start: is_start
         }
     }).done(function(data) {
