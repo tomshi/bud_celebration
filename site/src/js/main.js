@@ -52,8 +52,8 @@ function screenSize() {
 }
 
 function wxsharing() {
-    var name = ugc_name !== undefined ? ugc_name : "";
-    var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
+    var name = ugc_name !== undefined ? $.trim(ugc_name) : "";
+    var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
 
     if (name.length > 0 && purpose.length > 0) {
         _WXShare('http://toast-365days.com/img/share.jpg', 100, 100, '酿造' + name + '的欢庆时刻', name + '独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！', '', '微信APPID(一般不用填)');
