@@ -50,8 +50,8 @@ function processUserLoadData(data){
 }
 
 function submitUserData() {
-    var day = "0" + $("#time-d").val().trim();
-    var month = "0" + $("#time-m").val().trim();
+    var day = "0" + $.trim($("#time-d").val());
+    var month = "0" + $.trim($("#time-m").val());
 
     day = day.substring(day.length - 2);
     month = month.substring(month.length - 2);
@@ -61,8 +61,8 @@ function submitUserData() {
         url: "api/user/save",
         dataType: "json",
         data: {
-            name: $("#username").val().trim(),
-            purpose: $("#occasion").val().trim(),
+            name: $.trim($("#username").val()),
+            purpose: $.trim($("#occasion").val()),
             date: day + "/" + month,
             image: $("#avatarInput").val()
         }
@@ -79,11 +79,21 @@ function submitUserData() {
     });
 }
 
+
+
+function activeSubmitButton() {
+    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
+        $("#submit").addClass("active");
+    } else {
+        $("#submit").removeClass("active");
+    }
+}
+
 function validateInput(){
-    var day = $("#time-d").val().trim();
-    var month = $("#time-m").val().trim();
-    var name = $("#username").val().trim();
-    var purpose = $("#occasion").val().trim();
+    var day = $.trim($("#time-d").val());
+    var month = $.trim($("#time-m").val());
+    var name = $.trim($("#username").val());
+    var purpose = $.trim($("#occasion").val());
 
     if(name.length <= 0 || name > 8){
         console.log("The name " + name + " is not valid.");
@@ -123,6 +133,39 @@ function validateInput(){
 
 $(function() {
     controlFlow();
+
+    $(".input input").bind("focus", function() {
+        var $this = $(this);
+        var inputName = $this.attr("name");
+        if (inputName == "occasion") {
+            $("#type-list").slideDown();
+        }
+        $this.parent().addClass("focus");
+    }).bind("blur", function() {
+        $(this).parent().removeClass("focus");
+        //$("#time").attr("placeholder", "在哪一天");
+        $("#type-list").slideUp();
+    }).bind("change", function() {
+        activeSubmitButton();
+    }).bind("keyup", function() {
+        activeSubmitButton();
+    });
+
+
+    $(".close-avatar-crop-overlay").bind("click", function() {
+        $(".avatar-crop-overlay").fadeOut();
+    });
+
+    $(".avatar-save").bind("click", function() {
+        $(".avatar-form").submit();
+    });
+    
+    $("#type-list li").bind("click", function() {
+        var val = $(this).text();
+        $("#occasion").val(val);
+        $("#type-list").slideUp();
+    });
+
     $("#submit").bind("click", function(){
         if ($(this).hasClass("active")) {
             if(validateInput()){

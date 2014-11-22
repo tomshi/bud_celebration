@@ -2,7 +2,7 @@
   "name": "bud-celebration",
   "version": "0.0.1",
   "dependencies": {
-    "jquery": "^2",
+    "jquery": "1.11.1",
     "lodash": "^2",
     "bootstrap": "~3.2.0",
     "underscore": "~1.7.0",
