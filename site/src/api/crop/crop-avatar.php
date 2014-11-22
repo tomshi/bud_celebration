@@ -282,7 +282,7 @@
 			$storage = new SaeStorage($ak, $sk);
 			//$result = $storage->write($domain,$destFileName, $content, -1, $attr, true);
 			$result = $storage->upload( $domain, $destFileName, $pathToFile . '/' . $fileName, $attr, false);
-			//var_dump($result);
+			var_dump($result);
 
 			return true;
         }
