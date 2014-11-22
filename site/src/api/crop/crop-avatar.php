@@ -277,7 +277,7 @@
 			#your domain name
 			$domain = 'bud';
 			$destFileName = $fileName;
-			$attr = array('encoding'=>'gzip');
+			$attr = array();
 			$pathToFile = !empty($this -> data) ? $this -> dst : $this -> src;
 			$storage = new SaeStorage($ak, $sk);
 			//$result = $storage->write($domain,$destFileName, $content, -1, $attr, true);
