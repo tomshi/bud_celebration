@@ -9,7 +9,7 @@
 
     font-size: 2.3rem;
     line-height: 3rem;
-    width: 50%;
+    width: 70%;
   }
 
   z-index: 20;
@@ -32,40 +32,90 @@
 
   .today {
     font-size: 1.75rem;
+    line-height: 1.9rem;
   }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-  .caption {
-    font-size: 2.2rem;
-    line-height: 3rem;
-  }
-}
+#stage #caption {
 
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
-  .caption {
-    font-size: 1.3rem;
-    line-height: 1.3rem;
-  }
-}
+  @media screen and (min-width: 1280px) and (max-width: 1920px) {
+    .caption {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+    .caption-toast {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .caption {
-    font-size: 0.9rem;
-    line-height: 0.9rem;
+    .today {
+      font-size: 2.6rem;
+      line-height: 3rem;
+    }
   }
-}
 
-@media screen and (min-width: 581px) and (max-width: 768px) {
-  .caption {
-    font-size: 0.7rem;
-    line-height: 0.7rem;
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .caption {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+    .caption-toast {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+
+    .today {
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
   }
-}
 
-@media screen and (max-width: 580px) {
-  .caption {
-    font-size: 7px;
-    line-height: 7px;
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .caption {
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+    .caption-toast {
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+
+    .today {
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 581px) and (max-width: 768px) {
+    .caption {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+    .caption-toast {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+
+    .today {
+      font-size: 1rem;
+      line-height: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .caption {
+      font-size: 0.9rem;
+      line-height: 1.1rem;
+    }
+
+    .caption-toast {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    .today {
+      font-size: 0.7rem;
+      line-height: 1rem;
+    }
   }
 }
