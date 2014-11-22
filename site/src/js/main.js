@@ -87,7 +87,7 @@ $(function() {
         screenSize();
         if (window.addEventListener){
             wxsharing();
-            orient()
+            orient();
             window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
         };
         $(window).resize(function() {

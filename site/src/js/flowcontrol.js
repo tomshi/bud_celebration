@@ -62,7 +62,7 @@ function submitUserData() {
         dataType: "json",
         data: {
             name: $.trim($("#username").val()),
-            purpose: $.trim($("#occasion").val()),
+            purpose: $.trim($("#purpose").val()),
             date: day + "/" + month,
             image: $("#avatarInput").val()
         }
@@ -90,40 +90,55 @@ function activeSubmitButton() {
 }
 
 function validateInput(){
+    var name = $.trim($("#username").val());
+    var purpose = $.trim($("#purpose").val());
     var day = $.trim($("#time-d").val());
     var month = $.trim($("#time-m").val());
-    var name = $.trim($("#username").val());
-    var purpose = $.trim($("#occasion").val());
 
-    if(name.length <= 0 || name > 8){
+    if(name.length <= 0 || name.length > 8){
+        $(".name").addClass("error");
         console.log("The name " + name + " is not valid.");
         return false;
     }
 
-    if(purpose.length <= 0|| purpose > 8){
+    if(purpose.length <= 0|| purpose.length > 8){
+        $(".name").removeClass("error");
+        $(".purpose").addClass("error");
         console.log("The purpose " + purpose + " is not valid.");
         return false;
     }
 
-    var intDay =parseInt(day);
-    var intMonth =parseInt(month);
+    var intDay = parseInt(day);
+    var intMonth = parseInt(month);
 
     if(intDay != day){
+        $(".name").removeClass("error");
+        $(".purpose").removeClass("error");
+        $(".time").addClass("error");
         console.log("The day " + day + " is not valid.");
         return false;
     }
 
     if(intMonth != month){
+        $(".name").removeClass("error");
+        $(".purpose").removeClass("error");
+        $(".time").addClass("error");
         console.log("The month " + month + " is not valid.");
         return false;
     }
 
-    if(intDay <=0 || intDay > 31){
+    if(intDay <= 0 || intDay > 31){
+        $(".name").removeClass("error");
+        $(".purpose").removeClass("error");
+        $(".time").addClass("error");
         console.log("The day " + day + " is not valid.");
         return false;
     }
 
-    if(intMonth <=0 || intMonth > 12){
+    if(intMonth <= 0 || intMonth > 12){
+        $(".name").removeClass("error");
+        $(".purpose").removeClass("error");
+        $(".time").addClass("error");
         console.log("The month " + month + " is not valid.");
         return false;   
     }
@@ -131,26 +146,54 @@ function validateInput(){
     return true;
 }
 
-$(function() {
-    controlFlow();
+function hasPlaceholderSupport(){
+    var attr = "placeholder";
+    var input = document.createElement("input");
+    return attr in input;
+}
+
+function addPlaceholder(){
+    var support = hasPlaceholderSupport();
+    if(!support){
+        $(".input input").bind("focus", function(){
+            if($(this).val() == this.defaultValue){
+                $(this).val("");
+            }
+        }).bind("blur", function(){
+            if ($(this).val() == "") {
+                $(this).val(this.defaultValue);
+            }
+        });
+    }else {
+        $(".input input").val("");
+    }
 
     $(".input input").bind("focus", function() {
-        var $this = $(this);
-        var inputName = $this.attr("name");
-        if (inputName == "occasion") {
-            $("#type-list").slideDown();
-        }
-        $this.parent().addClass("focus");
+        $(this).parent().addClass("focus");
     }).bind("blur", function() {
         $(this).parent().removeClass("focus");
-        //$("#time").attr("placeholder", "在哪一天");
-        $("#type-list").slideUp();
     }).bind("change", function() {
         activeSubmitButton();
     }).bind("keyup", function() {
         activeSubmitButton();
     });
 
+    var type = $("#occasion-list");
+    $("#occasion").bind("focus", function() {
+        type.slideDown();
+    }).bind("blur", function() {
+        type.slideUp();
+    });
+
+    type.find("li").bind("click", function() {
+        $("#occasion").val($(this).text());
+        type.slideUp();
+    });
+}
+
+$(function() {
+    controlFlow();
+    addPlaceholder();
 
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
@@ -158,12 +201,6 @@ $(function() {
 
     $(".avatar-save").bind("click", function() {
         $(".avatar-form").submit();
-    });
-    
-    $("#type-list li").bind("click", function() {
-        var val = $(this).text();
-        $("#occasion").val(val);
-        $("#type-list").slideUp();
     });
 
     $("#submit").bind("click", function(){

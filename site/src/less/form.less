@@ -57,12 +57,15 @@
       &.focus {
         border-bottom: solid 4px #dfb234;
       }
+      &.error {
+        border-bottom-color: red;
+      }
       &.name {
         left: 18%;
       }
-      &.type {
+      &.purpose {
         left: 40%;
-        .type-list {
+        .purpose-list {
           position: absolute;
           width: 100%;
           margin: 0;
@@ -103,11 +106,13 @@
       background: url(../img/form-icon.png) #dfb234 no-repeat center;
       background-size: 40%;
       opacity: 0.3;
+      filter:alpha(opacity=20);
       cursor: default;
       transition: all 0.2s ease-in-out;
       &.active {
         cursor: pointer;
         opacity: 1;
+        filter:alpha(opacity=100);
       }
     }
     input {
