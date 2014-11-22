@@ -1,6 +1,6 @@
 .bottle() {
   @size: 0.9;
-  @bottle-width:15.53% * @size;
+  @bottle-width: 15.53% * @size;
   @bottle-height: 92.41% * @size;
 
   .box3d {
@@ -56,9 +56,31 @@
     border-radius: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 2px 20px 0px rgba(50, 50, 50, 0.8);
-    right: 66.66%;
-    top: 17%;
+    right: 66.3%;
+    top: 16%;
     position: absolute;
+  }
+  .shadow2 {
+    width: @bottle-width;
+    height: 30%;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    filter: blur(6px);
+    box-shadow: 17px 10px 10px 0px rgba(50, 50, 50, 0.8);
+    right: 66.3%;
+    top: 16%;
+    position: absolute;
+    opacity: 0;
+  }
+  .bottle-shadow {
+    position: absolute;
+    left: 18%;
+    top: 36%;
+    background: url('../img/bottle-shadow.png');
+    background-size: cover;
+    width: 28.90625%;
+    height: 100%;
+
   }
 
   .bottle-shade {
@@ -84,7 +106,7 @@
     text-align: center;
 
     right: 66.66%;
-    bottom: @desk-height / 2 * 1.05;
+    bottom: @desk-height / 2 * 1.2;
 
     z-index: 5;
 
@@ -155,6 +177,7 @@
       font-size: 1.5rem;
       line-height: 1.5rem;
     }
+
     .label {
       bottom: 20%;
     }
@@ -181,6 +204,7 @@
       font-size: 0.7rem;
       line-height: 0.7rem;
     }
+
     .label {
       bottom: 19%;
     }
@@ -192,7 +216,8 @@
       font-size: 7px;
       line-height: 7px;
     }
-    .label{
+
+    .label {
       bottom: 18%;
     }
   }
