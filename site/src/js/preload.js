@@ -72,7 +72,7 @@ var getReady = function () {
 		start();
 	};
 
-	bgMusic.src = "music/36s.js";
+	bgMusic.src = "js/music/36s.js";
 	document.getElementsByTagName("head")[0].appendChild(bgMusic);
 
 	for (var i = 0; i < imagesCount; i++) {
