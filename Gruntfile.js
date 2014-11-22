@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 					{
 						expand: true,
 						cwd: '<%= config.app %>',
-						src: ['api/**/*', 'css/**/*.css', 'js/main.js', 'js/vendor.js', 'js/plugins.js', '{fonts,font,icons,sprites,img}/**/*', '*.html', '*.xml'],
+						src: ['api/**/*', 'music/*.js', 'css/**/*.css', 'js/main.js', 'js/vendor.js', 'js/plugins.js', '{fonts,font,icons,sprites,img}/**/*', '*.html', '*.xml'],
 						dest: '<%= config.dist %>'
 					}
 				]
