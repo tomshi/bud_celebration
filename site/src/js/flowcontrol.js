@@ -191,6 +191,11 @@ function addPlaceholder(){
         type.slideUp();
     });
 
+    $(".time-placeholder").bind("click", function() {
+        $(".time").addClass("focus");
+        $("#time-d").focus();
+    });
+
     type.find("li").bind("click", function() {
         $("#purpose").val($(this).text());
         type.slideUp();
