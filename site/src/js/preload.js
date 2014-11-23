@@ -1,6 +1,8 @@
 var getReady = function () {
 	$("#loading").show();
 
+	$(".frame").not('#form').show();
+
 	var imageNames = [
 		'img/bottle.png',
 		'img/bottle-desk.jpg',
@@ -70,7 +72,7 @@ var getReady = function () {
 			else{
 				start();
 			}
-		}, 400);
+		}, 600);
 	};
 
 	var bgMusic = document.createElement('script');
