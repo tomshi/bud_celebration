@@ -46,6 +46,7 @@ $(function () {
 			});
 
 			$('.ugc-name', $caption).text(ugc_name);
+			$('.ugc-purpose', $caption).text(ugc_purpose);
 			$('.month', $caption).text(month);
 			$('.day', $caption).text(day);
 
