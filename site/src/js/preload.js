@@ -42,6 +42,10 @@ var getReady = function () {
 		'img/sharing-wechat.png'
 	];
 
+	for (var i = 0; i < 76; i++) {
+		imageNames.push("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png");
+	}
+
 	// Setting first animation here
 	var $FIRST_FRAME = $("#toast");
 	var imagesCount = imageNames.length;
