@@ -46,8 +46,6 @@ var getReady = function () {
 		imageNames.push("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png");
 	}
 
-	// Setting first animation here
-	var $FIRST_FRAME = $("#toast");
 	var imagesCount = imageNames.length;
 	var resourceCount = imagesCount + 1;
 	var loadedResourceCount = 0;
@@ -60,19 +58,17 @@ var getReady = function () {
 				audiojs.createAll();
 			});
 			$("#loading").fadeOut();
-			SaveTrackingLog(1);
+
 			start();
 		}
 	};
 
 	var start = function () {
-
 		setTimeout(function () {
 			if (audiojs.instances.audiojs0) {
-				$FIRST_FRAME.show().trigger('start');
-				audiojs.instances.audiojs0.play();
+				controlFlow();
 			}
-			else{
+			else {
 				start();
 			}
 		}, 600);
@@ -80,7 +76,6 @@ var getReady = function () {
 
 	var bgMusic = document.createElement('script');
 	bgMusic.onload = function () {
-
 		++loadedResourceCount;
 		count();
 	};
@@ -97,7 +92,13 @@ var getReady = function () {
 			count();
 		};
 	}
+};
 
-
+var dataReady = function () {
+	SaveTrackingLog(1);
+	// Setting first animation here
+	var $FIRST_FRAME = $("#toast");
+	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
+	audiojs.instances.audiojs0.play();
 };

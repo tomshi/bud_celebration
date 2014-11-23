@@ -15,7 +15,6 @@ $(function () {
 
 	var endTransition = function () {
 		$element.hide();
-
 	};
 
 	var time = 1900;
@@ -23,6 +22,9 @@ $(function () {
 
 
 	var animation_start = function () {
+		$mainHand.velocity({
+			translateY: "0%"
+		}, 0);
 		toast();
 		CAPTION.toast()
 	};
@@ -68,7 +70,7 @@ $(function () {
 		}).velocity('reverse', reverseTime, [.6, .06, .66, .2]);
 
 		$mainHand.velocity({
-			translateY: "-78%"
+			translateY: "-80%"
 		}, {
 			duration: time,
 			easing: [ .34, 1.14, .39, 1.19]

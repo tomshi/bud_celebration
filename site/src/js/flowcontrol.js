@@ -19,8 +19,8 @@ function controlFlow(){
                 processUserLoadData(json);
             });
         });
-    }else {
-        $("#form").show();
+    } else {
+        $("#toast-first").show().trigger('start');
     }
 }
 
@@ -46,8 +46,8 @@ function processUserLoadData(data){
             console.log(image_url);
             console.log(ugc_image_url);
             wxsharing();
-            $("#form").hide();
-            getReady();
+	        $("#form").add('#toast-first').remove();
+	        $("#toast").trigger('start');
         }
         else{
             console.log(data.message);
@@ -147,7 +147,7 @@ function validateInput(){
         $(".purpose").removeClass("error");
         $(".time").addClass("error");
         console.log("The month " + month + " is not valid.");
-        return false;   
+        return false;
     }
 
     return true;
@@ -204,7 +204,7 @@ function addPlaceholder(){
 }
 
 $(function() {
-    controlFlow();
+    getReady();
     addPlaceholder();
 
     $(".close-avatar-crop-overlay").bind("click", function() {
@@ -219,7 +219,7 @@ $(function() {
     $("#submit").bind("click", function(){
         if ($(this).hasClass("active")) {
             if(validateInput()){
-                submitUserData();    
+                submitUserData();
             }
             else{
                 console.log("Validation failed.");
