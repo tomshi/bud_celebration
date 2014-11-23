@@ -89,9 +89,7 @@ function configWxSharing(){
     });
 }
 
-function wxsharing() {
-    var name = ugc_name !== undefined ? $.trim(ugc_name) : "";
-    var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
+function getSharingUrl(){
     var url = document.location.href;
 
     if(url.indexOf("?id=") <0 && ugc_vid !== undefined){
@@ -103,7 +101,14 @@ function wxsharing() {
         }
     }
 
-    wxData.link = url;
+    return url;
+}
+
+function wxsharing() {
+    var name = ugc_name !== undefined ? $.trim(ugc_name) : "";
+    var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
+    
+    wxData.link = getSharingUrl();
     wxData.imgUrl = 'http://toast-365days.com/img/share.jpg';
 
     if (name.length > 0 && purpose.length > 0) {
