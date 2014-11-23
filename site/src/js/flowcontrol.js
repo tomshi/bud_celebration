@@ -1,4 +1,6 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname;
+
+hostname = "http://budquality-bud.stor.sinaapp.com/";
 
 function controlFlow(){
     // check the param 'vid'
@@ -29,15 +31,20 @@ function getUrlParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+
 function processUserLoadData(data){
     if(data){
         if(data.is_success){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
-            ugc_image_url = data.data.image_url;
+            if (data.data.image_url == ""){
+                ugc_image_url = data.data.image_url;
+            }else {
+                ugc_image_url = hostname + data.data.image_url;
+            }
             ugc_vid = data.data.user_id;
-
+            console.log(ugc_image_url);
             wxsharing();
             
             $("#form").hide();
@@ -181,15 +188,20 @@ function addPlaceholder(){
         activeSubmitButton();
     });
 
-    var type = $("#occasion-list");
-    $("#occasion").bind("focus", function() {
+    var type = $("#purpose-list");
+    $("#purpose").bind("focus", function() {
         type.slideDown();
     }).bind("blur", function() {
         type.slideUp();
     });
 
+    $(".time-placeholder").bind("click", function() {
+        $(".time").addClass("focus");
+        $("#time-d").focus();
+    });
+
     type.find("li").bind("click", function() {
-        $("#occasion").val($(this).text());
+        $("#purpose").val($(this).text());
         type.slideUp();
     });
 }

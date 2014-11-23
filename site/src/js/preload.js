@@ -1,6 +1,8 @@
 var getReady = function () {
 	$("#loading").show();
 
+	$(".frame").not('#form').show();
+
 	var imageNames = [
 		'img/bottle.png',
 		'img/bottle-desk.jpg',
@@ -47,29 +49,36 @@ var getReady = function () {
 	var loadedResourceCount = 0;
 	var images = [];
 
+
+	var count = function () {
+		if (loadedResourceCount >= resourceCount) {
+			audiojs.events.ready(function () {
+				audiojs.createAll();
+			});
+			$("#loading").fadeOut();
+			SaveTrackingLog(1);
+			start();
+		}
+	};
+
 	var start = function () {
 
-		if (loadedResourceCount >= resourceCount) {
-			$("#loading").fadeOut();
-			setTimeout(function () {
-				SaveTrackingLog(1);
-
+		setTimeout(function () {
+			if (audiojs.instances.audiojs0) {
 				$FIRST_FRAME.show().trigger('start');
 				audiojs.instances.audiojs0.play();
-			}, 400);
-		}
+			}
+			else{
+				start();
+			}
+		}, 600);
 	};
 
 	var bgMusic = document.createElement('script');
 	bgMusic.onload = function () {
 
 		++loadedResourceCount;
-
-		audiojs.events.ready(function () {
-			audiojs.createAll();
-		});
-
-		start();
+		count();
 	};
 
 	bgMusic.src = "music/36s.js";
@@ -81,7 +90,7 @@ var getReady = function () {
 		images[i].onload = function () {
 			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
 			$("#loading-now").css("width", progress + "%");
-			start();
+			count();
 		};
 	}
 

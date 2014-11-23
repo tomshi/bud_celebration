@@ -33,7 +33,7 @@ $(function () {
 			$frame1.hide();
 		});
 		CAPTION.frame2();
-		$nextFrame.show().trigger('start');
+		$nextFrame.trigger('start');
 	};
 
 	var animation_start = function () {

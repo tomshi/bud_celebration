@@ -1,4 +1,5 @@
 #form {
+  z-index: 99;
   background: url(../img/form-bg.jpg) no-repeat;
   background-size: cover;
   .header {
@@ -87,22 +88,43 @@
       }
       &.time {
         left: 62%;
-        overflow: hidden;
-        background-image: url(../img/form-input-bg.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 4%;
-        input {
-          width: 50%;
-          float: left;
-          -webkit-appearance: textfield;
-          -moz-appearance: textfield;
-          -ms-appearance: textfield;
+        &.focus {
+          background-image: url(../img/form-input-bg.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 4%;
+          .time-input {
+            display: block;
+          }
+          .time-placeholder {
+            display: none;
+          }
         }
-
-        input::-webkit-inner-spin-button {
-          -webkit-appearance: textfield;
-          -webkit-user-select: none;
+        .time-input {
+          height: 100%;
+          overflow: hidden;
+          display: none;
+          input {
+            width: 50%;
+            float: left;
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            -ms-appearance: textfield;
+          }
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: textfield;
+            -webkit-user-select: none;
+          }
+        }
+        .time-placeholder {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          font-size: 16px;
+          letter-spacing: 2px;
+          color: #777;
+          cursor: text;
         }
       }
     }
@@ -136,8 +158,8 @@
       margin: 0;
       text-align: center;
       color: #fff;
-      font-size: 16px;
       font-family: @font-family-sans-serif;
+      font-size: 16px;
       letter-spacing: 2px;
       &::-webkit-input-placeholder {
         color: #777;

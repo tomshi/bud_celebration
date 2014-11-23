@@ -281,14 +281,8 @@
     },
 
     cropDone: function () {
-      var hostname;
       this.$avatarSrc.val("");
       this.$avatarData.val("");
-      if (window.location.href.indexOf("bud1.sonicboomsh.com") > 0){
-          hostname = "http://s3-ap-northeast-1.amazonaws.com/bud-quality/";
-      }else {
-          hostname = "/";
-      }
       this.$avatar.attr("src", hostname + this.url);
       ugc_image_url =  hostname + this.url;
       this.stopCropper();
