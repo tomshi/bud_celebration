@@ -17,6 +17,9 @@ $(function () {
 	var $light = $('.light', $element);
 	var $bottleShadow = $('.bottle-shadow', $element);
 
+	var $text = $('.endtext', $element);
+	var $btns = $('.btns .item', $element);
+
 	var w = $element.width();
 	var h = $element.height();
 
@@ -64,7 +67,42 @@ $(function () {
 			});
 
 			$('#endingwrite').trigger('draw');
-			$("#ending").velocity('fadeIn', 1000);
+			$("#ending").show();
+
+			$text.velocity({
+				opacity: 1
+			}, {
+				duration: 1000,
+				delay: 2000
+			});
+
+			$($btns[0]).velocity({
+				opacity: 1
+			}, {
+				duration: 1000,
+				delay: 3000
+			});
+
+			$($btns[1]).velocity({
+				opacity: 1
+			}, {
+				duration: 1000,
+				delay: 3300
+			});
+
+			$($btns[2]).velocity({
+				opacity: 1
+			}, {
+				duration: 1000,
+				delay: 3600
+			});
+
+			$($btns[3]).velocity({
+				opacity: 1
+			}, {
+				duration: 1000,
+				delay: 3900
+			});
 		});
 
 		$bg.velocity({
