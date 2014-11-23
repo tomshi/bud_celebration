@@ -29,6 +29,7 @@ function getUrlParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+
 function processUserLoadData(data){
     if(data){
         if(data.is_success){
@@ -181,15 +182,15 @@ function addPlaceholder(){
         activeSubmitButton();
     });
 
-    var type = $("#occasion-list");
-    $("#occasion").bind("focus", function() {
+    var type = $("#purpose-list");
+    $("#purpose").bind("focus", function() {
         type.slideDown();
     }).bind("blur", function() {
         type.slideUp();
     });
 
     type.find("li").bind("click", function() {
-        $("#occasion").val($(this).text());
+        $("#purpose").val($(this).text());
         type.slideUp();
     });
 }
