@@ -44,22 +44,11 @@ function screenSize() {
         validWidth = Math.floor(screenWidth);
         validHeight = Math.floor(validWidth / screenRate);
     }
-    if (validHeight < 320 && isMobile.any()) {
-        validHeight = 320;
-        $("#wrapper").css({
-            width: validWidth,
-            height: validHeight,
-            marginTop: 0,
-            top: 0
-        });
-    }else {
-        $("#wrapper").css({
-            width: validWidth,
-            height: validHeight,
-            marginTop: -validHeight / 2,
-            top: "50%"
-        });
-    }
+    $("#wrapper").css({
+        width: validWidth,
+        height: validHeight,
+        marginTop: -validHeight / 2
+    });
 }
 var wxData = {
     "appId": "", // 服务号可以填写appId
@@ -167,9 +156,11 @@ $(function() {
             orient();
             window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
         }
-        $(window).resize(function() {
-            screenSize();
-        });
+        if (!isMobile.Android()){
+            $(window).resize(function() {
+                screenSize();
+            });
+        }
     }
     init();
 });

@@ -53,7 +53,7 @@ $(function () {
 			var formatHistory = function (history) {
 				var history = history.split('|');
 				return '<div class="today">' + history.shift() + '</div>' + history.join('<br/>');
-			}
+			};
 
 			$frame1.html(formatHistory(today.history1));
 			$frame2.html(formatHistory(today.history2));
