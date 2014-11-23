@@ -47,26 +47,37 @@ var getReady = function () {
 	var loadedResourceCount = 0;
 	var images = [];
 
+
+	var count = function () {
+		if (loadedResourceCount >= resourceCount) {
+			audiojs.events.ready(function () {
+				audiojs.createAll();
+			});
+			$("#loading").fadeOut();
+			SaveTrackingLog(1);
+			start();
+		}
+	};
+
 	var start = function () {
 
-		if (loadedResourceCount >= resourceCount) {
-			$("#loading").fadeOut();
-			setTimeout(function () {
-				SaveTrackingLog(1);
-				audiojs.events.ready(function () {
-					audiojs.createAll();
-				});
+		setTimeout(function () {
+			console.log(audiojs.instances.audiojs0);
+			if (audiojs.instances.audiojs0) {
 				$FIRST_FRAME.show().trigger('start');
 				audiojs.instances.audiojs0.play();
-			}, 400);
-		}
+			}
+			else{
+				start();
+			}
+		}, 400);
 	};
 
 	var bgMusic = document.createElement('script');
 	bgMusic.onload = function () {
 
 		++loadedResourceCount;
-		start();
+		count();
 	};
 
 	bgMusic.src = "music/36s.js";
@@ -78,7 +89,7 @@ var getReady = function () {
 		images[i].onload = function () {
 			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
 			$("#loading-now").css("width", progress + "%");
-			start();
+			count();
 		};
 	}
 
