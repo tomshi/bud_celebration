@@ -53,7 +53,9 @@ var getReady = function () {
 			$("#loading").fadeOut();
 			setTimeout(function () {
 				SaveTrackingLog(1);
-
+				audiojs.events.ready(function () {
+					audiojs.createAll();
+				});
 				$FIRST_FRAME.show().trigger('start');
 				audiojs.instances.audiojs0.play();
 			}, 400);
@@ -64,11 +66,6 @@ var getReady = function () {
 	bgMusic.onload = function () {
 
 		++loadedResourceCount;
-
-		audiojs.events.ready(function () {
-			audiojs.createAll();
-		});
-
 		start();
 	};
 
