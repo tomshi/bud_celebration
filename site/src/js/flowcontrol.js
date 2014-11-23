@@ -1,4 +1,4 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname, image_url;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname;
 
 hostname = "http://budquality-bud.stor.sinaapp.com/";
 
@@ -38,12 +38,11 @@ function processUserLoadData(data){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
-            image_url = data.data.image_url;
-            if (image_url) {
-                ugc_image_url = hostname + image_url;
+            ugc_image_url = data.data.image_url;
+            if (ugc_image_url) {
+                ugc_image_url = hostname + ugc_image_url;
             }
             ugc_vid = data.data.user_id;
-            console.log(image_url);
             console.log(ugc_image_url);
             wxsharing();
             $("#form").hide();
@@ -71,7 +70,7 @@ function submitUserData() {
             name: $.trim($("#username").val()),
             purpose: $.trim($("#purpose").val()),
             date: day + "/" + month,
-            image: image_url
+            image: $("#avatar-view-img").attr("src")
         }
     }).done(function(data) {
         processUserLoadData(data);
@@ -176,9 +175,9 @@ function addPlaceholder(){
     }
 
     $(".input input").bind("focus", function() {
-        $(this).parent().addClass("focus");
+        $(this).parents(".input").addClass("focus");
     }).bind("blur", function() {
-        $(this).parent().removeClass("focus");
+        $(this).parents(".input").removeClass("focus");
     }).bind("change", function() {
         activeSubmitButton();
     }).bind("keyup", function() {
@@ -193,10 +192,13 @@ function addPlaceholder(){
     });
 
     $(".time-placeholder").bind("click", function() {
-        $(".time").addClass("focus");
+        $(".time").addClass("active");
         $("#time-d").focus();
     });
 
+    if (isMobile.any()){
+        $(".time").addClass("active");
+    }
     type.find("li").bind("click", function() {
         $("#purpose").val($(this).text());
         type.slideUp();
