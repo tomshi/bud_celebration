@@ -9,7 +9,7 @@ $(function () {
 	var endTransition = function () {
 		$element.velocity('fadeOut', 1000);
 		CAPTION.bottleIn();
-		$nextFrame.show().trigger('start');
+		$nextFrame.trigger('start');
 	};
 
 	var slide = function (i) {

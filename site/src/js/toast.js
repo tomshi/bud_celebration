@@ -83,7 +83,7 @@ $(function () {
 					opacity: 0
 				}, reverseTime);
 
-				$nextFrame.show().velocity({
+				$nextFrame.velocity({
 					opacity: 1
 				}, 2000);
 				$nextFrame.trigger('start');

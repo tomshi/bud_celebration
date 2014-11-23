@@ -34,7 +34,7 @@ $(function () {
 			$element.hide();
 		});
 		CAPTION.frame4();
-		$nextFrame.show().trigger('start');
+		$nextFrame.trigger('start');
 	};
 
 	var animation_start = function () {
