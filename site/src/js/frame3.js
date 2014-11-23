@@ -14,19 +14,17 @@ $(function () {
 
 	var $hand = $('#hand');
 
-	var handup = function (cb) {
+	var handup = function (Y, time, cb) {
 		$hand.velocity({
 			translateX: "2%",
-			translateY: "-54%"
-		}, 1000, cb);
+			translateY: Y
+		}, time, cb);
 	};
 
 	var handdown = function (cb) {
-		setTimeout(function () {
-			$hand.velocity({
-				translateY: "-22%"
-			}, 1000, cb);
-		}, 300);
+		$hand.velocity({
+			translateY: "-22%"
+		}, 1200, cb);
 	};
 
 	var endTransition = function () {
@@ -35,13 +33,11 @@ $(function () {
 		}, 1000, function () {
 			$element.hide();
 		});
+		CAPTION.frame4();
 		$nextFrame.show().trigger('start');
 	};
 
 	var animation_start = function () {
-//		var ugc_image_url = "img/mock_ugc.jpg";
-//		var ugc_purpose = "生日快乐";
-//		var ugc_name = "周杰伦";
 
 		if (ugc_image_url) {
 			$ugc_pic.html('<img src="' + ugc_image_url + '"><div class="purpose haveImg">' + ugc_purpose + '</div>');
@@ -58,9 +54,9 @@ $(function () {
 
 		$bg_frame.add($model5).add($model6).velocity({
 			"translateZ": "20px"
-		}, 1500, function () {
+		}, 1000, function () {
 
-			handup(function () {
+			handup("-60%", 900, function () {
 				if (!isMobile.Android()) {
 					$3dbox.css({
 						"perspective-origin": "40% 50%"
@@ -72,18 +68,18 @@ $(function () {
 				$model5.velocity({
 					"translateX": "70%",
 					"translateZ": "70px"
-				}, 1600);
+				}, 1300);
 
 				$model6.velocity({
 					"translateX": "50%",
 					"translateZ": "56px"
-				}, 1500);
+				}, 1300);
 
 				$bg_frame.velocity({
 					"translateZ": "40px"
-				}, 1600, function () {
+				}, 1300, function () {
 
-					handup(function () {
+					handup("-54%", 1000, function () {
 						$hand.velocity({
 							translateY: "0%"
 						}, 1000);
@@ -101,15 +97,17 @@ $(function () {
 						$model6.velocity({
 							"translateX": "50%",
 							"translateZ": "90px"
-						}, 1000, "linear");
+						}, 800, "linear");
+
+						CAPTION.frame3FadeOut();
 
 						$shadow.velocity({
 							opacity: 0
-						}, 1600, "linear", function(){
+						}, 1300, "linear", function () {
 
-							$bg_frame.velocity({
+							$bg_frame.delay(300).velocity({
 								"translateZ": "76px"
-							}, 1000, "linear", function () {
+							}, 1500, "easeInQuart", function () {
 								endTransition();
 							});
 						});

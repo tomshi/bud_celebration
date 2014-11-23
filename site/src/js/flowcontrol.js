@@ -1,8 +1,8 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, vid;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid;
 
 function controlFlow(){
     // check the param 'vid'
-    var videoId = getUrlParameterByName("vid");
+    var videoId = getUrlParameterByName("id");
     if(videoId){
         $.ajax({
             url: "api/user/load/" + videoId
@@ -36,7 +36,10 @@ function processUserLoadData(data){
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
             ugc_image_url = data.data.image_url;
-            vid = data.data.user_id;
+            ugc_vid = data.data.user_id;
+
+            wxsharing();
+            
             $("#form").hide();
             getReady();
         }

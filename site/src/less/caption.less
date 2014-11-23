@@ -1,0 +1,121 @@
+#stage #caption {
+
+  //  display: block;
+  .caption {
+    position: absolute;
+    margin-left: 6%;
+    bottom: 6%;
+    display: none;
+
+    font-size: 2.3rem;
+    line-height: 3rem;
+    width: 70%;
+  }
+
+  z-index: 20;
+
+  .caption-toast {
+    position: relative;
+    display: none;
+    top: 50%;
+    text-align: center;
+
+    font-size: 2.6rem;
+    line-height: 3rem;
+  }
+
+  .caption.frame4 {
+    margin-left: 0;
+    right: 6%;
+    text-align: right;
+  }
+
+  .today {
+    font-size: 1.75rem;
+    line-height: 1.9rem;
+  }
+}
+
+#stage #caption {
+
+  @media screen and (min-width: 1280px) and (max-width: 1920px) {
+    .caption {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+    .caption-toast {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+
+    .today {
+      font-size: 2.6rem;
+      line-height: 3rem;
+    }
+  }
+
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .caption {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+    .caption-toast {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+
+    .today {
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .caption {
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+    .caption-toast {
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+
+    .today {
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 581px) and (max-width: 768px) {
+    .caption {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+    .caption-toast {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+
+    .today {
+      font-size: 1rem;
+      line-height: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .caption {
+      font-size: 0.9rem;
+      line-height: 1.1rem;
+    }
+
+    .caption-toast {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    .today {
+      font-size: 0.7rem;
+      line-height: 1rem;
+    }
+  }
+}

@@ -14,7 +14,7 @@ function SaveTrackingLog(is_start){
     console.log(source);
     console.log(channel);
     console.log(is_start);
-    console.log(vid);
+    console.log(ugc_vid);
     $.ajax({
         type: "POST",
         url: "api/tracking/save",
@@ -22,7 +22,7 @@ function SaveTrackingLog(is_start){
         data: {
             source: source,
             channel: channel,
-            id: vid,
+            id: ugc_vid,
             is_start: is_start
         }
     }).done(function(data) {
@@ -87,7 +87,7 @@ var nielsenCodes={
     'index,tap_into_beers':         'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzMzJpz4',
     'video,purchase':               'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM0Juji',
     'video,share,weibo':            'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM1JhTm',
-    'video,share,tencet':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM2JlDp',
+    'video,share,tencent':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM2JlDp',
     'video,share,qzone':            'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM3Jqzt',
     'video,share,douban':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM4Jrjd',
     'video,share,renren':           'http://s.cr-nielsen.com/hat?_t=r&_htsinfo=QyYyJjgwMDAwMzQ3JjEwMDA1MzczJjMwMDk1NzM5JkTZ',

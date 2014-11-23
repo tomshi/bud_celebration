@@ -25,12 +25,13 @@
     <script>
         var _hmt = _hmt || [];
         (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?569766fd6f5d6ab1bac0c432f2";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?144f9e096f86416ca900fcaf58e2feb1";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
         })();
     </script>
+
     <!-- baidu -->
 
     <!-- Nielsen -->
@@ -66,14 +67,16 @@
 </head>
 <!-- GA tracking -->
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-55642340-x', 'auto');
-    ga('send', 'pageview');
+  ga('create', 'UA-57000252-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
+
 <body style="overflow: hidden;">
 
 <div id="wrapper">
@@ -97,8 +100,8 @@
                     </ul>
                 </div>
                 <div class="input time">
-                    <input type="text" id="time-d" maxlength="2" placeholder="日日" value="日日"/>
-                    <input type="text" id="time-m" maxlength="2" placeholder="月月" value="月月"/>
+                    <input type="number" min="1" max="31" id="time-d" maxlength="2" placeholder="日日" value="日日"/>
+                    <input type="number" min="1" max="12" id="time-m" maxlength="2" placeholder="月月" value="月月"/>
                 </div>
                 <a href="javascript:void(0);" class="submit" id="submit" ga_category="index" ga_action="create" baidu_category="index" baidu_action="create" nl_key="index,create"></a>
                 <div class="upload" id="crop-avatar">
@@ -173,7 +176,7 @@
                 <div class="bg"><div class="darkness"></div></div>
                 <div class="foreground">
                     <div class="bottle"><div class="bottle-shade"></div><div class="label"><span class="ugc-name">测试中文</span></div></div>
-                    <div class="desk"><div class="shadow"></div></div>
+                    <div class="desk"><div class="shadow"></div><div class="shadow2"></div><div class="bottle-shadow"></div></div>
                 </div>
             </div>
             <div class="printer"></div>
@@ -191,11 +194,11 @@
                     <a href="javascript:void(0);" class="item" id="redo" ga_category="video" ga_action="recreate" baidu_category="video" baidu_action="recreate" nl_key="video,recreate"><img src="img/end-redo.png" class="responsive" alt=""/></a>
                     <div class="sharing-box">
                         <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="百威啤酒" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="{name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="{name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="{name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="{name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="{name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
                     </div>
                 </div>
             </div>
@@ -213,9 +216,26 @@
             <div class="hand6"></div>
             <div class="bright"></div>
         </div>
-    </section>
 
-    <div id="hand"><img src="img/hand.png"></div>
+        <div class="frame" id="caption">
+            <div class="caption-toast">百威为<span class="month"></span>月<span class="day"></span>日举杯</div>
+            <div class="caption frame1"></div>
+            <div class="caption frame2"></div>
+            <div class="caption frame3">
+                <div class="specialday"><span class="month"></span>月<span class="day"></span>日这独一无二的日子</div>
+                <div>对 <span class="ugc-name"></span> 而言是</div>
+            </div>
+            <div class="caption frame4">
+                <div>我们敬你</div>
+                <div><span class="ugc-name"></span></div>
+            </div>
+            <div class="caption bottle">
+                <div>为你无数值得庆祝的</div>
+                <div>珍贵瞬间举杯</div>
+            </div>
+        </div>
+        <div id="hand"></div>
+    </section>
 </div>
 
 <div class="overlay buy-tip-overlay">
@@ -244,6 +264,9 @@
 
 
 <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+<div class="hide">
+    <audio id="bgmusic" preload="none" />
+</div>
 
 <!-- build:js js/plugins.js -->
 <script src="bower_components/velocity/velocity.min.js"></script>
@@ -252,8 +275,11 @@
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->
+<script src="bower_components/audiojs/audiojs/audio.js"></script>
 <script src="js/preload.js"></script>
 <script src="js/main.js"></script>
+<script src="js/history.js"></script>
+<script src="js/caption.js"></script>
 <script src="js/bottle.js"></script>
 <script src="js/toast.js"></script>
 <script src="js/frame1.js"></script>
@@ -262,9 +288,9 @@
 <script src="js/frame4.js"></script>
 <script src="js/tracking.js"></script>
 <script src="js/sharing.js"></script>
-<script src="js/wechatSharing.js"></script>
 <script src="js/crop-avatar.js"></script>
 <script src="js/flowcontrol.js"></script>
+<script src="js/weixinApi.js"></script>
 <!-- endbuild -->
 
 </body>

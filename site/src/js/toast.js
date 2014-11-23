@@ -15,15 +15,16 @@ $(function () {
 
 	var endTransition = function () {
 		$element.hide();
-		$nextFrame.trigger('start');
+
 	};
 
-	var time = 2000;
+	var time = 1900;
 	var reverseTime = 1800;
 
 
 	var animation_start = function () {
 		toast();
+		CAPTION.toast()
 	};
 
 	var toast = function () {
@@ -69,7 +70,7 @@ $(function () {
 		$mainHand.velocity({
 			translateY: "-78%"
 		}, {
-			duration: time + 200,
+			duration: time,
 			easing: [ .34, 1.14, .39, 1.19]
 		}).velocity({
 			translateY: "-22%"
@@ -81,9 +82,13 @@ $(function () {
 				$bg.velocity({
 					opacity: 0
 				}, reverseTime);
+
 				$nextFrame.show().velocity({
 					opacity: 1
 				}, 2000);
+				$nextFrame.trigger('start');
+
+				CAPTION.frame1();
 			}
 		});
 	};
