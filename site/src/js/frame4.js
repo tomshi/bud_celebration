@@ -4,19 +4,16 @@ $(function () {
 	var $nextFrame = $('#bottle');
 
 	var $pic = $('.pic', $element);
+	var length = $pic.length - 1;
 
 	var endTransition = function () {
-		$element.velocity({
-			opacity: 0
-		}, 1000, function () {
-			$element.hide();
-		});
+		$element.velocity('fadeOut', 1000);
 		CAPTION.bottleIn();
 		$nextFrame.show().trigger('start');
 	};
 
 	var slide = function (i) {
-		if (i > 5) {
+		if (i > length) {
 			endTransition();
 			return;
 		}
