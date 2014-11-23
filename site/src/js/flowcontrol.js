@@ -38,9 +38,13 @@ function processUserLoadData(data){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
-            ugc_image_url = hostname + data.data.image_url;
+            if (data.data.image_url == ""){
+                ugc_image_url = data.data.image_url;
+            }else {
+                ugc_image_url = hostname + data.data.image_url;
+            }
             ugc_vid = data.data.user_id;
-
+            console.log(ugc_image_url);
             wxsharing();
             
             $("#form").hide();
@@ -189,6 +193,11 @@ function addPlaceholder(){
         type.slideDown();
     }).bind("blur", function() {
         type.slideUp();
+    });
+
+    $(".time-placeholder").bind("click", function() {
+        $(".time").addClass("focus");
+        $("#time-d").focus();
     });
 
     type.find("li").bind("click", function() {

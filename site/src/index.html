@@ -102,8 +102,13 @@
                     </ul>
                 </div>
                 <div class="input time">
-                    <input type="number" min="1" max="31" id="time-d" maxlength="2" placeholder="日日" value="日日"/>
-                    <input type="number" min="1" max="12" id="time-m" maxlength="2" placeholder="月月" value="月月"/>
+                    <div class="time-placeholder table">
+                        <div class="table-cell">在哪一天</div>
+                    </div>
+                    <div class="time-input">
+                        <input type="text" min="1" max="31" id="time-d" maxlength="2" placeholder="日日" value="日日"/>
+                        <input type="text" min="1" max="12" id="time-m" maxlength="2" placeholder="月月" value="月月"/>
+                    </div>
                 </div>
                 <a href="javascript:void(0);" class="submit" id="submit" ga_category="index" ga_action="create" baidu_category="index" baidu_action="create" nl_key="index,create"></a>
                 <div class="upload" id="crop-avatar">
