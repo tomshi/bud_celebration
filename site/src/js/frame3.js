@@ -38,9 +38,6 @@ $(function () {
 	};
 
 	var animation_start = function () {
-//		var ugc_image_url = "img/mock_ugc.jpg";
-//		var ugc_purpose = "生日快乐";
-//		var ugc_name = "周杰伦";
 
 		if (ugc_image_url) {
 			$ugc_pic.html('<img src="' + ugc_image_url + '"><div class="purpose haveImg">' + ugc_purpose + '</div>');
