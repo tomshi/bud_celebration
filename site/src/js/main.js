@@ -75,16 +75,17 @@ function configWxSharing(){
         // 分享的回调
         var wxCallbackFriend = {
             // 分享操作开始之前
-            confirm : function() {
+            ready : function() {
                 requestBaiduTracking("video,share", "chat");
                 requestNielsenTracking("video,share,chat");
                 requestGATracking("video,share", "chat");
+
             }
         };
 
         var wxCallbackTimeline = {
             // 分享操作开始之前
-            confirm : function() {
+            ready : function() {
                 requestBaiduTracking("video,share", "moments");
                 requestNielsenTracking("video,share,moments");
                 requestGATracking("video,share", "moments");
