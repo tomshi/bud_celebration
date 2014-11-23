@@ -121,7 +121,7 @@ $(function() {
         if (ua.indexOf("micromessenger") > 0) {
             $(".buy-tip-overlay").fadeIn();
         } else {
-            window.location.href = "http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931";
+            window.open("http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931");
         }
     });
     $("#share").bind('click', function() {

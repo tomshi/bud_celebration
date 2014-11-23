@@ -40,7 +40,7 @@ function processUserLoadData(data){
             ugc_date = data.data.date;
             ugc_image_url = hostname + data.data.image_url;
             ugc_vid = data.data.user_id;
-
+            console.log(ugc_image_url);
             wxsharing();
             
             $("#form").hide();
