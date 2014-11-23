@@ -1,4 +1,6 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname;
+
+hostname = "http://budquality-bud.stor.sinaapp.com/";
 
 function controlFlow(){
     // check the param 'vid'
@@ -36,7 +38,7 @@ function processUserLoadData(data){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
-            ugc_image_url = data.data.image_url;
+            ugc_image_url = hostname + data.data.image_url;
             ugc_vid = data.data.user_id;
 
             wxsharing();
