@@ -37,22 +37,28 @@ function screenSize() {
     var screenRate = 16 / 9;
     var screenWidth = $(window).width();
     var screenHeight = $(window).height();
-    if (screenHeight < 320){
-        validHeight = 320;
-    }else {
-        if (screenWidth / screenHeight > screenRate) {
-            validWidth = Math.floor(screenHeight * screenRate);
-            validHeight = Math.floor(screenHeight);
-        } else {
-            validWidth = Math.floor(screenWidth);
-            validHeight = Math.floor(validWidth / screenRate);
-        }
+    if (screenWidth / screenHeight > screenRate) {
+        validWidth = Math.floor(screenHeight * screenRate);
+        validHeight = Math.floor(screenHeight);
+    } else {
+        validWidth = Math.floor(screenWidth);
+        validHeight = Math.floor(validWidth / screenRate);
     }
-    $("#wrapper").css({
-        width: validWidth,
-        height: validHeight,
-        marginTop: -validHeight / 2
-    });
+    if (validHeight < 320) {
+        validHeight = 320;
+        $("#wrapper").css({
+            width: validWidth,
+            height: validHeight,
+            marginTop: 0,
+            top: 0
+        });
+    }else {
+        $("#wrapper").css({
+            width: validWidth,
+            height: validHeight,
+            marginTop: -validHeight / 2
+        });
+    }
 }
 var wxData = {
     "appId": "", // 服务号可以填写appId
