@@ -39,7 +39,7 @@ $(function () {
 
 	var animation_start = function () {
 
-		if (ugc_image_url) {
+		if (ugc_image_url != "") {
 			$ugc_pic.html('<img src="' + ugc_image_url + '"><div class="purpose haveImg">' + ugc_purpose + '</div>');
 		}
 		else {
