@@ -44,7 +44,7 @@ function screenSize() {
         validWidth = Math.floor(screenWidth);
         validHeight = Math.floor(validWidth / screenRate);
     }
-    if (validHeight < 320) {
+    if (validHeight < 320 && isMobile.any()) {
         validHeight = 320;
         $("#wrapper").css({
             width: validWidth,
@@ -56,7 +56,8 @@ function screenSize() {
         $("#wrapper").css({
             width: validWidth,
             height: validHeight,
-            marginTop: -validHeight / 2
+            marginTop: -validHeight / 2,
+            top: "50%"
         });
     }
 }
