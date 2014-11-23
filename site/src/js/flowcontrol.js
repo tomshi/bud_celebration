@@ -74,7 +74,7 @@ function submitUserData() {
             name: $.trim($("#username").val()),
             purpose: $.trim($("#purpose").val()),
             date: day + "/" + month,
-            image: $("#avatarInput").val()
+            image: $("#avatar-view-img").attr("src")
         }
     }).done(function(data) {
         processUserLoadData(data);
