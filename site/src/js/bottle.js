@@ -63,7 +63,8 @@ $(function () {
 				});
 			});
 
-			$("#ending").fadeIn();
+			$('#endingwrite').trigger('draw');
+			$("#ending").velocity('fadeIn', 1000);
 		});
 
 		$bg.velocity({

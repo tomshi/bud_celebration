@@ -64,7 +64,6 @@ var getReady = function () {
 	var start = function () {
 
 		setTimeout(function () {
-			console.log(audiojs.instances.audiojs0);
 			if (audiojs.instances.audiojs0) {
 				$FIRST_FRAME.show().trigger('start');
 				audiojs.instances.audiojs0.play();
