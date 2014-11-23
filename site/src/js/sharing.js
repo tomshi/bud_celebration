@@ -82,9 +82,10 @@ function shareSNS(type, link, image, text) {
 $(".share").on("click", function() {
     var name = ugc_name !== undefined ? ugc_name : "";
     var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
+    
     var $this = $(this),
         type = $this.attr("share-platform"),
-        link = $this.attr("share-link"),
+        link = getSharingUrl(),
         image = $this.attr("share-img"),
         text = $this.attr("share-text").replace("{name}", name).replace("{purpose}", purpose);
     shareSNS(type, link, image, text);
