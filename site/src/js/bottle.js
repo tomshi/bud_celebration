@@ -133,7 +133,7 @@ $(function () {
 
 		var label_w = $shade.width();
 		var length = $label.text().length;
-		var speed = 140;
+		var speed = 250;
 
 		var average;
 
@@ -193,13 +193,13 @@ $(function () {
 		$printer.velocity({
 			"top": offset.top - stage_pos.top,
 			"left": offset.left - stage_pos.left
-		}, 700, "linear", print);
+		}, 800, "linear", print);
 	};
 
 	var fall = function () {
 		$bottle.velocity({
 			"translateY": 0
-		}, 600, function () {
+		}, 800, function () {
 			$('.label', $element).show();
 			printGetReady();
 		});
