@@ -284,7 +284,8 @@
       this.$avatarSrc.val("");
       this.$avatarData.val("");
       this.$avatar.attr("src", hostname + this.url);
-      ugc_image_url =  hostname + this.url;
+      image_url = this.url;
+      ugc_image_url =  hostname + image_url;
       this.stopCropper();
       //this.$avatarModal.modal("hide");
     },

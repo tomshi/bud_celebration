@@ -1,5 +1,6 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname, image_url;
 
+image_url = "";
 hostname = "http://budquality-bud.stor.sinaapp.com/";
 
 function controlFlow(){
@@ -43,7 +44,6 @@ function processUserLoadData(data){
                 ugc_image_url = hostname + ugc_image_url;
             }
             ugc_vid = data.data.user_id;
-            console.log(ugc_image_url);
             wxsharing();
             $("#form").hide();
             getReady();
@@ -70,7 +70,7 @@ function submitUserData() {
             name: $.trim($("#username").val()),
             purpose: $.trim($("#purpose").val()),
             date: day + "/" + month,
-            image: $("#avatar-view-img").attr("src")
+            image: image_url
         }
     }).done(function(data) {
         processUserLoadData(data);
