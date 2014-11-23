@@ -1,4 +1,4 @@
-var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname;
+var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname, image_url;
 
 hostname = "http://budquality-bud.stor.sinaapp.com/";
 
@@ -38,11 +38,12 @@ function processUserLoadData(data){
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
-            ugc_image_url = data.data.image_url;
-            if (ugc_image_url) {
-                ugc_image_url = hostname + data.data.image_url;
+            image_url = data.data.image_url;
+            if (image_url) {
+                ugc_image_url = hostname + image_url;
             }
             ugc_vid = data.data.user_id;
+            console.log(image_url);
             console.log(ugc_image_url);
             wxsharing();
             $("#form").hide();
@@ -60,10 +61,8 @@ function processUserLoadData(data){
 function submitUserData() {
     var day = "0" + $.trim($("#time-d").val());
     var month = "0" + $.trim($("#time-m").val());
-
     day = day.substring(day.length - 2);
     month = month.substring(month.length - 2);
-
     $.ajax({
         type: "POST",
         url: "api/user/save",
@@ -72,7 +71,7 @@ function submitUserData() {
             name: $.trim($("#username").val()),
             purpose: $.trim($("#purpose").val()),
             date: day + "/" + month,
-            image: $("#avatar-view-img").attr("src")
+            image: image_url
         }
     }).done(function(data) {
         processUserLoadData(data);
