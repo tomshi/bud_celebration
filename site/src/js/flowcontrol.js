@@ -125,47 +125,56 @@ function validateInput() {
         console.log("The name " + name + " is not valid.");
         return false;
     }
+    else{
+        $(".name").removeClass("error");
+    }
 
     if (purpose.length <= 0 || calcLength(purpose) > 15) {
-        $(".name").removeClass("error");
         $(".purpose").addClass("error");
         console.log("The purpose " + purpose + " is not valid.");
         return false;
+    }
+    else{
+        $(".purpose").removeClass("error");
     }
 
     var intDay = parseInt(day);
     var intMonth = parseInt(month);
 
     if (intDay != day) {
-        $(".name").removeClass("error");
-        $(".purpose").removeClass("error");
         $(".time").addClass("error");
         console.log("The day " + day + " is not valid.");
         return false;
+    }
+    else{
+        $(".time").removeClass("error");
     }
 
     if (intMonth != month) {
-        $(".name").removeClass("error");
-        $(".purpose").removeClass("error");
         $(".time").addClass("error");
         console.log("The month " + month + " is not valid.");
         return false;
     }
+    else{
+        $(".time").removeClass("error");
+    }
 
     if (intDay <= 0 || intDay > 31) {
-        $(".name").removeClass("error");
-        $(".purpose").removeClass("error");
         $(".time").addClass("error");
         console.log("The day " + day + " is not valid.");
         return false;
     }
+    else{
+        $(".time").removeClass("error");
+    }
 
     if (intMonth <= 0 || intMonth > 12) {
-        $(".name").removeClass("error");
-        $(".purpose").removeClass("error");
         $(".time").addClass("error");
         console.log("The month " + month + " is not valid.");
         return false;
+    }
+    else{
+        $(".time").removeClass("error");
     }
 
     return true;
