@@ -130,6 +130,9 @@ $(function() {
             window.open("http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931");
         }
     });
+    $(".buy-tip-overlay").bind('click', function() {
+        $(this).fadeOut();
+    });
     $("#share").bind('click', function() {
         $(".sharing-box").fadeIn();
     });
