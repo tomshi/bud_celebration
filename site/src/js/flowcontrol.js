@@ -45,8 +45,8 @@ function processUserLoadData(data){
             }
             ugc_vid = data.data.user_id;
             wxsharing();
-		        dataReady();
-		        $("#form").add('#toast-first').remove();
+            dataReady();
+            $("#form").add('#toast-first').remove();
         }
         else{
             console.log(data.message);

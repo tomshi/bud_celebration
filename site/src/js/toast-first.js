@@ -54,6 +54,7 @@ $(function () {
 			duration: time,
 			easing: 'easeOutQuint',
 			complete: function () {
+                
 				$nextFrame.velocity('fadeIn', 1500, function(){
 					$element.remove();
 				});
