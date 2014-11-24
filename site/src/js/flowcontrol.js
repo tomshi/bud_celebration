@@ -69,7 +69,7 @@ function submitUserData() {
         data: {
             name: $.trim($("#username").val()),
             purpose: $.trim($("#purpose").val()),
-            date: day + "/" + month,
+            date: month + "/" + day,
             image: image_url
         }
     }).done(function(data) {
