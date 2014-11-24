@@ -114,10 +114,10 @@ function wxsharing() {
 
     if (name.length > 0 && purpose.length > 0) {
         wxData.title = '酿造' + name + '的欢庆时刻';
-        wxData.desc = name + '独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！';
+        wxData.desc = name + '#酿造你的欢庆时刻# 独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！';
     } else {
         wxData.title = '用你的故事，打造独一无二的百威定制啤酒';
-        wxData.desc = '你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯';
+        wxData.desc = '#酿造你的欢庆时刻# 你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯';
     }
 }
 
