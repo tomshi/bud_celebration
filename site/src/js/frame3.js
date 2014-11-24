@@ -16,14 +16,21 @@ $(function () {
 
 	var handup = function (Y, time, cb) {
 		$hand.velocity({
-			translateX: "2%",
+			translateX: "10%",
+			translateY: Y
+		}, time, cb);
+	};
+
+	var handup2 = function (Y, time, cb) {
+		$hand.velocity({
+			translateX: "-10%",
 			translateY: Y
 		}, time, cb);
 	};
 
 	var handdown = function (cb) {
 		$hand.velocity({
-			translateY: "-22%"
+			translateY: "-28%"
 		}, 1200, cb);
 	};
 
@@ -79,7 +86,7 @@ $(function () {
 					"translateZ": "40px"
 				}, 1300, function () {
 
-					handup("-54%", 1000, function () {
+					handup2("-54%", 1000, function () {
 						$hand.velocity({
 							translateY: "0%"
 						}, 1000);

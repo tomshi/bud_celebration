@@ -20,9 +20,16 @@ $(function () {
 	var handdown = function (cb) {
 		setTimeout(function () {
 			$hand.velocity({
-				translateY: "-22%"
+				translateY: "-28%"
 			}, 1100, cb);
 		}, 200);
+	};
+
+	var moveHand = function (X, Y, time, cb) {
+		$hand.velocity({
+			translateX: X,
+			translateY: Y
+		}, time, cb);
 	};
 
 	var endTransition = function () {
@@ -69,10 +76,11 @@ $(function () {
 
 				$bg_frame2.velocity({
 					"translateZ": "35px"
-				}, 1600, function () {
+				}, 1400, function () {
 
-					handup(function () {
-						handdown();
+					moveHand("13%", "-65%", 900,function () {
+
+						moveHand("10%", "-28", 1200);
 
 						if (!isMobile.Android()) {
 							$3dbox.css({
@@ -90,8 +98,8 @@ $(function () {
 						}, 1000, "linear");
 
 						$bg_frame2.velocity({
-							"translateZ": "76px"
-						}, 1000, "easeInQuad", function () {
+							"translateZ": "70px"
+						}, 1300, "easeInQuad", function () {
 							endTransition();
 						});
 					});

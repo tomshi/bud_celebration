@@ -10,20 +10,11 @@ $(function () {
 
 	var $hand = $('#hand');
 
-	var handup = function (Y, time, cb) {
+	var moveHand = function (X, Y, time, cb) {
 		$hand.velocity({
-			translateX: "10%",
+			translateX: X,
 			translateY: Y
 		}, time, cb);
-	};
-
-	var handdown = function (cb) {
-
-		setTimeout(function () {
-			$hand.velocity({
-				translateY: "-22%"
-			}, 1000, cb);
-		}, 100);
 	};
 
 	var endTransition = function () {
@@ -41,7 +32,7 @@ $(function () {
 			"translateZ": "18px"
 		}, 1300, function () {
 
-			handup("-64%", 900, function () {
+			moveHand("20%", "-70%", 900, function () {
 
 				if (!isMobile.Android()) {
 					$3dbox.css({
@@ -49,7 +40,7 @@ $(function () {
 					}, 0);
 				}
 
-				handdown();
+				
 
 				$model1.velocity({
 					"translateX": "50%",
@@ -57,15 +48,16 @@ $(function () {
 				}, 1500);
 
 				$model2.velocity({
-					"translateZ": "39px"
+					"translateZ": "29px"
 				}, 1200);
-
 
 				$bg_frame1.velocity({
 					"translateZ": "20px"
-				}, 1000, function () {
-					handup("-55%", 900,function () {
-						handdown();
+				}, 1200);
+
+				moveHand("28%", "-36%", 950, function () {
+					moveHand("4%", "-60%", 900,function () {
+						moveHand("7%", "0%", 1100);
 
 						if (!isMobile.Android()) {
 							$3dbox.css({
@@ -83,7 +75,7 @@ $(function () {
 						}, 1300, "linear");
 
 						$bg_frame1.velocity({
-							"translateZ": "76px"
+							"translateZ": "75px"
 						}, 1600, "linear", function () {
 							endTransition();
 						});
