@@ -48,13 +48,12 @@ var getReady = function () {
 
 
 	var imagesCount = imageNames.length;
-	var resourceCount = imagesCount + 1;
+	var resourceCount = imagesCount;
 	var loadedResourceCount = 0;
 	var images = [];
 
 
 	var count = function () {
-
 		if (loadedResourceCount >= resourceCount) {
 			$("#loading").fadeOut();
 			start();
@@ -62,6 +61,11 @@ var getReady = function () {
 	};
 
 	var start = function () {
+
+		audiojs.events.ready(function () {
+			audiojs.createAll();
+		});
+
 		setTimeout(function () {
 			if (isMobile.any() || audiojs.instances.audiojs0) {
 				controlFlow();
@@ -71,22 +75,6 @@ var getReady = function () {
 			}
 		}, 600);
 	};
-
-	var bgMusic = document.createElement('script');
-	bgMusic.onload = function () {
-		++loadedResourceCount;
-
-		if (!isMobile.any()) {
-			audiojs.events.ready(function () {
-				audiojs.createAll();
-			});
-		}
-
-		count();
-	};
-
-	bgMusic.src = "music/36s.js";
-	document.getElementsByTagName("head")[0].appendChild(bgMusic);
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
