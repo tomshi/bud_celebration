@@ -58,8 +58,12 @@ var getReady = function () {
 				audiojs.createAll();
 			});
 			$("#loading").fadeOut();
-
-			start();
+            
+            if (!isMobile.any()){
+                start();
+            }else {
+                controlFlow();
+            }
 		}
 	};
 
