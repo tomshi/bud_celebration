@@ -58,7 +58,6 @@ var getReady = function () {
 				audiojs.createAll();
 			});
 			$("#loading").fadeOut();
-            
             if (!isMobile.any()){
                 start();
             }else {
@@ -104,5 +103,7 @@ var dataReady = function () {
 	var $FIRST_FRAME = $("#toast");
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
-	audiojs.instances.audiojs0.play();
+    if (!isMobile.any()){
+        audiojs.instances.audiojs0.play();
+    }
 };
