@@ -3,10 +3,10 @@ var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname, image_url
 image_url = "";
 hostname = "http://budquality-bud.stor.sinaapp.com/";
 
-function controlFlow(){
+function controlFlow() {
     // check the param 'vid'
     var videoId = getUrlParameterByName("id");
-    if(videoId){
+    if (videoId) {
         $.ajax({
             url: "api/user/load/" + videoId
         }).done(function(data) {
@@ -33,9 +33,9 @@ function getUrlParameterByName(name) {
 }
 
 
-function processUserLoadData(data){
-    if(data){
-        if(data.is_success){
+function processUserLoadData(data) {
+    if (data) {
+        if (data.is_success) {
             ugc_name = data.data.name;
             ugc_purpose = data.data.purpose;
             ugc_date = data.data.date;
@@ -47,12 +47,10 @@ function processUserLoadData(data){
             wxsharing();
             dataReady();
             $("#form").add('#toast-first').remove();
-        }
-        else{
+        } else {
             console.log(data.message);
         }
-    }
-    else{
+    } else {
         console.log("No UGC with id:" + videoId);
     }
 }
@@ -95,19 +93,40 @@ function activeSubmitButton() {
     }
 }
 
-function validateInput(){
+function calcLength(input) {
+    var length = 0;
+    if (input && input.length > 0) {
+        $.each(input.split(""), function(index, val) {
+            if (isChinese(val)) {
+                length = length + 3;
+            } else {
+                length = length + 1;
+            }
+        });
+    }
+
+    return length;
+}
+
+function isChinese(temp) {
+    var re = /[^\u4e00-\u9fa5]/;
+    if (re.test(temp)) return false;
+    return true;
+}
+
+function validateInput() {
     var name = $.trim($("#username").val());
     var purpose = $.trim($("#purpose").val());
     var day = $.trim($("#time-d").val());
     var month = $.trim($("#time-m").val());
 
-    if(name.length <= 0 || name.length > 8){
+    if (name.length <= 0 || calcLength(name) > 15) {
         $(".name").addClass("error");
         console.log("The name " + name + " is not valid.");
         return false;
     }
 
-    if(purpose.length <= 0|| purpose.length > 8){
+    if (purpose.length <= 0 || calcLength(purpose) > 15) {
         $(".name").removeClass("error");
         $(".purpose").addClass("error");
         console.log("The purpose " + purpose + " is not valid.");
@@ -117,7 +136,7 @@ function validateInput(){
     var intDay = parseInt(day);
     var intMonth = parseInt(month);
 
-    if(intDay != day){
+    if (intDay != day) {
         $(".name").removeClass("error");
         $(".purpose").removeClass("error");
         $(".time").addClass("error");
@@ -125,7 +144,7 @@ function validateInput(){
         return false;
     }
 
-    if(intMonth != month){
+    if (intMonth != month) {
         $(".name").removeClass("error");
         $(".purpose").removeClass("error");
         $(".time").addClass("error");
@@ -133,7 +152,7 @@ function validateInput(){
         return false;
     }
 
-    if(intDay <= 0 || intDay > 31){
+    if (intDay <= 0 || intDay > 31) {
         $(".name").removeClass("error");
         $(".purpose").removeClass("error");
         $(".time").addClass("error");
@@ -141,7 +160,7 @@ function validateInput(){
         return false;
     }
 
-    if(intMonth <= 0 || intMonth > 12){
+    if (intMonth <= 0 || intMonth > 12) {
         $(".name").removeClass("error");
         $(".purpose").removeClass("error");
         $(".time").addClass("error");
@@ -152,25 +171,25 @@ function validateInput(){
     return true;
 }
 
-function hasPlaceholderSupport(){
+function hasPlaceholderSupport() {
     var attr = "placeholder";
     var input = document.createElement("input");
     return attr in input;
 }
 
-function addPlaceholder(){
+function addPlaceholder() {
     var support = hasPlaceholderSupport();
-    if(!support){
-        $(".input input").bind("focus", function(){
-            if($(this).val() == this.defaultValue){
+    if (!support) {
+        $(".input input").bind("focus", function() {
+            if ($(this).val() == this.defaultValue) {
                 $(this).val("");
             }
-        }).bind("blur", function(){
+        }).bind("blur", function() {
             if ($(this).val() == "") {
                 $(this).val(this.defaultValue);
             }
         });
-    }else {
+    } else {
         $(".input input").val("");
     }
 
@@ -196,7 +215,7 @@ function addPlaceholder(){
         $("#time-d").focus();
     });
 
-    if (isMobile.any()){
+    if (isMobile.any()) {
         $(".time").addClass("active");
     }
     type.find("li").bind("click", function() {
@@ -218,12 +237,11 @@ $(function() {
         $(".avatar-form").submit();
     });
 
-    $("#submit").bind("click", function(){
+    $("#submit").bind("click", function() {
         if ($(this).hasClass("active")) {
-            if(validateInput()){
+            if (validateInput()) {
                 submitUserData();
-            }
-            else{
+            } else {
                 console.log("Validation failed.");
             }
         }
