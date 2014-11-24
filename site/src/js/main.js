@@ -110,7 +110,7 @@ function wxsharing() {
     var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
     
     wxData.link = getSharingUrl();
-    wxData.imgUrl = 'http://toast-365days.com/img/share.jpg';
+    wxData.imgUrl = 'http://bud1.sonicboomsh.com/img/share.jpg';
 
     if (name.length > 0 && purpose.length > 0) {
         wxData.title = '酿造' + name + '的欢庆时刻';
