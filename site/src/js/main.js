@@ -23,7 +23,7 @@ function getAndroidVersion(ua) {
 }
 
 function orient() {
-    if (window.orientation == 180 || window.orientation == 0) {
+    if ($("#form").length == 0 && (window.orientation == 180 || window.orientation == 0)) {
         $(".landscape-overlay").fadeIn();
     }
     if (window.orientation == 90 || window.orientation == -90) {
