@@ -221,7 +221,7 @@ function addPlaceholder() {
 
     $(".time-placeholder").bind("click", function() {
         $(".time").addClass("active");
-        $("#time-d").focus();
+        $("#time-m").focus();
     });
 
     if (isMobile.any()) {
