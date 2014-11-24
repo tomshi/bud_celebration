@@ -56,6 +56,7 @@ $(function () {
 			complete: function () {
                 
 				$nextFrame.velocity('fadeIn', 1500, function(){
+					$(".landscape-overlay").fadeOut();
 					$element.remove();
 				});
 			}

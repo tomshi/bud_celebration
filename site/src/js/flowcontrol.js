@@ -249,6 +249,7 @@ $(function() {
     $("#submit").bind("click", function() {
         if ($(this).hasClass("active")) {
             if (validateInput()) {
+				orient();
                 submitUserData();
             } else {
                 console.log("Validation failed.");
