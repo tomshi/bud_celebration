@@ -46,6 +46,7 @@ var getReady = function () {
 		imageNames.push("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png");
 	}
 
+
 	var imagesCount = imageNames.length;
 	var resourceCount = imagesCount + 1;
 	var loadedResourceCount = 0;
@@ -53,22 +54,16 @@ var getReady = function () {
 
 
 	var count = function () {
+
 		if (loadedResourceCount >= resourceCount) {
-			audiojs.events.ready(function () {
-				audiojs.createAll();
-			});
 			$("#loading").fadeOut();
-            if (!isMobile.any()){
-                start();
-            }else {
-                controlFlow();
-            }
+			start();
 		}
 	};
 
 	var start = function () {
 		setTimeout(function () {
-			if (audiojs.instances.audiojs0) {
+			if (isMobile.any() || audiojs.instances.audiojs0) {
 				controlFlow();
 			}
 			else {
@@ -80,6 +75,13 @@ var getReady = function () {
 	var bgMusic = document.createElement('script');
 	bgMusic.onload = function () {
 		++loadedResourceCount;
+
+		if (!isMobile.any()) {
+			audiojs.events.ready(function () {
+				audiojs.createAll();
+			});
+		}
+
 		count();
 	};
 
@@ -97,13 +99,33 @@ var getReady = function () {
 	}
 };
 
-var dataReady = function () {
+var movie_start = function () {
 	SaveTrackingLog(1);
 	// Setting first animation here
 	var $FIRST_FRAME = $("#toast");
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
-    if (!isMobile.any()){
-        audiojs.instances.audiojs0.play();
-    }
+	if (!isMobile.any()) {
+		audiojs.instances.audiojs0.play();
+	}
+	else {
+		$('#bgmusic')[0].play();
+	}
+	$('#mobile-ready').fadeOut();
+};
+
+
+$(function () {
+	$('#mobile-ready .btn-play').click(function () {
+		movie_start();
+	});
+});
+
+var dataReady = function () {
+	if (isMobile.any()) {
+		$('#mobile-ready').show()
+	}
+	else {
+		movie_start();
+	}
 };
