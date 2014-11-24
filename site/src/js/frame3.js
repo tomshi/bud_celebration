@@ -43,7 +43,7 @@ $(function () {
 			$ugc_pic.html('<img src="' + ugc_image_url + '"><div class="purpose haveImg">' + ugc_purpose + '</div>');
 		}
 		else {
-			$ugc_pic.html('<div class="ugc-name">' + ugc_name + '</div><div class="purpose">' + ugc_purpose + '</div>');
+			$ugc_pic.html('<div class="table"><div class="table-cell"><span class="ugc-name">' + ugc_name + '</span><span class="purpose">' + ugc_purpose + '</span></div></div>');
 		}
 
 		if (!isMobile.Android()) {
