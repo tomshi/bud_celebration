@@ -89,7 +89,7 @@ function submitUserData() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
+    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
