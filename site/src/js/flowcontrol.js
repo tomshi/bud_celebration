@@ -44,8 +44,11 @@ function processUserLoadData(data) {
                 ugc_image_url = hostname + ugc_image_url;
             }
             ugc_vid = data.data.user_id;
-            wxsharing();
-            dataReady();
+            if (isMobile.any()){
+                wxsharing();
+                setOrient();
+                dataReady();
+            }
             $("#form").add('#toast-first').remove();
         } else {
             console.log(data.message);
@@ -249,7 +252,6 @@ $(function() {
     $("#submit").bind("click", function() {
         if ($(this).hasClass("active")) {
             if (validateInput()) {
-				orient();
                 submitUserData();
             } else {
                 console.log("Validation failed.");

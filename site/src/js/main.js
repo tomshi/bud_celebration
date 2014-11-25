@@ -1,18 +1,21 @@
 var isMobile = {
     Android: function() {
-        return /Android/i.test(navigator.userAgent);
+        return /Android/i.test(window.navigator.userAgent);
     },
     BlackBerry: function() {
-        return /BlackBerry/i.test(navigator.userAgent);
+        return /BlackBerry/i.test(window.navigator.userAgent);
     },
     iOS: function() {
-        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        return /iPhone|iPad|iPod/i.test(window.navigator.userAgent);
     },
     Windows: function() {
-        return /IEMobile/i.test(navigator.userAgent);
+        return /IEMobile/i.test(window.navigator.userAgent);
     },
     any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    },
+    wechat: function() {
+        return /micromessenger/i.test(window.navigator.userAgent.toLowerCase());
     }
 };
 
@@ -28,6 +31,12 @@ function orient() {
     }
     if (window.orientation == 90 || window.orientation == -90) {
         $(".landscape-overlay").fadeOut();
+    }
+}
+function setOrient(){
+    if (window.addEventListener) {
+        orient();
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
     }
 }
 
@@ -53,8 +62,7 @@ function screenSize() {
 
 function endingBtnEvent() {
     $("#buy").bind('click', function() {
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.indexOf("micromessenger") > 0) {
+        if (isMobile.wechat()) {
             $(".buy-tip-overlay").fadeIn();
         } else {
             window.open("http://detail.tmall.com/item.htm?spm=0.0.0.0.Tapm2W&id=42489336931");
@@ -85,15 +93,12 @@ $(function() {
     function init() {
         screenSize();
         endingBtnEvent();
-        if (window.addEventListener) {
+        if (isMobile.wechat()){
             configWxSharing();
-            wxsharing();
-            orient();
-            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orient, false);
         }
-        $(window).resize(function() {
-            screenSize();
-        });
     }
+    $(window).resize(function() {
+        screenSize();
+    });
     init();
 });
