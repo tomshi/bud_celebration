@@ -54,12 +54,80 @@ var getReady = function () {
 			$("#loading-now").css("width", progress + "%");
             if (loadedResourceCount >= resourceCount) {
                 $("#loading").fadeOut();
-                start();
+                $('#form').fadeIn();
             }
 		};
 	}
+};
 
-    var start = function () {
-        $('#form').fadeIn();
-    };
+var dataReady = function () {
+    $('#form').fadeOut();
+    TweenMax.to("#ie-frame1" , 2, {
+        opacity: 1,
+        delay: 0,
+        ease: Sine.SineIn,
+        onComplete: function(){
+            TweenMax.to("#ie-frame1" , 2, {
+                opacity: 0,
+                delay: 3,
+                ease: Sine.SineIn
+            });
+            TweenMax.to("#ie-frame2" , 2, {
+                opacity: 1,
+                delay: 3,
+                ease: Sine.SineIn,
+                onComplete: function(){
+                    TweenMax.to("#ie-frame2" , 2, {
+                        opacity: 0,
+                        delay: 3,
+                        ease: Sine.SineIn
+                    });
+                    TweenMax.to("#ie-frame3" , 2, {
+                        opacity: 1,
+                        delay: 3,
+                        ease: Sine.SineIn,
+                        onComplete: function(){
+                            TweenMax.to("#ie-frame3" , 2, {
+                                opacity: 0,
+                                delay: 3,
+                                ease: Sine.SineIn
+                            });
+                            TweenMax.to("#ie-frame4" , 2, {
+                                opacity: 1,
+                                delay: 3,
+                                ease: Sine.SineIn,
+                                onComplete: function(){
+                                    TweenMax.to("#ie-frame4" , 2, {
+                                        opacity: 0,
+                                        delay: 3,
+                                        ease: Sine.SineIn
+                                    });
+                                    TweenMax.to("#ie-frame5" , 2, {
+                                        opacity: 1,
+                                        delay: 3,
+                                        ease: Sine.SineIn,
+                                        onComplete: function(){
+                                            TweenMax.to("#ie-frame5" , 2, {
+                                                opacity: 0,
+                                                delay: 3,
+                                                ease: Sine.SineIn
+                                            });
+                                            TweenMax.to("#ie-frame6" , 2, {
+                                                opacity: 1,
+                                                delay: 3,
+                                                ease: Sine.SineIn,
+                                                onComplete: function(){
+                                                    $("#ending").show();
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
 };
