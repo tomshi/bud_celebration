@@ -125,20 +125,24 @@ function validateInput() {
 
     if (name.length <= 0 || calcLength(name) > 15) {
         $(".name").addClass("error");
+        $(".name-error").show();
         console.log("The name " + name + " is not valid.");
         return false;
     }
     else{
         $(".name").removeClass("error");
+        $(".name-error").hide();
     }
 
     if (purpose.length <= 0 || calcLength(purpose) > 15) {
         $(".purpose").addClass("error");
+        $(".purpose-error").show();
         console.log("The purpose " + purpose + " is not valid.");
         return false;
     }
     else{
         $(".purpose").removeClass("error");
+        $(".purpose-error").hide();
     }
 
     var intDay = parseInt(day);
