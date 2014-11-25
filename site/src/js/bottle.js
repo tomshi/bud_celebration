@@ -3,7 +3,6 @@ $(function () {
 	var $element = $('#bottle');
 	var $bottle = $('.bottle', $element);
 	var $shadow = $('.shadow', $element);
-	var $shadow2 = $('.shadow2', $element);
 
 	var $shade = $('.bottle-shade', $element);
 	var $printer = $('.printer', $element);
@@ -29,14 +28,13 @@ $(function () {
 		// TODO: Do we really need lettering
 		$label.lettering();
 		$bottle.velocity({translateY: "-120.0%"}, 0);
-		$shadow.velocity({scale: 1.3}, 0);
-		$shadow2.velocity({rotateZ: "0deg"}, 0);
+		$shadow.velocity({scale: 1.1}, 0);
 		$bottleShadow.velocity({rotateZ: "0deg"}, 0);
 
 		$bg.velocity({translateZ: '50px'}, 0);
 		$foreground.velocity({translateZ: '56px'}, 0);
 		$darkness.velocity({opacity: 0});
-		$light.velocity({rotateZ: "-12deg", scale: 1.5, translateY: "-8%", translateX: "-3%", opacity: 0}, 0);
+		$light.velocity({rotateZ: "-12deg", scale: 1.3, translateY: "-8%", translateX: "-3%", opacity: 0}, 0);
 
 		setTimeout(fall, 300)
 	};
@@ -50,16 +48,12 @@ $(function () {
 			"translateZ": "1px"
 		}, 1000, function () {
 
-			$shadow2.velocity({
-				opacity: 1,
-				scale: 1.06
-			}, 1000);
 			$light.add($bottleShadow).show().velocity({
-				opacity: 0.8
+				opacity: 0.9
 			}, 1000, function () {
 				$light.velocity({rotateZ: "-2deg"}, 1000);
 
-				$bottleShadow.add($shadow2).velocity({
+				$bottleShadow.velocity({
 					rotateZ: "3deg"
 				}, 1000, function () {
 					endTransition();
@@ -179,10 +173,6 @@ $(function () {
 		});
 		printing1();
 
-		$shadow2.velocity({
-			opacity: 0.7,
-			scale: '1.05'
-		}, 1500);
 	};
 
 	var printGetReady = function () {
@@ -199,14 +189,14 @@ $(function () {
 	var fall = function () {
 		$bottle.velocity({
 			"translateY": 0
-		}, 800, function () {
+		}, 900, function () {
 			$('.label', $element).show();
 			printGetReady();
 		});
 
-		$shadow.velocity({
-			scale: "90%"
-		}, 600, "linear");
+		$shadow.delay(400).velocity({
+			scale: "75%"
+		}, 450, "linear");
 	};
 
 	$element.on('start', animation_start);
