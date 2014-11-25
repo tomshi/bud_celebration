@@ -47,8 +47,8 @@ function processUserLoadData(data) {
             if (isMobile.any()){
                 wxsharing();
                 setOrient();
-                dataReady();
             }
+            dataReady();
             $("#form").add('#toast-first').remove();
         } else {
             console.log(data.message);
