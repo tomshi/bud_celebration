@@ -9,11 +9,11 @@
     "animate.css": "^3",
     "velocity": "~1.1.0",
     "viewport-units-buggyfill": "~0.4.1",
-    "gsap": "~1.14.2",
     "modernizr": "~2.8.3",
     "letteringjs": "~0.6.1",
     "cropper": "~0.7.3",
     "jquery-file-upload": "~9.8.0",
-    "audiojs": "*"
+    "audiojs": "*",
+    "greensock": "~1.14.2"
   }
 }

@@ -79,7 +79,7 @@
 
 <body>
 
-<div id="wrapper">
+<div id="wrapper ie">
 
     <div class="logo"><a href="/"><img src="img/logo.png" class="responsive" alt=""/></a></div>
 
@@ -89,7 +89,7 @@
             <div class="loading-bar"><div id="loading-now" class="now"></div></div>
         </div>
 
-        <div class="frame" id="form">
+        <div class="frame" id="form" style="display: block">
             <div class="movie-shadow"></div>
             <div class="header">
                 <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
@@ -147,38 +147,62 @@
         </div>
 
         <div class="frame">
-            <div class="pic pic1"></div>
-        </div>
-        <div class="frame">
-            <div class="pic pic2"></div>
-        </div>
-        <div class="frame">
-            <div class="pic pic3"></div>
-        </div>
-        <div class="frame">
-            <div class="pic pic4"></div>
-        </div>
-        <div class="frame">
-            <div class="pic pic5"></div>
+            <div class="caption-toast">百威为<span class="month"></span>月<span class="day"></span>日举杯</div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
         </div>
 
-        <div class="frame" id="caption">
-            <div class="caption-toast">百威为<span class="month"></span>月<span class="day"></span>日举杯</div>
+        <div class="frame">
             <div class="caption frame1"></div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
+        </div>
+
+        <div class="frame">
             <div class="caption frame2"></div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
+        </div>
+
+        <div class="frame">
             <div class="caption frame3">
                 <div>对 <span class="ugc-name"></span> 而言</div>
                 <div class="specialday"><span class="month"></span>月<span class="day"></span>日这独一无二的日子 是<span class="ugc-purpose"></span></div>
             </div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
+        </div>
+
+        <div class="frame">
             <div class="caption frame4">
                 <div>我们敬你</div>
                 <div><span class="ugc-name"></span></div>
             </div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
+        </div>
+
+        <div class="frame">
             <div class="caption bottle">
                 <div>为你无数值得庆祝的</div>
                 <div>珍贵瞬间举杯</div>
             </div>
+            <div class="movie-shadow"></div>
+            <div>
+                <img src="img/frame2-bg.jpg" alt=""/>
+            </div>
         </div>
+
     </section>
 </div>
 
@@ -194,7 +218,7 @@
     </div>
 </div>
 
-<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+<div class="loading"></div>
 
 <div class="hide">
     <audio id="bgmusic" preload="auto" src="music/36s.mp3" />
@@ -206,6 +230,8 @@
 
 <!-- build:js js/main.js -->
 <script src="js/main.js"></script>
+<script src="js/flowcontrol.js"></script>
+<script src="js/crop-avatar.js"></script>
 
 </body>
 </html>
