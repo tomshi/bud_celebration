@@ -38,6 +38,15 @@ a {
   margin: 0 auto;
 }
 
+.logo {
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  width: 12%;
+  z-index: 999;
+}
+
+
 #stage {
   width: 100%;
   height: 100%;
@@ -92,6 +101,21 @@ a {
     top: 50%;
     margin: -200px 0 0 -300px;
   }
+  &.buy-tip-overlay {
+    .box {
+      text-align: right;
+      padding-right: 5%;
+      margin-top: 10%;
+      img {
+        width: 75%;
+      }
+    }
+  }
+  &.landscape-overlay {
+    img {
+      width: 40%;
+    }
+  }
 }
 
 .loading {
@@ -104,14 +128,6 @@ a {
   background: url("../img/loading.gif") no-repeat center #fff;
   opacity: .7;
   z-index: 20140628;
-}
-
-.logo {
-  position: absolute;
-  left: 2%;
-  top: 3%;
-  width: 12%;
-  z-index: 100;
 }
 
 #footer-page {
@@ -144,13 +160,15 @@ a {
 
 .footer {
   position: absolute;
-  left: 5%;
+  padding-left: 5%;
   bottom: 1%;
   width: 100%;
   color: #ccc;
   color: rgba(255, 255, 255, 0.5);
   z-index: 99;
   letter-spacing: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
   .home {
     color: #ccc;
     color: rgba(255, 255, 255, 0.7);
@@ -176,7 +194,11 @@ a {
 #loading {
   z-index: 999;
 }
-
+#mobile-play {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 900;
+}
 #form {
   z-index: 888;
 }
@@ -221,24 +243,6 @@ a {
   z-index: 700;
 }
 
-#mobile-ready {
-  z-index: 900;
-  text-align: center;
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-
-  .btn-play {
-    position: relative;
-    top: 50%;
-    margin-top: -77px;
-    display: inline-block;
-    background: url('../img/playbutton.png');
-    width: 152px;
-    height: 153px;
-  }
-}
 
 .movie-shadow {
   position: absolute;

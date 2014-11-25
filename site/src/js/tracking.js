@@ -1,9 +1,3 @@
-$(function() {
-    addGATracking();
-    addNielsenTracking();
-    addBaiduTracking();
-});
-
 // Backend Tracking
 function SaveTrackingLog(is_start){
     var source = getUrlParameterByName("source");
@@ -114,3 +108,8 @@ function requestAdmasterTracking(category, action, label){
 }
 
 
+$(function() {
+    addGATracking();
+    addNielsenTracking();
+    addBaiduTracking();
+});

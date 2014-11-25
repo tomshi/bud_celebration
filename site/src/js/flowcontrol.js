@@ -44,7 +44,10 @@ function processUserLoadData(data) {
                 ugc_image_url = hostname + ugc_image_url;
             }
             ugc_vid = data.data.user_id;
-            wxsharing();
+            if (isMobile.any()){
+                wxsharing();
+                setOrient();
+            }
             dataReady();
             $("#form").add('#toast-first').remove();
         } else {
@@ -86,7 +89,7 @@ function submitUserData() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#occasion").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "") {
+    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
@@ -122,20 +125,24 @@ function validateInput() {
 
     if (name.length <= 0 || calcLength(name) > 15) {
         $(".name").addClass("error");
+        $(".name-error").show();
         console.log("The name " + name + " is not valid.");
         return false;
     }
     else{
         $(".name").removeClass("error");
+        $(".name-error").hide();
     }
 
     if (purpose.length <= 0 || calcLength(purpose) > 15) {
         $(".purpose").addClass("error");
+        $(".purpose-error").show();
         console.log("The purpose " + purpose + " is not valid.");
         return false;
     }
     else{
         $(".purpose").removeClass("error");
+        $(".purpose-error").hide();
     }
 
     var intDay = parseInt(day);
@@ -237,6 +244,10 @@ $(function() {
     getReady();
     addPlaceholder();
 
+    $('#mobile-play').click(function () {
+        movie_start();
+    });
+
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
         $("#avatarInput").val("");
@@ -249,7 +260,6 @@ $(function() {
     $("#submit").bind("click", function() {
         if ($(this).hasClass("active")) {
             if (validateInput()) {
-				orient();
                 submitUserData();
             } else {
                 console.log("Validation failed.");

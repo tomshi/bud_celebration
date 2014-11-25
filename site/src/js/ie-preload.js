@@ -1,7 +1,6 @@
 var getReady = function () {
-	$("#loading").show();
 
-	$(".frame").not('#form').not('#mobile-play').show();
+	$("#loading").show();
 
 	var imageNames = [
 		'img/bottle.png',
@@ -42,39 +41,10 @@ var getReady = function () {
 		'img/sharing-wechat.png'
 	];
 
-	for (var i = 0; i < 76; i++) {
-		imageNames.push("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png");
-	}
-
-
 	var imagesCount = imageNames.length;
 	var resourceCount = imagesCount;
 	var loadedResourceCount = 0;
 	var images = [];
-
-
-	var count = function () {
-		if (loadedResourceCount >= resourceCount) {
-			$("#loading").fadeOut();
-			start();
-		}
-	};
-
-	var start = function () {
-
-		audiojs.events.ready(function () {
-			audiojs.createAll();
-		});
-
-		setTimeout(function () {
-			if (isMobile.any() || audiojs.instances.audiojs0) {
-				controlFlow();
-			}
-			else {
-				start();
-			}
-		}, 600);
-	};
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
@@ -82,31 +52,14 @@ var getReady = function () {
 		images[i].onload = function () {
 			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
 			$("#loading-now").css("width", progress + "%");
-			count();
+            if (loadedResourceCount >= resourceCount) {
+                $("#loading").fadeOut();
+                start();
+            }
 		};
 	}
-};
 
-var movie_start = function () {
-	SaveTrackingLog(1);
-	// Setting first animation here
-	var $FIRST_FRAME = $("#toast");
-	$FIRST_FRAME.show().trigger('start');
-	CAPTION.getReady();
-	if (!isMobile.any()) {
-		audiojs.instances.audiojs0.play();
-	}
-	else {
-		$('#bgmusic')[0].play();
-	}
-	$('#mobile-play').fadeOut();
-};
-
-var dataReady = function () {
-    if (isMobile.any()) {
-        $('#mobile-play').show()
-    }
-    else {
-        movie_start();
-    }
+    var start = function () {
+        $('#form').fadeIn();
+    };
 };
