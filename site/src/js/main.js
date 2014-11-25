@@ -91,6 +91,11 @@ function endingBtnEvent() {
 
 $(function() {
     function init() {
+        if (isMobile.any()){
+            $("#form").remove();
+        }else {
+            $("#form-mobile").remove();
+        }
         screenSize();
         endingBtnEvent();
         if (isMobile.wechat()){

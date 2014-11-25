@@ -1,4 +1,4 @@
-var getReady = function () {
+var getReadyByIE = function () {
 
 	$("#loading").show();
 
@@ -60,7 +60,7 @@ var getReady = function () {
 	}
 };
 
-var dataReady = function () {
+var dataReadyByIE = function () {
     $('#form').fadeOut();
     TweenMax.to("#ie-frame1" , 2, {
         opacity: 1,

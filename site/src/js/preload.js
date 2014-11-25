@@ -104,6 +104,7 @@ var movie_start = function () {
 
 var dataReady = function () {
     if (isMobile.any()) {
+        $("#form-mobile").hide();
         $('#mobile-play').show()
     }
     else {
