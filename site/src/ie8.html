@@ -89,7 +89,7 @@
             <div class="loading-bar"><div id="loading-now" class="now"></div></div>
         </div>
 
-        <div class="frame" id="form" style="display: block">
+        <div class="frame" id="form">
             <div class="movie-shadow"></div>
             <div class="header">
                 <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
@@ -226,11 +226,14 @@
 
 <!-- build:js js/plugins.js -->
 <script src="bower_components/cropper/dist/cropper.min.js"></script>
+<script src="bower_components/greensock/src/minified/TweenMax.min.js"></script>
+<script src="bower_components/audiojs/audiojs/audio.js"></script>
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->
 <script src="js/main.js"></script>
 <script src="js/flowcontrol.js"></script>
+<script src="js/ie-preload.js"></script>
 <script src="js/crop-avatar.js"></script>
 
 </body>

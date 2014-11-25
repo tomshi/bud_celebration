@@ -240,6 +240,10 @@ $(function() {
     getReady();
     addPlaceholder();
 
+    $('#mobile-play').click(function () {
+        movie_start();
+    });
+
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
         $("#avatarInput").val("");
