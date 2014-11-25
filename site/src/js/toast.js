@@ -31,8 +31,9 @@ $(function () {
 
 	var toast = function () {
 		$dust.velocity({
-			translateY: "100%"
-		}, 4000, 'linear');
+			translateY: "100%",
+			opacity: "0"
+		}, 4600, 'linear');
 
 		$hand1.velocity({
 			translateX: "93%",
