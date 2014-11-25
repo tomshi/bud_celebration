@@ -180,6 +180,8 @@
     }
   }
 }
+
+
 #avatar-modal {
   width: 50%;
   display: inline-block;
@@ -189,7 +191,9 @@
   outline: dashed 1px #dfb234;
   margin-bottom: 5%;
 }
-
+.cropper-container {
+  left: 0 !important;
+}
 .avatar-save {
   margin-left: 5%;
 }
@@ -253,13 +257,13 @@
   background: url(../img/mobile-bg.jpg) no-repeat #000 center top;
   background-size: contain;
   width: 100%;
-  height: 100%;
+  height: 568px;
   z-index: 9999;
   .form {
     .input {
       width: 60%;
       height: 7%;
-      left: 18%;
+      left: 20%;
       top: 38%;
       input {
         font-size: 12px;
@@ -280,7 +284,7 @@
     }
     .submit {
       width: 60%;
-      left: 18%;
+      left: 20%;
       top: 72%;
       height: 7%;
       background-image: url(../img/form-icon2.png);
@@ -288,10 +292,10 @@
     }
     .upload {
       position: absolute;
-      left: 18%;
+      left: 20%;
       top: 65%;
       z-index: 8;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 2px;
     }
   }
