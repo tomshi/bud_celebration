@@ -1,7 +1,7 @@
 var getReady = function () {
 	$("#loading").show();
 
-	$(".frame").not('#form').not('#mobile-play').show();
+//	$(".frame").not('#form').not('#mobile-play').show();
 
 	var imageNames = [
 		'img/bottle.png',
@@ -90,7 +90,7 @@ var getReady = function () {
 var movie_start = function () {
 	SaveTrackingLog(1);
 	// Setting first animation here
-	var $FIRST_FRAME = $("#toast");
+	var $FIRST_FRAME = $("#bottle");
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
 	if (!isMobile.any()) {
