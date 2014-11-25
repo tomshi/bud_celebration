@@ -38,6 +38,15 @@ a {
   margin: 0 auto;
 }
 
+.logo {
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  width: 12%;
+  z-index: 100;
+}
+
+
 #stage {
   width: 100%;
   height: 100%;
@@ -92,6 +101,21 @@ a {
     top: 50%;
     margin: -200px 0 0 -300px;
   }
+  &.buy-tip-overlay {
+    .box {
+      text-align: right;
+      padding-right: 5%;
+      margin-top: 10%;
+      img {
+        width: 75%;
+      }
+    }
+  }
+  &.landscape-overlay {
+    img {
+      width: 40%;
+    }
+  }
 }
 
 .loading {
@@ -104,14 +128,6 @@ a {
   background: url("../img/loading.gif") no-repeat center #fff;
   opacity: .7;
   z-index: 20140628;
-}
-
-.logo {
-  position: absolute;
-  left: 2%;
-  top: 3%;
-  width: 12%;
-  z-index: 100;
 }
 
 #footer-page {
