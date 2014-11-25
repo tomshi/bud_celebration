@@ -138,9 +138,9 @@ $(function () {
 		var average;
 
 		if (length >= 2) {
-			average = ($('.char2', $name).offset().left - $('.char1', $name).offset().left) / 2;
+			average = ($('.char2', $name).offset().left - $('.char1', $name).offset().left) / 10;
 		} else {
-			average = name_w / length / 2;
+			average = name_w / length / 4;
 		}
 
 		$shade.width((label_w - name_w) / 2 + name_w);
@@ -150,7 +150,7 @@ $(function () {
 			$printer.velocity({
 				"top": "-=" + name_h + "px",
 				"left": "+=" + average + "px"
-			}, speed / 2, "linear", function () {
+			}, speed / 10, "linear", function () {
 				if (!isFinish) {
 					printing2();
 				}
@@ -161,7 +161,7 @@ $(function () {
 			$printer.velocity({
 				"top": "+=" + name_h + "px",
 				"left": "+=" + average + "px"
-			}, speed / 2, "linear", function () {
+			}, speed / 10, "linear", function () {
 				if (!isFinish) {
 					printing1();
 				}
