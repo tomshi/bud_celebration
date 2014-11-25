@@ -48,8 +48,12 @@ function processUserLoadData(data) {
                 wxsharing();
                 setOrient();
             }
-            dataReady();
-            $("#form").add('#toast-first').remove();
+            if (window.location.pathname.indexOf('ie') > 0){
+                dataReadyByIE();
+            }else {
+                dataReady();
+                $("#form").add('#toast-first').remove();
+            }
         } else {
             console.log(data.message);
         }
@@ -241,7 +245,11 @@ function addPlaceholder() {
 }
 
 $(function() {
-    getReady();
+    if (window.location.pathname.indexOf('ie') > 0){
+        getReadyByIE();
+    }else {
+        getReady();
+    }
     addPlaceholder();
 
     $('#mobile-play').click(function () {

@@ -60,8 +60,8 @@ $(function () {
 				});
 			});
 
+            $("#ending").show();
 			$('#endingwrite').trigger('draw');
-			$("#ending").show();
 
 			$text.velocity({
 				opacity: 1

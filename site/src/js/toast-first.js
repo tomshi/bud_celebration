@@ -54,7 +54,7 @@ $(function () {
 			duration: time,
 			easing: 'easeOutQuint',
 			complete: function () {
-                if (isMobile.any()){
+                if (isMobile.phone()){
                     $nextFrame = $('#form-mobile');
                 }
 				$nextFrame.velocity('fadeIn', 1500, function(){
