@@ -50,9 +50,6 @@ function processUserLoadData(data) {
                 wxsharing();
                 setOrient();
             }
-            if (isMobile.wechat() && (document.location.href.indexOf("?id=") < 0 || document.location.href.indexOf("&id=") < 0 ) ){
-                window.location.href = document.location.href + "?id=" + ugc_vid;
-            }
             if (window.location.pathname.indexOf('ie') > 0){
                 dataReadyByIE();
             }else {
@@ -84,6 +81,15 @@ function submitUserData() {
         }
     }).done(function(data) {
         processUserLoadData(data);
+        if (isMobile.wechat()){
+            var currentUrl = document.location.href;
+            if(currentUrl.indexOf("?") < 0){
+                currentUrl = currentUrl + "?id=" + ugc_vid;
+            }
+            else{
+                currentUrl = currentUrl + "&id=" + ugc_vid;
+            }
+        }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         $.ajax({
             url: "api/json/user_save.json",
