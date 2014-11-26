@@ -23,8 +23,7 @@ function controlFlow() {
             });
         });
     } else {
-        $('#form-mobile').show();
-        //$("#toast-first").show().trigger('start');
+        $("#toast-first").show().trigger('start');
     }
 }
 
@@ -233,6 +232,10 @@ function addPlaceholder() {
         }).bind("blur", function() {
             type.slideUp();
         });
+        type.find("li").bind("click", function() {
+            $("#purpose").val($(this).text());
+            type.slideUp();
+        });
     }
 
     $(".time-placeholder").bind("click", function() {
@@ -243,10 +246,6 @@ function addPlaceholder() {
     if (isMobile.any()) {
         $(".time").addClass("active");
     }
-    type.find("li").bind("click", function() {
-        $("#purpose").val($(this).text());
-        type.slideUp();
-    });
 }
 
 $(function() {
