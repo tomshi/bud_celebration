@@ -82,13 +82,14 @@ function submitUserData() {
     }).done(function(data) {
         processUserLoadData(data);
         if (isMobile.wechat()){
-            var currentUrl = document.location.href;
-            if(currentUrl.indexOf("?") < 0){
-                currentUrl = currentUrl + "?id=" + ugc_vid;
+            var url = document.location.href;
+            if(url.indexOf("?") < 0){
+                url = url + "?id=" + ugc_vid;
             }
             else{
-                currentUrl = currentUrl + "&id=" + ugc_vid;
+                url = url + "&id=" + ugc_vid;
             }
+            window.location.href = url;
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         $.ajax({
