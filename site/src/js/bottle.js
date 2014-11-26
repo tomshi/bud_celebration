@@ -60,8 +60,10 @@ $(function () {
 				});
 			});
 
-            $("#ending").show();
-			$('#endingwrite').trigger('draw');
+			$("#ending").show();
+			if ($('html').hasClass('canvas')) {
+				$('#endingwrite').trigger('draw');
+			}
 
 			$text.velocity({
 				opacity: 1
