@@ -97,11 +97,11 @@ function endingBtnEvent() {
 
 $(function() {
     function init() {
-        if ($("html").hasClass(".lt-ie9") && window.location.pathname.indexOf('ie') === -1){
+        if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
             window.location.href = "ie.html";
         }
-        if (!$("html").hasClass(".lt-ie9") && window.location.pathname.indexOf('ie') >= 0){
-            window.location.href = "/";
+        if (navigator.appVersion.split(";")[1].replace(/[ ]/g,"") != "MSIE8.0" && window.location.pathname.indexOf('ie') >= 0){
+            window.location.href = "./";
         }
         if (isMobile.any()){
             $("#form").remove();
