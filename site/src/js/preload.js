@@ -78,12 +78,14 @@ var getReady = function () {
 
 var movie_start = function () {
 	SaveTrackingLog(1);
+	var player = new MediaElementPlayer('#bgmusic');
+	player.play();
+
 	// Setting first animation here
 	var $FIRST_FRAME = $("#toast");
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
-	var player = new MediaElementPlayer('#bgmusic');
-	player.play();
+
 	$('#mobile-play').fadeOut();
 };
 
