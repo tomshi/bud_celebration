@@ -3,120 +3,140 @@
   @bottle-width: 15.53% * @size;
   @bottle-height: 92.41% * @size;
 
-  .box3d {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    perspective: 100px;
-    perspective-origin: 3% 90%;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
-
-  .bg {
-    width: 100%;
-    height: inherit;
-    background: #222 url('../img/bottle-desk-bg.jpg') center bottom;
-    background-size: cover;
-  }
-  .darkness {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000000;
-  }
-
-  .background, .foreground {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @desk-height: 15.5555556%;
-
-  .desk {
-    width: 100%;
-    height: @desk-height;
-    position: absolute;
-    bottom: 0;
-    background: url('../img/bottle-desk.jpg') left bottom;
-    background-size: cover;
-  }
-
-  .shadow {
-    width: @bottle-width;
-    height: 30%;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 2px 20px 0px rgba(50, 50, 50, 0.8);
-    right: 66.3%;
-    top: 18%;
-    position: absolute;
-  }
-
-  .bottle-shadow {
-    position: absolute;
-    left: 16%;
-    top: 24%;
-    background: url('../img/bottle-shadow.png');
-    background-size: cover;
-    width: 32.2916667%;
-    height: 100%;
-    z-index: 6;
-    opacity: 0;
-  }
-
-  .bottle-shade {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: url('../img/bottle.png') right 50% no-repeat;
-    background-size: cover;
-  }
-
-  .bottle {
-    width: @bottle-width;
-    height: @bottle-height;
-
-    background: url('../img/bottle.png') right 50% no-repeat;
-    background-size: cover;
-
-    display: inline-block;
-    position: absolute;
-    text-align: center;
-
-    right: 66.66%;
-    bottom: @desk-height / 2 * 1.1;
-
-    z-index: 5;
-
-    @bottom-label-height: 19.5%;
-
-    .label {
-      display: none;
+  #bottle {
+    .box3d {
       position: absolute;
-      bottom: @bottom-label-height;
+      top: 0;
       width: 100%;
+      height: 100%;
+      perspective: 100px;
+      perspective-origin: 3% 90%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
     }
 
-    .ugc-name {
-      white-space: nowrap;
-      color: #fff;
-      font-size: 1.7rem;
-      line-height: 1.7rem;
-      display: inline-block;
+    .bg {
+      width: 100%;
+      height: inherit;
+      background: #222 url('../img/bottle-desk-bg.jpg') center bottom;
+      background-size: cover;
+    }
+    .darkness {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #000000;
+    }
 
-      span {
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+    .background, .foreground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @desk-height: 15.5555556%;
+
+    .desk {
+      width: 100%;
+      height: @desk-height;
+      position: absolute;
+      bottom: 0;
+      background: url('../img/bottle-desk.jpg') left bottom;
+      background-size: cover;
+    }
+
+    .shadow {
+      width: @bottle-width;
+      height: 30%;
+      border-radius: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 2px 20px 0px rgba(50, 50, 50, 0.8);
+      right: 66.3%;
+      top: 18%;
+      position: absolute;
+    }
+
+    .bottle-shadow {
+      position: absolute;
+      left: 16%;
+      top: 24%;
+      background: url('../img/bottle-shadow.png');
+      background-size: cover;
+      width: 32.2916667%;
+      height: 100%;
+      z-index: 6;
+      opacity: 0;
+    }
+
+    .bottle-shade {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: url('../img/bottle.png') right 50% no-repeat;
+      background-size: cover;
+    }
+
+    .bottle {
+      width: @bottle-width;
+      height: @bottle-height;
+
+      background: url('../img/bottle.png') right 50% no-repeat;
+      background-size: cover;
+
+      display: inline-block;
+      position: absolute;
+      text-align: center;
+
+      right: 66.66%;
+      bottom: @desk-height / 2 * 1.1;
+
+      z-index: 5;
+
+      @bottom-label-height: 19.5%;
+
+      .label {
+        display: none;
+        position: absolute;
+        bottom: @bottom-label-height;
+        width: 100%;
       }
+
+      .ugc-name {
+        white-space: nowrap;
+        color: #fff;
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        display: inline-block;
+
+        span {
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+    .light {
+      position: absolute;
+      top: 0;
+      background: url('../img/light.png') left no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      display: none;
+      transform-origin: 0 0;
+    }
+    .dust {
+      position: absolute;
+      top: 0;
+      background: url('../img/dust.png') left no-repeat;
+      width: 40.46875%;
+      height: 79.537037%;
     }
   }
 
@@ -134,29 +154,11 @@
     z-index: 50;
   }
 
-  .light {
-    position: absolute;
-    top: 0;
-    background: url('../img/light.png') left no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-    display: none;
-    transform-origin: 0 0;
-  }
-  .dust {
-    position: absolute;
-    top: 0;
-    background: url('../img/dust.png') left no-repeat;
-    width: 40.46875%;
-    height: 79.537037%;
-  }
 }
 
-#bottle {
-  .bottle();
-}
+
+.bottle();
+
 
 #bottle .bottle {
   @media screen and (min-width: 1280px) and (max-width: 1920px) {

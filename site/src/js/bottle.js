@@ -5,7 +5,7 @@ $(function () {
 	var $shadow = $('.shadow', $element);
 
 	var $shade = $('.bottle-shade', $element);
-	var $printer = $('.printer', $element);
+	var $printer = $('.printer');
 	var $name = $('.ugc-name', $element);
 	var $label = $('.label span', $element);
 
@@ -16,9 +16,9 @@ $(function () {
 	var $light = $('.light', $element);
 	var $bottleShadow = $('.bottle-shadow', $element);
 
-	var $text1 = $('.text1', $element);
-	var $text2 = $('.text2', $element);
-	var $btns = $('.btns .item', $element);
+	var $text1 = $('.text1');
+	var $text2 = $('.text2');
+	var $btns = $('.btns .item');
 
 	var w = $element.width();
 	var h = $element.height();
