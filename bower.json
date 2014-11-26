@@ -14,6 +14,7 @@
     "cropper": "~0.7.3",
     "jquery-file-upload": "~9.8.0",
     "audiojs": "*",
-    "greensock": "~1.14.2"
+    "greensock": "~1.14.2",
+    "mediaelement": "~2.16.2"
   }
 }
