@@ -50,7 +50,7 @@ function processUserLoadData(data) {
                 wxsharing();
                 setOrient();
             }
-            if (isMobile.wechat()){
+            if (isMobile.wechat() && (document.location.href.indexOf("?id=") < 0 || document.location.href.indexOf("&id=") < 0 ) ){
                 window.location.href = document.location.href + "?id=" + ugc_vid;
             }
             if (window.location.pathname.indexOf('ie') > 0){
