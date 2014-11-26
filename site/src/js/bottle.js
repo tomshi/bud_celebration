@@ -16,7 +16,8 @@ $(function () {
 	var $light = $('.light', $element);
 	var $bottleShadow = $('.bottle-shadow', $element);
 
-	var $text = $('.endtext', $element);
+	var $text1 = $('.text1', $element);
+	var $text2 = $('.text2', $element);
 	var $btns = $('.btns .item', $element);
 
 	var w = $element.width();
@@ -62,10 +63,16 @@ $(function () {
 
 			$("#ending").show();
 			if ($('html').hasClass('canvas')) {
-				$('#endingwrite').trigger('draw');
+				setTimeout(function(){
+					$('#endingwrite').trigger('draw');
+				}, 1000);
 			}
 
-			$text.velocity({
+			$text1.velocity({
+				opacity: 1
+			}, 800);
+
+			$text2.velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
