@@ -1,5 +1,7 @@
 var ugc_name, ugc_purpose, ugc_date, ugc_image_url, ugc_vid, hostname, image_url;
-
+var console = window.console || {
+	log: $.noop
+};
 image_url = "";
 hostname = "http://budquality-bud.stor.sinaapp.com/";
 
