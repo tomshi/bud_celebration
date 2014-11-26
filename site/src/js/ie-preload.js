@@ -37,6 +37,23 @@ var getReadyByIE = function () {
 };
 
 var dataReadyByIE = function () {
+    var today = ugc_date.split('/');
+    var month = today[0];
+    var day = today[1];
+    today = DATA_HISTORY.find(function (element, index, array) {
+        return element.date == ugc_date
+    });
+    $(".ugc-name").text(ugc_name);
+    $(".ugc-purpose").text(ugc_purpose);
+    $(".month").text(month);
+    $(".day").text(day);
+    var formatHistory = function (history) {
+        var history = history.split('|');
+        return '<div class="today">' + history.shift() + '</div>' + history.join('<br/>');
+    };
+    $("#ie-frame2-text").html(formatHistory(today.history1));
+    $("#ie-frame3-text").html(formatHistory(today.history2));
+
     $('#form').fadeOut();
     TweenMax.to("#ie-frame1" , 2, {
         opacity: 1,

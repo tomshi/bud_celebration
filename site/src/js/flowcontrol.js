@@ -225,12 +225,14 @@ function addPlaceholder() {
         activeSubmitButton();
     });
 
-    var type = $("#purpose-list");
-    $("#purpose").bind("focus", function() {
-        type.slideDown();
-    }).bind("blur", function() {
-        type.slideUp();
-    });
+    if (!isMobile.Android()) {
+        var type = $(".purpose-list");
+        $("#purpose").bind("focus", function() {
+            type.slideDown();
+        }).bind("blur", function() {
+            type.slideUp();
+        });
+    }
 
     $(".time-placeholder").bind("click", function() {
         $(".time").addClass("active");
