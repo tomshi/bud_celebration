@@ -50,6 +50,9 @@ function processUserLoadData(data) {
                 wxsharing();
                 setOrient();
             }
+            if (isMobile.wechat()){
+                window.location.href = document.location.href + "?id=" + ugc_vid;
+            }
             if (window.location.pathname.indexOf('ie') > 0){
                 dataReadyByIE();
             }else {

@@ -109,7 +109,7 @@ function configWxSharing(){
 
 function getSharingUrl(){
     var url = document.location.href;
-    if(url.indexOf("?id=") <0 && ugc_vid !== undefined){
+    if(url.indexOf("?id=") < 0 && ugc_vid !== undefined){
         if(url.indexOf("?") < 0){
             url = url + "?id=" + ugc_vid;
         }
