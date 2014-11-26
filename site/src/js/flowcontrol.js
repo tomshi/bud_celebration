@@ -23,7 +23,8 @@ function controlFlow() {
             });
         });
     } else {
-        $("#toast-first").show().trigger('start');
+        $('#form-mobile').show();
+        //$("#toast-first").show().trigger('start');
     }
 }
 
