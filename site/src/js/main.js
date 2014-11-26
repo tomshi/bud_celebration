@@ -8,11 +8,17 @@ var isMobile = {
     iOS: function() {
         return /iPhone|iPad|iPod/i.test(window.navigator.userAgent);
     },
+    iPhone: function() {
+        return /iPhone|iPod/i.test(window.navigator.userAgent);
+    },
     Windows: function() {
         return /IEMobile/i.test(window.navigator.userAgent);
     },
     any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    },
+    phone: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iPhone() || isMobile.Windows());
     },
     wechat: function() {
         return /micromessenger/i.test(window.navigator.userAgent.toLowerCase());
@@ -91,6 +97,17 @@ function endingBtnEvent() {
 
 $(function() {
     function init() {
+        if ($("html").hasClass(".lt-ie9") && window.location.pathname.indexOf('ie') === -1){
+            window.location.href = "ie.html";
+        }
+        if (!$("html").hasClass(".lt-ie9") && window.location.pathname.indexOf('ie') >= 0){
+            window.location.href = "/";
+        }
+        if (isMobile.any()){
+            $("#form").remove();
+        }else {
+            $("#form-mobile").remove();
+        }
         screenSize();
         endingBtnEvent();
         if (isMobile.wechat()){

@@ -1,0 +1,34 @@
+#ie {
+  #form {
+    background-image: none;
+  }
+  #ending {
+    background-image: none;
+  }
+  .backend-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .front-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .frame {
+    &.ie-frame {
+      display: block;
+      opacity: 0;
+    }
+    .frame-text {
+      position: absolute;
+      font-size: 2em;
+    }
+  }
+}

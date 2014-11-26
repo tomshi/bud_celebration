@@ -1,4 +1,5 @@
 $(function () {
+    if(window.location.pathname.indexOf('ie') === -1){
 	var $element = $('#endingwrite');
 
 	var can = document.getElementById('endingwrite');
@@ -79,4 +80,6 @@ $(function () {
 	};
 
 	$element.on('draw', animation_start);
+
+    }
 });

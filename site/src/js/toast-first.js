@@ -54,7 +54,9 @@ $(function () {
 			duration: time,
 			easing: 'easeOutQuint',
 			complete: function () {
-                
+                if (isMobile.phone()){
+                    $nextFrame = $('#form-mobile');
+                }
 				$nextFrame.velocity('fadeIn', 1500, function(){
 					$(".landscape-overlay").fadeOut();
 					$element.remove();
