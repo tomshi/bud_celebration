@@ -100,9 +100,6 @@ $(function() {
         if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
             window.location.href = "ie.html";
         }
-        if (navigator.appVersion.split(";")[1].replace(/[ ]/g,"") != "MSIE8.0" && window.location.pathname.indexOf('ie') >= 0){
-            window.location.href = "./";
-        }
         if (isMobile.any()){
             $("#form").remove();
         }else {
