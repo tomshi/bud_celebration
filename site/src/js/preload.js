@@ -62,18 +62,7 @@ var getReady = function () {
 
 	var start = function () {
 
-		audiojs.events.ready(function () {
-			audiojs.createAll();
-		});
-
-		setTimeout(function () {
-			if (isMobile.any() || audiojs.instances.audiojs0) {
-				controlFlow();
-			}
-			else {
-				start();
-			}
-		}, 600);
+		controlFlow();
 	};
 
 	for (var i = 0; i < imagesCount; i++) {
@@ -89,16 +78,14 @@ var getReady = function () {
 
 var movie_start = function () {
 	SaveTrackingLog(1);
+	var player = new MediaElementPlayer('#bgmusic');
+	player.play();
+
 	// Setting first animation here
 	var $FIRST_FRAME = $("#toast");
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
-	if (!isMobile.any()) {
-		audiojs.instances.audiojs0.play();
-	}
-	else {
-		$('#bgmusic')[0].play();
-	}
+
 	$('#mobile-play').fadeOut();
 };
 

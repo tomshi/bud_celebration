@@ -259,7 +259,7 @@ $(function() {
     }
     addPlaceholder();
 
-    $('#mobile-play').click(function () {
+    $('#mobile-play').one('click', function () {
         movie_start();
     });
 
