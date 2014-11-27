@@ -82,14 +82,7 @@ function submitUserData() {
     }).done(function(data) {
         processUserLoadData(data);
         if (isMobile.wechat()){
-            var url = document.location.href;
-            if(url.indexOf("?") < 0){
-                url = url + "?id=" + ugc_vid;
-            }
-            else{
-                url = url + "&id=" + ugc_vid;
-            }
-            window.location.href = url;
+            window.location.href = getSharingUrl();
         }
     }).fail(function(jqXHR, textStatus, errorThrown) {
         $.ajax({
