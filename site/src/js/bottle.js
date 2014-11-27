@@ -62,49 +62,48 @@ $(function () {
 			});
 
 			$("#ending").show();
-			if ($('html').hasClass('canvas')) {
-				setTimeout(function(){
-					$('#endingwrite').trigger('draw');
-				}, 1000);
-			}
 
 			$text1.velocity({
 				opacity: 1
-			}, 800);
+			}, 800, function () {
+				if ($('html').hasClass('canvas')) {
+						$('#endingwrite').trigger('draw');
+				}
+			});
 
 			$text2.velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
-				delay: 2000
+				delay: 5000
 			});
 
 			$($btns[0]).velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
-				delay: 3000
+				delay: 6000
 			});
 
 			$($btns[1]).velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
-				delay: 3300
+				delay: 6300
 			});
 
 			$($btns[2]).velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
-				delay: 3600
+				delay: 6600
 			});
 
 			$($btns[3]).velocity({
 				opacity: 1
 			}, {
 				duration: 1000,
-				delay: 3900
+				delay: 6900
 			});
 		});
 
