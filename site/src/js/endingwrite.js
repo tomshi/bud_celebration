@@ -32,7 +32,7 @@ $(function () {
 		};
 
 		var imagesPath = [];
-		for (var i = 0; i < 76; i++) {
+		for (var i = 1; i < 76; i++) {
 			imagesPath.push(imageReady("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png"));
 		}
 
@@ -59,7 +59,7 @@ $(function () {
 				var length = imgs.length;
 
 				var startTime = null;
-				var speed = 60;
+				var speed = 50;
 
 				var draw = function (timestamp) {
 					var img = imgs[i];
