@@ -55,8 +55,11 @@ $(function () {
 				return '<div class="today">' + history.shift() + '</div>' + history.join('<br/>');
 			};
 
-			$frame1.html(formatHistory(today.history1));
-			$frame2.html(formatHistory(today.history2));
+			if (today) {
+				$frame1.html(formatHistory(today.history1));
+				$frame2.html(formatHistory(today.history2));
+			}
+
 			$caption.show();
 		},
 
@@ -91,7 +94,7 @@ $(function () {
 			});
 		},
 		bottleOut: function () {
-			$bottle.velocity("fadeOut", fadeOutTime, function(){
+			$bottle.velocity("fadeOut", fadeOutTime, function () {
 				$caption.hide();
 			});
 		}
