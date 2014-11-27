@@ -1,9 +1,39 @@
 #ie {
+  #wrapper {
+    width: 1000px;
+    height: 562px;
+    top: 0;
+  }
   #form {
     background-image: none;
+    .input {
+      input {
+        line-height: 45px;
+      }
+      .time-placeholder {
+        height: 45px;
+      }
+    }
+    .upload {
+      text-align: left;
+     .file {
+      opacity: 1;
+      width: auto;
+      position: static;
+     }
+    }
+     .submit {
+     background-image: url(../img/form-icon3.png);
+      &.active {
+     background-image: url(../img/form-icon4.png);
+      }
+     }
   }
   #ending {
     background-image: none;
+    .btns .item {
+      opacity: 1;
+    }
   }
   .backend-img {
     position: absolute;
@@ -23,8 +53,7 @@
   }
   .frame {
     &.ie-frame {
-      display: block;
-      opacity: 0;
+      display: none;
     }
     .frame-text {
       position: absolute;

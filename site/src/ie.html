@@ -88,11 +88,7 @@
 
     <section id="stage">
 
-        <div class="frame" id="loading">
-            <div class="loading-bar"><div id="loading-now" class="now"></div></div>
-        </div>
-
-        <div class="frame" id="form">
+        <div class="frame" id="form" style="display: block">
             <div class="front-info">
                 <div class="header">
                     <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
@@ -152,9 +148,6 @@
                 <img src="img/ie/0.jpg" class="responsive" alt=""/>
             </div>
         </div>
-
-
-
 
         <div class="frame ie-frame" id="ie-frame1">
             <div class="frame-text" id="ie-frame1-text" style="left: 36%;top: 47%;">百威为<span class="month"></span>月<span class="day"></span>日举杯</div>
@@ -236,9 +229,9 @@
             </div>
             <div class="front-info">
                 <div class="header">
-                    <div class="text1 endtext"><img src="img/form-text1.png" class="responsive" alt=""/></div>
-                    <div class="headline endtext"><img src="img/form-headline.png" class="responsive" alt=""/></div>
-                    <div class="text2 endtext"><img src="img/end-text1.png" class="responsive" alt=""/></div>
+                    <div class="text1"><img src="img/form-text1.png" class="responsive" alt=""/></div>
+                    <div class="headline"><img src="img/form-headline.png" class="responsive" alt=""/></div>
+                    <div class="text2"><img src="img/end-text1.png" class="responsive" alt=""/></div>
                 </div>
                 <div class="btns">
                     <a href="javascript:void(0);" class="item" id="buy" ga_category="video" ga_action="purchase" baidu_category="video" baidu_action="purchase" nl_key="video,purchase"><img src="img/end-buy.png" class="responsive" alt=""/></a>
@@ -277,10 +270,6 @@
 
 <div class="loading"></div>
 
-<div class="hide">
-    <audio id="bgmusic" preload="auto" src="music/36s.mp3" />
-</div>
-
 <!-- build:js js/plugins.js -->
 <script src="bower_components/velocity/velocity.min.js"></script>
 <script src="bower_components/letteringjs/jquery.lettering.js"></script>
@@ -289,7 +278,7 @@
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->
-<script src="bower_components/audiojs/audiojs/audio.js"></script>
+<script src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
 <script src="js/caption.js"></script>
 <script src="js/preload.js"></script>
 <script src="js/ie-preload.js"></script>

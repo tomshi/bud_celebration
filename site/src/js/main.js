@@ -52,18 +52,20 @@ function screenSize() {
     var screenRate = 16 / 9;
     var screenWidth = $(window).width();
     var screenHeight = $(window).height();
-    if (screenWidth / screenHeight > screenRate) {
-        validWidth = Math.floor(screenHeight * screenRate);
-        validHeight = Math.floor(screenHeight);
-    } else {
-        validWidth = Math.floor(screenWidth);
-        validHeight = Math.floor(validWidth / screenRate);
+    if (window.location.pathname.indexOf('ie') === -1){
+        if (screenWidth / screenHeight > screenRate) {
+            validWidth = Math.floor(screenHeight * screenRate);
+            validHeight = Math.floor(screenHeight);
+        } else {
+            validWidth = Math.floor(screenWidth);
+            validHeight = Math.floor(validWidth / screenRate);
+        }
+        $("#wrapper").css({
+            width: validWidth,
+            height: validHeight,
+            marginTop: -validHeight / 2
+        });
     }
-    $("#wrapper").css({
-        width: validWidth,
-        height: validHeight,
-        marginTop: -validHeight / 2
-    });
 }
 
 function endingBtnEvent() {
