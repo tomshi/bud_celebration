@@ -86,7 +86,7 @@ $(function () {
 					"translateZ": "40px"
 				}, 1300, function () {
 
-					handup2("-54%", 1000, function () {
+					handup2("-54%", 850, function () {
 						$hand.velocity({
 							translateY: "0%"
 						}, 1000);
