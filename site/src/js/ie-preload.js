@@ -39,17 +39,22 @@ var dataReadyByIE = function () {
                                             $('#ie-frame5').fadeOut(800);
                                             $('#ie-frame6').fadeIn(800, function(){
                                                 setTimeout(function(){
-                                                    $('#ie-frame7').fadeOut(800);
-                                                    $('#ie-frame8').fadeIn(800, function(){
+                                                    $('#ie-frame6').fadeOut(800);
+                                                    $('#ie-frame7').fadeIn(800, function(){
                                                         setTimeout(function(){
-                                                            $('#ie-frame8').fadeOut(800);
-                                                            $('#ie-frame9').fadeIn(800, function(){
+                                                            $('#ie-frame7').fadeOut(800);
+                                                            $('#ie-frame8').fadeIn(800, function(){
                                                                 setTimeout(function(){
-                                                                    $('#ie-frame9').fadeOut(800);
-                                                                    $('#ie-frame10').fadeIn(800, function(){
+                                                                    $('#ie-frame8').fadeOut(800);
+                                                                    $('#ie-frame9').fadeIn(800, function(){
                                                                         setTimeout(function(){
-                                                                            $('#ie-frame10').fadeOut(800);
-                                                                            $('#ending').fadeIn(800);
+                                                                            $('#ie-frame9').fadeOut(800);
+                                                                            $('#ie-frame10').fadeIn(800, function() {
+                                                                                setTimeout(function () {
+                                                                                    $('#ie-frame10').fadeOut(800);
+                                                                                    $('#ending').fadeIn(800);
+                                                                                }, 1500)
+                                                                            });
                                                                         }, 1500)
                                                                     });
                                                                 }, 1500)
