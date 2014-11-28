@@ -180,16 +180,24 @@
 }
 
 
-.avatar-wrapper {
-  outline: dashed 1px #dfb234;
-  margin: 0 auto 5%;
-  max-height: 320px;
-  max-width: 90%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.avatar-save {
-  margin-left: 5%;
+#avatar-modal {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #000;
+  .cropper-container {
+    overflow: initial;
+  }
+  .avatar-wrapper {
+    outline: dashed 1px #dfb234;
+    margin-bottom: 5%;
+    max-height: 320px;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .avatar-save {
+    margin-left: 5%;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -210,6 +218,9 @@
 }
 
 @media screen and (min-width: 569px) and (max-width: 768px) {
+  #avatar-modal {
+    //width: 480px;
+  }
   #form {
     #purpose-list {
       font-size: 0.8em;
@@ -227,6 +238,9 @@
 }
 
 @media screen and (max-width: 568px) {
+  #avatar-modal {
+    //width: 300px;
+  }
   #form {
     #purpose-list {
       font-size: 0.7em;
