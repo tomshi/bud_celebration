@@ -179,18 +179,18 @@
         this.$img = $('<img src="' + this.url + '">');
         this.$avatarWrapper.empty().html(this.$img);
         this.$img.cropper({
-          done: function (data) {
-            var json = [
-                  '{"x":' + data.x,
-                  '"y":' + data.y,
-                  '"height":' + data.height,
-                  '"width":' + data.width + "}"
-                ].join();
+            done: function (data) {
+                var json = [
+                      '{"x":' + data.x,
+                      '"y":' + data.y,
+                      '"height":' + data.height,
+                      '"width":' + data.width + "}"
+                    ].join();
 
-            _this.$avatarData.val(json);
-          },
+                _this.$avatarData.val(json);
+            },
             aspectRatio: 500 / 260,
-            autoCropArea: 0.8, // Center 60%
+            autoCropArea: 0.8,
             multiple: false,
             dragCrop: false,
             dashed: false,
@@ -268,7 +268,7 @@
           this.alert(data.message);
         }
       } else {
-        this.alert("Failed to response");
+          $(".upload-failed").show();
       }
     },
 
