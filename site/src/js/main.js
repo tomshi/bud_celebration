@@ -93,7 +93,11 @@ function endingBtnEvent() {
         }
     });
     $("#redo").bind('click', function() {
-        window.location.href = window.location.origin;
+        if(window.location.pathname.indexOf('ie') >= 0){
+            window.location.href = "/"
+        }else {
+            window.location.href = window.location.origin;
+        }
     });
 }
 
@@ -103,7 +107,7 @@ $(function() {
             window.location.href = "ie.html";
         }
         if (navigator.appName != "Microsoft Internet Explorer" && window.location.pathname.indexOf('ie') >= 0){
-            window.location.href = "/";
+            window.location.href = "./";
         }
 
         if (isMobile.phone()){
