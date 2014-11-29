@@ -27,7 +27,7 @@
     this.$avatarInput = this.$avatarUpload.find(".avatar-input");
 
     this.$avatarWrapper = this.$avatarModal.find(".avatar-wrapper");
-    this.$avatarSave = this.$avatarModal.find(".avatar-save");
+    //this.$avatarSave = this.$avatarModal.find(".avatar-save");
 
     this.init();
   }
@@ -76,41 +76,41 @@
       this.$avatarPreview.empty().html('<img src="' + url + '">');
     },
 
-    initIframe: function () {
-      var iframeName = "avatar-iframe-" + Math.random().toString().replace(".", ""),
-          $iframe = $('<iframe name="' + iframeName + '" style="display:none;"></iframe>'),
-          firstLoad = true,
-          _this = this;
+      initIframe: function () {
+          var iframeName = "avatar-iframe-" + Math.random().toString().replace(".", ""),
+              $iframe = $('<iframe name="' + iframeName + '" style="display:none;"></iframe>'),
+              firstLoad = true,
+              _this = this;
 
-      this.$iframe = $iframe;
-      this.$avatarForm.attr("target", iframeName).after($iframe);
+          this.$iframe = $iframe;
+          this.$avatarForm.attr("target", iframeName).after($iframe);
 
-      this.$iframe.on("load", function () {
-        var data,
-            win,
-            doc;
+          this.$iframe.on("load", function () {
+              var data,
+                  win,
+                  doc;
 
-        try {
-          win = this.contentWindow;
-          doc = this.contentDocument;
+              try {
+                  win = this.contentWindow;
+                  doc = this.contentDocument;
 
-          doc = doc ? doc : win.document;
-          data = doc ? doc.body.innerText : null;
-        } catch (e) {}
+                  doc = doc ? doc : win.document;
+                  data = doc ? doc.body.innerText : null;
+              } catch (e) {}
 
-        if (data) {
-          _this.submitDone(data);
-        } else {
-          if (firstLoad) {
-            firstLoad = false;
-          } else {
-            _this.submitFail("Image upload failed!");
-          }
-        }
+              if (data) {
+                  _this.submitDone(data);
+              } else {
+                  if (firstLoad) {
+                      firstLoad = false;
+                  } else {
+                      _this.submitFail("Image upload failed!");
+                  }
+              }
 
-        _this.submitEnd();
-      });
-    },
+              _this.submitEnd();
+          });
+      },
 
     //click: function () {
       //this.$avatarModal.modal("show");
@@ -238,7 +238,8 @@
     },
 
     syncUpload: function () {
-      this.$avatarSave.click();
+        $(".avatar-form").submit();
+      //this.$avatarSave.click();
     },
 
     submitStart: function () {
