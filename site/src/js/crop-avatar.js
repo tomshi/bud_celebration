@@ -198,6 +198,7 @@
             resizable: false
         });
 
+        this.isSyncUpload = true;
         this.active = true;
       }
     },
@@ -240,7 +241,6 @@
 
     syncUpload: function () {
         $(".avatar-form").submit();
-        this.isSyncUpload = true;
     },
 
     submitStart: function () {
@@ -262,21 +262,25 @@
                       this.url = data.result;
                       this.uploaded = false;
                       this.cropDone();
-                      this.isSyncUpload = true;
+                      $(".avatar-upload").hide();
+                      $(".upload-succeed").show();
+                      $(".avatar-crop-overlay").hide();
                   } else {
                       console.log("startCropper");
                       this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
                       console.log(this.url);
                       this.uploaded = true;
                       this.$avatarSrc.val(this.url);
-                      this.startCropper();
+                      if (!this.isSyncUpload){
+                          this.startCropper();
+                      }
+                      else {
+                          $(".avatar-upload").hide();
+                          $(".upload-succeed").show();
+                          $(".avatar-crop-overlay").hide();
+                      }
                   }
                   this.$avatarInput.val("");
-                  if (this.isSyncUpload){
-                      $(".avatar-upload").hide();
-                      $(".upload-succeed").show();
-                      $(".avatar-crop-overlay").hide();
-                  }
               } else if (data.message) {
                   this.alert(data.message);
               }
