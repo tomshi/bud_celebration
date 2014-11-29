@@ -49,8 +49,8 @@
         this.initIframe();
       }
 
-      this.initTooltip();
-      this.initModal();
+      //this.initTooltip();
+      //this.initModal();
       this.addListener();
     },
 
@@ -60,16 +60,16 @@
       this.$avatarForm.on("submit", $.proxy(this.submit, this));
     },
 
-    initTooltip: function () {
+    /*initTooltip: function () {
       this.$avatarView.tooltip({
         placement: "bottom"
       });
     },
 
     initModal: function () {
-      //this.$avatarModal.modal("hide");
-      //this.initPreview();
-    },
+      this.$avatarModal.modal("hide");
+      this.initPreview();
+    },*/
 
     initPreview: function () {
       var url = this.$avatar.attr("src");
