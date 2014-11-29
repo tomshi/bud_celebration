@@ -255,9 +255,9 @@
 
           if (data && data.state === 200) {
               if (data.result) {
-                  this.url = data.result;
+                  this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
 
-                  if (!this.support.datauri || this.uploaded) {
+                  if (this.support.datauri || this.uploaded) {
                       this.uploaded = false;
                       this.cropDone();
                       //$(".avatar-crop-overlay").hide();
