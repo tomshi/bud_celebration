@@ -1,5 +1,4 @@
 var getReadyByIE = function () {
-    $("#form").hide();
     controlFlow();
 };
 
@@ -21,8 +20,7 @@ var dataReadyByIE = function () {
     $("#ie-frame2-text").html(formatHistory(today.history1));
     $("#ie-frame3-text").html(formatHistory(today.history2));
 
-    $('#form').fadeOut(800, function(){
-    });
+    $('#form').fadeOut(800);
     $("#ie-frame1").fadeIn(800, function(){
         setTimeout(function(){
             $('#ie-frame1').fadeOut(800);

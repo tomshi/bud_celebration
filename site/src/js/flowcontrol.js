@@ -12,6 +12,9 @@ function controlFlow() {
         $.ajax({
             url: "api/user/load/" + videoId
         }).done(function(data) {
+            if (window.location.pathname.indexOf('ie') > 0){
+                $('#form').hide();
+            }
             processUserLoadData(data);
         }).fail(function(jqXHR, textStatus, errorThrown) {
             $.ajax({
