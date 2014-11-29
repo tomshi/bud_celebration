@@ -66,7 +66,7 @@
     },
 
     initModal: function () {
-      this.$avatarModal.modal("hide");
+      //this.$avatarModal.modal("hide");
       //this.initPreview();
     },
 
@@ -265,6 +265,7 @@
                       //$(".avatar-upload").hide();
 
                   } else {
+                      console.log("startCropper");
                       console.log(this.url);
                       this.uploaded = true;
                       this.$avatarSrc.val(this.url);
@@ -277,7 +278,7 @@
                   this.alert(data.message);
               }
           } else {
-              this.alert("Failed to response");
+              $(".upload-failed").show();
           }
       },
 
