@@ -9,8 +9,8 @@
   "use strict";
 
   var console = window.console || {
-        log: $.noop
-      };
+    log: $.noop
+  };
 
   function CropAvatar($element) {
     this.$container = $element;
@@ -28,6 +28,7 @@
 
     this.$avatarWrapper = this.$avatarModal.find(".avatar-wrapper");
     //this.$avatarSave = this.$avatarModal.find(".avatar-save");
+    this.isSyncUpload = false;
 
     this.init();
   }
@@ -239,7 +240,7 @@
 
     syncUpload: function () {
         $(".avatar-form").submit();
-      //this.$avatarSave.click();
+        this.isSyncUpload = true;
     },
 
     submitStart: function () {
@@ -255,35 +256,39 @@
 
           if (data && data.state === 200) {
               if (data.result) {
-                  this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
+                  console.log(data.result);
 
                   if (this.support.datauri || this.uploaded) {
+                      this.url = data.result;
                       this.uploaded = false;
                       this.cropDone();
-                      //$(".avatar-crop-overlay").hide();
-                      //$(".upload-succeed").show();
-                      //$(".avatar-upload").hide();
-
+                      this.isSyncUpload = true;
                   } else {
                       console.log("startCropper");
+                      this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
                       console.log(this.url);
                       this.uploaded = true;
                       this.$avatarSrc.val(this.url);
                       this.startCropper();
                   }
-
                   this.$avatarInput.val("");
-                  
+                  if (this.isSyncUpload){
+                      $(".avatar-upload").hide();
+                      $(".upload-succeed").show();
+                      $(".avatar-crop-overlay").hide();
+                  }
               } else if (data.message) {
                   this.alert(data.message);
               }
           } else {
               $(".upload-failed").show();
+              $(".avatar-crop-overlay").hide();
           }
       },
 
     submitFail: function () {
-      $(".upload-failed").fadeIn();
+      $(".upload-failed").show();
+        $(".avatar-crop-overlay").hide();
     },
 
     submitEnd: function () {
