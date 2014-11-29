@@ -23,7 +23,7 @@ function controlFlow() {
             });
         });
     } else {
-        $("#toast-first").show().trigger('start');
+        getReady();
     }
 }
 
@@ -255,13 +255,9 @@ $(function() {
     if (window.location.pathname.indexOf('ie') > 0){
         getReadyByIE();
     }else {
-        getReady();
+	    controlFlow();
     }
     addPlaceholder();
-
-    $('#mobile-play').one('click', function () {
-        movie_start();
-    });
 
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
