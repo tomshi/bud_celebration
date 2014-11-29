@@ -48,8 +48,8 @@
         this.initIframe();
       }
 
-      //this.initTooltip();
-      //this.initModal();
+      this.initTooltip();
+      this.initModal();
       this.addListener();
     },
 
@@ -59,7 +59,7 @@
       this.$avatarForm.on("submit", $.proxy(this.submit, this));
     },
 
-    /*initTooltip: function () {
+    initTooltip: function () {
       this.$avatarView.tooltip({
         placement: "bottom"
       });
@@ -67,14 +67,14 @@
 
     initModal: function () {
       this.$avatarModal.modal("hide");
-      this.initPreview();
+      //this.initPreview();
     },
 
     initPreview: function () {
       var url = this.$avatar.attr("src");
 
       this.$avatarPreview.empty().html('<img src="' + url + '">');
-    },*/
+    },
 
     initIframe: function () {
       var iframeName = "avatar-iframe-" + Math.random().toString().replace(".", ""),

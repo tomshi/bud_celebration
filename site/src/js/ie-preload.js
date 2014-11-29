@@ -1,4 +1,5 @@
 var getReadyByIE = function () {
+    $("#form").hide();
     controlFlow();
 };
 
