@@ -246,32 +246,40 @@
       this.$loading.fadeIn();
     },
 
-    submitDone: function (data) {
-      try {
-        data = $.parseJSON(data);
-      } catch (e) {}
-      if (data && data.state === 200) {
-        if (data.result) {
-          this.url = data.result;
-          if (this.support.datauri || this.uploaded) {
-            this.uploaded = false;
-            this.cropDone();
+      submitDone: function (data) {
+          console.log(data);
+
+          try {
+              data = $.parseJSON(data);
+          } catch (e) {}
+
+          if (data && data.state === 200) {
+              if (data.result) {
+                  this.url = data.result;
+
+                  if (!this.support.datauri || this.uploaded) {
+                      this.uploaded = false;
+                      this.cropDone();
+                      //$(".avatar-crop-overlay").hide();
+                      //$(".upload-succeed").show();
+                      //$(".avatar-upload").hide();
+
+                  } else {
+                      console.log(this.url);
+                      this.uploaded = true;
+                      this.$avatarSrc.val(this.url);
+                      this.startCropper();
+                  }
+
+                  this.$avatarInput.val("");
+                  
+              } else if (data.message) {
+                  this.alert(data.message);
+              }
           } else {
-            this.uploaded = true;
-            this.$avatarSrc.val(this.url);
-            this.startCropper();
+              this.alert("Failed to response");
           }
-          this.$avatarInput.val("");
-          $(".avatar-crop-overlay").hide();
-            $(".upload-succeed").show();
-            $(".avatar-upload").hide();
-        } else if (data.message) {
-          this.alert(data.message);
-        }
-      } else {
-          $(".upload-failed").show();
-      }
-    },
+      },
 
     submitFail: function () {
       $(".upload-failed").fadeIn();
