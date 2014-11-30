@@ -38,7 +38,8 @@ var movieReady = function () {
 		'img/sharing-qzone.png',
 		'img/sharing-renren.png',
 		'img/sharing-sina.png',
-		'img/sharing-wechat.png'
+		'img/sharing-wechat.png',
+		'img/btn-movie-ready.png'
 	];
 
 	for (var i = 1; i < 76; i++) {
@@ -62,10 +63,10 @@ var movieReady = function () {
 	};
 
 	var $movie_preload = $('#loading-bar-wrapper');
-	var $loading_bar_top = $('.loading-bar-top', $movie_preload);
-	var $loading_bar_right = $('.loading-bar-right', $movie_preload);
-	var $loading_bar_bottom = $('.loading-bar-bottom', $movie_preload);
-	var $loading_bar_left = $('.loading-bar-left', $movie_preload);
+	var $loading_bar_top = $('.loading-bar.loading-bar-top', $movie_preload);
+	var $loading_bar_right = $('.loading-bar.loading-bar-right', $movie_preload);
+	var $loading_bar_bottom = $('.loading-bar.loading-bar-bottom', $movie_preload);
+	var $loading_bar_left = $('.loading-bar.loading-bar-left', $movie_preload);
 
 	var w = $movie_preload.width();
 	var h = $movie_preload.height();
@@ -73,37 +74,36 @@ var movieReady = function () {
 	var perimeter = 2 * (w + h);
 
 
+	var approximate100 = function (x) {
+		return (100 - x) < 3 ? 100 : x;
+	};
+
 	var boundaryX = w / perimeter;
 	var boundaryY = h / perimeter;
 	var boundary2 = (w + h) / perimeter;
 	var boundary3 = ((2 * w) + h) / perimeter;
 
-	var backgroundImg = new Image();
-	backgroundImg.src = "img/btn-movie-loading.png";
-	backgroundImg.onload = function(){
+	for (var i = 0; i < imagesCount; i++) {
+		images[i] = new Image();
+		images[i].onload = function () {
 
-		for (var i = 0; i < imagesCount; i++) {
-			images[i] = new Image();
-			images[i].src = imageNames[i];
-			images[i].onload = function () {
-//			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
-				var progress = ++loadedResourceCount / resourceCount;
-				if (progress < boundaryX) {
-					$loading_bar_top.css("width", Math.ceil(100 * (progress / boundaryX)) + "%");
-				}
-				else if (progress < boundary2) {
-					$loading_bar_right.css("height", Math.ceil(100 * (progress - boundaryX) / boundaryY) + "%");
-				}
-				else if (progress < boundary3) {
-					$loading_bar_bottom.css("width", Math.ceil(100 * (progress - boundary2) / boundaryX) + "%");
-				}
-				else {
-					$loading_bar_left.css("height", Math.ceil(100 * (progress - boundary3) / boundaryY) + "%");
-				}
+			var progress = ++loadedResourceCount / resourceCount;
+			if (progress < boundaryX) {
+				$loading_bar_top.css("width", approximate100(Math.ceil(100 * (progress / boundaryX))) + "%");
+			}
+			else if (progress < boundary2) {
+				$loading_bar_right.css("height", approximate100(Math.ceil(100 * (progress - boundaryX) / boundaryY)) + "%");
+			}
+			else if (progress < boundary3) {
+				$loading_bar_bottom.css("width", approximate100( Math.ceil(100 * (progress - boundary2) / boundaryX)) + "%");
+			}
+			else {
+				$loading_bar_left.css("height", approximate100(Math.ceil(100 * (progress - boundary3) / boundaryY)) + "%");
+			}
 
-				count();
-			};
-		}
+			count();
+		};
+		images[i].src = imageNames[i];
 	}
 
 };
@@ -122,6 +122,12 @@ var movie_start = function () {
 };
 
 var dataReady = function () {
-	$("#form-mobile").hide();
-	movieReady();
+
+	var backgroundImg = new Image();
+	backgroundImg.onload = function () {
+		$("#form-mobile").hide();
+		$("#form").add('#toast-first').remove();
+		movieReady();
+	};
+	backgroundImg.src = "img/btn-movie-loading.png";
 };

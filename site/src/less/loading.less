@@ -15,17 +15,37 @@
   }
 }
 
+#movie-loading {
+  .table-cell{
+    height: 100%;
+  }
+}
+
 #loading-bar-wrapper {
   cursor: pointer;
   width: 16.5%;
   height: 14.4%;
-  display: inline-block;
-  background: url('../img/btn-movie-loading.png');
-  background-size: cover;
+  display: inline-table;
   position: relative;
 
+  background: url('../img/btn-movie-loading.png') center center;
+  background-size: cover;
+  overflow: hidden;
+
+  .not-ready {
+    position: absolute;
+    background-color: #433510;
+
+    &.loading-bar-top, &.loading-bar-bottom {
+      width: 100%;
+    }
+    &.loading-bar-left, &.loading-bar-right {
+      height: 100%;
+    }
+  }
+
   &.ready {
-    background: url('../img/btn-movie-ready.png');
+    background: url('../img/btn-movie-ready.png') center center;
     background-size: cover;
   }
 
