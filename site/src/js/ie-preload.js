@@ -20,6 +20,11 @@ var dataReadyByIE = function () {
     $("#ie-frame2-text").html(formatHistory(today.history1));
     $("#ie-frame3-text").html(formatHistory(today.history2));
 
+    if (ugc_image_url) {
+        $("#ugc-content-img").attr("src", ugc_image_url);
+        $("#ugc-content-name").hide();
+    }
+
     $('#form').fadeOut(800);
     $("#ie-frame1").fadeIn(800, function(){
         setTimeout(function(){
