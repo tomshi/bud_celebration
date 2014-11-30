@@ -1,5 +1,7 @@
 var movieReady = function () {
-
+	$('#hand').velocity({
+		translateY: "0%"
+	}, 0);
 	$(".frame").not('#form').not('#loading').show();
 
 	var imageNames = [
