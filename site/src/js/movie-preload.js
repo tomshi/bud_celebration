@@ -78,7 +78,7 @@ var movieReady = function () {
 
 
 	var approximate100 = function (x) {
-		return (100 - x) < 3 ? 100 : x;
+		return (100 - x) < 9 ? 100 : x;
 	};
 
 	var boundaryX = w / perimeter;
