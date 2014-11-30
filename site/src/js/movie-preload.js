@@ -89,7 +89,7 @@ var movieReady = function () {
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
 		images[i].src = imageNames[i];
-		images[i].onload = function () {
+		$(images[i]).one('load', function () {
 
 			var progress = ++loadedResourceCount / resourceCount;
 			if (progress < boundaryX) {
@@ -106,7 +106,7 @@ var movieReady = function () {
 			}
 
 			count();
-		};
+		});
 
 	}
 
