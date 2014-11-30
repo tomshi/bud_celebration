@@ -118,7 +118,6 @@
     //},
 
     change: function () {
-      $(".avatar-crop-overlay").fadeIn();
       var files,
           file;
       if (this.support.datauri) {
@@ -172,6 +171,8 @@
     },
 
     startCropper: function () {
+        console.log("startCropper");
+        $(".avatar-crop-overlay").fadeIn();
       var _this = this;
 
       if (this.active) {
@@ -267,7 +268,7 @@
                       $(".upload-failed").hide();
                       $(".avatar-crop-overlay").hide();
                   } else {
-                      console.log("startCropper");
+                      console.log("low browers");
                       this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
                       console.log(this.url);
                       this.uploaded = true;
