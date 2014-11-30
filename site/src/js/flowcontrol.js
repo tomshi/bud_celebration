@@ -58,7 +58,6 @@ function processUserLoadData(data) {
                 dataReadyByIE();
             }else {
                 dataReady();
-                $("#form").add('#toast-first').remove();
             }
         } else {
             console.log(data.message);
