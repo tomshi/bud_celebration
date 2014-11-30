@@ -62,10 +62,10 @@ var movieReady = function () {
 	};
 
 	var $movie_preload = $('#loading-bar-wrapper');
-	var $loading_bar_top = $('.loading-bar-top', $movie_preload);
-	var $loading_bar_right = $('.loading-bar-right', $movie_preload);
-	var $loading_bar_bottom = $('.loading-bar-bottom', $movie_preload);
-	var $loading_bar_left = $('.loading-bar-left', $movie_preload);
+	var $loading_bar_top = $('.loading-bar.loading-bar-top', $movie_preload);
+	var $loading_bar_right = $('.loading-bar.loading-bar-right', $movie_preload);
+	var $loading_bar_bottom = $('.loading-bar.loading-bar-bottom', $movie_preload);
+	var $loading_bar_left = $('.loading-bar.loading-bar-left', $movie_preload);
 
 	var w = $movie_preload.width();
 	var h = $movie_preload.height();
