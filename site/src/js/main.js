@@ -103,9 +103,13 @@ function endingBtnEvent() {
 
 $(function() {
     function init() {
-        if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
-            window.location.href = "ie.html";
-        }
+		    if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
+			    if (getUrlParameterByName("id").length > 0) {
+				    window.location.href = "ie.html" + "?id=" + getUrlParameterByName("id");
+			    } else {
+				    window.location.href = "ie.html";
+			    }
+		    }
         if (navigator.appName != "Microsoft Internet Explorer" && window.location.pathname.indexOf('ie') >= 0){
             window.location.href = "./";
         }
