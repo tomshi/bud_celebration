@@ -38,8 +38,8 @@ var movieReady = function () {
 		'img/sharing-qzone.png',
 		'img/sharing-renren.png',
 		'img/sharing-sina.png',
-		'img/sharing-wechat.png'
-//		'img/btn-movie-ready.png'
+		'img/sharing-wechat.png',
+		'img/btn-movie-ready.png'
 	];
 
 	for (var i = 1; i < 76; i++) {
@@ -86,6 +86,7 @@ var movieReady = function () {
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
+		images[i].src = imageNames[i];
 		images[i].onload = function () {
 
 			var progress = ++loadedResourceCount / resourceCount;
@@ -104,7 +105,7 @@ var movieReady = function () {
 
 			count();
 		};
-		images[i].src = imageNames[i];
+
 	}
 
 };
