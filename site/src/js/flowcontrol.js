@@ -259,7 +259,7 @@ $(function() {
     if (window.location.pathname.indexOf('ie') > 0){
         getReadyByIE();
     }else {
-        getReady();
+	    controlFlow();
     }
     addPlaceholder();
 

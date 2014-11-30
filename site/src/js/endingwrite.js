@@ -21,22 +21,6 @@ $(function () {
 				};
 		})();
 
-		var imageReady = function (src) {
-			var img = new Image();
-			var isReady = $.Deferred();
-			img.onload = function () {
-				isReady.resolve(img);
-			};
-			img.src = src;
-			return isReady.promise();
-		};
-
-		var imagesPath = [];
-		for (var i = 1; i < 76; i++) {
-			imagesPath.push(imageReady("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png"));
-		}
-
-
 		var when = function () {
 			var deferredList = [];
 			for (var i = 0; i < arguments.length; i++) {
@@ -49,6 +33,20 @@ $(function () {
 
 
 		var paint = function () {
+			var imageReady = function (src) {
+				var img = new Image();
+				var isReady = $.Deferred();
+				img.onload = function () {
+					isReady.resolve(img);
+				};
+				img.src = src;
+				return isReady.promise();
+			};
+
+			var imagesPath = [];
+			for (var i = 1; i < 76; i++) {
+				imagesPath.push(imageReady("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png"));
+			}
 
 			when($, imagesPath).done(function () {
 				var width = can.width;

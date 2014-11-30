@@ -6,7 +6,8 @@ module.exports = function (grunt) {
 
 	var config = {
 			app: 'site/src',
-			dist: 'site/dist'
+			dist: 'site/dist',
+			release: 'site/release'
 		};
 
 	var setting = {
@@ -21,6 +22,14 @@ module.exports = function (grunt) {
 					src: [
 						'.tmp',
 						'<%= config.dist %>/*'
+					]
+				}]
+			},
+			release:{
+				files: [{
+					dot: true,
+					src: [
+						'<%= config.release %>/*'
 					]
 				}]
 			}
@@ -39,20 +48,10 @@ module.exports = function (grunt) {
 			},
 			// Release the bundled scripts, all CSS, images and bower components, but not the HTML pages.
 			'release': {
-				files: [
-					{
-						expand: true,
-						cwd: 'dist',
-						src: ['bower_components/**/*', 'js/main.js', 'js/vendor.js', 'js/plugins.js', '{fonts,css,sprites,img}/**/*', 'bower.json'],
-						dest: 'site/release/<%= pkg.version %>'
-					},
-					{
-						expand: true,
-						cwd: 'dist/icons',
-						src: ['fonts/*'],
-						dest: 'site/release/<%= pkg.version %>/css'
-					}
-				]
+				expand: true,
+				cwd:'<%= config.dist %>',
+				src: '**',
+				dest: '<%= config.release %>'
 			}
 		},
 		less: {
@@ -198,7 +197,7 @@ module.exports = function (grunt) {
 					collapseBooleanAttributes: true,
 					collapseWhitespace: true,
 					conservativeCollapse: true,
-					removeAttributeQuotes: true,
+					removeAttributeQuotes: false,
 					removeCommentsFromCDATA: true,
 					removeEmptyAttributes: true,
 					removeOptionalTags: true,
@@ -211,6 +210,23 @@ module.exports = function (grunt) {
 					src: '{,*/}*.html',
 					dest: '<%= config.dist %>'
 				}]
+			}
+		},
+
+		cdn:{
+			options: {
+				/** @required - root URL of your CDN (may contains sub-paths as shown below) */
+				cdn: 'http://AK.EF.COM/',
+				/** @optional  - if provided both absolute and relative paths will be converted */
+				flatten: true,
+				/** @optional  - if provided will be added to the default supporting types */
+				supportedTypes: { 'phtml': 'html' }
+			},
+			dist: {
+				/** @required  - string (or array of) including grunt glob variables */
+				src: ['<%= config.release %>/*.html', '<%= config.release %>/css/*.css'],
+				/** @optional  - if provided a copy will be stored without modifying original file */
+				dest: '<%= config.release %>'
 			}
 		}
 	};
@@ -232,18 +248,24 @@ module.exports = function (grunt) {
 		'less'
 	]);
 
-	grunt.registerTask('release', [
+	grunt.registerTask('uat', [
 		'clean',
 		'default',
 		'useminPrepare',
 		'concat',
 		'cssmin',
 		'uglify',
-		'copy:release',
 //		'rev',
 		'usemin',
 		'htmlmin',
 		'clean:tmp'
+	]);
+
+	grunt.registerTask('release', [
+		'uat',
+		'clean:release',
+		'copy:release',
+		'cdn'
 	]);
 
 	grunt.registerTask('serve', function (target) {

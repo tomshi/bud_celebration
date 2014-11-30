@@ -15,16 +15,46 @@
   }
 }
 
+#loading-bar-wrapper {
+  cursor: pointer;
+  width: 16.5%;
+  height: 14.4%;
+  display: inline-block;
+  background: url('../img/btn-movie-loading.png');
+  background-size: cover;
+  position: relative;
 
-@media screen and (min-width: 581px) and (max-width: 768px) {
-  #loading {
-
+  &.ready {
+    background: url('../img/btn-movie-ready.png');
+    background-size: cover;
   }
-}
 
+  .loading-bar {
+    position: absolute;
+    background-color: #dfb134;
+  }
 
-@media screen and (max-width: 580px) {
-  #loading {
+  .loading-bar-top {
+    width: 0%;
+    height: 2px;
+    top: 0;
+  }
+  .loading-bar-bottom {
+    width: 0%;
+    height: 2px;
+    right: 0;
+    bottom: 0;
+  }
 
+  .loading-bar-left {
+    height: 0%;
+    width: 2px;
+    left: 0;
+    bottom: 0;
+  }
+  .loading-bar-right {
+    height: 0%;
+    width: 2px;
+    right: 0;
   }
 }
