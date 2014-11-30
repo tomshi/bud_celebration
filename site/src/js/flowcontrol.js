@@ -26,7 +26,7 @@ function controlFlow() {
         if (window.location.pathname.indexOf('ie') > 0){
             $('#form').fadeIn(800);
         }else {
-            $("#toast-first").show().trigger('start');
+            getReady();
         }
     }
 }
@@ -102,7 +102,7 @@ function submitUserData() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "" && $("#username").val() != "为谁欢庆" && $("#purpose").val() != "庆祝什么") {
+    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "" && $("#time-m").val() !== "月月" && $("#time-d").val() !== "日日" && $("#username").val() != "为谁欢庆" && $("#purpose").val() != "庆祝什么") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
