@@ -38,8 +38,8 @@ var movieReady = function () {
 		'img/sharing-qzone.png',
 		'img/sharing-renren.png',
 		'img/sharing-sina.png',
-		'img/sharing-wechat.png',
-		'img/btn-movie-ready.png'
+		'img/sharing-wechat.png'
+//		'img/btn-movie-ready.png'
 	];
 
 	for (var i = 1; i < 76; i++) {
@@ -53,6 +53,7 @@ var movieReady = function () {
 
 
 	var count = function () {
+		console.log(loadedResourceCount, resourceCount);
 		if (loadedResourceCount >= resourceCount) {
 
 			$movie_preload.addClass('ready');
