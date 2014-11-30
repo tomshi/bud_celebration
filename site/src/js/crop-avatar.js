@@ -118,7 +118,6 @@
     //},
 
     change: function () {
-      $(".avatar-crop-overlay").fadeIn();
       var files,
           file;
       if (this.support.datauri) {
@@ -172,6 +171,8 @@
     },
 
     startCropper: function () {
+	    console.log("startCropper");
+	    $(".avatar-crop-overlay").fadeIn();
       var _this = this;
 
       if (this.active) {
