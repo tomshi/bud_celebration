@@ -263,10 +263,6 @@ $(function() {
     }
     addPlaceholder();
 
-    $('#mobile-play').one('click', function () {
-        movie_start();
-    });
-
     $(".close-avatar-crop-overlay").bind("click", function() {
         $(".avatar-crop-overlay").fadeOut();
         $("#avatarInput").val("");

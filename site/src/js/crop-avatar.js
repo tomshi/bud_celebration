@@ -264,6 +264,7 @@
                       this.cropDone();
                       $(".avatar-upload").hide();
                       $(".upload-succeed").show();
+                      $(".upload-failed").hide();
                       $(".avatar-crop-overlay").hide();
                   } else {
                       console.log("startCropper");
@@ -277,6 +278,7 @@
                       else {
                           $(".avatar-upload").hide();
                           $(".upload-succeed").show();
+                          $(".upload-failed").hide();
                           $(".avatar-crop-overlay").hide();
                       }
                   }
