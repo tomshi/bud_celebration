@@ -102,7 +102,7 @@ function submitUserData() {
 
 
 function activeSubmitButton() {
-    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "") {
+    if ($("#username").val() !== "" && $("#purpose").val() !== "" && $("#time-m").val() !== "" && $("#time-d").val() !== "" && $("#username").val() != "为谁欢庆" && $("#purpose").val() != "庆祝什么") {
         $("#submit").addClass("active");
     } else {
         $("#submit").removeClass("active");
