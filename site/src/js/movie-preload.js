@@ -53,6 +53,7 @@ var movieReady = function () {
 
 
 	var count = function () {
+		console.log(loadedResourceCount, resourceCount);
 		if (loadedResourceCount >= resourceCount) {
 
 			$movie_preload.addClass('ready');
