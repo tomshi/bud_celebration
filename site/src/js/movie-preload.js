@@ -12,7 +12,7 @@ var movieReady = function () {
 		'img/hand2.png',
 		'img/hand3.png',
 		'img/hand4.png',
-//		'img/hands-bg.jpg',
+		'img/hands-bg.jpg',
 		'img/dust.png',
 		'img/dust-toast.png',
 		'img/bright.png',
@@ -38,8 +38,8 @@ var movieReady = function () {
 		'img/sharing-qzone.png',
 		'img/sharing-renren.png',
 		'img/sharing-sina.png',
-		'img/sharing-wechat.png',
-		'img/btn-movie-ready.png'
+		'img/sharing-wechat.png'
+//		'img/btn-movie-ready.png'
 	];
 
 	for (var i = 1; i < 76; i++) {
