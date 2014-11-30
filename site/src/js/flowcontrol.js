@@ -26,7 +26,7 @@ function controlFlow() {
         if (window.location.pathname.indexOf('ie') > 0){
             $('#form').fadeIn(800);
         }else {
-            $("#toast-first").show().trigger('start');
+            getReady();
         }
     }
 }
