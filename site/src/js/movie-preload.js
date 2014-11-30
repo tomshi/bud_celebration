@@ -73,6 +73,10 @@ var movieReady = function () {
 	var perimeter = 2 * (w + h);
 
 
+	var approximate100 = function (x) {
+		return (100 - x) < 3 ? 100 : x;
+	};
+
 	var boundaryX = w / perimeter;
 	var boundaryY = h / perimeter;
 	var boundary2 = (w + h) / perimeter;
@@ -80,25 +84,25 @@ var movieReady = function () {
 
 	var backgroundImg = new Image();
 	backgroundImg.src = "img/btn-movie-loading.png";
-	backgroundImg.onload = function(){
+	backgroundImg.onload = function () {
 
 		for (var i = 0; i < imagesCount; i++) {
 			images[i] = new Image();
 			images[i].src = imageNames[i];
 			images[i].onload = function () {
-//			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
+
 				var progress = ++loadedResourceCount / resourceCount;
 				if (progress < boundaryX) {
-					$loading_bar_top.css("width", Math.ceil(100 * (progress / boundaryX)) + "%");
+					$loading_bar_top.css("width", approximate100(Math.ceil(100 * (progress / boundaryX))) + "%");
 				}
 				else if (progress < boundary2) {
-					$loading_bar_right.css("height", Math.ceil(100 * (progress - boundaryX) / boundaryY) + "%");
+					$loading_bar_right.css("height", approximate100(Math.ceil(100 * (progress - boundaryX) / boundaryY)) + "%");
 				}
 				else if (progress < boundary3) {
-					$loading_bar_bottom.css("width", Math.ceil(100 * (progress - boundary2) / boundaryX) + "%");
+					$loading_bar_bottom.css("width", approximate100( Math.ceil(100 * (progress - boundary2) / boundaryX)) + "%");
 				}
 				else {
-					$loading_bar_left.css("height", Math.ceil(100 * (progress - boundary3) / boundaryY) + "%");
+					$loading_bar_left.css("height", approximate100(Math.ceil(100 * (progress - boundary3) / boundaryY)) + "%");
 				}
 
 				count();
