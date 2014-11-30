@@ -12,7 +12,7 @@ var movieReady = function () {
 		'img/hand2.png',
 		'img/hand3.png',
 		'img/hand4.png',
-		'img/hands-bg.jpg',
+//		'img/hands-bg.jpg',
 		'img/dust.png',
 		'img/dust-toast.png',
 		'img/bright.png',
