@@ -111,7 +111,7 @@ function wxsharing() {
 }
 
 $(function() {
-    $(".share").on("click", function() {
+    $(".share[share-platform]").on("click", function() {
         var name = ugc_name !== undefined ? ugc_name : "";
         var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
         var $this = $(this),
