@@ -76,8 +76,8 @@ var wxData = {
     "appId": "", // 服务号可以填写appId
     "imgUrl" : 'http://toast-365days.com/img/share.jpg',
     "link" : document.location.href,
-    "desc" : "",
-    "title" : ""
+    "desc" : "#酿造你的欢庆时刻# 你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯",
+    "title" : "用你的故事，打造独一无二的百威定制啤酒"
 };
 
 function configWxSharing(){
@@ -122,7 +122,7 @@ function wxsharing() {
     var name = ugc_name !== undefined ? $.trim(ugc_name) : "";
     var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
     wxData.link = getSharingUrl();
-    wxData.imgUrl = 'http://bud1.sonicboomsh.com/img/share.jpg';
+    wxData.imgUrl = 'http://toast-365days.com/img/share.jpg';
     if (name.length > 0 && purpose.length > 0) {
         wxData.title = '酿造' + name + '的欢庆时刻';
         wxData.desc = name + '#酿造你的欢庆时刻# 独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！';
