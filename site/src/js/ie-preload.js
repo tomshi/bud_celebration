@@ -29,14 +29,24 @@ var dataReadyByIE = function () {
     $("#ie-frame1").fadeIn(800, function(){
         setTimeout(function(){
             $('#ie-frame1').fadeOut(800);
+            $('#ie-frame2-text').fadeIn(800);
             $('#ie-frame2').fadeIn(800, function(){
                 setTimeout(function(){
+                    $('#ie-frame2-text').hide();
                     $('#ie-frame2').fadeOut(800);
+                    $('#ie-frame3-text').fadeIn(800);
                     $('#ie-frame3').fadeIn(800, function(){
                         setTimeout(function(){
+                            $('#ie-frame3-text').hide();
                             $('#ie-frame3').fadeOut(800);
+                            $('#ie-frame4-text').fadeIn(800);
+                            $('#ie-frame4-img').fadeIn(800);
+                            $('#ugc-content').fadeIn(800);
                             $('#ie-frame4').fadeIn(800, function(){
                                 setTimeout(function(){
+                                    $('#ugc-content').hide();
+                                    $('#ie-frame4-text').hide();
+                                    $('#ie-frame4-img').hide();
                                     $('#ie-frame4').fadeOut(800);
                                     $('#ie-frame5').fadeIn(800, function(){
                                         setTimeout(function(){
@@ -80,153 +90,153 @@ var dataReadyByIE = function () {
 
 
     /*("#ie-frame1").show();
-    $("#ie-frame2").show();
-    TweenMax.to("#ie-frame1" , 2, {
-        opacity: 1,
-        delay: 0,
-        ease: Sine.SineIn,
-        onComplete: function(){
-            TweenMax.to("#ie-frame1" , 2, {
-                opacity: 0,
-                delay: 1.5,
-                ease: Sine.SineIn
-            });
-            TweenMax.to("#ie-frame2" , 2, {
-                opacity: 1,
-                delay: 1.5,
-                ease: Sine.SineIn,
-                onComplete: function(){
-    $("#ie-frame3").show();
-    $("#ie-frame4").show();
-                    TweenMax.to("#ie-frame2" , 2, {
-                        opacity: 0,
-                        delay: 1.5,
-                        ease: Sine.SineIn
-                    });
-                    TweenMax.to("#ie-frame3" , 2, {
-                        opacity: 1,
-                        delay: 1.5,
-                        ease: Sine.SineIn,
-                        onComplete: function(){
-                            TweenMax.to("#ie-frame3" , 2, {
-                                opacity: 0,
-                                delay: 1.5,
-                                ease: Sine.SineIn
-                            });
-                            TweenMax.to("#ie-frame4" , 2, {
-                                opacity: 1,
-                                delay: 1.5,
-                                ease: Sine.SineIn,
-                                onComplete: function(){
-    $("#ie-frame5").show();
-    $("#ie-frame6").show();
-                                    TweenMax.to("#ie-frame4" , 1, {
-                                        opacity: 0,
-                                        delay: 0.8,
-                                        ease: Sine.SineIn
-                                    });
-                                    TweenMax.to("#ie-frame5" , 1, {
-                                        opacity: 1,
-                                        delay: 0.8,
-                                        ease: Sine.SineIn,
-                                        onComplete: function(){
-                                            TweenMax.to("#ie-frame5" , 1, {
-                                                opacity: 0,
-                                                delay: 0.8,
-                                                ease: Sine.SineIn
-                                            });
-                                            TweenMax.to("#ie-frame6" , 1, {
-                                                opacity: 1,
-                                                delay: 0.8,
-                                                ease: Sine.SineIn,
-                                                onComplete: function(){
+     $("#ie-frame2").show();
+     TweenMax.to("#ie-frame1" , 2, {
+     opacity: 1,
+     delay: 0,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to("#ie-frame1" , 2, {
+     opacity: 0,
+     delay: 1.5,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame2" , 2, {
+     opacity: 1,
+     delay: 1.5,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     $("#ie-frame3").show();
+     $("#ie-frame4").show();
+     TweenMax.to("#ie-frame2" , 2, {
+     opacity: 0,
+     delay: 1.5,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame3" , 2, {
+     opacity: 1,
+     delay: 1.5,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to("#ie-frame3" , 2, {
+     opacity: 0,
+     delay: 1.5,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame4" , 2, {
+     opacity: 1,
+     delay: 1.5,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     $("#ie-frame5").show();
+     $("#ie-frame6").show();
+     TweenMax.to("#ie-frame4" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame5" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to("#ie-frame5" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame6" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
 
-    $("#ie-frame7").show();
-    $("#ie-frame8").show();
-                                                    TweenMax.to("#ie-frame6" , 1, {
-                                                        opacity: 0,
-                                                        delay: 0.8,
-                                                        ease: Sine.SineIn
-                                                    });
-                                                    TweenMax.to("#ie-frame7" , 1, {
-                                                        opacity: 1,
-                                                        delay: 0.8,
-                                                        ease: Sine.SineIn,
-                                                        onComplete: function(){
-                                                            TweenMax.to("#ie-frame7" , 1, {
-                                                                opacity: 0,
-                                                                delay: 0.8,
-                                                                ease: Sine.SineIn
-                                                            });
-                                                            TweenMax.to("#ie-frame8" , 1, {
-                                                                opacity: 1,
-                                                                delay: 0.8,
-                                                                ease: Sine.SineIn,
-                                                                onComplete: function(){
+     $("#ie-frame7").show();
+     $("#ie-frame8").show();
+     TweenMax.to("#ie-frame6" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame7" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to("#ie-frame7" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame8" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
 
-    $("#ie-frame9").show();
-    $("#ie-frame10").show();
-                                                                    TweenMax.to("#ie-frame8" , 1, {
-                                                                        opacity: 0,
-                                                                        delay: 0.8,
-                                                                        ease: Sine.SineIn
-                                                                    });
-                                                                    TweenMax.to("#ie-frame9" , 1, {
-                                                                        opacity: 1,
-                                                                        delay: 0.8,
-                                                                        ease: Sine.SineIn,
-                                                                        onComplete: function(){
-                                                                            TweenMax.to("#ie-frame9" , 1, {
-                                                                                opacity: 0,
-                                                                                delay: 0.8,
-                                                                                ease: Sine.SineIn
-                                                                            });
-                                                                            TweenMax.to("#ie-frame10" , 1, {
-                                                                                opacity: 1,
-                                                                                delay: 0.8,
-                                                                                ease: Sine.SineIn,
-                                                                                onComplete: function(){
-    $("#ending").show();
-                                                                                    TweenMax.to("#ie-frame10" , 2, {
-                                                                                        opacity: 0,
-                                                                                        delay: 2,
-                                                                                        ease: Sine.SineIn
-                                                                                    });
-                                                                                    TweenMax.to("#ending" , 2, {
-                                                                                        opacity: 1,
-                                                                                        delay: 2,
-                                                                                        ease: Sine.SineIn,
-                                                                                        onComplete: function(){
-                                                                                            TweenMax.to(".endtext", 1, {
-                                                                                                opacity: 1,
-                                                                                                delay: 0.7,
-                                                                                                ease: Sine.SineIn
-                                                                                            });
-                                                                                            TweenMax.to(".btns .item", 1, {
-                                                                                                opacity: 1,
-                                                                                                delay: 1.8,
-                                                                                                ease: Sine.SineIn
-                                                                                            });
-                                                                                        }
-                                                                                    });
-                                                                                }
-                                                                            });
-                                                                        }
-                                                                    });
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-        }
-    });*/
+     $("#ie-frame9").show();
+     $("#ie-frame10").show();
+     TweenMax.to("#ie-frame8" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame9" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to("#ie-frame9" , 1, {
+     opacity: 0,
+     delay: 0.8,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ie-frame10" , 1, {
+     opacity: 1,
+     delay: 0.8,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     $("#ending").show();
+     TweenMax.to("#ie-frame10" , 2, {
+     opacity: 0,
+     delay: 2,
+     ease: Sine.SineIn
+     });
+     TweenMax.to("#ending" , 2, {
+     opacity: 1,
+     delay: 2,
+     ease: Sine.SineIn,
+     onComplete: function(){
+     TweenMax.to(".endtext", 1, {
+     opacity: 1,
+     delay: 0.7,
+     ease: Sine.SineIn
+     });
+     TweenMax.to(".btns .item", 1, {
+     opacity: 1,
+     delay: 1.8,
+     ease: Sine.SineIn
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });
+     }
+     });*/
 };
