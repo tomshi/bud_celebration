@@ -86,17 +86,16 @@ function configWxSharing(){
         var wxCallbackFriend = {
             // 分享操作开始之前
             ready : function() {
+                window.alert("chat1");
                 requestBaiduTracking("video,share", "chat");
-                requestNielsenTracking("video,share,chat");
                 requestGATracking("video,share", "chat");
-
+                window.alert("chat2");
             }
         };
         var wxCallbackTimeline = {
             // 分享操作开始之前
             ready : function() {
                 requestBaiduTracking("video,share", "moments");
-                requestNielsenTracking("video,share,moments");
                 requestGATracking("video,share", "moments");
             }
         };
