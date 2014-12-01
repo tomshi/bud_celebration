@@ -81,6 +81,28 @@ var wxData = {
 };
 
 function configWxSharing(){
+    WeixinApi.ready(function(Api) {
+        // 分享的回调
+        var wxCallbackFriend = {
+            // 分享操作开始之前
+            ready : function() {
+                requestBaiduTracking("video,share", "chat");
+                requestGATracking("video,share", "chat");
+
+            }
+        };
+        var wxCallbackTimeline = {
+            // 分享操作开始之前
+            ready : function() {
+                requestBaiduTracking("video,share", "moments");
+                requestGATracking("video,share", "moments");
+            }
+        };
+        // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+        Api.shareToFriend(wxData, wxCallbackFriend);
+        // 点击分享到朋友圈，会执行下面这个代码
+        Api.shareToTimeline(wxData, wxCallbackTimeline);
+    });
 }
 
 function getSharingUrl(){
