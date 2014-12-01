@@ -111,7 +111,11 @@ $(function() {
             }
         }
         if (navigator.appName != "Microsoft Internet Explorer" && window.location.pathname.indexOf('ie') >= 0){
-            window.location.href = "./";
+            if (getUrlParameterByName("id").length > 0) {
+                window.location.href = "index.html" + "?id=" + getUrlParameterByName("id");
+            } else {
+                window.location.href = "index.html";
+            }
         }
 
         if (isMobile.phone()){

@@ -84,9 +84,7 @@ function submitUserData() {
         }
     }).done(function(data) {
         processUserLoadData(data);
-        if (isMobile.wechat()){
-            window.location.href = getSharingUrl();
-        }
+        window.location.href = getSharingUrl();
     }).fail(function(jqXHR, textStatus, errorThrown) {
         $.ajax({
             url: "api/json/user_save.json",
