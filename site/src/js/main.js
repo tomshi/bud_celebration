@@ -99,6 +99,24 @@ function endingBtnEvent() {
             window.location.href = window.location.origin;
         }
     });
+    if(isMobile.any()){
+        $("#wechat-share").hide();
+    }
+    if(isMobile.wechat()){
+        $("#wechat-share").show();
+    }
+    $("#wechat-share").bind('click', function() {
+        if (isMobile.wechat()){
+            $("#qrcode-mobile").fadeIn();
+        }else {
+            $("#qrcode-output").qrcode({
+                width: 200,
+                height: 200,
+                text: window.location.href
+            });
+            $("#qrcode").fadeIn();
+        }
+    });
 }
 
 $(function() {
