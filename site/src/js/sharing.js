@@ -17,7 +17,8 @@ function shareSNS(type, link, image, text) {
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
         case 'douban': //douban weibo
-            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + img + "&href=" + link + "&name=百威-酿造你的欢庆时刻" + "&text=" + text;
+            var name = encodeURIComponent("百威-酿造你的欢庆时刻");
+            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + img + "&href=" + link + "&name="+ name + "&text=" + text;
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
         case 'qq': //qq
