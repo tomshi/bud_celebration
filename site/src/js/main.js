@@ -108,7 +108,7 @@ function endingBtnEvent() {
         }
         $("#wechat-share").bind('click', function() {
             if (isMobile.wechat()){
-                $("#qrcode-mobile").fadeIn();
+                $(".share-tip-overlay").fadeIn();
             }else {
                 $("#qrcode-output").qrcode({
                     width: 200,
@@ -119,6 +119,13 @@ function endingBtnEvent() {
             }
         });
     }
+    $(".share-tip-overlay").bind('click', function() {
+        $(this).fadeOut();
+    });
+    $("#qrcode").bind('click', function() {
+        $(this).fadeOut();
+        $("#qrcode-output").html("");
+    });
 }
 
 $(function() {
