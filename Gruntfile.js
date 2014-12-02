@@ -216,7 +216,7 @@ module.exports = function (grunt) {
 		cdn:{
 			options: {
 				/** @required - root URL of your CDN (may contains sub-paths as shown below) */
-				cdn: 'http://AK.EF.COM/',
+				cdn: 'http://toast-365days.b0.upaiyun.com/',
 				/** @optional  - if provided both absolute and relative paths will be converted */
 				flatten: true,
 				/** @optional  - if provided will be added to the default supporting types */
