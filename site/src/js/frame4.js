@@ -21,7 +21,7 @@ $(function () {
 		setTimeout(function () {
 			$($pic[i]).hide();
 			slide(++i);
-		}, i < 4 ? 1200 : 700);
+		}, i < 4 ? 700 : (900-110*i));
 	};
 
 	var animation_start = function () {

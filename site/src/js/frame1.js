@@ -28,8 +28,11 @@ $(function () {
 	};
 
 	var animation_start = function () {
+		$bg_frame1.velocity({
+			"translateZ": "17px"
+		}, 1300);
 		$model1.add($model2).velocity({
-			"translateZ": "18px"
+			"translateZ": "19px"
 		}, 1300, function () {
 
 			moveHand("20%", "-60%", 900, function () {

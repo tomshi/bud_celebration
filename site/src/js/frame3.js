@@ -113,24 +113,19 @@ $(function () {
 						}
 						$shadow.velocity({
 							opacity: 0
-						}, 1000, "linear", function () {
-
-
+						}, 900, "linear", function () {
 							$bg_frame.velocity({"translateZ": "56px"}, 1300).velocity({
 								"translateZ": "76px"
-							}, 3000, [.99,.05,1,.28], function () {
-
+							}, 2200, [.99,.05,1,.28], function () {
 
 								$element.velocity({
 									opacity: 0
-								}, 1000, function () {
+								}, 500, function () {
 									$element.hide();
 								});
-
 								endTransition();
 							});
 						});
-
 					});
 				});
 			});
