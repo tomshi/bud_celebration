@@ -16,14 +16,14 @@ $(function () {
 
 	var handup = function (Y, time, cb) {
 		$hand.velocity({
-			translateX: "10%",
+			translateX: "4%",
 			translateY: Y
 		}, time, cb);
 	};
 
 	var handup2 = function (Y, time, cb) {
 		$hand.velocity({
-			translateX: "-10%",
+			translateX: "-16%",
 			translateY: Y
 		}, time, cb);
 	};
@@ -93,7 +93,7 @@ $(function () {
 
 						if (!isMobile.Android()) {
 							$3dbox.css({
-								"perspective-origin": "50% 33.5%"
+								"perspective-origin": "50% 50%"
 							}, 0);
 						}
 
@@ -108,13 +108,20 @@ $(function () {
 
 						CAPTION.frame3FadeOut();
 
+						if (!isMobile.Android()) {
+							setTimeout(function () {
+								$3dbox.css({
+									"perspective-origin": "50% 33.5%"
+								}, 0);
+							}, 800);
+						}
 						$shadow.velocity({
 							opacity: 0
-						}, 1300, "linear", function () {
+						}, 1000, "linear", function () {
 
-							$bg_frame.delay(300).velocity({
+							$bg_frame.velocity({"translateZ": "56px"}, 1300).velocity({
 								"translateZ": "76px"
-							}, 1500, "easeInQuart", function () {
+							}, 3000, [.99,.05,1,.28], function () {
 								endTransition();
 							});
 						});

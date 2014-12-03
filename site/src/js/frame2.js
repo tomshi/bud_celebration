@@ -78,7 +78,7 @@ $(function () {
 					"translateZ": "35px"
 				}, 1400, function () {
 
-					moveHand("10%", "-66%", 900,function () {
+					moveHand("7%", "-66%", 900,function () {
 						moveHand("10%", "-28", 1200);
 
 						if (!isMobile.Android()) {
