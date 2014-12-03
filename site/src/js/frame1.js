@@ -43,8 +43,6 @@ $(function () {
 					}, 0);
 				}
 
-				
-
 				$model1.velocity({
 					"translateX": "50%",
 					"translateZ": "70px"
@@ -58,9 +56,9 @@ $(function () {
 					"translateZ": "20px"
 				}, 1200);
 
-				moveHand("38%", "-36%", 950, function () {
+				moveHand("28%", "-36%", 950, function () {
 
-					moveHand("9%", "-50%", 900,function () {
+					moveHand("4%", "-50%", 900,function () {
 
 						moveHand("7%", "0%", 1100);
 
