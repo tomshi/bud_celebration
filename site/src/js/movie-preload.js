@@ -122,7 +122,7 @@ var movie_start = function () {
 	$FIRST_FRAME.show().trigger('start');
 	CAPTION.getReady();
 
-	$('#movie-loading').fadeOut();
+	$('#movie-loading').hide();
 };
 
 var dataReady = function () {
