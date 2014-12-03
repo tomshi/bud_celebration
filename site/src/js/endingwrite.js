@@ -83,7 +83,7 @@ $(function () {
 		var animation_start = function () {
 			var width = $('#bottle').width() * 0.55;
 			can.width = width;
-			can.height = width / 1.77;
+			can.height = width / 4.59375;
 
 			paint();
 		};
