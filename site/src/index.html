@@ -196,6 +196,7 @@
                     <a href="ct.html" class="links" ga_category="index" ga_action="tnc" baidu_category="index" baidu_action="tnc" nl_key="index,tnc" target="blank">网站条款</a>
                     <a href="ci.html" class="links" ga_category="index" ga_action="rules" baidu_category="index" baidu_action="rules" nl_key="index,rules" target="blank">活动规则</a>
                     <a href="http://www.tapintoyourbeer.com" class="links" ga_category="index" ga_action="tap_into_beers" baidu_category="index" baidu_action="tap_into_beers" nl_key="index,tap_into_beers" target="blank">消费者须知</a>
+                    <img class="icon-share show-share-box" src="img/icon-share.png" alt=""/>
                 </div>
             </div>
 
@@ -240,18 +241,9 @@
                 </div>
                 <div class="btns">
                     <a href="javascript:void(0);" class="item" id="buy" ga_category="video" ga_action="purchase" baidu_category="video" baidu_action="purchase" nl_key="video,purchase"><img src="img/end-buy.png" class="responsive" alt=""/></a>
-                    <a href="javascript:void(0);" class="item" id="share" ga_category="video" ga_action="share" baidu_category="video" baidu_action="share" nl_key="video,share"><img src="img/end-share.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="item show-share-box" id="share" ga_category="video" ga_action="share" baidu_category="video" baidu_action="share" nl_key="video,share"><img src="img/end-share.png" class="responsive" alt=""/></a>
                     <a href="javascript:void(0);" class="item" id="replay" ga_category="video" ga_action="replay" baidu_category="video" baidu_action="replay" nl_key="video,replay"><img src="img/end-replay.png" class="responsive" alt=""/></a>
                     <a href="javascript:void(0);" class="item" id="redo" ga_category="video" ga_action="recreate" baidu_category="video" baidu_action="recreate" nl_key="video,recreate"><img src="img/end-redo.png" class="responsive" alt=""/></a>
-                    <div class="sharing-box">
-                        <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" id="wechat-share"><img src="img/sharing-wechat.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="sina" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="douban" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="renren" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
-                        <a href="javascript:void(0);" class="share" share-platform="qq" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
-                    </div>
                 </div>
             </div>
 
@@ -375,6 +367,25 @@
                 <div class="avatar-wrapper"></div>
                 <a href="javascript:void(0);" class="close-avatar-crop-overlay">取消</a>
                 <a href="javascript:void(0);" class="avatar-save">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay sharing-box">
+    <div class="table">
+        <div class="table-cell">
+            <div class="sharing-box-inner">
+                <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
+                <div id="current-url"></div>
+                <div>
+                    <a href="javascript:void(0);" class="share" share-platform="sina"ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="qzone" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" id="wechat-share"><img src="img/sharing-wechat.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="douban" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="renren" ga_category="video,share" ga_action="renren" baidu_category="video,share" baidu_action="renren" nl_key="video,share,renren"><img src="img/sharing-renren.png" class="responsive" alt=""/></a>
+                    <a href="javascript:void(0);" class="share" share-platform="qq" ga_category="video,share" ga_action="tencent" baidu_category="video,share" baidu_action="tencent" nl_key="video,share,tencent"><img src="img/sharing-qq.png" class="responsive" alt=""/></a>
+                </div>
             </div>
         </div>
     </div>
