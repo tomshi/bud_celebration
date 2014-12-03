@@ -28,7 +28,7 @@ $(function () {
 	};
 
 	var animation_start = function () {
-		$bg_frame1.add($model1).add($model2).velocity({
+		$model1.add($model2).velocity({
 			"translateZ": "18px"
 		}, 1300, function () {
 
