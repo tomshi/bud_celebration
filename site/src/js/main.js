@@ -79,18 +79,15 @@ function endingBtnEvent() {
     $(".buy-tip-overlay").bind('click', function() {
         $(this).fadeOut();
     });
-    $("#share").bind('click', function() {
+    $(".show-share-box").bind('click', function() {
         $(".sharing-box").fadeIn();
+        $("#current-url").text(window.location.href);
     });
     $(".close").bind('click', function() {
         $(".sharing-box").fadeOut();
     });
     $("#replay").bind('click', function() {
-        if (getUrlParameterByName("id").length > 0) {
-            window.location.reload();
-        } else {
-            window.location.href = getSharingUrl();
-        }
+        window.location.reload();
     });
     $("#redo").bind('click', function() {
         if(window.location.pathname.indexOf('ie') >= 0){

@@ -1,11 +1,15 @@
-function shareSNS(type, link, image, text) {
-    var img = encodeURIComponent(window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) + image);
-    text = encodeURIComponent(text);
-    if (link == "") {
-        link = encodeURIComponent(window.location.href);
+function shareSNS(type) {
+    var img = encodeURIComponent("http://www.toast-365days.com/img/share_wechat.png");
+    var link = encodeURIComponent(window.location.href);
+    var title, text;
+    if (getUrlParameterByName("id").length > 0) {
+        title = encodeURIComponent("酿造" + ugc_name + "的欢庆时刻");
+        text = encodeURIComponent("#酿造你的欢庆时刻#" + ugc_name + "独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的" + ugc_purpose + "举杯！");
     } else {
-        link = encodeURIComponent(link);
+        title = encodeURIComponent("用你的故事，打造独一无二的百威定制啤酒");
+        text = encodeURIComponent("#酿造你的欢庆时刻# 你的故事，值得历久弥新。百威推出专属镌刻瓶啤酒，酿造你的欢庆时刻，为生命中的每个珍贵瞬间举杯！");
     }
+
     var content, p, s, i;
     switch (type) {
         case 'sina': //sina weibo
@@ -13,19 +17,18 @@ function shareSNS(type, link, image, text) {
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
         case 'renren': //renren weibo
-            var sharesinastring = "http://widget.renren.com/dialog/share?resourceUrl=" + link + "&srcUrl=" + link + "&title=" + text + "&images=" + img + "&charset=UTF-8&description=" + text;
+            var sharesinastring = "http://widget.renren.com/dialog/share?resourceUrl=" + link + "&srcUrl=" + link + "&title=" + title + "&images=" + img + "&charset=UTF-8&description=" + text;
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
         case 'douban': //douban weibo
-            var name = encodeURIComponent("百威-酿造你的欢庆时刻");
-            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + img + "&href=" + link + "&name="+ name + "&text=" + text;
+            var sharesinastring = "http://shuo.douban.com/!service/share?image=" + img + "&href=" + link + "&name="+ title + "&text=" + text;
             window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
             break;
         case 'qq': //qq
             p = {
                 url: link,
                 /*获取URL，可加上来自分享到QQ标识，方便统计*/
-                title: text,
+                title: title,
                 desc: text,
                 /*分享摘要(可选)*/
                 pics: img,
@@ -48,7 +51,7 @@ function shareSNS(type, link, image, text) {
         case 'qzone': //qzone
             p = {
                 url: link,
-                title: text,
+                title: title,
                 summary: text,
                 /*分享标题(可选)*/
                 site: link,
@@ -75,9 +78,9 @@ function shareSNS(type, link, image, text) {
 
 var wxData = {
     "appId": "", // 服务号可以填写appId
-    "imgUrl" : 'http://www.toast-365days.com/img/share_wechat.png',
+    "imgUrl" : "http://www.toast-365days.com/img/share_wechat.png",
     "link" : document.location.href,
-    "desc" : "#酿造你的欢庆时刻# 你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯",
+    "desc" : "你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯",
     "title" : "用你的故事，打造独一无二的百威定制啤酒"
 };
 
@@ -99,7 +102,6 @@ function configWxSharing(){
                 requestGATracking("video,share", "moments");
             }
         };
-
         // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
         Api.shareToFriend(wxData, wxCallbackFriend);
         // 点击分享到朋友圈，会执行下面这个代码
@@ -107,42 +109,21 @@ function configWxSharing(){
     });
 }
 
-function getSharingUrl(){
-    var url = document.location.href;
-    if(url.indexOf("?id=") < 0 && ugc_vid !== undefined){
-        if(url.indexOf("?") < 0){
-            url = url + "?id=" + ugc_vid;
-        }
-        else{
-            url = url + "&id=" + ugc_vid;
-        }
-    }
-    return url;
-}
-
 function wxsharing() {
-    var name = ugc_name !== undefined ? $.trim(ugc_name) : "";
-    var purpose = ugc_purpose !== undefined ? $.trim(ugc_purpose) : "";
-    wxData.link = getSharingUrl();
+    wxData.link = window.location.href;
     wxData.imgUrl = 'http://www.toast-365days.com/img/share_wechat.png';
-    if (name.length > 0 && purpose.length > 0) {
+    if (getUrlParameterByName("id").length > 0) {
         wxData.title = '酿造' + name + '的欢庆时刻';
-        wxData.desc = name + '#酿造你的欢庆时刻# 独一无二的百威欢庆视频 ，快来围观，为TA的' + purpose + '举杯！';
+        wxData.desc = ugc_name + '独一无二的百威欢庆视频 ，快来围观，为TA的' + ugc_purpose + '举杯！';
     } else {
         wxData.title = '用你的故事，打造独一无二的百威定制啤酒';
-        wxData.desc = '#酿造你的欢庆时刻# 你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯';
+        wxData.desc = '你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯';
     }
 }
 
 $(function() {
     $(".share[share-platform]").on("click", function() {
-        var name = ugc_name !== undefined ? ugc_name : "";
-        var purpose = ugc_purpose !== undefined ? ugc_purpose : "";
-        var $this = $(this),
-            type = $this.attr("share-platform"),
-            link = getSharingUrl(),
-            image = $this.attr("share-img"),
-            text = $this.attr("share-text").replace("{name}", name).replace("{purpose}", purpose);
-        shareSNS(type, link, image, text);
+        var type = $(this).attr("share-platform");
+        shareSNS(type);
     });
 });

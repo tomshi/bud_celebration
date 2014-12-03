@@ -66,7 +66,18 @@ function processUserLoadData(data) {
         console.log("No UGC with id:" + videoId);
     }
 }
-
+function getSharingUrl(){
+    var url = document.location.href;
+    if(url.indexOf("?id=") < 0 && ugc_vid !== undefined){
+        if(url.indexOf("?") < 0){
+            url = url + "?id=" + ugc_vid;
+        }
+        else{
+            url = url + "&id=" + ugc_vid;
+        }
+    }
+    return url;
+}
 function submitUserData() {
     var day = "0" + $.trim($("#time-d").val());
     var month = "0" + $.trim($("#time-m").val());
