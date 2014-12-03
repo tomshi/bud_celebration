@@ -1,6 +1,7 @@
+var CDN ='http://toast-365days.b0.upaiyun.com/';
 var getReady = function () {
 	$("#loading").show();
-
+	
 	var imageNames = [
 		'img/hand.png',
 		'img/hand1.png',
@@ -25,7 +26,8 @@ var getReady = function () {
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
-		images[i].src = imageNames[i];
+
+		images[i].src = CDN ? CDN + imageNames[i]:imageNames[i];
 		images[i].onload = function () {
 			var progress = Math.ceil(100 * (++loadedResourceCount / resourceCount));
 			$("#loading-now").css("width", progress + "%");

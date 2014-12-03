@@ -88,7 +88,7 @@ var movieReady = function () {
 
 	for (var i = 0; i < imagesCount; i++) {
 		images[i] = new Image();
-		images[i].src = imageNames[i];
+		images[i].src = CDN ? CDN + imageNames[i]:imageNames[i];
 		$(images[i]).one('load', function () {
 
 			var progress = ++loadedResourceCount / resourceCount;
@@ -133,5 +133,5 @@ var dataReady = function () {
 		$("#form").add('#toast-first').remove();
 		movieReady();
 	};
-	backgroundImg.src = "img/btn-movie-loading.png";
+	backgroundImg.src = CDN ? CDN + "img/btn-movie-loading.png":"img/btn-movie-loading.png";
 };
