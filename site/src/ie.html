@@ -249,6 +249,7 @@
                     <a href="javascript:void(0);" class="item" id="redo" ga_category="video" ga_action="recreate" baidu_category="video" baidu_action="recreate" nl_key="video,recreate"><img src="img/end-redo.png" class="responsive" alt=""/></a>
                     <div class="sharing-box">
                         <a href="javascript:void(0);" class="close"><img src="img/sharing-close.png" class="responsive" alt=""/></a>
+                        <a href="javascript:void(0);" class="share" id="wechat-share"><img src="img/sharing-wechat.png" class="responsive" alt=""/></a>
                         <a href="javascript:void(0);" class="share" share-platform="sina" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="weibo" baidu_category="video,share" baidu_action="weibo" nl_key="video,share,weibo"><img src="img/sharing-sina.png" class="responsive" alt=""/></a>
                         <a href="javascript:void(0);" class="share" share-platform="qzone" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="qzone" baidu_category="video,share" baidu_action="qzone" nl_key="video,share,qzone"><img src="img/sharing-qzone.png" class="responsive" alt=""/></a>
                         <a href="javascript:void(0);" class="share" share-platform="douban" share-text="#酿造你的欢庆时刻# {name}独一无二的百威欢庆视频 ，小伙伴们快来围观，为TA的{purpose}举杯！" share-link="" share-img="/img/share.jpg" ga_category="video,share" ga_action="douban" baidu_category="video,share" baidu_action="douban" nl_key="video,share,douban"><img src="img/sharing-douban.png" class="responsive" alt=""/></a>
@@ -263,6 +264,14 @@
         </div>
 
     </section>
+</div>
+
+<div class="overlay" id="qrcode">
+    <div class="table">
+        <div class="table-cell">
+            <div id="qrcode-output" style="padding: 10px;display: inline-block;background-color: #fff;"></div>
+        </div>
+    </div>
 </div>
 
 <div class="overlay avatar-crop-overlay">
@@ -284,6 +293,7 @@
 <script src="bower_components/letteringjs/jquery.lettering.js"></script>
 <script src="bower_components/greensock/src/minified/TweenMax.min.js"></script>
 <script src="bower_components/cropper/dist/cropper.min.js"></script>
+<script src="bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->

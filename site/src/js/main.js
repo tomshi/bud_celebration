@@ -110,11 +110,20 @@ function endingBtnEvent() {
             if (isMobile.wechat()){
                 $(".share-tip-overlay").fadeIn();
             }else {
-                $("#qrcode-output").qrcode({
-                    width: 200,
-                    height: 200,
-                    text: window.location.href
-                });
+                if (window.location.pathname.indexOf('ie') > 0){
+                    $("#qrcode-output").qrcode({
+                        render: "table",
+                        width: 200,
+                        height: 200,
+                        text: window.location.href
+                    });
+                }else {
+                    $("#qrcode-output").qrcode({
+                        width: 200,
+                        height: 200,
+                        text: window.location.href
+                    });
+                }
                 $("#qrcode").fadeIn();
             }
         });
@@ -123,7 +132,7 @@ function endingBtnEvent() {
         $(this).fadeOut();
     });
     $("#qrcode").bind('click', function() {
-        $(this).fadeOut();
+        $(this).hide();
         $("#qrcode-output").html("");
     });
 }
