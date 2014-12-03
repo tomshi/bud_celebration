@@ -45,7 +45,7 @@ $(function () {
 
 			var imagesPath = [];
 			for (var i = 1; i < 76; i++) {
-				imagesPath.push(imageReady("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png"));
+				imagesPath.push(imageReady("img/endingwrite/writtingshort_000" + (i < 10 ? '0' + i : i) + ".png"));
 			}
 
 			when($, imagesPath).done(function () {
@@ -81,9 +81,9 @@ $(function () {
 
 
 		var animation_start = function () {
-			var width = $('#bottle').width() * 0.45625;
+			var width = $('#bottle').width() * 0.55;
 			can.width = width;
-			can.height = width / 4.866666667;
+			can.height = width / 1.77;
 
 			paint();
 		};
