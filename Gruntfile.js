@@ -224,7 +224,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				/** @required  - string (or array of) including grunt glob variables */
-				src: ['<%= config.release %>/*.html', '<%= config.release %>/css/*.css'],
+				src: ['<%= config.release %>/*.html'],
 				/** @optional  - if provided a copy will be stored without modifying original file */
 				dest: '<%= config.release %>'
 			}
