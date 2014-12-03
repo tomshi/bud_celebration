@@ -35,11 +35,7 @@ $(function () {
 	};
 
 	var endTransition = function () {
-		$element.velocity({
-			opacity: 0
-		}, 1000, function () {
-			$element.hide();
-		});
+
 		CAPTION.frame4();
 		$nextFrame.trigger('start');
 	};
@@ -111,7 +107,7 @@ $(function () {
 						if (!isMobile.Android()) {
 							setTimeout(function () {
 								$3dbox.css({
-									"perspective-origin": "50% 33.5%"
+									"perspective-origin": "51.5% 33.5%"
 								}, 0);
 							}, 800);
 						}
@@ -119,9 +115,18 @@ $(function () {
 							opacity: 0
 						}, 1000, "linear", function () {
 
+
 							$bg_frame.velocity({"translateZ": "56px"}, 1300).velocity({
 								"translateZ": "76px"
 							}, 3000, [.99,.05,1,.28], function () {
+
+
+								$element.velocity({
+									opacity: 0
+								}, 1000, function () {
+									$element.hide();
+								});
+
 								endTransition();
 							});
 						});

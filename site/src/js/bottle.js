@@ -113,9 +113,9 @@ $(function () {
 	};
 
 	var night = function () {
-		$darkness.velocity({
+		$darkness.delay(1100).velocity({
 			opacity: 0.92
-		}, 2000);
+		}, 600);
 	};
 
 	var retreat = function () {
