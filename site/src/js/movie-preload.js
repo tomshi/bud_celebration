@@ -45,7 +45,7 @@ var movieReady = function () {
 	];
 
 	for (var i = 1; i < 76; i++) {
-		imageNames.push("img/endingwrite/endingtextwriting_000" + (i < 10 ? '0' + i : i) + ".png");
+		imageNames.push("img/endingwrite/writtingshort_000" + (i < 10 ? '0' + i : i) + ".png");
 	}
 
 	var imagesCount = imageNames.length;
