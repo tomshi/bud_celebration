@@ -32,7 +32,7 @@ $(function () {
 			"translateZ": "18px"
 		}, 1300, function () {
 
-			moveHand("20%", "-70%", 900, function () {
+			moveHand("20%", "-60%", 900, function () {
 
 				if (!isMobile.Android()) {
 					$3dbox.css({

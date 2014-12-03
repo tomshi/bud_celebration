@@ -13,7 +13,7 @@ $(function () {
 	var handup = function (cb) {
 		$hand.velocity({
 			translateX: "2%",
-			translateY: "-80%"
+			translateY: "-70%"
 		}, 800, cb);
 	};
 
@@ -72,14 +72,13 @@ $(function () {
 
 				$model4.velocity({
 					"translateZ": "39px"
-				}, 1500);
+				}, 1400);
 
 				$bg_frame2.velocity({
 					"translateZ": "35px"
 				}, 1400, function () {
 
-					moveHand("13%", "-65%", 900,function () {
-
+					moveHand("10%", "-66%", 900,function () {
 						moveHand("10%", "-28", 1200);
 
 						if (!isMobile.Android()) {
