@@ -242,13 +242,6 @@ module.exports = function (grunt) {
 		'copy:dist'
 	]);
 
-	grunt.registerTask("image", [
-		'clean',
-		'responsive_images',
-		'sprite',
-		'less'
-	]);
-
 	grunt.registerTask('uat', [
 		'default',
 		'useminPrepare',
