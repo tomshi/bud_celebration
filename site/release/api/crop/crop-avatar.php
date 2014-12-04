@@ -1,10 +1,5 @@
 <?php
-	//require 'aws-autoloader.php';
 
-	//use Aws\Common\Aws;
-	//use Aws\S3\S3Client;
-
-	
 	require_once('saestorage.class.php');
 
     class CropAvatar {
@@ -246,27 +241,6 @@
             }
 
             return $stateCode;
-        }
-
-		public function saveToS3($fileName) {
-			$aws = Aws::factory('aws-config.php');
-            $client = $aws->get('S3');
-			$bucket = "bud-quality";
-			$pathToFile = !empty($this -> data) ? $this -> dst : $this -> src;
-			$result = $client->putObject(array(
-				'Bucket'     => $bucket,
-				'Key'        => $fileName,
-				'SourceFile' => $pathToFile,
-				'ACL'        => 'public-read'
-			));
-
-			// We can poll the object until it is accessible
-			$client->waitUntil('ObjectExists', array(
-				'Bucket' => $bucket,
-				'Key'    => $fileName
-			));
-
-			return true;
         }
 
 		public function saveToSAE($fileName) {
