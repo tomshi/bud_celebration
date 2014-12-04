@@ -3,6 +3,9 @@ var getReadyByIE = function () {
 };
 
 var dataReadyByIE = function () {
+    audiojs.events.ready(function() {
+        audiojs.createAll();
+    });
     var today = ugc_date.split('/');
     var month = today[0];
     var day = today[1];
