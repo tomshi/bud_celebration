@@ -249,8 +249,9 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('uat', [
-		'clean',
-		'default',
+		'clean:dist',
+		'less',
+		'autoprefixer',
 		'useminPrepare',
 		'concat',
 		'cssmin',
@@ -258,12 +259,22 @@ module.exports = function (grunt) {
 //		'rev',
 		'usemin',
 		'htmlmin',
-		'clean:tmp'
+		'clean:tmp',
+		'copy:dist'
 	]);
 
-	grunt.registerTask('release', [
-		'uat',
+	grunt.registerTask('release', [		
 		'clean:release',
+		'less',
+		'autoprefixer',
+		'useminPrepare',
+		'concat',
+		'cssmin',
+		'uglify',
+//		'rev',
+		'usemin',
+		'htmlmin',
+		'clean:tmp',
 		'copy:release',
 		'cdn'
 	]);

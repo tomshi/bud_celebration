@@ -1,4 +1,4 @@
-var CDN = "http://toast-365days.b0.upaiyun.com/";
+var CDN;
 
 var getReady = function () {
 	$("#loading").show();
