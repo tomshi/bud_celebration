@@ -235,10 +235,11 @@ module.exports = function (grunt) {
 	grunt.initConfig(setting);
 
 	grunt.registerTask("default", [
-		'clean',
-		'copy:dist',
+		'clean:tmp',
+		'clean:dist',
 		'less',
-		'autoprefixer'
+		'autoprefixer',
+		'copy:dist'
 	]);
 
 	grunt.registerTask("image", [
@@ -249,9 +250,7 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('uat', [
-		'clean:dist',
-		'less',
-		'autoprefixer',
+		'default',
 		'useminPrepare',
 		'concat',
 		'cssmin',
@@ -259,22 +258,12 @@ module.exports = function (grunt) {
 //		'rev',
 		'usemin',
 		'htmlmin',
-		'clean:tmp',
-		'copy:dist'
+		'clean:tmp'
 	]);
 
-	grunt.registerTask('release', [		
+	grunt.registerTask('release', [
+		'uat',
 		'clean:release',
-		'less',
-		'autoprefixer',
-		'useminPrepare',
-		'concat',
-		'cssmin',
-		'uglify',
-//		'rev',
-		'usemin',
-		'htmlmin',
-		'clean:tmp',
 		'copy:release',
 		'cdn'
 	]);
