@@ -81,7 +81,7 @@ function endingBtnEvent() {
     });
     $(".show-share-box").bind('click', function() {
         $(".sharing-box").fadeIn();
-        $("#current-url").text(window.location.href);
+        $("#current-url").html("<a href='" + window.location.href + "' target='_blank'>" + window.location.href + "</a>");
     });
     $(".close").bind('click', function() {
         $(".sharing-box").fadeOut();
