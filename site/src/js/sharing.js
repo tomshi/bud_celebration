@@ -82,7 +82,7 @@ var wxData = {
     "imgUrl" : "http://toast-365days.b0.upaiyun.com/img/share_wechat.png",
     "title" : "用你的故事，打造独一无二的百威定制啤酒",
     "desc" : "你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯",
-    "moment" : "你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯"
+    "moment" : "用你的故事，打造独一无二的百威定制啤酒"
 };
 
 function configWxSharing(){
