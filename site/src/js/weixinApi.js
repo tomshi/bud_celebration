@@ -39,7 +39,7 @@ var WeixinApi = (function() {
                 "img_url": theData.imgUrl,
                 "link": theData.link,
                 "desc": theData.title,
-                "title": theData.desc, // 注意这里要分享出去的内容是desc
+                "title": theData.moment, // 注意这里要分享出去的内容是desc
                 "img_width": "120",
                 "img_height": "120"
             }, function(resp) {

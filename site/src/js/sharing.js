@@ -78,10 +78,11 @@ function shareSNS(type) {
 
 var wxData = {
     "appId": "", // 服务号可以填写appId
-    "imgUrl" : "http://www.toast-365days.com/img/share_wechat.png",
     "link" : document.location.href,
+    "imgUrl" : "http://toast-365days.b0.upaiyun.com/img/share_wechat.png",
+    "title" : "用你的故事，打造独一无二的百威定制啤酒",
     "desc" : "你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯",
-    "title" : "用你的故事，打造独一无二的百威定制啤酒"
+    "moment" : "用你的故事，打造独一无二的百威定制啤酒"
 };
 
 function configWxSharing(){
@@ -111,13 +112,15 @@ function configWxSharing(){
 
 function wxsharing() {
     wxData.link = window.location.href;
-    wxData.imgUrl = 'http://www.toast-365days.com/img/share_wechat.png';
+    wxData.imgUrl = 'http://toast-365days.b0.upaiyun.com/img/share_wechat.png';
     if (getUrlParameterByName("id").length > 0) {
-        wxData.title = '酿造' + name + '的欢庆时刻';
+        wxData.title = '酿造' + ugc_name + '的欢庆时刻';
         wxData.desc = ugc_name + '独一无二的百威欢庆视频 ，快来围观，为TA的' + ugc_purpose + '举杯！';
+        wxData.moment = ugc_name + '独一无二的百威欢庆视频 ，围观为TA举杯！';
     } else {
         wxData.title = '用你的故事，打造独一无二的百威定制啤酒';
         wxData.desc = '你的故事，值得历久弥新。百威推出专属定制瓶啤酒，为生命中每个珍贵瞬间举杯';
+        wxData.moment = '用你的故事，打造独一无二的百威定制啤酒';
     }
 }
 
