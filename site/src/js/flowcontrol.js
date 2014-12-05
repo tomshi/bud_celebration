@@ -51,7 +51,7 @@ function processUserLoadData(data) {
             }
             ugc_vid = data.data.user_id;
             if (isMobile.any()){
-                wxsharing();
+                updateWxSharingInfo();
                 setOrient();
             }
             if (window.location.pathname.indexOf('ie') > 0){
