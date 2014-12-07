@@ -134,6 +134,27 @@ function endingBtnEvent() {
     });
 }
 
+function deviceMotionHandler(event) {
+    document.getElementById("interval").innerHTML = event.interval;
+    var acc = event.acceleration;
+    document.getElementById("x").innerHTML = acc.x;
+    document.getElementById("y").innerHTML = acc.y;
+    document.getElementById("z").innerHTML = acc.z;
+    var accGravity = event.accelerationIncludingGravity;
+    document.getElementById("xg").innerHTML = accGravity.x;
+    document.getElementById("yg").innerHTML = accGravity.y;
+    document.getElementById("zg").innerHTML = accGravity.z;
+    var rotationRate = event.rotationRate;
+    document.getElementById("alpha").innerHTML = rotationRate.alpha;
+    document.getElementById("beta").innerHTML = rotationRate.beta;
+    document.getElementById("gamma").innerHTML = rotationRate.gamma;
+}
+
+if (isMobile.iOS() && window.DeviceMotionEvent){
+window.addEventListener('devicemotion', deviceMotionHandler, false);
+}
+
+
 $(function() {
     function init() {
         if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
@@ -161,6 +182,29 @@ $(function() {
         if (isMobile.wechat()){
             configWxSharing();
         }
+
+        $("#wrapper").on('mousemove',function(e) {
+            var offset = $(this).offset();
+            var relativeX = (e.pageX - offset.left);
+            var relativeY = (e.pageY - offset.top);
+            $("#hands").velocity({
+                "translateX": -relativeX/100,
+                "translateY": -relativeY/100
+            },0.000000001);
+            $(".logo").velocity({
+                "translateX": relativeX/200,
+                "translateY": relativeY/100
+            },0.000000001);
+
+            $(".foreground").velocity({
+                "translateX": relativeX/200,
+                "translateY": relativeY/100
+            },0.000000001);
+            $("#ending").velocity({
+                "translateX": -relativeX/200,
+                "translateY": -relativeY/100
+            },0.000000001);
+        });
     }
     $(window).resize(function() {
         screenSize();

@@ -78,6 +78,21 @@
 </script>
 
 <body>
+<div style="z-index: 99999">
+    <p>x轴加速度：<span id="x">0</span>米每二次方秒</p>
+    <p>y轴加速度：<span id="y">0</span>米每二次方秒</p>
+    <p>z轴加速度：<span id="z">0</span>米每二次方秒</p>
+    <hr />
+    <p>x轴加速度(考虑重力加速度)：<span id="xg">0</span>米每二次方秒</p>
+    <p>y轴加速度(考虑重力加速度)：<span id="yg">0</span>米每二次方秒</p>
+    <p>z轴加速度(考虑重力加速度)：<span id="zg">0</span>米每二次方秒</p>
+    <hr />
+    <p>左右旋转速度：<span id="alpha">0</span>度每秒</p>
+    <p>前后旋转速度：<span id="beta">0</span>度每秒</p>
+    <p>扭转速度：<span id="gamma">0</span>度每秒</p>
+    <hr />
+    <p>上次收到通知的间隔：<span id="interval">0</span>毫秒</p>
+</div>
 
 <div id="form-mobile">
     <div class="form">
@@ -304,12 +319,13 @@
             <div class="frame" id="toast-first">
                 <div class="bg"></div>
                 <div class="movie-shadow"></div>
-                <div class="hand1"></div>
-                <div class="hand2"></div>
-                <div class="hand3"></div>
-                <div class="hand4"></div>
-                <div class="hand5"></div>
-                <div class="hand6"></div>
+                <div id="hands">
+                    <div class="hand1"></div>
+                    <div class="hand2"></div>
+                    <div class="hand3"></div>
+                    <div class="hand4"></div>
+                    <div class="hand5"></div>
+                </div>
             </div>
 
             <div class="frame" id="caption">
@@ -404,7 +420,6 @@
 <!-- build:js js/plugins.js -->
 <script src="bower_components/velocity/velocity.min.js"></script>
 <script src="bower_components/letteringjs/jquery.lettering.js"></script>
-<script src="bower_components/greensock/src/minified/TweenMax.min.js"></script>
 <script src="bower_components/cropper/dist/cropper.min.js"></script>
 <script src="bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
 <script src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
