@@ -204,6 +204,18 @@
       }
     },
 
+    zoomOut: function(){
+        this.$img.cropper("zoom", 0.2);
+    },
+
+    zoomIn: function(){
+        this.$img.cropper("zoom", -0.2);
+    },
+
+    rotate: function(){
+        this.$img.cropper("rotate", 90);
+    },
+
     stopCropper: function () {
       if (this.active) {
         this.$img.cropper("destroy");
@@ -326,5 +338,14 @@
 
   $(function () {
     var example = new CropAvatar($("#crop-avatar"));
+      $("#avatar-zoomOut").on('click',function(){
+          example.zoomOut();
+      });
+      $("#avatar-zoomIn").on('click',function(){
+          example.zoomIn();
+      });
+      $("#avatar-rotate").on('click',function(){
+          example.rotate();
+      });
   });
 });
