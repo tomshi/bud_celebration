@@ -15,51 +15,101 @@ $(function () {
 	var $hand4 = $('.hand4', $element);
 	var $hand5 = $('.hand5', $element);
 
-
 	var time = 1600;
 
 	var animation_start = function () {
-		toast();
+        if (isMobile.phone()){
+            toastMobile();
+        }else {
+            toast();
+        }
 	};
 
-	var toast = function () {
+	var toastMobile = function () {
 		$hand1.velocity({
-			translateX: "93%",
-			translateY: "-134%"
+			translateX: "75%",
+			translateY: "-120%"
 		}, {
 			duration: time,
 			easing: 'easeOutQuint'
 		});
 		$hand2.velocity({
-			translateX: "99%",
-			translateY: "-100%"
+			translateX: "97%",
+			translateY: "-90%"
 		}, {
 			duration: time + 200,
 			easing: 'easeOutQuint'
 		});
 
 		$hand3.velocity({
-			translateX: "-104%",
-			translateY: "-100%"
+			translateX: "-79%",
+			translateY: "-96%"
 		}, {
 			duration: time + 200,
 			easing: 'easeOutQuint'
 		});
 
 		$hand4.velocity({
-			translateX: "-84%",
-			translateY: "-40%"
+			translateX: "-12%",
+			translateY: "-112%"
 		}, {
 			duration: time + 200,
 			easing: 'easeOutQuint'
 		});
 
         $hand5.velocity({
-            translateY: "-88%"
+            translateX: "0",
+            translateY: "-82%"
         }, {
 			duration: time,
 			easing: 'easeOutQuint',
-			complete: function () {
+		    complete: function () {
+				$nextFrame.velocity('fadeIn', 1500, function(){
+					$(".landscape-overlay").fadeOut();
+				});
+			}
+		});
+	};
+
+	var toast = function () {
+		$hand1.velocity({
+			translateX: "75%",
+			translateY: "-120%"
+		}, {
+			duration: time,
+			easing: 'easeOutQuint'
+		});
+		$hand2.velocity({
+			translateX: "97%",
+			translateY: "-90%"
+		}, {
+			duration: time + 200,
+			easing: 'easeOutQuint'
+		});
+
+		$hand3.velocity({
+			translateX: "-79%",
+			translateY: "-96%"
+		}, {
+			duration: time + 200,
+			easing: 'easeOutQuint'
+		});
+
+		$hand4.velocity({
+			translateX: "-12%",
+			translateY: "-112%"
+		}, {
+			duration: time + 200,
+			easing: 'easeOutQuint'
+		});
+
+        $hand5.velocity({
+            translateX: "0",
+            translateY: "-82%"
+        }, {
+			duration: time,
+			easing: 'easeOutQuint',
+		    complete: function () {
 				$nextFrame.velocity('fadeIn', 1500, function(){
 					$(".landscape-overlay").fadeOut();
 				});

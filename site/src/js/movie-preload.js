@@ -58,9 +58,7 @@ var movieReady = function () {
 
 
 	var count = function () {
-		// console.log(loadedResourceCount, resourceCount);
 		if (loadedResourceCount >= resourceCount) {
-
 			$movie_preload.addClass('ready');
 			$('#movie-loading').one('click', function () {
 				movie_start();
@@ -131,7 +129,8 @@ var movie_start = function () {
 var dataReady = function () {
 	var backgroundImg = new Image();
 	backgroundImg.onload = function () {
-		$("#form-mobile").hide();
+		$("#form-mobile").remove();
+		$("#toast-first-mobile").remove();
 		$("#form").add('#toast-first').remove();
 		movieReady();
 	};

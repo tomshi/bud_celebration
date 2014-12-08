@@ -21,7 +21,11 @@ var getReady = function () {
 	var count = function () {
 		if (loadedResourceCount >= resourceCount) {
 			$("#loading").fadeOut();
-			$("#toast-first").show().trigger('start');
+            if (isMobile.phone()){
+                $('#toast-first-mobile').show().trigger('start');
+            }else {
+                $('#toast-first').show().trigger('start');
+            }
 		}
 	};
 
