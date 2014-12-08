@@ -135,23 +135,19 @@ function endingBtnEvent() {
 }
 
 function deviceMotionHandler(event) {
-    document.getElementById("interval").innerHTML = event.interval;
-    var acc = event.acceleration;
-    document.getElementById("x").innerHTML = acc.x;
-    document.getElementById("y").innerHTML = acc.y;
-    document.getElementById("z").innerHTML = acc.z;
     var accGravity = event.accelerationIncludingGravity;
-    document.getElementById("xg").innerHTML = accGravity.x;
-    document.getElementById("yg").innerHTML = accGravity.y;
-    document.getElementById("zg").innerHTML = accGravity.z;
-    var rotationRate = event.rotationRate;
-    document.getElementById("alpha").innerHTML = rotationRate.alpha;
-    document.getElementById("beta").innerHTML = rotationRate.beta;
-    document.getElementById("gamma").innerHTML = rotationRate.gamma;
+    $("#form-mobile").velocity({
+        "translateX": parseInt(accGravity.x),
+        "translateY": parseInt(accGravity.y)
+    },0.000000001);
+    $("#toast-first-mobile").velocity({
+        "translateX": -parseInt(accGravity.x),
+        "translateY": -parseInt(accGravity.y)
+    },0.000000001);
 }
 
 if (isMobile.iOS() && window.DeviceMotionEvent){
-window.addEventListener('devicemotion', deviceMotionHandler, false);
+    window.addEventListener('devicemotion', deviceMotionHandler, false);
 }
 
 
