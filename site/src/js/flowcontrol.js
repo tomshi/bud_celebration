@@ -260,6 +260,7 @@ function addPlaceholder() {
 
     if (isMobile.any()) {
         $(".time").addClass("active");
+        $("#avatar-tools").hide();
     }
 }
 
