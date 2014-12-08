@@ -136,9 +136,9 @@
                 }
 				else
 				{
-					if ($data -> degree != 0)
+					if ($data -> degree > 0)
 					{
-						//$src_img = imagerotate($src_img, 360 - $data -> degree, 0);
+						$src_img = imagerotate($src_img, 360 - $data -> degree, 0);
 					}
 				}
 
