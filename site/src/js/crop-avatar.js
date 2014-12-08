@@ -11,6 +11,7 @@
   var console = window.console || {
     log: $.noop
   };
+  var imgRotate = 0;
 
   function CropAvatar($element) {
     this.$container = $element;
@@ -165,14 +166,13 @@
       fileReader.readAsDataURL(file);
 
       fileReader.onload = function () {
-        _this.url = this.result
+        _this.url = this.result;
         _this.startCropper();
       };
     },
 
     startCropper: function () {
-	    console.log("startCropper");
-	    $(".avatar-crop-overlay").fadeIn();
+	  $(".avatar-crop-overlay").fadeIn();
       var _this = this;
 
       if (this.active) {
@@ -186,9 +186,9 @@
                       '{"x":' + data.x,
                       '"y":' + data.y,
                       '"height":' + data.height,
-                      '"width":' + data.width + "}"
+                      '"width":' + data.width,
+                      '"degree":'+ imgRotate  + "}"
                     ].join();
-
                 _this.$avatarData.val(json);
             },
             aspectRatio: 500 / 260,
@@ -214,6 +214,10 @@
 
     rotate: function(){
         this.$img.cropper("rotate", 90);
+        if(imgRotate == 360){
+            imgRotate = 0;
+        }
+        imgRotate += 90;
     },
 
     stopCropper: function () {
@@ -261,16 +265,12 @@
     },
 
       submitDone: function (data) {
-          console.log(data);
-
           try {
               data = $.parseJSON(data);
           } catch (e) {}
 
           if (data && data.state === 200) {
               if (data.result) {
-                  console.log(data.result);
-
                   if (this.support.datauri || this.uploaded) {
                       this.url = data.result;
                       this.uploaded = false;
@@ -280,9 +280,7 @@
                       $(".upload-failed").hide();
                       $(".avatar-crop-overlay").hide();
                   } else {
-                      console.log("startCropper");
                       this.url = 'http://budquality-bud.stor.sinaapp.com/' + data.result;
-                      console.log(this.url);
                       this.uploaded = true;
                       this.$avatarSrc.val(this.url);
                       if (!this.isSyncUpload){
