@@ -134,6 +134,13 @@
 					$this -> state = 1001;
                     return;
                 }
+				else
+				{
+					if ($data -> degree != 0)
+					{
+						$src_img = imagerotate($src_img, $data -> degree, 0);
+					}
+				}
 
                 $dst_img = imagecreatetruecolor($data -> width, $data -> height);
                 $result = imagecopyresampled($dst_img, $src_img, 0, 0, $data -> x, $data -> y, $data -> width, $data -> height, $data -> width, $data -> height);
