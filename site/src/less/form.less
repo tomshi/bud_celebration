@@ -1,7 +1,5 @@
 #form {
   z-index: 99;
-  //background: url(../img/form-bg.jpg) no-repeat;
-  //background-size: cover;
   background-color: rgba(0,0,0,0.6);
   .header {
     text-align: center;
@@ -190,12 +188,12 @@
 #avatar-modal {
   width: 640px;
   margin: 0 auto;
-  background-color: #000;
   .cropper-container {
     overflow: hidden;
     top: 0 !important;
   }
   .avatar-wrapper {
+    background-color: #000;
     outline: dashed 1px #dfb234;
     margin: 5% 0;
     max-height: 320px;
@@ -265,12 +263,74 @@
 }
 
 
+#toast-first-mobile {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../img/mobile-1.jpg) no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 568px;
+  z-index: 9998;
+  overflow: hidden;
+  .hand {
+    position: absolute;
+    background-size: cover;
+  }
+  .hand1 {
+    z-index: 2;
+    background: url('../img/hand1.png') right top no-repeat;
+    .hand;
+    width: 49.6354167%;
+    height: 56.9444444%;
+    bottom: -56.9444444%;
+    left: -49.6354167%;
+  }
+  .hand2 {
+    background: url('../img/hand2.png') right top no-repeat;
+    .hand;
+    width: 49.3229167%;
+    height: 68.4259259%;
+    bottom: -68.4259259%;
+    left: -49.3229167%;
+    z-index: 1;
+  }
+  .hand3 {
+    background: url('../img/hand3.png') right top no-repeat;
+    .hand;
+    width: 45.8854167%;
+    height: 77.2222222%;
+    bottom: -77.2222222%;
+    right: -45.8854167%;
+    z-index: 4;
+  }
+  .hand4 {
+    background: url('../img/hand4.png') right top no-repeat;
+    .hand;
+    width: 49.21875%;
+    height: 63.5185185%;
+    top: 50%;
+    right: -49.21875%;
+    z-index: 3;
+  }
+  .hand5 {
+    position: absolute;
+    top: 100%;
+    right: -3.5%;
+    display: inline-block;
+    width: 59.6875%;
+    height: 93.9814815%;
+    background: url('../img/hand.png');
+    background-size: cover;
+    z-index: 8;
+  }
+}
+
 #form-mobile {
   position: absolute;
   left: 0;
   top: 0;
-  background: url(../img/mobile-bg.jpg) no-repeat #000 center top;
-  background-size: contain;
+  background-color: rgba(0,0,0,0.6);
   width: 100%;
   height: 568px;
   z-index: 9999;

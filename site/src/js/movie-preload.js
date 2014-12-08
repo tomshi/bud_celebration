@@ -129,7 +129,6 @@ var movie_start = function () {
 };
 
 var dataReady = function () {
-
 	var backgroundImg = new Image();
 	backgroundImg.onload = function () {
 		$("#form-mobile").hide();

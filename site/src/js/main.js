@@ -157,6 +157,14 @@ window.addEventListener('devicemotion', deviceMotionHandler, false);
 
 $(function() {
     function init() {
+        if (isMobile.phone()){
+            $("#form").remove();
+            $("#toast-first").remove();
+        }else {
+            $("#form-mobile").remove();
+            $("#toast-first-mobile").remove();
+        }
+
         if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
             if (getUrlParameterByName("id").length > 0) {
                 window.location.href = "ie.html" + "?id=" + getUrlParameterByName("id");
@@ -172,17 +180,11 @@ $(function() {
             }
         }
 
-        if (isMobile.phone()){
-            $("#form").remove();
-        }else {
-            $("#form-mobile").remove();
-        }
         screenSize();
         endingBtnEvent();
         if (isMobile.wechat()){
             configWxSharing();
         }
-
         $("#wrapper").on('mousemove',function(e) {
             var offset = $(this).offset();
             var relativeX = (e.pageX - offset.left);

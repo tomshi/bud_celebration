@@ -1,6 +1,14 @@
 $(function () {
-	var $element = $('#toast-first');
-	var $nextFrame = $('#form');
+	var $element;
+    var $nextFrame;
+    if (isMobile.phone()){
+        $element = $('#toast-first-mobile');
+        $nextFrame = $('#form-mobile');
+    }else {
+        $element = $('#toast-first');
+        $nextFrame = $('#form');
+    }
+
 	var $hand1 = $('.hand1', $element);
 	var $hand2 = $('.hand2', $element);
 	var $hand3 = $('.hand3', $element);
@@ -10,13 +18,11 @@ $(function () {
 
 	var time = 1600;
 
-
 	var animation_start = function () {
 		toast();
 	};
 
 	var toast = function () {
-
 		$hand1.velocity({
 			translateX: "93%",
 			translateY: "-134%"
@@ -54,16 +60,13 @@ $(function () {
 			duration: time,
 			easing: 'easeOutQuint',
 			complete: function () {
-                if (isMobile.phone()){
-                    $nextFrame = $('#form-mobile');
-                }
 				$nextFrame.velocity('fadeIn', 1500, function(){
 					$(".landscape-overlay").fadeOut();
-					//$element.remove();
 				});
 			}
 		});
 	};
 
+    console.log($element);
 	$element.on('start', animation_start);
 });
