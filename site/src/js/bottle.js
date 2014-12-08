@@ -6,8 +6,11 @@ $(function () {
 
 	var $shade = $('.bottle-shade', $element);
 	var $printer = $('.printer');
+	var $arm_h = $('.arm-h', $printer);
+	var $arm_v = $('.arm-v', $printer);
 	var $name = $('.ugc-name', $element);
-	var $label = $('.label span', $element);
+	var $label = $('.label', $element);
+	var $labelSpan = $('.label span', $element);
 
 	var $darkness = $('.darkness', $element);
 	var $bg = $('.bg', $element);
@@ -27,7 +30,7 @@ $(function () {
 
 		$name.text(ugc_name ? ugc_name : '');
 		// TODO: Do we really need lettering
-		$label.lettering();
+		$labelSpan.lettering();
 		$bottle.velocity({translateY: "-120.0%"}, 0);
 		$shadow.velocity({scale: 1.1}, 0);
 		$bottleShadow.velocity({rotateZ: "0deg"}, 0);
@@ -36,8 +39,8 @@ $(function () {
 		$foreground.velocity({translateZ: '56px'}, 0);
 		$darkness.velocity({opacity: 0});
 		$light.velocity({rotateZ: "-12deg", scale: 1.3, translateY: "-8%", translateX: "-3%", opacity: 0}, 0);
-
-		setTimeout(fall, 300)
+		$arm_h.velocity({"rotateZ": "0deg"}, 0);
+		setTimeout(fall, 300);
 	};
 
 	var endTransition = function () {
@@ -67,7 +70,7 @@ $(function () {
 				opacity: 1
 			}, 800, function () {
 				if ($('html').hasClass('canvas')) {
-						$('#endingwrite').trigger('draw');
+					$('#endingwrite').trigger('draw');
 				}
 			});
 
@@ -129,13 +132,15 @@ $(function () {
 		});
 	};
 
-	var print = function () {
-		var name_w = $name.width();
-		var name_h = $name.height() * 2;
 
+	var name_w;
+	var name_h;
+
+	var print = function () {
 		var label_w = $shade.width();
-		var length = $label.text().length;
-		var speed = 250;
+		var length = $labelSpan.text().length;
+		var speed = 300;
+		var rotateSpeed = speed / 12;
 
 		var average;
 
@@ -148,24 +153,45 @@ $(function () {
 		$shade.width((label_w - name_w) / 2 + name_w);
 
 		var isFinish;
-		var printing1 = function () {
-			$printer.velocity({
-				"top": "-=" + name_h + "px",
-				"left": "+=" + average + "px"
-			}, speed / 5, "linear", function () {
-				if (!isFinish) {
-					printing2();
-				}
-			});
+		var rotatTimes = 0;
+
+		var rotatArm = function () {
+
+			rotatTimes++;
+
+			if (!isFinish) {
+				$arm_h.velocity({
+					"rotateZ": "-4deg"
+				}, {
+					easing: "linear",
+					duration: rotateSpeed
+				}).velocity('reverse', {
+					duration: rotateSpeed,
+					easing: "linear",
+					complete: function () {
+
+						if (rotatTimes % 3 === 0) {
+							setTimeout(function () {
+								rotatArm()
+							}, 70);
+						} else {
+
+							rotatArm();
+						}
+					}
+				});
+			}
 		};
 
-		var printing2 = function () {
+		var printTimes = 0;
+		var printing = function () {
+			printTimes++;
+
 			$printer.velocity({
-				"top": "+=" + name_h + "px",
 				"left": "+=" + average + "px"
 			}, speed / 5, "linear", function () {
 				if (!isFinish) {
-					printing1();
+					printing();
 				}
 			});
 		};
@@ -179,17 +205,20 @@ $(function () {
 			retreat();
 			night();
 		});
-		printing1();
 
+		printing();
+		rotatArm();
 	};
 
 	var printGetReady = function () {
+		name_w = $name.width();
+		name_h = $name.height() * 2;
 
 		var offset = $name.offset();
 		var stage_pos = $element.offset();
 
 		$printer.velocity({
-			"top": offset.top - stage_pos.top,
+			"top": offset.top - stage_pos.top - 2 * name_h,
 			"left": offset.left - stage_pos.left
 		}, 800, "linear", print);
 	};
@@ -198,7 +227,7 @@ $(function () {
 		$bottle.velocity({
 			"translateY": 0
 		}, 900, function () {
-			$('.label', $element).show();
+			$label.show();
 			printGetReady();
 		});
 
