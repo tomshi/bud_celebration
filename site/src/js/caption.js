@@ -38,8 +38,8 @@ $(function () {
 	window.CAPTION = {
 		getReady: function () {
 			today = ugc_date.split('/');
-			var month = today[0];
-			var day = today[1];
+			var month = parseInt(today[0],10);
+			var day = parseInt(today[1],10);
 
 			today = DATA_HISTORY.find(function (element, index, array) {
 				return element.date == ugc_date
