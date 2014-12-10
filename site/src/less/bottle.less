@@ -140,8 +140,8 @@
     }
   }
 
-  @printWidth: 54.84375% * @size;
-  @printHeight: 78.5185185% * @size;
+  @printWidth: 55.8333333% * 0.95;
+  @printHeight: 60.9259259% * 0.95;
 
   .printer {
     width: @printWidth;
@@ -149,16 +149,31 @@
     position: absolute;
     top: 100%;
     left: 100%;
-    background: url('../img/engrave.png');
-    background-size: cover;
     z-index: 50;
-  }
 
+    .arm-h {
+      width: 100%;
+      height: 71.2765957%;
+      background: url('../img/engrave-h.png');
+      background-size: cover;
+      z-index: 51;
+      position: absolute;
+      transform-origin: 90% 90%;
+    }
+    .arm-v {
+      width: 36.4738806%;
+      height: 70.9726444%;
+      background: url('../img/engrave-v.png');
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      bottom: -5%;
+      z-index: 50;
+    }
+  }
 }
 
-
 .bottle();
-
 
 #bottle .bottle {
   @media screen and (min-width: 1280px) and (max-width: 1920px) {
