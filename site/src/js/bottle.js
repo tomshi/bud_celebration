@@ -32,7 +32,7 @@ $(function () {
 		// TODO: Do we really need lettering
 		$labelSpan.lettering();
 		$bottle.velocity({translateY: "-120.0%"}, 0);
-		$shadow.velocity({scale: 1.1}, 0);
+		$shadow.velocity({scale: 1.3}, 0);
 		$bottleShadow.velocity({rotateZ: "0deg"}, 0);
 
 		$bg.velocity({translateZ: '50px'}, 0);
@@ -232,7 +232,7 @@ $(function () {
 		});
 
 		$shadow.delay(400).velocity({
-			scale: "75%"
+			scale: "95%"
 		}, 450, "linear");
 	};
 

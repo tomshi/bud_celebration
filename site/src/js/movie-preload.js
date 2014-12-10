@@ -3,6 +3,7 @@ var movieReady = function () {
 		translateY: "0%"
 	}, 0);
 	$(".frame").not('#form').not('#loading').show();
+	$('.printer').show();
 
 	var imageNames = [
 		'img/bottle.png',
@@ -25,6 +26,7 @@ var movieReady = function () {
 		'img/model5.png',
 		'img/model6.png',
 		'img/light.png',
+		'img/bottom-shadow.png',
 		'img/1.jpg',
 		'img/2.jpg',
 		'img/3.jpg',
