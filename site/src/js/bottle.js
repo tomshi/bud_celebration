@@ -232,7 +232,7 @@ $(function () {
 		});
 
 		$shadow.delay(400).velocity({
-			scale: "95%"
+			scale: "100%"
 		}, 450, "linear");
 	};
 
