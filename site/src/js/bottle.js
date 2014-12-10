@@ -117,7 +117,7 @@ $(function () {
 
 	var night = function () {
 		$darkness.delay(1100).velocity({
-			opacity: 0.92
+			opacity: 0.82
 		}, 600);
 	};
 
