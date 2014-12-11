@@ -181,28 +181,23 @@ $(function() {
         if (isMobile.wechat()){
             configWxSharing();
         }
-        $("#wrapper").on('mousemove',function(e) {
-            var offset = $(this).offset();
-            var relativeX = (e.pageX - offset.left);
-            var relativeY = (e.pageY - offset.top);
-            $("#hands").velocity({
-                "translateX": -relativeX/100,
-                "translateY": -relativeY/100
-            },0.000000001);
-            $(".logo").velocity({
-                "translateX": relativeX/200,
-                "translateY": relativeY/100
-            },0.000000001);
-
-            $(".foreground").velocity({
-                "translateX": relativeX/200,
-                "translateY": relativeY/100
-            },0.000000001);
-            $("#ending").velocity({
-                "translateX": -relativeX/200,
-                "translateY": -relativeY/100
-            },0.000000001);
-        });
+//        $("#wrapper").on('mousemove',function(e) {
+//            var offset = $(this).offset();
+//            var relativeX = (e.pageX - offset.left);
+//            var relativeY = (e.pageY - offset.top);
+//            $("#hands").velocity({
+//                "translateX": -relativeX/100,
+//                "translateY": -relativeY/100
+//            },0.000000001);
+//            $(".logo").velocity({
+//                "translateX": relativeX/200,
+//                "translateY": relativeY/100
+//            },0.000000001);
+//            $("#ending-bg").velocity({
+//                "translateX": -relativeX/100,
+//                "translateY": -relativeY/100
+//            },0.000000001);
+//        });
     }
     $(window).resize(function() {
         screenSize();
