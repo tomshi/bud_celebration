@@ -156,9 +156,11 @@ $(function() {
         if (isMobile.phone()){
             $("#form").remove();
             $("#toast-first").remove();
-        }else {
+            $('#bgmusic').attr('src', CDN ? CDN + '/music/36s_64_stereo.mp3': '/music/36s_64_stereo.mp3');
+        } else {
             $("#form-mobile").remove();
             $("#toast-first-mobile").remove();
+            $('#bgmusic').attr('src',  CDN ? CDN + '/music/36s.mp3':'/music/36s.mp3');
         }
 
         if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") == "MSIE8.0" && window.location.pathname.indexOf('ie') === -1){
