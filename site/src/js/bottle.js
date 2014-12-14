@@ -145,7 +145,7 @@ $(function () {
 		var average;
 
 		if (length >= 2) {
-			average = ($('.char2', $name).offset().left - $('.char1', $name).offset().left) / 5;
+			average = ($('.char2', $name).offset().left - $('.char1', $name).offset().left) / 4;
 		} else {
 			average = name_w / length / 4;
 		}
@@ -189,7 +189,7 @@ $(function () {
 
 			$printer.velocity({
 				"left": "+=" + average + "px"
-			}, speed / 5, "linear", function () {
+			}, speed / 4, "linear", function () {
 				if (!isFinish) {
 					printing();
 				}
