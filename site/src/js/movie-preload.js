@@ -7,7 +7,9 @@ var movieReady = function () {
 
 	var imageNames = [
 		'img/bottle.png',
+		'img/bottle2.png',
 		'img/bottle-desk.jpg',
+		'img/bottle-desk-dark.jpg',
 		'img/bottle-desk-bg.jpg',
 		'img/engrave.png',
 		'img/hand.png',

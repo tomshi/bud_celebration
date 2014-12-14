@@ -2,6 +2,7 @@ $(function () {
 
 	var $element = $('#bottle');
 	var $bottle = $('.bottle', $element);
+	var $bottle_radiance = $('.bottle-radiance', $element);
 	var $shadow = $('.shadow', $element);
 
 	var $shade = $('.bottle-shade', $element);
@@ -123,6 +124,9 @@ $(function () {
 		$dark_desk.delay(1100).velocity({
 			opacity: 1
 		}, 600);
+		$bottle_radiance.delay(1100).velocity({
+			opacity: 1
+		})
 	};
 
 	var retreat = function () {
