@@ -13,6 +13,7 @@ $(function () {
 	var $labelSpan = $('.label span', $element);
 
 	var $darkness = $('.darkness', $element);
+	var $dark_desk = $('.desk-dark', $element);
 	var $bg = $('.bg', $element);
 	var $foreground = $('.foreground', $element);
 
@@ -118,6 +119,9 @@ $(function () {
 	var night = function () {
 		$darkness.delay(1100).velocity({
 			opacity: 0.82
+		}, 600);
+		$dark_desk.delay(1100).velocity({
+			opacity: 1
 		}, 600);
 	};
 
