@@ -126,6 +126,8 @@ $(function () {
 		}, 600);
 		$bottle_radiance.delay(1100).velocity({
 			opacity: 1
+		}, 600, function(){
+			$bottle.css('background', 'none')
 		})
 	};
 
