@@ -109,6 +109,32 @@ $(function () {
 			duration: time,
 			easing: 'easeOutQuint',
 		    complete: function () {
+                $("#hands").find("div").addClass("hands");
+                $("#wrapper").on('mousemove',function(e) {
+                    var offset = $(this).offset();
+                    var relativeX = (e.pageX - offset.left);
+                    var relativeY = (e.pageY - offset.top);
+                    $("#hands").velocity({
+                        //"translateX": -relativeX/100,
+                        "translateY": -relativeY/100
+                    },0.000000001);
+                    $(".hand1").velocity({
+                        "translateX": 93 - relativeX/200 + "%"
+                    },0.000000001);
+                    $(".hand2").velocity({
+                        "translateX": 100 - relativeX/150 + "%"
+                    },0.000000001);
+                    $(".hand3").velocity({
+                        "translateX": -110 - relativeX/250 + "%"
+                    },0.000000001);
+                    $(".hand4").velocity({
+                        "translateX": -90 - relativeX/200 + "%"
+                    },0.000000001);
+                    $(".hand5").velocity({
+                        "translateX": 0 - relativeX/600 + "%"
+                    },0.000000001);
+                });
+
 				$nextFrame.velocity('fadeIn', 1500, function(){
 					$(".landscape-overlay").fadeOut();
 				});
