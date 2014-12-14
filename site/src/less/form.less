@@ -22,6 +22,18 @@
   }
 }
 
+.icons {
+  margin-top: -1%;
+  margin-right: 2%;
+  width: 5%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icons-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .form {
   .upload {
     position: absolute;
@@ -46,6 +58,14 @@
       height: 20px;
       line-height: 20px;
       color: #dfb134;
+    }
+    .icons {
+      margin-top: -2%;
+    }
+  }
+  .upload-failed, .upload-succeed {
+    .text {
+      color: #fff;
     }
   }
   .error-msg {
@@ -188,6 +208,30 @@
 #avatar-modal {
   width: 640px;
   margin: 0 auto;
+  position: relative;
+  #avatar-tools {
+    width: 40px;
+    position: absolute;
+    right: -45px;
+    top: 0;
+    z-index: 9;
+    a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    #avatar-zoomOut {
+      background-image: url("../img/tool-1.png");
+    }
+    #avatar-zoomIn {
+      background-image: url("../img/tool-2.png");
+    }
+    #avatar-rotate {
+      background-image: url("../img/tool-3.png");
+    }
+  }
   .cropper-container {
     overflow: hidden;
     top: 0 !important;
@@ -195,7 +239,7 @@
   .avatar-wrapper {
     background-color: #000;
     outline: dashed 1px #dfb234;
-    margin: 5% 0;
+    margin: 0 0 5% 0;
     max-height: 320px;
     max-width: 100%;
     overflow: hidden;
@@ -356,7 +400,7 @@
           font-size: 15px;
           top: 105%;
           li {
-            padding: 8% 0;
+            padding: 7% 0;
           }
         }
       }
