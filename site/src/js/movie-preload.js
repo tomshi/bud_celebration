@@ -65,6 +65,7 @@ var movieReady = function () {
 	var count = function () {
 		if (loadedResourceCount >= resourceCount) {
 			$movie_preload.addClass('ready');
+			$movie_preload_hint.addClass('ready').text('点击就能观看咯');
 			$('#movie-loading').one('click', function () {
 				movie_start();
 			});
@@ -72,6 +73,7 @@ var movieReady = function () {
 	};
 
 	var $movie_preload = $('#loading-bar-wrapper');
+	var $movie_preload_hint = $('#loading-hint');
 	var $loading_bar_top = $('.loading-bar.loading-bar-top', $movie_preload);
 	var $loading_bar_right = $('.loading-bar.loading-bar-right', $movie_preload);
 	var $loading_bar_bottom = $('.loading-bar.loading-bar-bottom', $movie_preload);

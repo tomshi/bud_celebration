@@ -24,7 +24,22 @@
 #movie-loading {
   background-color: #000;
   .table-cell{
+    position: relative;
     height: 100%;
+  }
+}
+
+#loading-hint{
+  position: absolute;
+  text-align: center;
+  margin-top: 1rem;
+  left: 0;
+  right: 0;
+  color: #433510;
+  transition: all 0.2s ease-in-out;
+
+  &.ready{
+    color: #dfb134;
   }
 }
 
