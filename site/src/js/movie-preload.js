@@ -21,7 +21,6 @@ var movieReady = function () {
 		'img/hands-bg.jpg',
 		'img/dust.png',
 		'img/dust-toast.png',
-		'img/bright.png',
 		'img/model1.png',
 		'img/model2.png',
 		'img/model3.png',
