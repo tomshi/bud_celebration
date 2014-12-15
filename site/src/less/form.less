@@ -208,6 +208,13 @@
   width: 640px;
   margin: 0 auto;
   position: relative;
+  &.pc-crop {
+    display: inline-block;
+    width: auto;
+    .cropper-container {
+      left: 0 !important;
+    }
+  }
   #avatar-tools {
     width: 40px;
     position: absolute;

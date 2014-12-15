@@ -258,9 +258,11 @@ function addPlaceholder() {
         $("#time-m").focus();
     });
 
-    if (isMobile.any()) {
+    if (isMobile.phone()) {
         $(".time").addClass("active");
         $("#avatar-tools").hide();
+    }else {
+        $("#avatar-modal").addClass("pc-crop");
     }
 }
 
