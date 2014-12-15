@@ -111,10 +111,10 @@ $(function () {
                     var offset = $(this).offset();
                     var relativeX = (e.pageX - offset.left);
                     var relativeY = (e.pageY - offset.top);
-                    $(".logo").velocity({
-                        "translateX": relativeX/200,
-                        "translateY": relativeY/100
-                    },0.000000001);
+//                    $(".logo").velocity({
+//                        "translateX": relativeX/200,
+//                        "translateY": relativeY/100
+//                    },0.000000001);
                     $("#ending-bg").addClass("anim");
                     $("#ending-bg").velocity({
                         "translateX": -relativeX/100,
