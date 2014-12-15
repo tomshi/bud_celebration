@@ -84,28 +84,28 @@ $(function () {
 			});
 
 			$($btns[0]).velocity({
-				opacity: 1
+				opacity: 0.7
 			}, {
 				duration: 1000,
 				delay: 6000
 			});
 
 			$($btns[1]).velocity({
-				opacity: 1
+				opacity: 0.7
 			}, {
 				duration: 1000,
 				delay: 6300
 			});
 
 			$($btns[2]).velocity({
-				opacity: 1
+				opacity: 0.7
 			}, {
 				duration: 1000,
 				delay: 6600
 			});
 
 			$($btns[3]).delay(6900).velocity({
-				opacity: 1
+				opacity: 0.7
 			}, 1000, function () {
                 $("#wrapper").on('mousemove',function(e) {
                     var offset = $(this).offset();
