@@ -115,6 +115,7 @@ $(function () {
                         "translateX": relativeX/200,
                         "translateY": relativeY/100
                     },0.000000001);
+                    $("#ending-bg").addClass("anim");
                     $("#ending-bg").velocity({
                         "translateX": -relativeX/100,
                         "translateY": -relativeY/100
