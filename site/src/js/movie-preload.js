@@ -67,6 +67,7 @@ var movieReady = function () {
 			$movie_preload_hint.addClass('ready').text('点击就能观看咯');
 			$('#movie-loading').one('click', function () {
 				movie_start();
+                $("#top-shadow").show();
 			});
 		}
 	};

@@ -139,7 +139,8 @@ $(function () {
 		$bottle_radiance.delay(1100).velocity({
 			opacity: 1
 		}, 4000, function(){
-			$bottle.css('background', 'none')
+			$bottle.css('background', 'none');
+            $("#top-shadow").fadeOut();
 		})
 	};
 
