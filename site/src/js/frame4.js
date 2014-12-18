@@ -13,7 +13,7 @@ $(function () {
 	};
 
 	var slide = function (i) {
-		if (i > length) {
+		if (i >= length) {
 			endTransition();
 			return;
 		}
@@ -21,7 +21,7 @@ $(function () {
 		setTimeout(function () {
 			$($pic[i]).hide();
 			slide(++i);
-		}, i < 4 ? 700 : (900-110*i));
+		}, i < 4 ? 800 : (900-110*i));
 	};
 
 	var animation_start = function () {
